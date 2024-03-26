@@ -2,7 +2,7 @@ locals {
   unique_identifier = random_string.unique_identifier.result
 }
 
-# data "ibm_iam_auth_token" "tokendata" {}
+data "ibm_iam_auth_token" "tokendata" {}
 
 # Access random string generated with random_string.unique_identifier.result
 resource "random_string" "unique_identifier" {
@@ -109,9 +109,8 @@ module "configure_user" {
 }
 
 module "configure_project" {
-  depends_on = [module.configure_user]
-  source     = "./configure_project"
-  # ibmcloud_api_key      = var.ibmcloud_api_key
+  depends_on            = [module.configure_user]
+  source                = "./configure_project"
   project_name          = var.project_name
   project_description   = var.project_description
   project_tags          = var.project_tags

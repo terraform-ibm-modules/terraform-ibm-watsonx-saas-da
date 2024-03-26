@@ -114,6 +114,7 @@ statement instead the previous block.
 | [ibm_resource_instance.machine_learning_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/resource_instance) | resource |
 | [ibm_resource_instance.studio_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/resource_instance) | resource |
 | [random_string.unique_identifier](https://registry.terraform.io/providers/hashicorp/random/3.6.0/docs/resources/string) | resource |
+| [ibm_iam_auth_token.tokendata](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/iam_auth_token) | data source |
 
 ### Inputs
 
