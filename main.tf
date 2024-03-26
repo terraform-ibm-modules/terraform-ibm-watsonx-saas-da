@@ -109,9 +109,9 @@ module "configure_user" {
 }
 
 module "configure_project" {
-  depends_on            = [module.configure_user]
-  source                = "./configure_project"
-  ibmcloud_api_key      = var.ibmcloud_api_key
+  depends_on = [module.configure_user]
+  source     = "./configure_project"
+  # ibmcloud_api_key      = var.ibmcloud_api_key
   project_name          = var.project_name
   project_description   = var.project_description
   project_tags          = var.project_tags
@@ -120,4 +120,7 @@ module "configure_project" {
   machine_learning_name = ibm_resource_instance.machine_learning_instance.resource_name
   cos_guid              = module.cos.cos_instance_guid
   cos_crn               = module.cos.cos_instance_crn
+  providers = {
+    restapi = restapi.restapi_alias
+  }
 }
