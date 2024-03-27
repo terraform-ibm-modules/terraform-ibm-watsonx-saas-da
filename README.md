@@ -1,5 +1,5 @@
 <!-- Update the title -->
-# Watsonx.ai SaaS Deployable Architecture (DA)
+# Watsonx SaaS Deployable Architecture (DA)
 
 <!--
 Update status and "latest release" badges:
@@ -13,10 +13,11 @@ Update status and "latest release" badges:
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 <!-- Add a description of module(s) in this repo -->
-The **WatsonX SaaS Deployment Architecture** (Watsonx DA in the  following) is designed to automate the deployment and
+The **Watsonx SaaS Deployment Architecture (Watsonx DA)** is designed to automate the deployment and
 configuration of the **IBM watsonx** platform in an IBM Cloud Account.
-The IBM watsonx platform is made of several services working together to offer AI capabilities to end users. It includes one instance of `Watson Machine Learning` service, one instance of `Watson Studio` service, and one instance of `Cloud Object Storage` service, which allow the user to start experimenting with foundation models and prompts.
-The Watsonx DA offers the deployment of the additional services: `watsonx Assistant`, `Watson Discovery`, and `watsonx.governance` during the initial deployment or later during the lifecycle of the DA.
+The **IBM watsonx** platform is made of several services working together to offer AI capabilities to end users, who can explore them using [IBM watsonx projects](https://dataplatform.cloud.ibm.com/docs/content/wsj/manage-data/manage-projects.html?context=wx&audience=wdp).
+On that purpose, the **Watsonx DA** also
+configures a *starter project* for an IBM Cloud user.
 
 <!-- Below content is automatically populated via pre-commit hook -->
 <!-- BEGIN OVERVIEW HOOK -->
@@ -41,18 +42,26 @@ https://terraform-ibm-modules.github.io/documentation/#/implementation-guideline
 <!-- This heading should always match the name of the root level module (aka the repo name) -->
 ## terraform-ibm-watsonx-saas-da
 
-### Usage
+The solution supports the following:
 
-<!--
-Add an example of the use of the module in the following code block.
+- Creating a new resource group, or taking an existing one.
+- Provisioning the services
+  - `Watson Machine Learning`
+  - `Watson Studio`
+  - `Cloud Object Storage`.
+- Configuring the `IBM watsonx profile` and creating a *starter* `IBM watsonx project`
+  for an IBM Cloud user, who becomes the `admin` of the `IBM watsonx project` (`IBM watsonx admin` in the following).
 
-Use real values instead of "var.<var_name>" or other placeholder values
-unless real values don't help users know what to change.
--->
+As result the `IBM watsonx admin` can log into [IBM watsonx](https://dataplatform.cloud.ibm.com/login) in the target account and start experimenting
+with the *starter* project.
 
-```hcl
+Optionally, the solution supports:
 
-```
+- Provisioning of one or more of the services, with a selectable
+  service plan:
+  - `watsonx.governance`
+  - `watsonx Assistant`
+  - `Watson Discovery`.
 
 ### Required IAM access policies
 
@@ -64,17 +73,29 @@ information in the console at
 Manage > Access (IAM) > Access groups > Access policies.
 -->
 
-<!--
-You need the following permissions to run this module.
+You need the following permissions to deploy this solution.
 
-- Account Management
-    - **Sample Account Service** service
-        - `Editor` platform access
-        - `Manager` service access
-    - IAM Services
-        - **Sample Cloud Service** service
-            - `Administrator` platform access
--->
+- All Account Management services
+  - Administrator (only if you must create a new resource group)
+- Watson Machine Learning
+  - Editor platform role (to create and delete the service)
+- Watson Studio
+  - Editor platform role (to create and delete the service)
+- Cloud Object Storage
+  - Editor platform role (to create and delete the service)
+- watsonx.governance
+  - Editor platform role (only if you must provision)
+- watsonx Assistant
+  - Editor platform role (only if you must provision)
+- Watson Discovery
+  - Editor platform role (only if you must provision)
+
+The `IBM watsonx admin` needs the following permissions.
+
+- All Account Management services
+  - Administrator
+- All Identity and Access enabled services
+  - Administrator
 
 <!-- NO PERMISSIONS FOR MODULE
 If no permissions are required for the module, uncomment the following
