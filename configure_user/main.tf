@@ -7,10 +7,7 @@ locals {
 resource "null_resource" "configure_user" {
 
   triggers = {
-    always_run        = timestamp()
-    ibmcloud_api_key  = var.ibmcloud_api_key
-    region            = var.location
-    resource_group_id = var.resource_group_id
+    always_run = timestamp()
   }
 
   provisioner "local-exec" {
@@ -65,10 +62,7 @@ resource "null_resource" "configure_user" {
 resource "null_resource" "restrict_access" {
 
   triggers = {
-    always_run        = timestamp()
-    ibmcloud_api_key  = var.ibmcloud_api_key
-    region            = var.location
-    resource_group_id = var.resource_group_id
+    always_run = timestamp()
   }
 
   provisioner "local-exec" {
