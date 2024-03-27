@@ -1,29 +1,15 @@
 variable "ibmcloud_api_key" {
-  type        = string
-  description = "The IBM Cloud API Key"
+  description = "Used with the Terraform IBM-Cloud/ibm provider"
   sensitive   = true
+  type        = string
 }
 
-variable "region" {
-  type        = string
-  description = "Region to provision all resources created by this example"
+variable "location" {
   default     = "us-south"
-}
-
-variable "prefix" {
+  description = "Used with the Terraform IBM-Cloud/ibm provider as well as resource creation."
   type        = string
-  description = "Prefix to append to all resources created by this example"
-  default     = "complete"
-}
-
-variable "resource_group" {
-  type        = string
-  description = "An existing resource group name to use for this example, if unset a new resource group will be created"
-  default     = null
-}
-
-variable "resource_tags" {
-  type        = list(string)
-  description = "Optional list of tags to be added to created resources"
-  default     = []
+  validation {
+    condition     = contains(["au-syd", "br-sao", "ca-tor", "eu-de", "eu-gb", "jp-osa", "jp-tok", "us-east", "us-south"], var.location)
+    error_message = "The IBM Cloud location to use must be one of: au-syd, br-sao, ca-tor, eu-de, eu-gb, jp-osa, jp-tok, us-east, or us-south"
+  }
 }

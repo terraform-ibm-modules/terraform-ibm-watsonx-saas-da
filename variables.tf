@@ -36,8 +36,8 @@ variable "cos_plan" {
   description = "Resource plan used to provision the Cloud Object Storage instance."
   type        = string
   validation {
-    condition     = contains(["lite", "standard"], var.cos_plan)
-    error_message = "The plan to use must be one of: lite or standard"
+    condition     = contains(["standard"], var.cos_plan)
+    error_message = "The plan to use must be standard"
   }
 }
 
@@ -100,11 +100,10 @@ variable "watson_governance_plan" {
     condition = anytrue([
       var.watson_governance_plan == "do not install",
       var.watson_governance_plan == "lite",
-      var.watson_governance_plan == "standard",
       var.watson_governance_plan == "standard-v2",
       var.watson_governance_plan == "essentials",
     ])
-    error_message = "The plan to use must be one of: lite, standard, standard-v2 or essentials"
+    error_message = "The plan to use must be one of: lite, standard-v2 or essentials"
   }
 }
 

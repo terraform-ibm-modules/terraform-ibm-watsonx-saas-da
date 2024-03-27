@@ -103,8 +103,6 @@ resource "ibm_resource_instance" "discovery_instance" {
 module "configure_user" {
   depends_on        = [ibm_resource_instance.machine_learning_instance, ibm_resource_instance.studio_instance]
   source            = "./configure_user"
-  location          = var.location
-  ibmcloud_api_key  = var.ibmcloud_api_key
   resource_group_id = module.resource_group.resource_group_id
 }
 

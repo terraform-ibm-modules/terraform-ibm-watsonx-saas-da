@@ -135,10 +135,6 @@
               "default_value": "standard",
               "options": [
                 {
-                  "displayname": "lite",
-                  "value": "lite"
-                },
-                {
                   "displayname": "standard",
                   "value": "standard"
                 }
@@ -271,10 +267,6 @@
                 {
                   "displayname": "lite",
                   "value": "lite"
-                },
-                {
-                  "displayname": "standard",
-                  "value": "standard"
                 },
                 {
                   "displayname": "standard-v2",
