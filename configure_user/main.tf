@@ -12,7 +12,7 @@ resource "null_resource" "configure_user" {
 
   provisioner "local-exec" {
     command = <<EOF
-      #!/bin/bash
+      #!/usr/bin/env bash
       token="$(echo "${local.sensitive_tokendata}" | awk '{print $2}')"
 
       # decode the iam token
@@ -67,7 +67,7 @@ resource "null_resource" "restrict_access" {
 
   provisioner "local-exec" {
     command = <<EOF
-      #!/bin/bash
+      #!/usr/bin/env bash
       token="$(echo "${local.sensitive_tokendata}" | awk '{print $2}')"
 
       # decode the iam token
