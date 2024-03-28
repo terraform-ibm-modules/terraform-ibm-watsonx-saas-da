@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 iam_token="$1"
 resource_group_id="$2"
 

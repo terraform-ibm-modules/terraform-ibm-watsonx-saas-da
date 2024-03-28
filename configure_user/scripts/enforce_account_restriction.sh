@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 iam_token="$1"
 
 token="$(echo "$iam_token" | awk '{print $2}')"

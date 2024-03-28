@@ -111,7 +111,7 @@ statement instead the previous block.
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.0, <1.7.0 |
 | <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | >= 1.62.0 |
 | <a name="requirement_random"></a> [random](#requirement\_random) | 3.6.0 |
 | <a name="requirement_restapi"></a> [restapi](#requirement\_restapi) | >= 1.19.1 |
