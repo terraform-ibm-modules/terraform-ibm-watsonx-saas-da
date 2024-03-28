@@ -3,7 +3,7 @@
     {
       "label": "watsonx SaaS",
       "name": "watsonx-ai-SaaS",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "product_kind": "solution",
       "tags": [
         "watson",
@@ -18,7 +18,7 @@
       "short_description": "Deploy watsonx.ai SaaS.",
       "long_description": "Easily deploy and embed AI across your business, manage all data sources, and accelerate responsible AI workflows—all on one platform",
       "provider_name": "FinOps Team.",
-      "offering_docs_url": "https://github.ibm.com/cloud-finops/watsonx-ai-saas-da/blob/main/README.md",
+      "offering_docs_url": "https://github.com/terraform-ibm-modules/terraform-ibm-watsonx-saas-da/blob/main/README.md",
       "support_details": "This is a proof of concept and no official support is given.",
       "features": [
         {
@@ -59,7 +59,7 @@
               {
                 "diagram": {
                   "url_proxy": {
-                    "url": "https://github.ibm.com/cloud-finops/watsonx-ai-saas-da/blob/main/assets/architecture.svg"
+                    "url": "https://github.com/terraform-ibm-modules/terraform-ibm-watsonx-saas-da/blob/main/assets/architecture.svg"
                   },
                   "caption": "WatsonX.ai SaaS instances",
                   "type": "image/svg+xml"
@@ -68,7 +68,7 @@
               }
             ]
           },
-          "release_notes_url": "https://github.ibm.com/cloud-finops/watsonx-ai-saas-da/releases",
+          "release_notes_url": "https://github.com/terraform-ibm-modules/terraform-ibm-watsonx-saas-da/releases",
           "configuration": [
             {
               "key": "ibmcloud_api_key",

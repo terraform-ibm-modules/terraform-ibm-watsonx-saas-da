@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## 0.3.0
+
+### Added
+
+- Added unit test
+
+### Changed
+
+- Lite plan for COS is not accepted anymore
+
+### Fixed
+
 ## 0.2.0
 
 ### Added
