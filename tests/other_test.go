@@ -7,10 +7,10 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestRunBasicExample(t *testing.T) {
+func TestRunFullExample(t *testing.T) {
 	t.Parallel()
 
-	options := setupOptions(t, "mod-template-basic", "examples/basic")
+	options := setupOptionsCompleteExample(t, "watsonx-complete-pr", completeExampleDir)
 
 	output, err := options.RunTestConsistency()
 	assert.Nil(t, err, "This should not have errored")
