@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## 0.3.1
+
+### Added
+
+- Added the resource group id used to provision the resources as output
+
+### Changed
+
+### Fixed
+
 ## 0.3.0
 
 ### Added

@@ -161,6 +161,7 @@ statement instead the previous block.
 |------|-------------|
 | <a name="output_project_id"></a> [project\_id](#output\_project\_id) | ID of the created project |
 | <a name="output_project_url"></a> [project\_url](#output\_project\_url) | URL of the created project |
+| <a name="output_resource_group_id"></a> [resource\_group\_id](#output\_resource\_group\_id) | ID of the resource group used to provision the resources |
 | <a name="output_watson_governance_crn"></a> [watson\_governance\_crn](#output\_watson\_governance\_crn) | CRN of the Watson Governance instance |
 | <a name="output_watson_governance_dashboard_url"></a> [watson\_governance\_dashboard\_url](#output\_watson\_governance\_dashboard\_url) | Dashboard URL of the Watson Governance instance |
 | <a name="output_watson_governance_guid"></a> [watson\_governance\_guid](#output\_watson\_governance\_guid) | GUID of the Watson Governance instance |

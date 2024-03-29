@@ -3,7 +3,7 @@
     {
       "label": "watsonx SaaS",
       "name": "watsonx-ai-SaaS",
-      "version": "0.3.0",
+      "version": "0.3.1",
       "product_kind": "solution",
       "tags": [
         "watson",
@@ -406,6 +406,10 @@
             {
               "key": "project_url",
               "description": "URL of the Watson project to create"
+            },
+            {
+              "key": "resource_group_id",
+              "description": "ID of the resource group used to provision the resources"
             }
           ]
         }
