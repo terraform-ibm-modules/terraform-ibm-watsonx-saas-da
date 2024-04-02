@@ -9,7 +9,9 @@
       "assets": "false"
     }],
     ["@semantic-release/exec", {
-      "successCmd": "echo \"SEMVER_VERSION=${nextRelease.version}\" >> $GITHUB_ENV",
+      "successCmd": "echo \"SEMVER_VERSION=${nextRelease.version}\" >> $GITHUB_ENV"
+    }],
+    ["@semantic-release/exec",{
       "publishCmd": "./ci/trigger-catalog-onboarding-pipeline.sh --version=v${nextRelease.version}"
     }]
   ]

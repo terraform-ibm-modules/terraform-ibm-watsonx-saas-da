@@ -14,10 +14,15 @@ variable "location" {
   }
 }
 
+variable "existing_resource_group" {
+  type        = bool
+  description = "Whether to use an existing resource group."
+  default     = false
+}
+
 variable "resource_group_name" {
-  default     = null
-  description = "Name of the IBM Cloud resource group in which resources should be created"
   type        = string
+  description = "The name of a new or an existing resource group in which to provision resources to."
 }
 
 variable "resource_prefix" {

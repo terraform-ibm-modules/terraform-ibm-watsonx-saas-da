@@ -2,8 +2,7 @@
   "products": [
     {
       "label": "watsonx SaaS",
-      "name": "watsonx-ai-SaaS",
-      "version": "0.3.1",
+      "name": "deploy-arch-ibm-watsonx-ai-saas",
       "product_kind": "solution",
       "tags": [
         "watson",
@@ -120,14 +119,6 @@
               "custom_config": {
 
               }
-            },
-            {
-              "key": "resource_group_name",
-              "type": "string"
-            },
-            {
-              "key": "resource_prefix",
-              "type": "string"
             },
             {
               "key": "cos_plan",
@@ -280,18 +271,6 @@
               "custom_config": {
 
               }
-            },
-            {
-              "key": "project_name",
-              "type": "string"
-            },
-            {
-              "key": "project_description",
-              "type": "string"
-            },
-            {
-              "key": "project_tags",
-              "type": "string"
             }
           ],
           "outputs": [
