@@ -57,7 +57,7 @@
             "diagrams": [
               {
                 "diagram": {
-                  "url": "https://github.com/terraform-ibm-modules/terraform-ibm-watsonx-saas-da/blob/main/assets/architecture.svg",
+                  "url": "https://raw.githubusercontent.com/terraform-ibm-modules/terraform-ibm-watsonx-saas-da/main/assets/architecture.svg",
                   "caption": "WatsonX.ai SaaS instances",
                   "type": "image/svg+xml"
                 },

@@ -3,8 +3,8 @@ data "ibm_iam_auth_token" "tokendata" {}
 module "resource_group" {
   source                       = "terraform-ibm-modules/resource-group/ibm"
   version                      = "1.1.5"
-  resource_group_name          = var.existing_resource_group == false ? var.resource_group_name : null
-  existing_resource_group_name = var.existing_resource_group == true ? var.resource_group_name : null
+  resource_group_name          = var.use_existing_resource_group == false ? var.resource_group_name : null
+  existing_resource_group_name = var.use_existing_resource_group == true ? var.resource_group_name : null
 }
 
 module "cos" {
