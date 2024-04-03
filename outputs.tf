@@ -137,3 +137,8 @@ output "project_url" {
   value       = "https://dataplatform.cloud.ibm.com/projects/${module.configure_project.project_id}?context=wx&sync_account_id=${ibm_resource_instance.machine_learning_instance.account_id}"
   description = "URL of the created project"
 }
+
+output "resource_group_id" {
+  value       = module.resource_group.resource_group_id
+  description = "ID of the resource group used to provision the resources"
+}

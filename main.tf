@@ -1,22 +1,10 @@
-locals {
-  unique_identifier = random_string.unique_identifier.result
-}
-
 data "ibm_iam_auth_token" "tokendata" {}
 
-# Access random string generated with random_string.unique_identifier.result
-resource "random_string" "unique_identifier" {
-  length  = 6
-  special = false
-  upper   = false
-}
-
 module "resource_group" {
-  source  = "terraform-ibm-modules/resource-group/ibm"
-  version = "1.1.5"
-  # If an existing resource group is not set (null), then create a new one
-  resource_group_name          = var.resource_group_name == null ? local.unique_identifier : null
-  existing_resource_group_name = var.resource_group_name
+  source                       = "terraform-ibm-modules/resource-group/ibm"
+  version                      = "1.1.5"
+  resource_group_name          = var.use_existing_resource_group == false ? var.resource_group_name : null
+  existing_resource_group_name = var.use_existing_resource_group == true ? var.resource_group_name : null
 }
 
 module "cos" {

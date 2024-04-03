@@ -2,8 +2,7 @@
   "products": [
     {
       "label": "watsonx SaaS",
-      "name": "watsonx-ai-SaaS",
-      "version": "0.3.0",
+      "name": "deploy-arch-ibm-watsonx-ai-saas",
       "product_kind": "solution",
       "tags": [
         "watson",
@@ -58,9 +57,7 @@
             "diagrams": [
               {
                 "diagram": {
-                  "url_proxy": {
-                    "url": "https://github.com/terraform-ibm-modules/terraform-ibm-watsonx-saas-da/blob/main/assets/architecture.svg"
-                  },
+                  "url": "https://raw.githubusercontent.com/terraform-ibm-modules/terraform-ibm-watsonx-saas-da/main/assets/architecture.svg",
                   "caption": "WatsonX.ai SaaS instances",
                   "type": "image/svg+xml"
                 },
@@ -120,14 +117,6 @@
               "custom_config": {
 
               }
-            },
-            {
-              "key": "resource_group_name",
-              "type": "string"
-            },
-            {
-              "key": "resource_prefix",
-              "type": "string"
             },
             {
               "key": "cos_plan",
@@ -280,18 +269,6 @@
               "custom_config": {
 
               }
-            },
-            {
-              "key": "project_name",
-              "type": "string"
-            },
-            {
-              "key": "project_description",
-              "type": "string"
-            },
-            {
-              "key": "project_tags",
-              "type": "string"
             }
           ],
           "outputs": [
@@ -406,6 +383,10 @@
             {
               "key": "project_url",
               "description": "URL of the Watson project to create"
+            },
+            {
+              "key": "resource_group_id",
+              "description": "ID of the resource group used to provision the resources"
             }
           ]
         }
