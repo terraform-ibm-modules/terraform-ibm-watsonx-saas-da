@@ -9,8 +9,8 @@ variable "location" {
   description = "Used with the Terraform IBM-Cloud/ibm provider as well as resource creation."
   type        = string
   validation {
-    condition     = contains(["au-syd", "br-sao", "ca-tor", "eu-de", "eu-gb", "jp-osa", "jp-tok", "us-east", "us-south"], var.location)
-    error_message = "The IBM Cloud location to use must be one of: au-syd, br-sao, ca-tor, eu-de, eu-gb, jp-osa, jp-tok, us-east, or us-south"
+    condition     = contains(["eu-de", "us-south"], var.location)
+    error_message = "The IBM Cloud location to use must be one of: eu-de or us-south"
   }
 }
 
@@ -47,22 +47,22 @@ variable "cos_plan" {
 }
 
 variable "watson_machine_learning_plan" {
-  default     = "lite"
+  default     = "v2-standard"
   description = "Resource plan used to provision the Watson Machine Learning instance."
   type        = string
   validation {
-    condition     = contains(["lite", "professional", "v2-professional", "v2-standard"], var.watson_machine_learning_plan)
-    error_message = "The plan to use must be one of: lite, professional, v2-professional or v2-standard"
+    condition     = contains(["lite", "v2-professional", "v2-standard"], var.watson_machine_learning_plan)
+    error_message = "The plan to use must be one of: lite, v2-professional or v2-standard"
   }
 }
 
 variable "watson_studio_plan" {
-  default     = "free-v1"
+  default     = "professional-v1"
   description = "Resource plan used to provision the Watson Studio instance."
   type        = string
   validation {
-    condition     = contains(["free-v1", "professional-v1", "standard-v1", "sqo-enterprise-v2", "enterprise-v2"], var.watson_studio_plan)
-    error_message = "The plan to use must be one of: free-v1, professional-v1, standard-v1, sqo-enterprise-v2 or enterprise-v2"
+    condition     = contains(["free-v1", "professional-v1"], var.watson_studio_plan)
+    error_message = "The plan to use must be one of: free-v1 or professional-v1"
   }
 }
 
@@ -92,8 +92,9 @@ variable "watson_assistant_plan" {
       var.watson_assistant_plan == "plus-trial",
       var.watson_assistant_plan == "plus",
       var.watson_assistant_plan == "enterprise",
+      var.watson_assistant_plan == "enterprisedataisolation",
     ])
-    error_message = "The plan to use must be one of: free, trial, plus-trial or enterprise"
+    error_message = "The plan to use must be one of: free, trial, plus-trial, enterprise or enterprisedataisolation"
   }
 }
 
@@ -105,10 +106,9 @@ variable "watson_governance_plan" {
     condition = anytrue([
       var.watson_governance_plan == "do not install",
       var.watson_governance_plan == "lite",
-      var.watson_governance_plan == "standard-v2",
       var.watson_governance_plan == "essentials",
     ])
-    error_message = "The plan to use must be one of: lite, standard-v2 or essentials"
+    error_message = "The plan to use must be one of: lite or essentials"
   }
 }
 

@@ -78,40 +78,12 @@
               "default_value": "us-south",
               "options": [
                 {
-                  "displayname": "au-syd",
-                  "value": "au-syd"
-                },
-                {
-                  "displayname": "br-sao",
-                  "value": "br-sao"
-                },
-                {
-                  "displayname": "ca-tor",
-                  "value": "ca-tor"
-                },
-                {
                   "displayname": "eu-de",
                   "value": "eu-de"
                 },
                 {
-                  "displayname": "eu-gb",
-                  "value": "eu-gb"
-                },
-                {
-                  "displayname": "jp-osa",
-                  "value": "jp-osa"
-                },
-                {
-                  "displayname": "jp-tok",
-                  "value": "jp-tok"
-                },
-                {
                   "displayname": "us-south",
                   "value": "us-south"
-                },
-                {
-                  "displayname": "us-east",
-                  "value": "us-east"
                 }
               ],
               "custom_config": {
@@ -135,22 +107,18 @@
             {
               "key": "watson_machine_learning_plan",
               "type": "string",
-              "default_value": "lite",
+              "default_value": "v2-standard",
               "options": [
                 {
-                  "displayname": "lite",
+                  "displayname": "Lite",
                   "value": "lite"
                 },
                 {
-                  "displayname": "professional",
-                  "value": "professional"
-                },
-                {
-                  "displayname": "v2-professional",
+                  "displayname": "Standard",
                   "value": "v2-professional"
                 },
                 {
-                  "displayname": "v2-standard",
+                  "displayname": "Essentials",
                   "value": "v2-standard"
                 }
               ],
@@ -161,27 +129,15 @@
             {
               "key": "watson_studio_plan",
               "type": "string",
-              "default_value": "free-v1",
+              "default_value": "professional-v1",
               "options": [
                 {
-                  "displayname": "free-v1",
+                  "displayname": "Lite",
                   "value": "free-v1"
                 },
                 {
-                  "displayname": "professional-v1",
+                  "displayname": "Professional",
                   "value": "professional-v1"
-                },
-                {
-                  "displayname": "standard-v1",
-                  "value": "standard-v1"
-                },
-                {
-                  "displayname": "sqo-enterprise-v2",
-                  "value": "sqo-enterprise-v2"
-                },
-                {
-                  "displayname": "enterprise-v2",
-                  "value": "enterprise-v2"
                 }
               ],
               "custom_config": {
@@ -198,15 +154,15 @@
                   "value": "do not install"
                 },
                 {
-                  "displayname": "plus",
+                  "displayname": "Plus",
                   "value": "plus"
                 },
                 {
-                  "displayname": "enterprise",
+                  "displayname": "Enterprise",
                   "value": "enterprise"
                 },
                 {
-                  "displayname": "premium",
+                  "displayname": "Premium",
                   "value": "premium"
                 }
               ],
@@ -224,20 +180,24 @@
                   "value": "do not install"
                 },
                 {
-                  "displayname": "free",
+                  "displayname": "Lite",
                   "value": "free"
                 },
                 {
-                  "displayname": "plus-trial",
+                  "displayname": "Trial",
                   "value": "plus-trial"
                 },
                 {
-                  "displayname": "plus",
+                  "displayname": "Plus",
                   "value": "plus"
                 },
                 {
-                  "displayname": "enterprise",
+                  "displayname": "Enterprise",
                   "value": "enterprise"
+                },
+                {
+                  "displayname": "Enterprise with data isolation",
+                  "value": "enterprisedataisolation"
                 }
               ],
               "custom_config": {
@@ -254,15 +214,11 @@
                   "value": "do not install"
                 },
                 {
-                  "displayname": "lite",
+                  "displayname": "Lite",
                   "value": "lite"
                 },
                 {
-                  "displayname": "standard-v2",
-                  "value": "standard-v2"
-                },
-                {
-                  "displayname": "essentials",
+                  "displayname": "Essentials",
                   "value": "essentials"
                 }
               ],

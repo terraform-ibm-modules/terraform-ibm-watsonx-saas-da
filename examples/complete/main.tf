@@ -18,6 +18,6 @@ module "watson_saas" {
   project_name           = "project-complete-test"
   watson_discovery_plan  = "plus"
   watson_assistant_plan  = "plus"
-  watson_governance_plan = "standard-v2"
+  watson_governance_plan = "essentials"
   location               = "eu-de"
 }
