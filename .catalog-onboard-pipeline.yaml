@@ -9,3 +9,10 @@ offerings:
       - name: standard
         mark_ready: true
         install_type: fullstack
+        validation_type: projects
+        project_id: "4b85a2bb-6051-42dd-81ce-b2dd9d3dcaba"
+        target_account_name: "ge-dev-account"
+        destroy_resources_on_failure: false
+        destroy_workspace_on_failure: false
+        import_only: false
+        validation_rg: validation
