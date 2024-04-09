@@ -2,6 +2,6 @@
   "ibmcloud_api_key": $VALIDATION_APIKEY,
   "use_existing_resource_group": true,
   "resource_prefix": $PREFIX,
-  "resource_group": "validation",
+  "resource_group_name": "validation",
   "region": "us-south",
 }
