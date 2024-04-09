@@ -11,13 +11,14 @@ resource "random_string" "unique_identifier" {
 
 
 module "watson_saas" {
-  source                 = "../.."
-  ibmcloud_api_key       = var.ibmcloud_api_key
-  resource_group_name    = local.unique_identifier
-  resource_prefix        = "example-complete-test"
-  project_name           = "project-complete-test"
-  watson_discovery_plan  = "plus"
-  watson_assistant_plan  = "plus"
-  watson_governance_plan = "essentials"
-  location               = "eu-de"
+  source                      = "../.."
+  ibmcloud_api_key            = var.ibmcloud_api_key
+  use_existing_resource_group = "false"
+  resource_group_name         = local.unique_identifier
+  resource_prefix             = "example-complete-test"
+  project_name                = "project-complete-test"
+  watson_discovery_plan       = "plus"
+  watson_assistant_plan       = "plus"
+  watson_governance_plan      = "essentials"
+  location                    = "us-south"
 }
