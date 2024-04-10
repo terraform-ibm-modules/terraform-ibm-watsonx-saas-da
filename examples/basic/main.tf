@@ -11,9 +11,10 @@ resource "random_string" "unique_identifier" {
 
 
 module "watson_saas" {
-  source              = "../.."
-  ibmcloud_api_key    = var.ibmcloud_api_key
-  resource_prefix     = "example-basic-test"
-  resource_group_name = local.unique_identifier
-  project_name        = "project-basic-test"
+  source                      = "../.."
+  ibmcloud_api_key            = var.ibmcloud_api_key
+  resource_prefix             = "example-basic-test"
+  use_existing_resource_group = "false"
+  resource_group_name         = local.unique_identifier
+  project_name                = "project-basic-test"
 }
