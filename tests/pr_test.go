@@ -2,10 +2,11 @@
 package test
 
 import (
-	"testing"
-
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 	"github.com/terraform-ibm-modules/ibmcloud-terratest-wrapper/testhelper"
+	"os"
+	"testing"
 )
 
 // Use existing resource group
@@ -33,6 +34,8 @@ func setupOptionsBasicExample(t *testing.T, prefix string, dir string) *testhelp
 }
 
 func setupOptionsCompleteExample(t *testing.T, prefix string, dir string) *testhelper.TestOptions {
+	apiKey := os.Getenv("TF_VAR_watsonx_admin_api_key")
+	require.NotEmpty(t, apiKey, "TF_VAR_watsonx_admin_api_key environment variable is not set")
 	options := testhelper.TestOptionsDefault(&testhelper.TestOptions{
 		Testing:      t,
 		TerraformDir: dir,
@@ -47,6 +50,9 @@ func setupOptionsCompleteExample(t *testing.T, prefix string, dir string) *testh
 				"module.watson_saas.module.configure_user.null_resource.configure_user",
 				"module.watson_saas.module.configure_user.null_resource.restrict_access",
 			},
+		},
+		TerraformVars: map[string]interface{}{
+			"watsonx_admin_api_key": apiKey, // pragma: allowlist secret
 		},
 	})
 	return options
