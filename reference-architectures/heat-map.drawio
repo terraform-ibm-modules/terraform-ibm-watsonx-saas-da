@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2024-04-12T11:02:27.172Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.1.0 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="9OqYIdc9BXuX9MgDJOEj" version="24.1.0" type="device">
+<mxfile host="Electron" modified="2024-04-12T14:17:09.875Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.1.0 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="RLGDXE3Z3SynouD_iRij" version="24.1.0" type="device">
   <diagram id="iQk230hBdAGukSs-h0T6" name="Page-1">
-    <mxGraphModel dx="1306" dy="947" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1043" dy="796" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -22,7 +22,7 @@
         <mxCell id="vvGwZ6liFT7NTi3uzbrW-25" value="Build &amp;amp; test" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;" parent="1" vertex="1">
           <mxGeometry x="160" y="366" width="135" height="42" as="geometry" />
         </mxCell>
-        <mxCell id="vvGwZ6liFT7NTi3uzbrW-26" value="Data security" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fontStyle=0;fillColor=default;" parent="1" vertex="1">
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-26" value="Data security" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#0E62FD;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fontStyle=1;fillColor=#EDF5FF;verticalAlign=middle;fontSize=12;fontColor=default;" parent="1" vertex="1">
           <mxGeometry x="160" y="316" width="135" height="42" as="geometry" />
         </mxCell>
         <mxCell id="vvGwZ6liFT7NTi3uzbrW-27" value="Backup &amp;amp; restore" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;" parent="1" vertex="1">
@@ -94,7 +94,7 @@
         <mxCell id="vvGwZ6liFT7NTi3uzbrW-51" value="Domain name service" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
           <mxGeometry x="1018" y="266" width="135" height="42" as="geometry" />
         </mxCell>
-        <mxCell id="vvGwZ6liFT7NTi3uzbrW-52" value="Identity &amp;amp; access" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-52" value="Identity &amp;amp; access" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#0E62FD;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=#EDF5FF;fontStyle=1;verticalAlign=middle;fontSize=12;fontColor=default;" parent="1" vertex="1">
           <mxGeometry x="303" y="316" width="135" height="42" as="geometry" />
         </mxCell>
         <mxCell id="vvGwZ6liFT7NTi3uzbrW-53" value="Application security" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
@@ -106,7 +106,7 @@
         <mxCell id="vvGwZ6liFT7NTi3uzbrW-55" value="Threat detection &amp;amp; response" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
           <mxGeometry x="732" y="316" width="135" height="42" as="geometry" />
         </mxCell>
-        <mxCell id="vvGwZ6liFT7NTi3uzbrW-56" value="Governance, risk &amp;amp; compliance" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-56" value="Governance, risk &amp;amp; compliance" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#0E62FD;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=#EDF5FF;fontStyle=1;verticalAlign=middle;fontSize=12;fontColor=default;" parent="1" vertex="1">
           <mxGeometry x="875" y="316" width="135" height="42" as="geometry" />
         </mxCell>
         <mxCell id="vvGwZ6liFT7NTi3uzbrW-57" value="Delivery pipeline" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
