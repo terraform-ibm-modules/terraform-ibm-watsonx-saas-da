@@ -4,6 +4,12 @@ variable "ibmcloud_api_key" {
   type        = string
 }
 
+variable "watsonx_admin_api_key" {
+  description = "Used to call Watson APIs to configure the user and the project"
+  sensitive   = true
+  type        = string
+}
+
 variable "location" {
   default     = "us-south"
   description = "Used with the Terraform IBM-Cloud/ibm provider as well as resource creation."
