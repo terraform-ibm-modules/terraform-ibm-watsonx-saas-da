@@ -1,5 +1,3 @@
-data "ibm_iam_auth_token" "tokendata" {}
-
 module "resource_group" {
   source                       = "terraform-ibm-modules/resource-group/ibm"
   version                      = "1.1.5"
@@ -89,14 +87,14 @@ resource "ibm_resource_instance" "discovery_instance" {
 }
 
 module "configure_user" {
-  depends_on        = [ibm_resource_instance.machine_learning_instance, ibm_resource_instance.studio_instance]
-  source            = "./configure_user"
-  resource_group_id = module.resource_group.resource_group_id
+  source                = "./configure_user"
+  watsonx_admin_api_key = var.watsonx_admin_api_key == null ? var.ibmcloud_api_key : var.watsonx_admin_api_key
+  resource_group_id     = module.resource_group.resource_group_id
 }
 
 module "configure_project" {
-  depends_on            = [module.configure_user]
   source                = "./configure_project"
+  watsonx_admin_api_key = var.watsonx_admin_api_key == null ? var.ibmcloud_api_key : var.watsonx_admin_api_key
   project_name          = var.project_name
   project_description   = var.project_description
   project_tags          = var.project_tags
@@ -105,7 +103,4 @@ module "configure_project" {
   machine_learning_name = ibm_resource_instance.machine_learning_instance.resource_name
   cos_guid              = module.cos.cos_instance_guid
   cos_crn               = module.cos.cos_instance_crn
-  providers = {
-    restapi = restapi.restapi_alias
-  }
 }

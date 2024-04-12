@@ -1,4 +1,7 @@
+data "ibm_iam_auth_token" "tokendata" {}
+
 resource "restapi_object" "configure_project" {
+  depends_on     = [data.ibm_iam_auth_token.tokendata]
   count          = var.project_name == null ? 0 : 1
   path           = "//api.dataplatform.cloud.ibm.com"
   read_path      = "//api.dataplatform.cloud.ibm.com{id}"

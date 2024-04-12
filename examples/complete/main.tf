@@ -13,6 +13,7 @@ resource "random_string" "unique_identifier" {
 module "watson_saas" {
   source                      = "../.."
   ibmcloud_api_key            = var.ibmcloud_api_key
+  watsonx_admin_api_key       = var.watsonx_admin_api_key
   use_existing_resource_group = "false"
   resource_group_name         = local.unique_identifier
   resource_prefix             = "example-complete-test"
