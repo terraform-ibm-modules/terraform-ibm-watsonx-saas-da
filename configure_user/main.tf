@@ -5,7 +5,7 @@ locals {
 }
 
 resource "null_resource" "configure_user" {
-
+  depends_on = [data.ibm_iam_auth_token.tokendata]
   triggers = {
     always_run = timestamp()
   }
@@ -17,7 +17,7 @@ resource "null_resource" "configure_user" {
 }
 
 resource "null_resource" "restrict_access" {
-
+  depends_on = [data.ibm_iam_auth_token.tokendata]
   triggers = {
     always_run = timestamp()
   }
