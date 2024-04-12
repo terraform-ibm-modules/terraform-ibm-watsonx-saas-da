@@ -1,3 +1,9 @@
+variable "watsonx_admin_api_key" {
+  description = "Used to call Watson APIs to configure the user and the project"
+  sensitive   = true
+  type        = string
+}
+
 variable "project_name" {
   description = "Name of the Watson project to create"
   type        = string
