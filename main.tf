@@ -88,13 +88,13 @@ resource "ibm_resource_instance" "discovery_instance" {
 
 module "configure_user" {
   source                = "./configure_user"
-  watsonx_admin_api_key = var.watsonx_admin_api_key == null ? var.ibmcloud_api_key : var.watsonx_admin_api_key
+  watsonx_admin_api_key = var.watsonx_admin_api_key == null || var.watsonx_admin_api_key == "" ? var.ibmcloud_api_key : var.watsonx_admin_api_key
   resource_group_id     = module.resource_group.resource_group_id
 }
 
 module "configure_project" {
   source                = "./configure_project"
-  watsonx_admin_api_key = var.watsonx_admin_api_key == null ? var.ibmcloud_api_key : var.watsonx_admin_api_key
+  watsonx_admin_api_key = var.watsonx_admin_api_key == null || var.watsonx_admin_api_key == "" ? var.ibmcloud_api_key : var.watsonx_admin_api_key
   project_name          = var.project_name
   project_description   = var.project_description
   project_tags          = var.project_tags
