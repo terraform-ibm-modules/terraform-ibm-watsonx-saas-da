@@ -150,6 +150,3 @@ The Watsonx AI SaaS Automation with Assistant and Governance adheres to the IBM 
 {: #next-steps}
 
 _Optional section._ Include links to your deployment guide or next steps to get started with the architecture.
-
-
-:exclamation: **Important:** Rename this file `<architecture-name>.md`. For deployable architectures, `<architecture-name>` is the same as the deployable architecture name.
