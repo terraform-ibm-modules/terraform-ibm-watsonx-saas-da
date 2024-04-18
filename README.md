@@ -13,11 +13,9 @@ Update status and "latest release" badges:
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 <!-- Add a description of module(s) in this repo -->
-The **Watsonx SaaS Deployment Architecture (Watsonx DA)** is designed to automate the deployment and
-configuration of the **IBM watsonx** platform in an IBM Cloud Account.
-The **IBM watsonx** platform is made of several services working together to offer AI capabilities to end users, who can explore them using [IBM watsonx projects](https://dataplatform.cloud.ibm.com/docs/content/wsj/manage-data/manage-projects.html?context=wx&audience=wdp).
-On that purpose, the **Watsonx DA** also
-configures a *starter project* for an IBM Cloud user.
+The Watsonx SaaS Deployment Architecture is designed to automate the deployment and configuration of the {{site.data.keyword.IBM}} watsonx platform in an {{site.data.keyword.Bluemix_notm}} account. The {{site.data.keyword.IBM_notm}} watsonx platform is made of several services working together to offer AI capabilities to end users, who can explore them using [{{site.data.keyword.IBM_notm}} watsonx projects](https://dataplatform.cloud.ibm.com/docs/content/wsj/manage-data/manage-projects.html?context=wx&audience=wdp).
+
+This deployable architechture also configures a starter project for an {{site.data.keyword.Bluemix_notm}} user.
 
 <!-- Below content is automatically populated via pre-commit hook -->
 <!-- BEGIN OVERVIEW HOOK -->
@@ -45,23 +43,22 @@ https://terraform-ibm-modules.github.io/documentation/#/implementation-guideline
 The solution supports the following:
 
 - Creating a new resource group, or taking an existing one.
-- Provisioning the services
-  - `Watson Machine Learning`
-  - `Watson Studio`
-  - `Cloud Object Storage`.
-- Configuring the `IBM watsonx profile` and creating a *starter* `IBM watsonx project`
-  for an IBM Cloud user, who becomes the `admin` of the `IBM watsonx project` (`IBM watsonx admin` in the following).
+- Provisioning the follwoing services:
+  - Watson Machine Learning
+  - Watson Studio
+  - Cloud Object Storage.
+- Configuring the IBM watsonx profile and creating a starter IBM watsonx project.
+  for an IBM Cloud user, who becomes the `admin` of the `IBM watsonx project`.
 
-As result the `IBM watsonx admin` can log into [IBM watsonx](https://dataplatform.cloud.ibm.com/login) in the target account and start experimenting
-with the *starter* project.
+As result the IBM watsonx admin can log into [IBM watsonx](https://dataplatform.cloud.ibm.com/login) in the target account and start experimenting with the starter project.
 
 Optionally, the solution supports:
 
 - Provisioning of one or more of the services, with a selectable
   service plan:
-  - `watsonx.governance`
-  - `watsonx Assistant`
-  - `Watson Discovery`.
+  - watsonx.governance
+  - watsonx Assistant
+  - Watson Discovery
 
 ### Required IAM access policies
 
@@ -73,29 +70,20 @@ information in the console at
 Manage > Access (IAM) > Access groups > Access policies.
 -->
 
-You need the following permissions to deploy this solution.
+The following permissions are required to deploy this solution.
 
-- All Account Management services
-  - Administrator (only if you must create a new resource group)
-- Watson Machine Learning
-  - Editor platform role (to create and delete the service)
-- Watson Studio
-  - Editor platform role (to create and delete the service)
-- Cloud Object Storage
-  - Editor platform role (to create and delete the service)
-- watsonx.governance
-  - Editor platform role (only if you must provision)
-- watsonx Assistant
-  - Editor platform role (only if you must provision)
-- Watson Discovery
-  - Editor platform role (only if you must provision)
+- Administaor role on All Account Management services to create a new resource group.
+- Editor platform role on Watson Machine Learning to create and delete the service.
+- Editor platform role on Watson Studio to create or delete the service.
+- Editor platform role on Cloud Object Storage to create and delete the service.
+- Editor platform role on watsonx.governance if you must provision. 
+- Editor platform role on watsonx Assistant if you must provision. 
+- Editor platform role on Watson Discovery if you must provision. 
 
-The `IBM watsonx admin` needs the following permissions.
+The IBM watsonx administrator needs the following permissions: 
 
-- All Account Management services
-  - Administrator
-- All Identity and Access enabled services
-  - Administrator
+- Administrator role on All Account Management services
+- Administrator role on All Identity and Access enabled services
 
 <!-- NO PERMISSIONS FOR MODULE
 If no permissions are required for the module, uncomment the following
@@ -137,20 +125,20 @@ statement instead the previous block.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_cos_plan"></a> [cos\_plan](#input\_cos\_plan) | Resource plan used to provision the Cloud Object Storage instance. | `string` | `"standard"` | no |
+| <a name="input_cos_plan"></a> [cos\_plan](#input\_cos\_plan) | The resource plan that's used to provision the Cloud Object Storage instance. | `string` | `"standard"` | no |
 | <a name="input_ibmcloud_api_key"></a> [ibmcloud\_api\_key](#input\_ibmcloud\_api\_key) | Used with the Terraform IBM-Cloud/ibm provider | `string` | n/a | yes |
 | <a name="input_location"></a> [location](#input\_location) | Used with the Terraform IBM-Cloud/ibm provider as well as resource creation. | `string` | `"us-south"` | no |
 | <a name="input_project_description"></a> [project\_description](#input\_project\_description) | Description of the watson project to create. | `string` | `"Watson Project created via watsonx-ai SaaS DA"` | no |
-| <a name="input_project_name"></a> [project\_name](#input\_project\_name) | Name of the watson project to create. | `string` | `"demo"` | no |
-| <a name="input_project_tags"></a> [project\_tags](#input\_project\_tags) | Tags to attach to the watson project to create. | `list(string)` | <pre>[<br>  "watsonx-ai-SaaS"<br>]</pre> | no |
+| <a name="input_project_name"></a> [project\_name](#input\_project\_name) | The name of the watson project to create. | `string` | `"demo"` | no |
+| <a name="input_project_tags"></a> [project\_tags](#input\_project\_tags) | The tags to attach to the watson project to create. | `list(string)` | <pre>[<br>  "watsonx-ai-SaaS"<br>]</pre> | no |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | The name of a new or an existing resource group in which to provision resources to. | `string` | n/a | yes |
-| <a name="input_resource_prefix"></a> [resource\_prefix](#input\_resource\_prefix) | Name to be used on all Watson resource as prefix | `string` | `"watsonx-poc"` | no |
-| <a name="input_use_existing_resource_group"></a> [use\_existing\_resource\_group](#input\_use\_existing\_resource\_group) | Whether to use an existing resource group. | `bool` | `false` | no |
-| <a name="input_watson_assistant_plan"></a> [watson\_assistant\_plan](#input\_watson\_assistant\_plan) | Resource plan used to provision the watsonx Assistance instance. | `string` | `"do not install"` | no |
-| <a name="input_watson_discovery_plan"></a> [watson\_discovery\_plan](#input\_watson\_discovery\_plan) | Resource plan used to provision the Watson Discovery instance. | `string` | `"do not install"` | no |
-| <a name="input_watson_governance_plan"></a> [watson\_governance\_plan](#input\_watson\_governance\_plan) | Resource plan used to provision the watsonx Governance instance. | `string` | `"do not install"` | no |
-| <a name="input_watson_machine_learning_plan"></a> [watson\_machine\_learning\_plan](#input\_watson\_machine\_learning\_plan) | Resource plan used to provision the Watson Machine Learning instance. | `string` | `"v2-standard"` | no |
-| <a name="input_watson_studio_plan"></a> [watson\_studio\_plan](#input\_watson\_studio\_plan) | Resource plan used to provision the Watson Studio instance. | `string` | `"professional-v1"` | no |
+| <a name="input_resource_prefix"></a> [resource\_prefix](#input\_resource\_prefix) | The name to be used on all Watson resources as prefix | `string` | `"watsonx-poc"` | no |
+| <a name="input_use_existing_resource_group"></a> [use\_existing\_resource\_group](#input\_use\_existing\_resource\_group) | Determines whether to use an existing resource group. | `bool` | `false` | no |
+| <a name="input_watson_assistant_plan"></a> [watson\_assistant\_plan](#input\_watson\_assistant\_plan) | The resource plan used to provision the watsonx Assistance instance. | `string` | `"do not install"` | no |
+| <a name="input_watson_discovery_plan"></a> [watson\_discovery\_plan](#input\_watson\_discovery\_plan) | The resource plan used to provision the Watson Discovery instance. | `string` | `"do not install"` | no |
+| <a name="input_watson_governance_plan"></a> [watson\_governance\_plan](#input\_watson\_governance\_plan) | The resource plan used to provision the watsonx Governance instance. | `string` | `"do not install"` | no |
+| <a name="input_watson_machine_learning_plan"></a> [watson\_machine\_learning\_plan](#input\_watson\_machine\_learning\_plan) | The resource plan used to provision the Watson Machine Learning instance. | `string` | `"v2-standard"` | no |
+| <a name="input_watson_studio_plan"></a> [watson\_studio\_plan](#input\_watson\_studio\_plan) | The resource plan used to provision the Watson Studio instance. | `string` | `"professional-v1"` | no |
 | <a name="input_watsonx_admin_api_key"></a> [watsonx\_admin\_api\_key](#input\_watsonx\_admin\_api\_key) | Used to call Watson APIs to configure the user and the project | `string` | `null` | no |
 
 ### Outputs
