@@ -83,9 +83,9 @@ the toc attributes on the H1, repeating the values from the YAML header.
 The Watsonx AI SaaS deployable architecture is designed to automate the deployment and
 configuration of the {{site.data.keyword.IBM_notm}} watsonx platform in an {{site.data.keyword.Bluemix_notm}} account. The {{site.data.keyword.IBM_notm}} watsonx platform is made of several services working together to offer AI capabilities to end users who can explore them using [{{site.data.keyword.IBM_notm}} watsonx projects](https://dataplatform.cloud.ibm.com/docs/content/wsj/manage-data/manage-projects.html?context=wx&audience=wdp). The automation also configures a starter project for an existing {{site.data.keyword.Bluemix_notm}} user.
 
-A typical use case would be setting up an IBM watsonx platform ready to use in one or more Enterprise accounts granting administrator access
+A typical use case would be setting up an {{site.data.keyword.IBM_notm}} watsonx platform ready to use in one or more Enterprise accounts granting administrator access
 to an AI Researcher for example.
-It enables an administrator to install all the services making up the IBM watsonx platform, and automatically
+It enables an administrator to install all the services making up the {{site.data.keyword.IBM_notm}} watsonx platform, and automatically
 setup an {{site.data.keyword.IBM_notm}} watsonx project, so that the AI Researcher can log into the [platform](http://dataplatform.cloud.ibm.com/wx/home?context=wx) and start working.
 
 In more advanced use cases, the deployable architecture can be used as part of a larger solution, where it is included in a stack
@@ -134,13 +134,13 @@ The following table outlines the services used in the architecture for each aspe
 | Storage | Cloud Object Storage | Stores artificial intelligence {{site.data.keyword.IBM_notm}} watsonx data assets managed by Watson Machine Learning and Watson Studio services. |
 | Security | IAM | {{site.data.keyword.iamlong}} authenticates and authorizes any user interaction. |
 | Resiliency | All {{site.data.keyword.Bluemix_notm}} provisioned services | Fully managed services that provide resiliency and high availability. |
-| Application platforms | IBM watsonx platform | End users interact with the {{site.data.keyword.IBM_notm}} watsonx platform to manage artificial intelligence assets and data. |
+| Application platforms | {{site.data.keyword.IBM_notm}} watsonx platform | End users interact with the {{site.data.keyword.IBM_notm}} watsonx platform to manage artificial intelligence assets and data. |
 {: caption="Table 2. Components" caption-side="bottom"}
 
 ## Compliance
 {: #compliance}
 
-The Watsonx AI SaaS deployable architecture adheres to the [IBM Cloud Framework for Financial Services](/docs/framework-financial-services-controls?topic=framework-financial-services-controls-overview) Security & Compliance profile.
+The Watsonx AI SaaS deployable architecture adheres to the [{{site.data.keyword.Bluemix_notm}} Framework for Financial Services](/docs/framework-financial-services-controls?topic=framework-financial-services-controls-overview) Security & Compliance profile.
 
 ## Next steps
 {: #next-steps}
