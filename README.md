@@ -43,7 +43,7 @@ https://terraform-ibm-modules.github.io/documentation/#/implementation-guideline
 The solution supports the following:
 
 - Creating a new resource group, or taking an existing one.
-- Provisioning the follwoing services:
+- Provisioning the following services:
   - Watson Machine Learning
   - Watson Studio
   - Cloud Object Storage.
