@@ -69,7 +69,7 @@ variable "watson_studio_plan" {
   type        = string
   validation {
     condition     = contains(["free-v1", "professional-v1"], var.watson_studio_plan)
-    error_message = "The resource plan you use must be free-v1 or professional-v1"
+    error_message = "The resource plan you use must be free-v1 or professional-v1."
   }
 }
 
