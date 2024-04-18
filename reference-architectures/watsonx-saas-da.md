@@ -84,13 +84,15 @@ The Watsonx AI SaaS deployable architecture is designed to automate the deployme
 configuration of the {{site.data.keyword.IBM_notm}} watsonx platform in an {{site.data.keyword.Bluemix_notm}} account. The {{site.data.keyword.IBM_notm}} watsonx platform is made of several services working together to offer AI capabilities to end users who can explore them using [{{site.data.keyword.IBM_notm}} watsonx projects](https://dataplatform.cloud.ibm.com/docs/content/wsj/manage-data/manage-projects.html?context=wx&audience=wdp). The automation also configures a starter project for an existing {{site.data.keyword.Bluemix_notm}} user.
 
 A typical use case would be setting up an IBM watsonx platform ready to use in one or more Enterprise accounts granting administrator access
-to an AI Researcher.
+to an AI Researcher for example.
+It enables an administrator to install all the services making up the IBM watsonx platform, and automatically
+setup an {{site.data.keyword.IBM_notm}} watsonx project, so that the AI Researcher can log into the [platform](http://dataplatform.cloud.ibm.com/wx/home?context=wx) and start working.
 
-The deployable architecture can also be used as part of a larger solution, where it is included in a stack
-of other components.
-To facilitate those business challenges, it provides output parameters that can be used programmatically
-for wiring the deployable architecture to the other components of the stack, and it implements the flexibility
-to install additional Watson services.
+In more advanced use cases, the deployable architecture can be used as part of a larger solution, where it is included in a stack
+of other components. For example a solution that first setup the {{site.data.keyword.IBM_notm}} watsonx platform, and then
+installs a *chatbot application* that uses the underlying services.
+To facilitate those business challenges, the Watsonx AI SaaS deployable architecture provides output parameters that can be used programmatically
+for wiring it to the other components of the stack, and it provides the capability to install additional Watson services.
 
 ## Architecture diagram
 {: #architecture-diagram}
@@ -98,7 +100,7 @@ to install additional Watson services.
 ![Architecture diagram for the Watsonx AI SaaS Automation with Assistant and Governance deployable architecture](watsonx-saas-da.svg "Architecture diagram for the Watsonx AI SaaS Automation with Assistant and Governance deployable architecture")
 {: caption="Figure 1. Watsonx AI SaaS Automation with Assistant and Governance deployable architecture" caption-side="bottom"}{: external download="watsonx-saas-da.svg"}
 
-The Watsonx AI SaaS deployable architecture lays down the services shown in the WatsonX services box and an instance of {{site.data.keyword.cos_full_notm}} in a target {{site.data.keyword.Bluemix_notm}} account, resource group, and region. Then, it automatically configures a starter project that grants access to an existing {{site.data.keyword.Bluemix_notm}} user, for example, an AI researcher. As a result, that user can
+The Watsonx AI SaaS deployable architecture creates the services shown in the WatsonX services box and an instance of {{site.data.keyword.cos_full_notm}} in a target {{site.data.keyword.Bluemix_notm}} account, resource group, and region. Then, it automatically configures a starter project that grants access to an existing {{site.data.keyword.Bluemix_notm}} user, for example, an AI researcher. As a result, that user can
 log into the {{site.data.keyword.IBM_notm}} watsonx starter project, and start working.
 
 You can add or deploy one or more of the services from the optional services section at a later date during the lifetime of the deployable architecture.
@@ -115,7 +117,7 @@ The following table outlines the requirements that are addressed in this archite
 
 | Aspect | Requirements |
 | -------------- | -------------- |
-| Enterprise applications | Lay down and grant access to the {{site.data.keyword.IBM_notm}} Watsonx Artificial Intelligence and Governance platform. |
+| Enterprise applications | Setup and grant access to the {{site.data.keyword.IBM_notm}} Watsonx Artificial Intelligence and Governance platform. |
 | Storage            | Provide storage that meets the application performance and security requirements |
 | Security           | * Protect boundaries against denial of service and application layer attacks. \n * Encrypt all application data in transit and at rest to protect from unauthorized disclosure. \n * Encrypt all security data (operational and audit logs) to protect from unauthorized disclosure. \n * Protect secrets through their entire lifecycle and secure them using access control measures. |
 | Resiliency         | * Support application availability targets and business continuity policies. \n * Ensure availability of the services in the event of planned and unplanned outages \n * Provide highly available storage artificial intelligence assets. |
@@ -129,7 +131,7 @@ The following table outlines the services used in the architecture for each aspe
 
 | Aspects | Architecture components | How the component is used |
 | -------------- | -------------- | -------------- |
-| Storage | Cloud Object Storage | Stores artificial intelligence {{site.data.keyword.IBM_notm}} Watsonx data assets managed by Watson Machine Learning and Watson Studio services. |
+| Storage | Cloud Object Storage | Stores artificial intelligence {{site.data.keyword.IBM_notm}} watsonx data assets managed by Watson Machine Learning and Watson Studio services. |
 | Security | IAM | {{site.data.keyword.iamlong}} authenticates and authorizes any user interaction. |
 | Resiliency | All {{site.data.keyword.Bluemix_notm}} provisioned services | Fully managed services that provide resiliency and high availability. |
 | Application platforms | IBM watsonx platform | End users interact with the {{site.data.keyword.IBM_notm}} watsonx platform to manage artificial intelligence assets and data. |
@@ -138,9 +140,9 @@ The following table outlines the services used in the architecture for each aspe
 ## Compliance
 {: #compliance}
 
-The Watsonx AI SaaS Automation with Assistant and Governance adheres to the IBM Cloud for Financal Services Security & Compliance Center profile.
+The Watsonx AI SaaS deployable architecture adheres to the [IBM Cloud Framework for Financial Services](/docs/framework-financial-services-controls?topic=framework-financial-services-controls-overview) Security & Compliance profile.
 
 ## Next steps
 {: #next-steps}
 
-_Optional section._ Include links to your deployment guide or next steps to get started with the architecture.
+You are now ready to [plan your deployment](/docs-draft/watsonx-ai-saas-automation?topic=watsonx-ai-saas-automation-planning).
