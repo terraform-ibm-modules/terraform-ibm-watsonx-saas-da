@@ -33,7 +33,7 @@ variable "resource_group_name" {
 }
 
 variable "resource_prefix" {
-  description = "The name to be used on all Watson resource as prefix"
+  description = "The name to be used on all Watson resource as prefix."
   type        = string
   default     = "watsonx-poc"
 
