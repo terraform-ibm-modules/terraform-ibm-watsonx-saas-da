@@ -1,6 +1,6 @@
 output "project_id" {
-  value       = trimprefix(resource.restapi_object.configure_project[0].id, "/v2/projects/")
-  description = "ID of the created project"
+  value       = local.project_id
+  description = "ID of the created project."
 }
 
 output "project_location" {
