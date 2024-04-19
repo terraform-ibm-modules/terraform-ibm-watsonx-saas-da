@@ -57,7 +57,7 @@
             "diagrams": [
               {
                 "diagram": {
-                  "url": "https://raw.githubusercontent.com/terraform-ibm-modules/terraform-ibm-watsonx-saas-da/main/assets/architecture.svg",
+                  "url": "https://raw.githubusercontent.com/terraform-ibm-modules/terraform-ibm-watsonx-saas-da/main/reference-architectures/watsonx-saas-da.svg",
                   "caption": "WatsonX.ai SaaS instances",
                   "type": "image/svg+xml"
                 },
@@ -227,6 +227,53 @@
               }
             }
           ],
+          "iam_permissions": [
+            {
+              "role_crns": [
+                "crn:v1:bluemix:public:iam::::role:Editor"
+              ],
+              "service_name": "cloud-object-storage"
+            },
+            {
+              "role_crns": [
+                "crn:v1:bluemix:public:iam::::role:Editor"
+              ],
+              "service_name": "pm-20"
+            },
+            {
+              "role_crns": [
+                "crn:v1:bluemix:public:iam::::role:Editor"
+              ],
+              "service_name": "data-science-experience"
+            },
+            {
+              "role_crns": [
+                "crn:v1:bluemix:public:iam::::role:Editor"
+              ],
+              "service_name": "aiopenscale"
+            },
+            {
+              "role_crns": [
+                "crn:v1:bluemix:public:iam::::role:Editor"
+              ],
+              "service_name": "conversation"
+            },
+            {
+              "role_crns": [
+                "crn:v1:bluemix:public:iam::::role:Editor"
+              ],
+              "service_name": "discovery"
+            }
+          ],
+          "compliance": {
+            "authority": "scc-v3",
+            "profiles": [
+                {
+                    "profile_name": "IBM Cloud Framework for Financial Services",
+                    "profile_version": "1.6.0"
+                }
+            ]
+          },
           "outputs": [
             {
               "key": "watson_platform_endpoint",
@@ -335,6 +382,10 @@
             {
               "key": "project_id",
               "description": "ID of the Watson project to create"
+            },
+            {
+              "key": "project_location",
+              "description": "Location of the Watson project to create"
             },
             {
               "key": "project_url",
