@@ -81,29 +81,27 @@ the toc attributes on the H1, repeating the values from the YAML header.
  -->
 
 The Watsonx AI SaaS deployable architecture is designed to automate the deployment and
-configuration of the {{site.data.keyword.IBM_notm}} watsonx platform in an {{site.data.keyword.Bluemix_notm}} account. The {{site.data.keyword.IBM_notm}} watsonx platform is made of several services working together to offer AI capabilities to end users who can explore them using [{{site.data.keyword.IBM_notm}} watsonx projects](https://dataplatform.cloud.ibm.com/docs/content/wsj/manage-data/manage-projects.html?context=wx&audience=wdp). The automation also configures a starter project for an existing {{site.data.keyword.Bluemix_notm}} user.
+configuration of the {{site.data.keyword.IBM_notm}} watsonx platform in an {{site.data.keyword.Bluemix_notm}} account. The {{site.data.keyword.IBM_notm}} watsonx platform is made up of several services working together to offer AI capabilities to end users who can explore them using [{{site.data.keyword.IBM_notm}} watsonx projects](https://dataplatform.cloud.ibm.com/docs/content/wsj/manage-data/manage-projects.html?context=wx&audience=wdp). The automation also configures a {{site.data.keyword.IBM_notm}} watsonx starter project for an existing {{site.data.keyword.Bluemix_notm}} user.
 
-A typical use case would be setting up an {{site.data.keyword.IBM_notm}} watsonx platform ready to use in one or more Enterprise accounts granting administrator access
+A typical use case would be to establish a ready to use {{site.data.keyword.IBM_notm}} watsonx platform in an Enterprise account granting administrator access
 to an AI Researcher for example.
-It enables an administrator to install all the services making up the {{site.data.keyword.IBM_notm}} watsonx platform, and automatically
-setup an {{site.data.keyword.IBM_notm}} watsonx project, so that the AI Researcher can log into the [platform](http://dataplatform.cloud.ibm.com/wx/home?context=wx) and start working.
+It enables an administrator to automatically install all of the services that the {{site.data.keyword.IBM_notm}} watsonx platform is comprised of, as well as the setup of a starter {{site.data.keyworkd.IBM_notm}} watsonx project, allowing an AI Researcher to login to the [platform](http://dataplatform.cloud.ibm.com/wx/home?context=wx) and begin working immediately. You can read the [overview of {{site.data.keyword.IBM_notm}} watsonx](https://dataplatform.cloud.ibm.com/docs/content/wsj/getting-started/overview-wx.html?context=wx&audience=wdp) for more information about the platform.
 
 In more advanced use cases, the deployable architecture can be used as part of a larger solution, where it is included in a stack
-of other components. For example a solution that first setup the {{site.data.keyword.IBM_notm}} watsonx platform, and then
-installs a *chatbot application* that uses the underlying services.
+with other deployable architectures. For example, this deployable architecture can be used to first setup the {{site.data.keyword.IBM_notm}} watsonx platform as a foundation, and then another deployable architecture can install an "AI application" that uses the underlying services provisioned by the previous one.
 To facilitate those business challenges, the Watsonx AI SaaS deployable architecture provides output parameters that can be used programmatically
 for wiring it to the other components of the stack, and it provides the capability to install additional Watson services.
 
 ## Architecture diagram
 {: #architecture-diagram}
 
-![Architecture diagram for the Watsonx AI SaaS Automation with Assistant and Governance deployable architecture](watsonx-saas-da.svg "Architecture diagram for the Watsonx AI SaaS Automation with Assistant and Governance deployable architecture")
-{: caption="Figure 1. Watsonx AI SaaS Automation with Assistant and Governance deployable architecture" caption-side="bottom"}{: external download="watsonx-saas-da.svg"}
+![Architecture diagram for the Watsonx AI SaaS deployable architecture](watsonx-saas-da.svg "Architecture diagram for the Watsonx AI SaaS deployable architecture")
+{: caption="Figure 1. Watsonx AI SaaS deployable architecture" caption-side="bottom"}{: external download="watsonx-saas-da.svg"}
 
 The Watsonx AI SaaS deployable architecture creates the services shown in the WatsonX services box and an instance of {{site.data.keyword.cos_full_notm}} in a target {{site.data.keyword.Bluemix_notm}} account, resource group, and region. Then, it automatically configures a starter project that grants access to an existing {{site.data.keyword.Bluemix_notm}} user, for example, an AI researcher. As a result, that user can
-log into the {{site.data.keyword.IBM_notm}} watsonx starter project, and start working.
+log into the {{site.data.keyword.IBM_notm}} watsonx starter project, and begin working.
 
-You can add or deploy one or more of the services from the optional services section at a later date during the lifetime of the deployable architecture.
+Additional services from the optional section can be installed at any time after the initial deployment of the deployable architecture.
 
 ## Design concepts
 {: #design-concepts}
@@ -119,8 +117,8 @@ The following table outlines the requirements that are addressed in this archite
 | -------------- | -------------- |
 | Enterprise applications | Setup and grant access to the {{site.data.keyword.IBM_notm}} Watsonx Artificial Intelligence and Governance platform. |
 | Storage            | Provide storage that meets the application performance and security requirements |
-| Security           | * Protect boundaries against denial of service and application layer attacks. \n * Encrypt all application data in transit and at rest to protect from unauthorized disclosure. \n * Encrypt all security data (operational and audit logs) to protect from unauthorized disclosure. \n * Protect secrets through their entire lifecycle and secure them using access control measures. |
-| Resiliency         | * Support application availability targets and business continuity policies. \n * Ensure availability of the services in the event of planned and unplanned outages \n * Provide highly available storage artificial intelligence assets. |
+| Security           | * Protect boundaries against denial of service and application layer attacks.  \n * Encrypt all application data in transit and at rest to protect from unauthorized disclosure.  \n * Encrypt all security data (operational and audit logs) to protect from unauthorized disclosure.  \n * Protect secrets through their entire lifecycle and secure them using access control measures. |
+| Resiliency         | * Support application availability targets and business continuity policies.  \n * Ensure availability of the services in the event of planned and unplanned outages  \n * Provide highly available storage artificial intelligence assets. |
 | Service Management | Monitor audit logs to track changes and detect potential security problems. |
 {: caption="Table 1. Requirements" caption-side="bottom"}
 
