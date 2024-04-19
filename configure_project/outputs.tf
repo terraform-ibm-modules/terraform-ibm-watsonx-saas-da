@@ -1,6 +1,6 @@
 output "project_id" {
   value       = local.project_id
-  description = "Project ID Regex"
+  description = "ID of the created project."
 }
 
 output "project_location" {
