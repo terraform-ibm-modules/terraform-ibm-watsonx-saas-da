@@ -133,6 +133,12 @@ output "project_id" {
   description = "ID of the created project"
 }
 
+output "project_location" {
+  value       = module.configure_project.project_location
+  description = "location of the created project"
+}
+
+
 output "project_url" {
   value       = "https://dataplatform.cloud.ibm.com/projects/${module.configure_project.project_id}?context=wx&sync_account_id=${ibm_resource_instance.machine_learning_instance.account_id}"
   description = "URL of the created project"
