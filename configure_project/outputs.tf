@@ -4,6 +4,6 @@ output "project_id" {
 }
 
 output "project_id_regex" {
-  value = local.project_id
+  value       = local.project_id
   description = "Project ID Regex"
 }
