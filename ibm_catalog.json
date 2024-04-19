@@ -337,6 +337,10 @@
               "description": "ID of the Watson project to create"
             },
             {
+              "key": "project_location",
+              "description": "Location of the Watson project to create"
+            },
+            {
               "key": "project_url",
               "description": "URL of the Watson project to create"
             },
