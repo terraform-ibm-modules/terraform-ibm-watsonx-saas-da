@@ -16,3 +16,6 @@ offerings:
         destroy_workspace_on_failure: false
         import_only: false
         validation_rg: validation
+        scc:
+          instance_id: 9312688c-331e-4f62-8553-eafa3aebb978
+          region: us-south
