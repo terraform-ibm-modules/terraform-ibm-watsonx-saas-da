@@ -4,7 +4,7 @@ variable "watsonx_admin_api_key" {
   type        = string
 }
 
-variable "project_name" {
+variable "watsonx_project_name" {
   description = "Name of the Watson project to create"
   type        = string
 }
@@ -19,12 +19,12 @@ variable "cos_crn" {
   type        = string
 }
 
-variable "project_description" {
+variable "watsonx_project_description" {
   description = "Description of the Watson project to create"
   type        = string
 }
 
-variable "project_tags" {
+variable "watsonx_project_tags" {
   description = "Tags of the Watson project to create"
   type        = list(string)
 }

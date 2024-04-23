@@ -93,14 +93,14 @@ module "configure_user" {
 }
 
 module "configure_project" {
-  source                = "./configure_project"
-  watsonx_admin_api_key = var.watsonx_admin_api_key == null || var.watsonx_admin_api_key == "" ? var.ibmcloud_api_key : var.watsonx_admin_api_key
-  project_name          = var.project_name
-  project_description   = var.project_description
-  project_tags          = var.project_tags
-  machine_learning_guid = ibm_resource_instance.machine_learning_instance.guid
-  machine_learning_crn  = ibm_resource_instance.machine_learning_instance.crn
-  machine_learning_name = ibm_resource_instance.machine_learning_instance.resource_name
-  cos_guid              = module.cos.cos_instance_guid
-  cos_crn               = module.cos.cos_instance_crn
+  source                      = "./configure_project"
+  watsonx_admin_api_key       = var.watsonx_admin_api_key == null || var.watsonx_admin_api_key == "" ? var.ibmcloud_api_key : var.watsonx_admin_api_key
+  watsonx_project_name        = var.watsonx_project_name
+  watsonx_project_description = var.watsonx_project_description
+  watsonx_project_tags        = var.watsonx_project_tags
+  machine_learning_guid       = ibm_resource_instance.machine_learning_instance.guid
+  machine_learning_crn        = ibm_resource_instance.machine_learning_instance.crn
+  machine_learning_name       = ibm_resource_instance.machine_learning_instance.resource_name
+  cos_guid                    = module.cos.cos_instance_guid
+  cos_crn                     = module.cos.cos_instance_crn
 }

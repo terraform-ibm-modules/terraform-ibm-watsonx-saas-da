@@ -1,9 +1,9 @@
-output "project_id" {
-  value       = local.project_id
+output "watsonx_project_id" {
+  value       = local.watsonx_project_id
   description = "ID of the created project."
 }
 
-output "project_location" {
+output "watsonx_project_location" {
   value       = resource.restapi_object.configure_project[0].id
   description = "Location of the created project"
 }

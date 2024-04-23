@@ -380,15 +380,15 @@
               "description": "Dashboard URL of the Watson Governance instance"
             },
             {
-              "key": "project_id",
+              "key": "watsonx_project_id",
               "description": "ID of the Watson project to create"
             },
             {
-              "key": "project_location",
+              "key": "watsonx_project_location",
               "description": "Location of the Watson project to create"
             },
             {
-              "key": "project_url",
+              "key": "watsonx_project_url",
               "description": "URL of the Watson project to create"
             },
             {

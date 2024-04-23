@@ -128,12 +128,12 @@ output "watson_governance_dashboard_url" {
   value       = module.watson_saas.watson_governance_dashboard_url
 }
 
-output "project_id" {
-  value       = module.watson_saas.project_id
+output "watsonx_project_id" {
+  value       = module.watson_saas.watsonx_project_id
   description = "ID of the created project"
 }
 
-output "project_url" {
-  value       = module.watson_saas.project_url
+output "watsonx_project_url" {
+  value       = module.watson_saas.watsonx_project_url
   description = "URL of the created project"
 }

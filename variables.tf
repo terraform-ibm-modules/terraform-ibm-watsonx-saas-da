@@ -119,19 +119,19 @@ variable "watson_governance_plan" {
   }
 }
 
-variable "project_name" {
+variable "watsonx_project_name" {
   description = "Name of the watson project to create."
   type        = string
   default     = "demo"
 }
 
-variable "project_description" {
+variable "watsonx_project_description" {
   description = "Description of the watson project to create."
   type        = string
   default     = "Watson Project created via watsonx-ai SaaS DA"
 }
 
-variable "project_tags" {
+variable "watsonx_project_tags" {
   description = "Tags to attach to the watson project to create."
   type        = list(string)
   default     = ["watsonx-ai-SaaS"]

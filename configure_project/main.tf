@@ -2,7 +2,7 @@ data "ibm_iam_auth_token" "tokendata" {}
 
 resource "restapi_object" "configure_project" {
   depends_on     = [data.ibm_iam_auth_token.tokendata]
-  count          = var.project_name == null ? 0 : 1
+  count          = var.watsonx_project_name == null ? 0 : 1
   path           = "//api.dataplatform.cloud.ibm.com"
   read_path      = "//api.dataplatform.cloud.ibm.com{id}"
   read_method    = "GET"
@@ -13,7 +13,7 @@ resource "restapi_object" "configure_project" {
   destroy_path   = "//api.dataplatform.cloud.ibm.com/transactional{id}"
   data           = <<-EOT
                   {
-                    "name": "${var.project_name}",
+                    "name": "${var.watsonx_project_name}",
                     "generator": "watsonx-saas-da",
                     "type": "wx",
                     "storage": {
@@ -21,9 +21,9 @@ resource "restapi_object" "configure_project" {
                       "guid": "${var.cos_guid}",
                       "resource_crn": "${var.cos_crn}"
                     },
-                    "description": "${var.project_description}",
+                    "description": "${var.watsonx_project_description}",
                     "public": true,
-                    "tags": ${jsonencode(var.project_tags)},
+                    "tags": ${jsonencode(var.watsonx_project_tags)},
                     "compute": [
                       {
                         "name": "${var.machine_learning_name}",
@@ -38,9 +38,9 @@ resource "restapi_object" "configure_project" {
   update_path    = "//api.dataplatform.cloud.ibm.com{id}"
   update_data    = <<-EOT
                   {
-                    "name": "${var.project_name}",
+                    "name": "${var.watsonx_project_name}",
                     "type": "wx",
-                    "description": "${var.project_description}",
+                    "description": "${var.watsonx_project_description}",
                     "public": true,
                     "compute": [
                       {
@@ -56,6 +56,6 @@ resource "restapi_object" "configure_project" {
 }
 
 locals {
-  project_id_object = restapi_object.configure_project[0].id
-  project_id        = regex("^.+/([a-f0-9\\-]+)$", local.project_id_object)[0]
+  watsonx_project_id_object = restapi_object.configure_project[0].id
+  watsonx_project_id        = regex("^.+/([a-f0-9\\-]+)$", local.watsonx_project_id_object)[0]
 }
