@@ -128,19 +128,18 @@ output "watson_governance_dashboard_url" {
   value       = var.watson_governance_plan != "do not install" ? ibm_resource_instance.governance_instance[0].dashboard_url : null
 }
 
-output "project_id" {
-  value       = module.configure_project.project_id
-  description = "ID of the created project"
+output "watsonx_project_id" {
+  value       = module.configure_project.watsonx_project_id
+  description = "ID of the created watsonx project"
 }
 
-output "project_location" {
-  value       = module.configure_project.project_location
-  description = "location of the created project"
+output "watsonx_project_location" {
+  value       = module.configure_project.watsonx_project_location
+  description = "location of the created watsonx project"
 }
 
-
-output "project_url" {
-  value       = "https://dataplatform.cloud.ibm.com/projects/${module.configure_project.project_id}?context=wx&sync_account_id=${ibm_resource_instance.machine_learning_instance.account_id}"
+output "watsonx_project_url" {
+  value       = "https://dataplatform.cloud.ibm.com/projects/${module.configure_project.watsonx_project_id}?context=wx&sync_account_id=${ibm_resource_instance.machine_learning_instance.account_id}"
   description = "URL of the created project"
 }
 

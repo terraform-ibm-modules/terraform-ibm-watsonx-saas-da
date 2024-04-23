@@ -17,7 +17,7 @@ module "watson_saas" {
   use_existing_resource_group = "false"
   resource_group_name         = local.unique_identifier
   resource_prefix             = "example-complete-test"
-  project_name                = "project-complete-test"
+  watsonx_project_name        = "project-complete-test"
   watson_discovery_plan       = "plus"
   watson_assistant_plan       = "plus"
   watson_governance_plan      = "essentials"
