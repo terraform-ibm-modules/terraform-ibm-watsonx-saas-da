@@ -128,9 +128,6 @@ statement instead the previous block.
 | <a name="input_cos_plan"></a> [cos\_plan](#input\_cos\_plan) | Resource plan used to provision the Cloud Object Storage instance. | `string` | `"standard"` | no |
 | <a name="input_ibmcloud_api_key"></a> [ibmcloud\_api\_key](#input\_ibmcloud\_api\_key) | Used with the Terraform IBM-Cloud/ibm provider. | `string` | n/a | yes |
 | <a name="input_location"></a> [location](#input\_location) | Used with the Terraform IBM-Cloud/ibm provider as well as resource creation. | `string` | `"us-south"` | no |
-| <a name="input_project_description"></a> [project\_description](#input\_project\_description) | Description of the watson project. | `string` | `"Watson Project created via watsonx-ai SaaS DA"` | no |
-| <a name="input_project_name"></a> [project\_name](#input\_project\_name) | Name of the watson project. | `string` | `"demo"` | no |
-| <a name="input_project_tags"></a> [project\_tags](#input\_project\_tags) | Tags to attach to the watson project. | `list(string)` | <pre>[<br>  "watsonx-ai-SaaS"<br>]</pre> | no |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | The name of a new or an existing resource group in which to provision resources to. | `string` | n/a | yes |
 | <a name="input_resource_prefix"></a> [resource\_prefix](#input\_resource\_prefix) | The name to be used on all Watson resource as prefix. | `string` | `"watsonx-poc"` | no |
 | <a name="input_use_existing_resource_group"></a> [use\_existing\_resource\_group](#input\_use\_existing\_resource\_group) | Determines whether to use an existing resource group. | `bool` | `false` | no |
@@ -139,15 +136,15 @@ statement instead the previous block.
 | <a name="input_watson_governance_plan"></a> [watson\_governance\_plan](#input\_watson\_governance\_plan) | Resource plan used to provision the watsonx Governance instance. | `string` | `"do not install"` | no |
 | <a name="input_watson_machine_learning_plan"></a> [watson\_machine\_learning\_plan](#input\_watson\_machine\_learning\_plan) | Resource plan used to provision the Watson Machine Learning instance. | `string` | `"v2-standard"` | no |
 | <a name="input_watson_studio_plan"></a> [watson\_studio\_plan](#input\_watson\_studio\_plan) | Resource plan used to provision the Watson Studio instance. | `string` | `"professional-v1"` | no |
-| <a name="input_watsonx_admin_api_key"></a> [watsonx\_admin\_api\_key](#input\_watsonx\_admin\_api\_key) | Used to call Watson APIs to configure the user and the project. | `string` | `null` | no |
+| <a name="input_watsonx_admin_api_key"></a> [watsonx\_admin\_api\_key](#input\_watsonx\_admin\_api\_key) | Used to call Watson APIs to configure the user and the project | `string` | `null` | no |
+| <a name="input_watsonx_project_description"></a> [watsonx\_project\_description](#input\_watsonx\_project\_description) | Description of the watson project to create. | `string` | `"Watson Project created via watsonx-ai SaaS DA"` | no |
+| <a name="input_watsonx_project_name"></a> [watsonx\_project\_name](#input\_watsonx\_project\_name) | Name of the watson project to create. | `string` | `"demo"` | no |
+| <a name="input_watsonx_project_tags"></a> [watsonx\_project\_tags](#input\_watsonx\_project\_tags) | Tags to attach to the watson project to create. | `list(string)` | <pre>[<br>  "watsonx-ai-SaaS"<br>]</pre> | no |
 
 ### Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_project_id"></a> [project\_id](#output\_project\_id) | ID of the created project |
-| <a name="output_project_location"></a> [project\_location](#output\_project\_location) | location of the created project |
-| <a name="output_project_url"></a> [project\_url](#output\_project\_url) | URL of the created project |
 | <a name="output_resource_group_id"></a> [resource\_group\_id](#output\_resource\_group\_id) | ID of the resource group used to provision the resources |
 | <a name="output_watson_governance_crn"></a> [watson\_governance\_crn](#output\_watson\_governance\_crn) | CRN of the Watson Governance instance |
 | <a name="output_watson_governance_dashboard_url"></a> [watson\_governance\_dashboard\_url](#output\_watson\_governance\_dashboard\_url) | Dashboard URL of the Watson Governance instance |
@@ -175,6 +172,9 @@ statement instead the previous block.
 | <a name="output_watsonx_discovery_guid"></a> [watsonx\_discovery\_guid](#output\_watsonx\_discovery\_guid) | GUID of the WatsonX Discovery instance |
 | <a name="output_watsonx_discovery_name"></a> [watsonx\_discovery\_name](#output\_watsonx\_discovery\_name) | Name of the WatsonX Discovery instance |
 | <a name="output_watsonx_discovery_plan_id"></a> [watsonx\_discovery\_plan\_id](#output\_watsonx\_discovery\_plan\_id) | Plan ID of the WatsonX Discovery instance |
+| <a name="output_watsonx_project_id"></a> [watsonx\_project\_id](#output\_watsonx\_project\_id) | ID of the created watsonx project |
+| <a name="output_watsonx_project_location"></a> [watsonx\_project\_location](#output\_watsonx\_project\_location) | location of the created watsonx project |
+| <a name="output_watsonx_project_url"></a> [watsonx\_project\_url](#output\_watsonx\_project\_url) | URL of the created project |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 <!-- Leave this section as is so that your module has a link to local development environment set up steps for contributors to follow -->

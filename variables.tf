@@ -119,7 +119,7 @@ variable "watson_governance_plan" {
   }
 }
 
-variable "project_name" {
+variable "watsonx_project_name" {
   description = "Name of the watson project."
   type        = string
   default     = "demo"

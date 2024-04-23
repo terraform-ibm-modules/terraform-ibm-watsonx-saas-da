@@ -16,5 +16,5 @@ module "watson_saas" {
   resource_prefix             = "example-basic-test"
   use_existing_resource_group = "false"
   resource_group_name         = local.unique_identifier
-  project_name                = "project-basic-test"
+  watsonx_project_name        = "project-basic-test"
 }
