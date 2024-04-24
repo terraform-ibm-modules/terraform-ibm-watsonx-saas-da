@@ -15,7 +15,7 @@
         "ai"
       ],
       "short_description": "Deploy watsonx.ai SaaS.",
-      "long_description": "Easily deploy and embed AI across your business, manage all data sources, and accelerate responsible AI workflows—all on one platform",
+      "long_description": "Easily deploy and embed AI across your business, manage all data sources, and accelerate responsible AI workflows on one platform.",
       "provider_name": "FinOps Team.",
       "offering_docs_url": "https://github.com/terraform-ibm-modules/terraform-ibm-watsonx-saas-da/blob/main/README.md",
       "support_details": "This is a proof of concept and no official support is given.",
@@ -34,7 +34,7 @@
         },
         {
           "title": "watson Machine Learning",
-          "description": "Deploy, manage and integrate machine learning models into your applications and services in as little as one click."
+          "description": "Deploy, manage, and integrate machine learning models into your applications and services in as little as one click."
         },
         {
           "title": "Watson Discovery",
@@ -42,7 +42,7 @@
         },
         {
           "title": "watsonx Governance",
-          "description": "IBM watsonx.governance™ helps you direct, manage and monitor your organization's AI activities."
+          "description": "IBM watsonx.governance™ helps you direct, manage, and monitor your organization's AI activities."
         }
       ],
       "flavors": [
@@ -277,123 +277,123 @@
           "outputs": [
             {
               "key": "watson_platform_endpoint",
-              "description": "Endpoint of the Watson platform"
+              "description": "Endpoint of the Watson platform."
             },
             {
               "key": "watsonx_assistant_crn",
-              "description": "ID of the WatsonX Assistant instance"
+              "description": "ID of the WatsonX Assistant instance."
             },
             {
               "key": "watsonx_assistant_guid",
-              "description": "ID of the WatsonX Assistant instance"
+              "description": "ID of the WatsonX Assistant instance."
             },
             {
               "key": "watsonx_assistant_name",
-              "description": "ID of the WatsonX Assistant instance"
+              "description": "ID of the WatsonX Assistant instance."
             },
             {
               "key": "watsonx_assistant_plan_id",
-              "description": "ID of the WatsonX Assistant instance"
+              "description": "ID of the WatsonX Assistant instance."
             },
             {
               "key": "watsonx_assistant_dashboard_url",
-              "description": "Dashboard URL of the WatsonX Assistant instance"
+              "description": "Dashboard URL of the WatsonX Assistant instance."
             },
             {
               "key": "watsonx_discovery_crn",
-              "description": "ID of the WatsonX Discovery instance"
+              "description": "ID of the WatsonX Discovery instance."
             },
             {
               "key": "watsonx_discovery_guid",
-              "description": "ID of the WatsonX Discovery instance"
+              "description": "ID of the WatsonX Discovery instance."
             },
             {
               "key": "watsonx_discovery_name",
-              "description": "ID of the WatsonX Discovery instance"
+              "description": "ID of the WatsonX Discovery instance."
             },
             {
               "key": "watsonx_discovery_plan_id",
-              "description": "ID of the WatsonX Discovery instance"
+              "description": "ID of the WatsonX Discovery instance."
             },
             {
               "key": "watsonx_discovery_dashboard_url",
-              "description": "Dashboard URL of the WatsonX Discovery instance"
+              "description": "Dashboard URL of the WatsonX Discovery instance."
             },
             {
               "key": "watson_machine_learning_crn",
-              "description": "ID of the Watson Machine Learning instance"
+              "description": "ID of the Watson Machine Learning instance."
             },
             {
               "key": "watson_machine_learning_guid",
-              "description": "ID of the Watson Machine Learning instance"
+              "description": "ID of the Watson Machine Learning instance."
             },
             {
               "key": "watson_machine_learning_name",
-              "description": "ID of the Watson Machine Learning instance"
+              "description": "ID of the Watson Machine Learning instance."
             },
             {
               "key": "watson_machine_learning_plan_id",
-              "description": "ID of the Watson Machine Learning instance"
+              "description": "ID of the Watson Machine Learning instance."
             },
             {
               "key": "watson_machine_learning_dashboard_url",
-              "description": "Dashboard URL of the Watson Machine Learning instance"
+              "description": "Dashboard URL of the Watson Machine Learning instance."
             },
             {
               "key": "watson_studio_crn",
-              "description": "ID of the Watson Studio instance"
+              "description": "ID of the Watson Studio instance."
             },
             {
               "key": "watson_studio_guid",
-              "description": "ID of the Watson Studio instance"
+              "description": "ID of the Watson Studio instance."
             },
             {
               "key": "watson_studio_name",
-              "description": "ID of the Watson Studio instance"
+              "description": "ID of the Watson Studio instance."
             },
             {
               "key": "watson_studio_plan_id",
-              "description": "ID of the Watson Studio instance"
+              "description": "ID of the Watson Studio instance."
             },
             {
               "key": "watson_studio_dashboard_url",
-              "description": "Dashboard URL of the Watson Studio instance"
+              "description": "Dashboard URL of the Watson Studio instance."
             },
             {
               "key": "watson_governance_crn",
-              "description": "ID of the Watson Governance instance"
+              "description": "ID of the Watson Governance instance."
             },
             {
               "key": "watson_governance_guid",
-              "description": "ID of the Watson Governance instance"
+              "description": "ID of the Watson Governance instance."
             },
             {
               "key": "watson_governance_name",
-              "description": "ID of the Watson Governance instance"
+              "description": "ID of the Watson Governance instance."
             },
             {
               "key": "watson_governance_plan_id",
-              "description": "ID of the Watson Governance instance"
+              "description": "ID of the Watson Governance instance."
             },
             {
               "key": "watson_governance_dashboard_url",
-              "description": "Dashboard URL of the Watson Governance instance"
+              "description": "Dashboard URL of the Watson Governance instance."
             },
             {
               "key": "watsonx_project_id",
-              "description": "ID of the Watson project to create"
+              "description": "ID of the Watson project."
             },
             {
               "key": "watsonx_project_location",
-              "description": "Location of the Watson project to create"
+              "description": "Location of the Watson project."
             },
             {
               "key": "watsonx_project_url",
-              "description": "URL of the Watson project to create"
+              "description": "URL of the Watson project."
             },
             {
               "key": "resource_group_id",
-              "description": "ID of the resource group used to provision the resources"
+              "description": "Resource group ID that's used to provision the resources."
             }
           ]
         }
