@@ -9,6 +9,12 @@ variable "watsonx_project_name" {
   type        = string
 }
 
+variable "watsonx_project_name_suffix" {
+  description = "(Optional) The suffix attached to the newly provisioned watson project name."
+  type        = string
+  default     = null
+}
+
 variable "cos_guid" {
   description = "GUID of the COS instance"
   type        = string

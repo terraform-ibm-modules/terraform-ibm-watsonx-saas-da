@@ -13,7 +13,7 @@ resource "restapi_object" "configure_project" {
   destroy_path   = "//api.dataplatform.cloud.ibm.com/transactional{id}"
   data           = <<-EOT
                   {
-                    "name": "${var.watsonx_project_name}",
+                    "name": "${local.watsonx_project_name}",
                     "generator": "watsonx-saas-da",
                     "type": "wx",
                     "storage": {
@@ -38,7 +38,7 @@ resource "restapi_object" "configure_project" {
   update_path    = "//api.dataplatform.cloud.ibm.com{id}"
   update_data    = <<-EOT
                   {
-                    "name": "${var.watsonx_project_name}",
+                    "name": "${local.watsonx_project_name}",
                     "type": "wx",
                     "description": "${var.watsonx_project_description}",
                     "public": true,
@@ -56,6 +56,7 @@ resource "restapi_object" "configure_project" {
 }
 
 locals {
+  watsonx_project_name      = var.watsonx_project_name_suffix != null ? "${var.watsonx_project_name}-${var.watsonx_project_name_suffix}" : var.watsonx_project_name
   watsonx_project_id_object = restapi_object.configure_project[0].id
   watsonx_project_id        = regex("^.+/([a-f0-9\\-]+)$", local.watsonx_project_id_object)[0]
 }
