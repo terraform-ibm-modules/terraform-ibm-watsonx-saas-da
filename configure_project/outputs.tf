@@ -9,5 +9,5 @@ output "project_location" {
 }
 
 output "crn" {
-  value = restapi_object.configure_project[0].crn
+  value = restapi_object.configure_project[0]
 }
