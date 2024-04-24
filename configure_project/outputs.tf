@@ -7,3 +7,7 @@ output "project_location" {
   value       = resource.restapi_object.configure_project[0].id
   description = "Location of the created project"
 }
+
+output "crn" {
+  value = restapi_object.configure_project[0].crn
+}
