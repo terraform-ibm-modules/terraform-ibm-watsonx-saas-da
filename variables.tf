@@ -125,13 +125,13 @@ variable "watsonx_project_name" {
   default     = "demo"
 }
 
-variable "project_description" {
+variable "watsonx_project_description" {
   description = "Description of the watson project."
   type        = string
   default     = "Watson Project created via watsonx-ai SaaS DA"
 }
 
-variable "project_tags" {
+variable "watsonx_project_tags" {
   description = "Tags to attach to the watson project."
   type        = list(string)
   default     = ["watsonx-ai-SaaS"]
