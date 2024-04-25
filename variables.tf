@@ -45,7 +45,7 @@ variable "resource_prefix" {
 
 variable "cos_plan" {
   default     = "standard"
-  description = "The resource plan that's used to provision the Cloud Object Storage instance."
+  description = "The plan that's used to provision the Cloud Object Storage instance."
   type        = string
   validation {
     condition     = contains(["standard"], var.cos_plan)
@@ -55,7 +55,7 @@ variable "cos_plan" {
 
 variable "watson_machine_learning_plan" {
   default     = "v2-standard"
-  description = "The resource plan that's used to provision the Watson Machine Learning instance. "
+  description = "The plan that's used to provision the Watson Machine Learning instance."
   type        = string
   validation {
     condition     = contains(["lite", "v2-professional", "v2-standard"], var.watson_machine_learning_plan)
@@ -65,7 +65,7 @@ variable "watson_machine_learning_plan" {
 
 variable "watson_studio_plan" {
   default     = "professional-v1"
-  description = "The resource plan that's used to provision the Watson Studio instance."
+  description = "The plan that's used to provision the Watson Studio instance. The plan you choose for Watson Studio affects the features and capabilities that you can use."
   type        = string
   validation {
     condition     = contains(["free-v1", "professional-v1"], var.watson_studio_plan)
@@ -75,7 +75,7 @@ variable "watson_studio_plan" {
 
 variable "watson_discovery_plan" {
   default     = "do not install"
-  description = "The resource plan that's used to provision the Watson Discovery instance."
+  description = "The plan that's used to provision the Watson Discovery instance."
   type        = string
   validation {
     condition = anytrue([
@@ -90,7 +90,7 @@ variable "watson_discovery_plan" {
 
 variable "watson_assistant_plan" {
   default     = "do not install"
-  description = "The resource plan that's used to provision the watsonx Assistance instance."
+  description = "The plan that's used to provision the watsonx Assistance instance."
   type        = string
   validation {
     condition = anytrue([
@@ -107,7 +107,7 @@ variable "watson_assistant_plan" {
 
 variable "watson_governance_plan" {
   default     = "do not install"
-  description = "Resource plan used to provision the watsonx Governance instance. The available plans depend on the region where you are provisioning the service from the IBM Cloud catalog."
+  description = "The plan used to provision the watsonx Governance instance. The available plans depend on the region where you are provisioning the service from the IBM Cloud catalog."
   type        = string
   validation {
     condition = anytrue([
