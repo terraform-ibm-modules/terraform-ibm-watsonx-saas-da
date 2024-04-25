@@ -125,12 +125,6 @@ variable "watsonx_project_name" {
   default     = "demo"
 }
 
-variable "add_watsonx_project_name_suffix" {
-  type        = bool
-  description = "Add random generated suffix (4 characters long) to the newly provisioned watson project name (Optional)."
-  default     = true
-}
-
 variable "watsonx_project_description" {
   description = "Description of the watson project."
   type        = string

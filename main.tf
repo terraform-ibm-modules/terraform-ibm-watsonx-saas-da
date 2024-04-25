@@ -92,19 +92,10 @@ module "configure_user" {
   resource_group_id     = module.resource_group.resource_group_id
 }
 
-# Create random string which is added to watsonx project name as a suffix
-resource "random_string" "project_name_suffix" {
-  count   = var.add_watsonx_project_name_suffix ? 1 : 0
-  length  = 4
-  special = false
-  upper   = false
-}
-
 module "configure_project" {
   source                      = "./configure_project"
   watsonx_admin_api_key       = var.watsonx_admin_api_key == null || var.watsonx_admin_api_key == "" ? var.ibmcloud_api_key : var.watsonx_admin_api_key
-  watsonx_project_name        = var.watsonx_project_name
-  watsonx_project_name_suffix = random_string.project_name_suffix[0].result
+  watsonx_project_name        = var.watsonx_project_name != null ? "${var.resource_prefix}-${var.watsonx_project_name}" : var.watsonx_project_name
   watsonx_project_description = var.watsonx_project_description
   watsonx_project_tags        = var.watsonx_project_tags
   machine_learning_guid       = ibm_resource_instance.machine_learning_instance.guid
