@@ -13,7 +13,7 @@ variable "watsonx_admin_api_key" {
 
 variable "location" {
   default     = "us-south"
-  description = "The location that's used with the IBM Cloud Terraform and IBM provider as well as during resource creation."
+  description = "The location that's used with the IBM Cloud Terraform and IBM provider. It's also used during resource creation."
   type        = string
   validation {
     condition     = contains(["eu-de", "us-south"], var.location)
@@ -29,7 +29,7 @@ variable "use_existing_resource_group" {
 
 variable "resource_group_name" {
   type        = string
-  description = "The name of a new or an existing resource group where resources are created."
+  description = "The name of a new or an existing resource group where the resources are created."
 }
 
 variable "resource_prefix" {
@@ -59,17 +59,17 @@ variable "watson_machine_learning_plan" {
   type        = string
   validation {
     condition     = contains(["lite", "v2-professional", "v2-standard"], var.watson_machine_learning_plan)
-    error_message = "The plan must be lite, v2-professional, or v2-standard. For more information about plans, see link."
+    error_message = "The plan must be lite, v2-professional, or v2-standard. Learn more."
   }
 }
 
 variable "watson_studio_plan" {
   default     = "professional-v1"
-  description = "Resource plan used to provision the Watson Studio instance."
+  description = "The resource plan that's used to provision the Watson Studio instance."
   type        = string
   validation {
     condition     = contains(["free-v1", "professional-v1"], var.watson_studio_plan)
-    error_message = "You must use a free-v1 or professional-v1 plan. For more information about plans, see link."
+    error_message = "You must use a free-v1 or professional-v1 plan. Learn more."
   }
 }
 
@@ -84,7 +84,7 @@ variable "watson_discovery_plan" {
       var.watson_discovery_plan == "enterprise",
       var.watson_discovery_plan == "premium",
     ])
-    error_message = "You must use a plus, enterprise, or premium plan. For more information about the types of plans, see link."
+    error_message = "You must use a plus, enterprise, or premium plan. Learn more."
   }
 }
 
@@ -101,7 +101,7 @@ variable "watson_assistant_plan" {
       var.watson_assistant_plan == "enterprise",
       var.watson_assistant_plan == "enterprisedataisolation",
     ])
-    error_message = "You must use a free, trial, plus-trial, enterprise, or enterprisedataisolation plan. For more information about plans, see link."
+    error_message = "You must use a free, trial, plus-trial, enterprise, or enterprisedataisolation plan. Learn more."
   }
 }
 
@@ -115,7 +115,7 @@ variable "watson_governance_plan" {
       var.watson_governance_plan == "lite",
       var.watson_governance_plan == "essentials",
     ])
-    error_message = "You must use a lite or essential plan. For more information about available plans, see https://dataplatform.cloud.ibm.com/docs/content/wsj/model/wos-plan-options.html?context=wx&audience=wdp."
+    error_message = "You must use a lite or essential plan. Learn more. "
   }
 }
 
@@ -132,7 +132,7 @@ variable "watsonx_project_description" {
 }
 
 variable "watsonx_project_tags" {
-  description = "A list of tags to attach to the watsonx project to help find it in watsonx."
+  description = "A list of tags to attach to the watsonx project to help find it in watsonx. Learn more."
   type        = list(string)
   default     = ["watsonx-ai-SaaS"]
 }
