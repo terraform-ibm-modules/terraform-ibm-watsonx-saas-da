@@ -1,5 +1,5 @@
 variable "watsonx_admin_api_key" {
-  description = "Used to call Watson APIs to configure the user and the project"
+  description = "The Watson API key needed to call Watson APIs for configuring users."
   sensitive   = true
   type        = string
 }
