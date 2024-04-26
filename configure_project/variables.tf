@@ -18,7 +18,7 @@ variable "watsonx_project_description" {
 }
 
 variable "watsonx_project_tags" {
-  description = "This defines the tags associated with the Watson project."
+  description = "A list of tags associated with the watsonx project. Learn more."
   type        = list(string)
 }
 
@@ -27,12 +27,12 @@ variable "watsonx_project_tags" {
 ############################################################
 
 variable "cos_guid" {
-  description = "The cos guid is the globally unique identifier for the Cloud Object Storage instance."
+  description = "This GUID is the globally unique identifier for the Cloud Object Storage instance."
   type        = string
 }
 
 variable "cos_crn" {
-  description = "This is to identify the unique Cloud Object Storage (COS) instance CRN."
+  description = "This is used to identify the unique Cloud Object Storage instance CRN."
   type        = string
 }
 
@@ -41,16 +41,16 @@ variable "cos_crn" {
 ############################################################
 
 variable "machine_learning_guid" {
-  description = "GUID of the ML instance"
+  description = "This GUID is the globally unique identifier for the machine learning instance."
   type        = string
 }
 
 variable "machine_learning_crn" {
-  description = "CRN of the ML instance"
+  description = "This is used to identify the unique machine learning instance CRN.
   type        = string
 }
 
 variable "machine_learning_name" {
-  description = "Name of the ML instance"
+  description = "The name of the machine learning instance, which is a unique identifier for the instance."
   type        = string
 }
