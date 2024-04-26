@@ -132,7 +132,7 @@ variable "watsonx_project_description" {
 }
 
 variable "watsonx_project_tags" {
-  description = "A list of tags to attach to the watsonx project to help find it in watsonx. Learn more."
+  description = "A list of tags associated with the watsonx project. Learn more."
   type        = list(string)
   default     = ["watsonx-ai-SaaS"]
 }
