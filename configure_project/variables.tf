@@ -9,16 +9,16 @@ variable "watsonx_admin_api_key" {
 }
 
 variable "watsonx_project_name" {
-  description = "The name of the Watson project, which serves as a unique identifier for the project."
+  description = "The name of the watsonx project, which serves as a unique identifier for the project."
   type        = string
 }
 variable "watsonx_project_description" {
-  description = "This provides a simple overview of the Watson project."
+  description = "This provides a short summary of the watsonx project, explaining its purpose or goals briefly."
   type        = string
 }
 
 variable "watsonx_project_tags" {
-  description = "A list of tags associated with the watsonx project. Learn more."
+  description = "A list of tags associated with the watsonx project. Each tag consists of a single string containing up to 255 characters. These tags can include spaces, letters, numbers, underscores, dashes, as well as the symbols # and @."
   type        = list(string)
 }
 
@@ -46,7 +46,7 @@ variable "machine_learning_guid" {
 }
 
 variable "machine_learning_crn" {
-  description = "This is used to identify the unique machine learning instance CRN.
+  description = "This is used to identify the unique machine learning instance CRN."
   type        = string
 }
 
