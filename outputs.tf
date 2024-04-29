@@ -1,5 +1,5 @@
 output "watson_platform_endpoint" {
-  description = "The endpoint of the Watson platform."
+  description = "The endpoint of the watsonx platform."
   value       = "https://dataplatform.cloud.ibm.com/wx/home?context=wx"
 }
 
