@@ -132,7 +132,7 @@ variable "watsonx_project_description" {
 }
 
 variable "watsonx_project_tags" {
-  description = "A list of tags associated with the watsonx project. Learn more."
+  description = "A list of tags associated with the watsonx project. Each tag consists of a single string containing up to 255 characters. These tags can include spaces, letters, numbers, underscores, dashes, as well as the symbols # and @."
   type        = list(string)
   default     = ["watsonx-ai-SaaS"]
 }
