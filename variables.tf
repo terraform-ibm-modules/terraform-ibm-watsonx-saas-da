@@ -1,19 +1,19 @@
 variable "ibmcloud_api_key" {
-  description = "The API key that's used with the IBM Cloud Terraform and IBM provider."
+  description = "The API key that's used with the IBM Cloud Terraform IBM provider."
   sensitive   = true
   type        = string
 }
 
 variable "watsonx_admin_api_key" {
   default     = null
-  description = "The API key that's used to call Watson APIs to configure the user and the project."
+  description = "The API key of the IBM watsonx administrator in the target account. The API key is used to configure the user and the project."
   sensitive   = true
   type        = string
 }
 
 variable "location" {
   default     = "us-south"
-  description = "The location that's used with the IBM Cloud Terraform and IBM provider. It's also used during resource creation."
+  description = "The location that's used with the IBM Cloud Terraform IBM provider. It's also used during resource creation."
   type        = string
   validation {
     condition     = contains(["eu-de", "us-south"], var.location)
