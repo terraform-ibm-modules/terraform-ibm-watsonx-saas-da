@@ -95,7 +95,7 @@ module "configure_user" {
 module "configure_project" {
   source                      = "./configure_project"
   watsonx_admin_api_key       = var.watsonx_admin_api_key == null || var.watsonx_admin_api_key == "" ? var.ibmcloud_api_key : var.watsonx_admin_api_key
-  watsonx_project_name        = var.watsonx_project_name
+  watsonx_project_name        = var.watsonx_project_name != null ? "${var.resource_prefix}-${var.watsonx_project_name}" : var.watsonx_project_name
   watsonx_project_description = var.watsonx_project_description
   watsonx_project_tags        = var.watsonx_project_tags
   machine_learning_guid       = ibm_resource_instance.machine_learning_instance.guid
