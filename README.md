@@ -126,8 +126,8 @@ statement instead the previous block.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_cos_plan"></a> [cos\_plan](#input\_cos\_plan) | The plan that's used to provision the Cloud Object Storage instance. | `string` | `"standard"` | no |
-| <a name="input_ibmcloud_api_key"></a> [ibmcloud\_api\_key](#input\_ibmcloud\_api\_key) | The API key that's used with the IBM Cloud Terraform and IBM provider. | `string` | n/a | yes |
-| <a name="input_location"></a> [location](#input\_location) | The location that's used with the IBM Cloud Terraform and IBM provider. It's also used during resource creation. | `string` | `"us-south"` | no |
+| <a name="input_ibmcloud_api_key"></a> [ibmcloud\_api\_key](#input\_ibmcloud\_api\_key) | The API key that's used with the IBM Cloud Terraform IBM provider. | `string` | n/a | yes |
+| <a name="input_location"></a> [location](#input\_location) | The location that's used with the IBM Cloud Terraform IBM provider. It's also used during resource creation. | `string` | `"us-south"` | no |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | The name of a new or an existing resource group where the resources are created. | `string` | n/a | yes |
 | <a name="input_resource_prefix"></a> [resource\_prefix](#input\_resource\_prefix) | The name to be used on all Watson resources as a prefix. | `string` | `"watsonx-poc"` | no |
 | <a name="input_use_existing_resource_group"></a> [use\_existing\_resource\_group](#input\_use\_existing\_resource\_group) | Determines whether to use an existing resource group. | `bool` | `false` | no |
@@ -136,7 +136,7 @@ statement instead the previous block.
 | <a name="input_watson_governance_plan"></a> [watson\_governance\_plan](#input\_watson\_governance\_plan) | The plan used to provision the watsonx Governance instance. The available plans depend on the region where you are provisioning the service from the IBM Cloud catalog. | `string` | `"do not install"` | no |
 | <a name="input_watson_machine_learning_plan"></a> [watson\_machine\_learning\_plan](#input\_watson\_machine\_learning\_plan) | The plan that's used to provision the Watson Machine Learning instance. | `string` | `"v2-standard"` | no |
 | <a name="input_watson_studio_plan"></a> [watson\_studio\_plan](#input\_watson\_studio\_plan) | The plan that's used to provision the Watson Studio instance. The plan you choose for Watson Studio affects the features and capabilities that you can use. | `string` | `"professional-v1"` | no |
-| <a name="input_watsonx_admin_api_key"></a> [watsonx\_admin\_api\_key](#input\_watsonx\_admin\_api\_key) | The API key that's used to call Watson APIs to configure the user and the project. | `string` | `null` | no |
+| <a name="input_watsonx_admin_api_key"></a> [watsonx\_admin\_api\_key](#input\_watsonx\_admin\_api\_key) | The API key of the IBM watsonx administrator in the target account. The API key is used to configure the user and the project. | `string` | `null` | no |
 | <a name="input_watsonx_project_description"></a> [watsonx\_project\_description](#input\_watsonx\_project\_description) | A description of the watson project that's created by the WatsonX.ai SaaS Deployable Architecture. | `string` | `"Watson project created by the watsonx-ai SaaS deployable architecture."` | no |
 | <a name="input_watsonx_project_name"></a> [watsonx\_project\_name](#input\_watsonx\_project\_name) | The name of the watson project. | `string` | `"demo"` | no |
 | <a name="input_watsonx_project_tags"></a> [watsonx\_project\_tags](#input\_watsonx\_project\_tags) | A list of tags associated with the watsonx project. Each tag consists of a single string containing up to 255 characters. These tags can include spaces, letters, numbers, underscores, dashes, as well as the symbols # and @. | `list(string)` | <pre>[<br>  "watsonx-ai-SaaS"<br>]</pre> | no |
@@ -156,7 +156,7 @@ statement instead the previous block.
 | <a name="output_watson_machine_learning_guid"></a> [watson\_machine\_learning\_guid](#output\_watson\_machine\_learning\_guid) | The GUID of the Watson Machine Learning instance. |
 | <a name="output_watson_machine_learning_name"></a> [watson\_machine\_learning\_name](#output\_watson\_machine\_learning\_name) | The name of the Watson Machine Learning instance. |
 | <a name="output_watson_machine_learning_plan_id"></a> [watson\_machine\_learning\_plan\_id](#output\_watson\_machine\_learning\_plan\_id) | The plan ID of the Watson Machine Learning instance. |
-| <a name="output_watson_platform_endpoint"></a> [watson\_platform\_endpoint](#output\_watson\_platform\_endpoint) | The endpoint of the Watson platform. |
+| <a name="output_watson_platform_endpoint"></a> [watson\_platform\_endpoint](#output\_watson\_platform\_endpoint) | The endpoint of the watsonx platform. |
 | <a name="output_watson_studio_crn"></a> [watson\_studio\_crn](#output\_watson\_studio\_crn) | The CRN of the Watson Studio instance. |
 | <a name="output_watson_studio_dashboard_url"></a> [watson\_studio\_dashboard\_url](#output\_watson\_studio\_dashboard\_url) | The dashboard URL of the Watson Studio instance. |
 | <a name="output_watson_studio_guid"></a> [watson\_studio\_guid](#output\_watson\_studio\_guid) | The GUID of the Watson Studio instance. |
