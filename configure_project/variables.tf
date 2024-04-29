@@ -1,45 +1,56 @@
+############################################################
+# Watson variables
+############################################################
+
 variable "watsonx_admin_api_key" {
-  description = "Used to call Watson APIs to configure the user and the project"
+  description = "The Watson API key that's needed to call Watson APIs for configuring projects."
   sensitive   = true
   type        = string
 }
 
 variable "watsonx_project_name" {
-  description = "Name of the Watson project to create"
+  description = "The name of the watsonx project, which serves as a unique identifier for the project."
   type        = string
 }
-
-variable "cos_guid" {
-  description = "GUID of the COS instance"
-  type        = string
-}
-
-variable "cos_crn" {
-  description = "CRN of the COS instance"
-  type        = string
-}
-
 variable "watsonx_project_description" {
-  description = "Description of the Watson project to create"
+  description = "This provides a short summary of the watsonx project, explaining its purpose or goals briefly."
   type        = string
 }
 
 variable "watsonx_project_tags" {
-  description = "Tags of the Watson project to create"
+  description = "A list of tags associated with the watsonx project. Each tag consists of a single string containing up to 255 characters. These tags can include spaces, letters, numbers, underscores, dashes, as well as the symbols # and @."
   type        = list(string)
 }
 
+############################################################
+# COS variables
+############################################################
+
+variable "cos_guid" {
+  description = "This GUID is the globally unique identifier for the Cloud Object Storage instance."
+  type        = string
+}
+
+variable "cos_crn" {
+  description = "This is used to identify the unique Cloud Object Storage instance CRN."
+  type        = string
+}
+
+############################################################
+# Machine Learning variables
+############################################################
+
 variable "machine_learning_guid" {
-  description = "GUID of the ML instance"
+  description = "This GUID is the globally unique identifier for the machine learning instance."
   type        = string
 }
 
 variable "machine_learning_crn" {
-  description = "CRN of the ML instance"
+  description = "This is used to identify the unique machine learning instance CRN."
   type        = string
 }
 
 variable "machine_learning_name" {
-  description = "Name of the ML instance"
+  description = "The name of the machine learning instance, which is a unique identifier for the instance."
   type        = string
 }
