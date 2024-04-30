@@ -68,7 +68,7 @@ https://test.cloud.ibm.com/docs/solution-as-code?topic=solution-as-code-naming-g
 -->
 
 # Watsonx AI SaaS Automation with Assistant and Governance
-{: #watsonx-ai}
+{: #watsonx-ai-reference-architecture}
 {: toc-content-type="reference-architecture"}
 {: toc-industry="Banking,FinancialSector,ITConsulting,Technology,Telecommunications"}
 {: toc-use-case="AIAndML"}
@@ -83,7 +83,7 @@ the toc attributes on the H1, repeating the values from the YAML header.
 The Watsonx AI SaaS deployable architecture is designed to automate the deployment and configuration of the {{site.data.keyword.IBM_notm}} watsonx platform in an {{site.data.keyword.Bluemix_notm}} account. The {{site.data.keyword.IBM_notm}} watsonx platform is made up of several services working together to offer AI capabilities to end users who can explore them using [{{site.data.keyword.IBM_notm}} watsonx projects](https://dataplatform.cloud.ibm.com/docs/content/wsj/manage-data/manage-projects.html?context=wx&audience=wdp). The automation also configures a {{site.data.keyword.IBM_notm}} watsonx starter project for an existing {{site.data.keyword.Bluemix_notm}} user.
 
 A typical use case is to establish a ready to use {{site.data.keyword.IBM_notm}} watsonx platform in an Enterprise account by granting administrator access
-to an AI Researcher. It enables an administrator to automatically install all of the services that the {{site.data.keyword.IBM_notm}} watsonx platform is comprised of, as well as the setup of a starter {{site.data.keyworkd.IBM_notm}} watsonx project, allowing an AI Researcher to login to the [platform](http://dataplatform.cloud.ibm.com/wx/home?context=wx) and begin working immediately. For more information, see  [overview of {{site.data.keyword.IBM_notm}} watsonx](https://dataplatform.cloud.ibm.com/docs/content/wsj/getting-started/overview-wx.html?context=wx&audience=wdp).
+to an AI Researcher. It enables an administrator to automatically install all of the services that the {{site.data.keyword.IBM_notm}} watsonx platform is comprised of, as well as the setup of a starter {{site.data.keyworkd.IBM_notm}} watsonx project, allowing an AI Researcher to login to the [platform](http://dataplatform.cloud.ibm.com/wx/home?context=wx) and begin working immediately. For more information, see  [overview of IBM Cloud watsonx](https://dataplatform.cloud.ibm.com/docs/content/wsj/getting-started/overview-wx.html?context=wx&audience=wdp).
 
 In more advanced use cases, the deployable architecture can be used as part of a larger solution, where it is included in a stack with other deployable architectures. For example, this deployable architecture can be used to first setup the {{site.data.keyword.IBM_notm}} watsonx platform as a foundation, and then another deployable architecture can install an "AI application" that uses the underlying services provisioned by the previous one. To facilitate those business challenges, the Watsonx AI SaaS deployable architecture provides output parameters that can be used programmatically for wiring it to the other components of the stack, and it provides the capability to install additional Watson services.
 
