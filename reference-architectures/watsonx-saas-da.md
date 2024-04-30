@@ -5,7 +5,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-04-11"
+lastupdated: "2024-04-29"
 
 keywords: # Not typically populated
 
@@ -68,12 +68,12 @@ https://test.cloud.ibm.com/docs/solution-as-code?topic=solution-as-code-naming-g
 -->
 
 # Watsonx AI SaaS Automation with Assistant and Governance
-{: #title-id}
+{: #watsonx-ai}
 {: toc-content-type="reference-architecture"}
-{: toc-industry="value"}
-{: toc-use-case="value"}
+{: toc-industry="Banking,FinancialSector,ITConsulting,Technology,Telecommunications"}
+{: toc-use-case="AIAndML"}
 {: toc-compliance="value"}
-{: toc-version="value"}
+{: toc-version="0.2.0"}
 
 <!--
 The IDs, such as {: #title-id} are required for publishing this reference architecture in IBM Cloud Docs. Set unique IDs for each heading. Also include
