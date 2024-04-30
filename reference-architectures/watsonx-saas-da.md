@@ -68,7 +68,7 @@ https://test.cloud.ibm.com/docs/solution-as-code?topic=solution-as-code-naming-g
 -->
 
 # Watsonx AI SaaS Automation with Assistant and Governance
-{: #watson-ai-reference-architecture}
+{: #watsonx-ai-reference-architecture}
 {: toc-content-type="reference-architecture"}
 {: toc-industry="Banking,FinancialSector,ITConsulting,Technology,Telecommunications"}
 {: toc-use-case="AIAndML"}
