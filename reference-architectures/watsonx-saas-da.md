@@ -72,7 +72,7 @@ https://test.cloud.ibm.com/docs/solution-as-code?topic=solution-as-code-naming-g
 {: toc-content-type="reference-architecture"}
 {: toc-industry="Banking,FinancialSector,ITConsulting,Technology,Telecommunications"}
 {: toc-use-case="AIAndML"}
-{: toc-compliance="value"}
+{: toc-compliance="FSCloud"}
 {: toc-version="0.2.0"}
 
 <!--
