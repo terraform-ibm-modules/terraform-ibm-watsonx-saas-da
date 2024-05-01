@@ -1,55 +1,55 @@
-output "watson_platform_endpoint" {
+output "watsonx_platform_endpoint" {
   description = "The endpoint of the watsonx platform."
   value       = "https://dataplatform.cloud.ibm.com/wx/home?context=wx"
 }
 
 output "watsonx_assistant_crn" {
-  description = "The CRN of the WatsonX Assistant instance."
-  value       = var.watson_assistant_plan != "do not install" ? ibm_resource_instance.assistant_instance[0].crn : null
+  description = "The CRN of the watsonx Assistant instance."
+  value       = var.watsonx_assistant_plan != "do not install" ? ibm_resource_instance.assistant_instance[0].crn : null
 }
 
 output "watsonx_assistant_guid" {
-  description = "The GUID of the WatsonX Assistant instance."
-  value       = var.watson_assistant_plan != "do not install" ? ibm_resource_instance.assistant_instance[0].guid : null
+  description = "The GUID of the watsonx Assistant instance."
+  value       = var.watsonx_assistant_plan != "do not install" ? ibm_resource_instance.assistant_instance[0].guid : null
 }
 
 output "watsonx_assistant_name" {
-  description = "The name of the WatsonX Assistant instance."
-  value       = var.watson_assistant_plan != "do not install" ? ibm_resource_instance.assistant_instance[0].resource_name : null
+  description = "The name of the watsonx Assistant instance."
+  value       = var.watsonx_assistant_plan != "do not install" ? ibm_resource_instance.assistant_instance[0].resource_name : null
 }
 
 output "watsonx_assistant_plan_id" {
-  description = "The plan ID of the WatsonX Assistant instance."
-  value       = var.watson_assistant_plan != "do not install" ? ibm_resource_instance.assistant_instance[0].resource_plan_id : null
+  description = "The plan ID of the watsonx Assistant instance."
+  value       = var.watsonx_assistant_plan != "do not install" ? ibm_resource_instance.assistant_instance[0].resource_plan_id : null
 }
 
 output "watsonx_assistant_dashboard_url" {
-  description = "The dashboard URL of the WatsonX Assistant instance."
-  value       = var.watson_assistant_plan != "do not install" ? ibm_resource_instance.assistant_instance[0].dashboard_url : null
+  description = "The dashboard URL of the watsonx Assistant instance."
+  value       = var.watsonx_assistant_plan != "do not install" ? ibm_resource_instance.assistant_instance[0].dashboard_url : null
 }
 
-output "watsonx_discovery_crn" {
-  description = "The CRN of the WatsonX Discovery instance."
+output "watson_discovery_crn" {
+  description = "The CRN of the Watson Discovery instance."
   value       = var.watson_discovery_plan != "do not install" ? ibm_resource_instance.discovery_instance[0].crn : null
 }
 
-output "watsonx_discovery_guid" {
-  description = "The GUID of the WatsonX Discovery instance."
+output "watson_discovery_guid" {
+  description = "The GUID of the Watson Discovery instance."
   value       = var.watson_discovery_plan != "do not install" ? ibm_resource_instance.discovery_instance[0].guid : null
 }
 
-output "watsonx_discovery_name" {
-  description = "The name of the WatsonX Discovery instance."
+output "watson_discovery_name" {
+  description = "The name of the Watson Discovery instance."
   value       = var.watson_discovery_plan != "do not install" ? ibm_resource_instance.discovery_instance[0].resource_name : null
 }
 
-output "watsonx_discovery_plan_id" {
-  description = "The plan ID of the WatsonX Discovery instance."
+output "watson_discovery_plan_id" {
+  description = "The plan ID of the Watson Discovery instance."
   value       = var.watson_discovery_plan != "do not install" ? ibm_resource_instance.discovery_instance[0].resource_plan_id : null
 }
 
-output "watsonx_discovery_dashboard_url" {
-  description = "The dashboard URL of the WatsonX Discovery instance."
+output "watson_discovery_dashboard_url" {
+  description = "The dashboard URL of the Watson Discovery instance."
   value       = var.watson_discovery_plan != "do not install" ? ibm_resource_instance.discovery_instance[0].dashboard_url : null
 }
 
@@ -103,29 +103,29 @@ output "watson_studio_dashboard_url" {
   value       = ibm_resource_instance.studio_instance.dashboard_url
 }
 
-output "watson_governance_crn" {
-  description = "The CRN of the Watson Governance instance."
-  value       = var.watson_governance_plan != "do not install" ? ibm_resource_instance.governance_instance[0].crn : null
+output "watsonx_governance_crn" {
+  description = "The CRN of the watsonx.governance instance."
+  value       = var.watsonx_governance_plan != "do not install" ? ibm_resource_instance.governance_instance[0].crn : null
 }
 
-output "watson_governance_guid" {
-  description = "The GUID of the Watson Governance instance."
-  value       = var.watson_governance_plan != "do not install" ? ibm_resource_instance.governance_instance[0].guid : null
+output "watsonx_governance_guid" {
+  description = "The GUID of the watsonx.governance instance."
+  value       = var.watsonx_governance_plan != "do not install" ? ibm_resource_instance.governance_instance[0].guid : null
 }
 
-output "watson_governance_name" {
-  description = "The name of the Watson Governance instance."
-  value       = var.watson_governance_plan != "do not install" ? ibm_resource_instance.governance_instance[0].resource_name : null
+output "watsonx_governance_name" {
+  description = "The name of the watsonx.governance instance."
+  value       = var.watsonx_governance_plan != "do not install" ? ibm_resource_instance.governance_instance[0].resource_name : null
 }
 
-output "watson_governance_plan_id" {
-  description = "The plan ID of the Watson Governance instance."
-  value       = var.watson_governance_plan != "do not install" ? ibm_resource_instance.governance_instance[0].resource_plan_id : null
+output "watsonx_governance_plan_id" {
+  description = "The plan ID of the watsonx.governance instance."
+  value       = var.watsonx_governance_plan != "do not install" ? ibm_resource_instance.governance_instance[0].resource_plan_id : null
 }
 
-output "watson_governance_dashboard_url" {
-  description = "The dashboard URL of the Watson Governance instance."
-  value       = var.watson_governance_plan != "do not install" ? ibm_resource_instance.governance_instance[0].dashboard_url : null
+output "watsonx_governance_dashboard_url" {
+  description = "The dashboard URL of the watsonx.governance instance."
+  value       = var.watsonx_governance_plan != "do not install" ? ibm_resource_instance.governance_instance[0].dashboard_url : null
 }
 
 output "watsonx_project_id" {

@@ -10,7 +10,7 @@ resource "random_string" "unique_identifier" {
 }
 
 
-module "watson_saas" {
+module "watsonx_saas" {
   source                      = "../.."
   ibmcloud_api_key            = var.ibmcloud_api_key
   watsonx_admin_api_key       = var.watsonx_admin_api_key
@@ -19,7 +19,7 @@ module "watson_saas" {
   resource_prefix             = "example-complete-test"
   watsonx_project_name        = "project-complete-test"
   watson_discovery_plan       = "plus"
-  watson_assistant_plan       = "plus"
-  watson_governance_plan      = "essentials"
+  watsonx_assistant_plan      = "plus"
+  watsonx_governance_plan     = "essentials"
   location                    = "us-south"
 }

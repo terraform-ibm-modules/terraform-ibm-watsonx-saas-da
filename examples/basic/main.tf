@@ -10,7 +10,7 @@ resource "random_string" "unique_identifier" {
 }
 
 
-module "watson_saas" {
+module "watsonx_saas" {
   source                      = "../.."
   ibmcloud_api_key            = var.ibmcloud_api_key
   resource_prefix             = "example-basic-test"
