@@ -88,32 +88,32 @@ variable "watson_discovery_plan" {
   }
 }
 
-variable "watson_assistant_plan" {
+variable "watsonx_assistant_plan" {
   default     = "do not install"
   description = "The plan that's used to provision the watsonx Assistance instance."
   type        = string
   validation {
     condition = anytrue([
-      var.watson_assistant_plan == "do not install",
-      var.watson_assistant_plan == "free",
-      var.watson_assistant_plan == "plus-trial",
-      var.watson_assistant_plan == "plus",
-      var.watson_assistant_plan == "enterprise",
-      var.watson_assistant_plan == "enterprisedataisolation",
+      var.watsonx_assistant_plan == "do not install",
+      var.watsonx_assistant_plan == "free",
+      var.watsonx_assistant_plan == "plus-trial",
+      var.watsonx_assistant_plan == "plus",
+      var.watsonx_assistant_plan == "enterprise",
+      var.watsonx_assistant_plan == "enterprisedataisolation",
     ])
     error_message = "You must use a free, trial, plus-trial, enterprise, or enterprisedataisolation plan. Learn more."
   }
 }
 
-variable "watson_governance_plan" {
+variable "watsonx_governance_plan" {
   default     = "do not install"
-  description = "The plan used to provision the watsonx Governance instance. The available plans depend on the region where you are provisioning the service from the IBM Cloud catalog."
+  description = "The plan used to provision the watsonx.governance instance. The available plans depend on the region where you are provisioning the service from the IBM Cloud catalog."
   type        = string
   validation {
     condition = anytrue([
-      var.watson_governance_plan == "do not install",
-      var.watson_governance_plan == "lite",
-      var.watson_governance_plan == "essentials",
+      var.watsonx_governance_plan == "do not install",
+      var.watsonx_governance_plan == "lite",
+      var.watsonx_governance_plan == "essentials",
     ])
     error_message = "You must use a lite or essential plan. Learn more. "
   }

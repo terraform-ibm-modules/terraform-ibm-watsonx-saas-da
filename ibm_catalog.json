@@ -41,7 +41,7 @@
           "description": "Add a cognitive search and content analytics engine to applications."
         },
         {
-          "title": "watsonx Governance",
+          "title": "watsonx.governance",
           "description": "IBM watsonx.governance™ helps you direct, manage, and monitor your organization's AI activities."
         }
       ],
@@ -171,7 +171,7 @@
               }
             },
             {
-              "key": "watson_assistant_plan",
+              "key": "watsonx_assistant_plan",
               "type": "string",
               "default_value": "do not install",
               "options": [
@@ -205,7 +205,7 @@
               }
             },
             {
-              "key": "watson_governance_plan",
+              "key": "watsonx_governance_plan",
               "type": "string",
               "default_value": "do not install",
               "options": [
@@ -276,48 +276,48 @@
           },
           "outputs": [
             {
-              "key": "watson_platform_endpoint",
-              "description": "The endpoint of the Watson platform."
+              "key": "watsonx_platform_endpoint",
+              "description": "The endpoint of the watsonx platform."
             },
             {
               "key": "watsonx_assistant_crn",
-              "description": "The CRN of the WatsonX Assistant instance."
+              "description": "The CRN of the watsonx Assistant instance."
             },
             {
               "key": "watsonx_assistant_guid",
-              "description": "The ID of the WatsonX Assistant instance."
+              "description": "The ID of the watsonx Assistant instance."
             },
             {
               "key": "watsonx_assistant_name",
-              "description": "The name of the WatsonX Assistant instance."
+              "description": "The name of the watsonx Assistant instance."
             },
             {
               "key": "watsonx_assistant_plan_id",
-              "description": "The ID of the WatsonX Assistant service plan."
+              "description": "The ID of the watsonx Assistant service plan."
             },
             {
               "key": "watsonx_assistant_dashboard_url",
-              "description": "The Dashboard URL of the WatsonX Assistant instance."
+              "description": "The Dashboard URL of the watsonx Assistant instance."
             },
             {
-              "key": "watsonx_discovery_crn",
-              "description": "The CRN of the WatsonX Discovery instance."
+              "key": "watson_discovery_crn",
+              "description": "The CRN of the Watson Discovery instance."
             },
             {
-              "key": "watsonx_discovery_guid",
-              "description": "The ID of the WatsonX Discovery instance."
+              "key": "watson_discovery_guid",
+              "description": "The ID of the Watson Discovery instance."
             },
             {
-              "key": "watsonx_discovery_name",
-              "description": "The name of the WatsonX Discovery instance."
+              "key": "watson_discovery_name",
+              "description": "The name of the Watson Discovery instance."
             },
             {
-              "key": "watsonx_discovery_plan_id",
-              "description": "The WatsonX Discovery service plan ID."
+              "key": "watson_discovery_plan_id",
+              "description": "The Watson Discovery service plan ID."
             },
             {
-              "key": "watsonx_discovery_dashboard_url",
-              "description": "The Dashboard URL of the WatsonX Discovery instance."
+              "key": "watson_discovery_dashboard_url",
+              "description": "The Dashboard URL of the Watson Discovery instance."
             },
             {
               "key": "watson_machine_learning_crn",
@@ -360,24 +360,24 @@
               "description": "The Dashboard URL of the Watson Studio instance."
             },
             {
-              "key": "watson_governance_crn",
-              "description": "The CRN of the Watson Governance instance."
+              "key": "watsonx_governance_crn",
+              "description": "The CRN of the watsonx.governance instance."
             },
             {
-              "key": "watson_governance_guid",
-              "description": "The ID of the Watson Governance instance."
+              "key": "watsonx_governance_guid",
+              "description": "The ID of the watsonx.governance instance."
             },
             {
-              "key": "watson_governance_name",
-              "description": "The name of the Watson Governance instance."
+              "key": "watsonx_governance_name",
+              "description": "The name of the watsonx.governance instance."
             },
             {
-              "key": "watson_governance_plan_id",
-              "description": "The Watson Governance service plan ID."
+              "key": "watsonx_governance_plan_id",
+              "description": "The watsonx.governance service plan ID."
             },
             {
-              "key": "watson_governance_dashboard_url",
-              "description": "The dashboard URL of the Watson Governance instance."
+              "key": "watsonx_governance_dashboard_url",
+              "description": "The dashboard URL of the watsonx.governance instance."
             },
             {
               "key": "watsonx_project_id",

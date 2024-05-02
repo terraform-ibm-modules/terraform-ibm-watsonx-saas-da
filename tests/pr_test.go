@@ -18,14 +18,14 @@ func setupOptionsBasicExample(t *testing.T, prefix string, dir string) *testhelp
 		TerraformDir: dir,
 		IgnoreDestroys: testhelper.Exemptions{ // Ignore for consistency check
 			List: []string{
-				"module.watson_saas.module.configure_user.null_resource.configure_user",
-				"module.watson_saas.module.configure_user.null_resource.restrict_access",
+				"module.watsonx_saas.module.configure_user.null_resource.configure_user",
+				"module.watsonx_saas.module.configure_user.null_resource.restrict_access",
 			},
 		},
 		IgnoreUpdates: testhelper.Exemptions{ // Ignore for consistency check
 			List: []string{
-				"module.watson_saas.module.configure_user.null_resource.configure_user",
-				"module.watson_saas.module.configure_user.null_resource.restrict_access",
+				"module.watsonx_saas.module.configure_user.null_resource.configure_user",
+				"module.watsonx_saas.module.configure_user.null_resource.restrict_access",
 			},
 		},
 	})
@@ -38,14 +38,14 @@ func setupOptionsCompleteExample(t *testing.T, prefix string, dir string) *testh
 		TerraformDir: dir,
 		IgnoreDestroys: testhelper.Exemptions{ // Ignore for consistency check
 			List: []string{
-				"module.watson_saas.module.configure_user.null_resource.configure_user",
-				"module.watson_saas.module.configure_user.null_resource.restrict_access",
+				"module.watsonx_saas.module.configure_user.null_resource.configure_user",
+				"module.watsonx_saas.module.configure_user.null_resource.restrict_access",
 			},
 		},
 		IgnoreUpdates: testhelper.Exemptions{ // Ignore for consistency check
 			List: []string{
-				"module.watson_saas.module.configure_user.null_resource.configure_user",
-				"module.watson_saas.module.configure_user.null_resource.restrict_access",
+				"module.watsonx_saas.module.configure_user.null_resource.configure_user",
+				"module.watsonx_saas.module.configure_user.null_resource.restrict_access",
 			},
 		},
 	})

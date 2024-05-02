@@ -42,10 +42,10 @@ resource "ibm_resource_instance" "machine_learning_instance" {
 }
 
 resource "ibm_resource_instance" "assistant_instance" {
-  count             = var.watson_assistant_plan == "do not install" ? 0 : 1
-  name              = "${var.resource_prefix}-watson-assistant-instance"
+  count             = var.watsonx_assistant_plan == "do not install" ? 0 : 1
+  name              = "${var.resource_prefix}-watsonx-assistant-instance"
   service           = "conversation"
-  plan              = var.watson_assistant_plan
+  plan              = var.watsonx_assistant_plan
   location          = var.location
   resource_group_id = module.resource_group.resource_group_id
 
@@ -57,10 +57,10 @@ resource "ibm_resource_instance" "assistant_instance" {
 }
 
 resource "ibm_resource_instance" "governance_instance" {
-  count             = var.watson_governance_plan == "do not install" ? 0 : 1
-  name              = "${var.resource_prefix}-watson-governance-instance"
+  count             = var.watsonx_governance_plan == "do not install" ? 0 : 1
+  name              = "${var.resource_prefix}-watsonx-governance-instance"
   service           = "aiopenscale"
-  plan              = var.watson_governance_plan
+  plan              = var.watsonx_governance_plan
   location          = var.location
   resource_group_id = module.resource_group.resource_group_id
 
