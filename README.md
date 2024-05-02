@@ -72,7 +72,7 @@ Manage > Access (IAM) > Access groups > Access policies.
 
 The following permissions are required to deploy this solution.
 
-- Administaor role on All Account Management services to create a new resource group.
+- Administrator role on All Account Management services to create a new resource group.
 - Editor platform role on Watson Machine Learning to create and delete the service.
 - Editor platform role on Watson Studio to create or delete the service.
 - Editor platform role on Cloud Object Storage to create and delete the service.

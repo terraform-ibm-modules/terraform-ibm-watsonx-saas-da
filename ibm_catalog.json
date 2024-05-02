@@ -14,8 +14,8 @@
         "watsonx",
         "ai"
       ],
-      "short_description": "Deploy watsonx.ai SaaS.",
-      "long_description": "Easily deploy and embed AI across your business, manage all data sources, and accelerate responsible AI workflows on one platform.",
+      "short_description": "Deploy watsonx.ai SaaS to automate the deployment and setup of the IBM watsonx platform.",
+      "long_description": "The watsonX.ai SaaS Automation with Assistant and Governance easily deploys and embeds AI across your business, manages all data sources, and accelerates responsible AI workflows on one platform.",
       "provider_name": "FinOps Team.",
       "offering_docs_url": "https://github.com/terraform-ibm-modules/terraform-ibm-watsonx-saas-da/blob/main/README.md",
       "support_details": "This is a proof of concept and no official support is given.",
@@ -277,7 +277,7 @@
           "outputs": [
             {
               "key": "watsonx_platform_endpoint",
-              "description": "The Endpoint of the Watson platform."
+              "description": "The endpoint of the watsonx platform."
             },
             {
               "key": "watsonx_assistant_crn",
