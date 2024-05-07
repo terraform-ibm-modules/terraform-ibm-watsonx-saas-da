@@ -5,6 +5,15 @@ set -e
 # shellcheck disable=SC2154
 token="$(echo "$iam_token" | awk '{print $2}')"
 
+# validate the token
+token_validation="$(curl -d "token=$token" "https://iam.cloud.ibm.com/identity/introspect?pretty=true" | jq -r .active)"
+if [ "$token_validation" = true ]; then
+    echo "Token is valid"
+else
+    echo "Token is not valid"
+    exit 1
+fi
+
 # decode the iam token
 jwt_decode(){
     jq -R 'split(".") | .[1] | @base64d | fromjson' <<< "$1"
