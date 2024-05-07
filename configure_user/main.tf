@@ -1,7 +1,7 @@
 data "ibm_iam_auth_token" "tokendata" {}
 
 locals {
-  sensitive_tokendata = sensitive(data.ibm_iam_auth_token.tokendata.iam_access_token)
+  sensitive_tokendata = data.ibm_iam_auth_token.tokendata.iam_access_token
 }
 
 resource "null_resource" "configure_user" {
@@ -11,8 +11,12 @@ resource "null_resource" "configure_user" {
   }
 
   provisioner "local-exec" {
-    command     = "${path.module}/scripts/add_user.sh \"${local.sensitive_tokendata}\" \"${var.resource_group_id}\""
+    command     = "${path.module}/scripts/add_user.sh"
     interpreter = ["/bin/bash", "-c"]
+    environment = {
+      iam_token         = local.sensitive_tokendata
+      resource_group_id = var.resource_group_id
+    }
   }
 }
 
@@ -23,7 +27,10 @@ resource "null_resource" "restrict_access" {
   }
 
   provisioner "local-exec" {
-    command     = "${path.module}/scripts/enforce_account_restriction.sh \"${local.sensitive_tokendata}\""
+    command     = "${path.module}/scripts/enforce_account_restriction.sh"
     interpreter = ["/bin/bash", "-c"]
+    environment = {
+      iam_token = local.sensitive_tokendata
+    }
   }
 }
