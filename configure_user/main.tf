@@ -1,7 +1,7 @@
 data "ibm_iam_auth_token" "tokendata" {}
 
 locals {
-  sensitive_tokendata = data.ibm_iam_auth_token.tokendata.iam_access_token
+  sensitive_tokendata = sensitive(data.ibm_iam_auth_token.tokendata.iam_access_token)
 }
 
 resource "null_resource" "configure_user" {
