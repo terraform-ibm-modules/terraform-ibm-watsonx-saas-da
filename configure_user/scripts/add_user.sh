@@ -2,9 +2,7 @@
 
 set -e
 
-iam_token="$1"
-resource_group_id="$2"
-
+# shellcheck disable=SC2154
 token="$(echo "$iam_token" | awk '{print $2}')"
 
 # decode the iam token
@@ -20,15 +18,16 @@ bss_account_id="$(echo "$token_decoded" | jq -r .account.bss)"
 
 # check if user is already configured
 # API returns an error 500 if the user is not configured, otherwise it returns the user details
-user_details="$(curl -X GET --location "https://api.dataplatform.cloud.ibm.com/v2/user_profiles/$iam_id" \
+user_details="$(curl -s -X GET --location "https://api.dataplatform.cloud.ibm.com/v2/user_profiles/$iam_id" \
     --header 'Content-Type: application/json' \
     --header "Authorization: Bearer $token")"
 
 # exit if the user is already configured
-echo "$user_details" | jq -e .entity && exit 0
+echo "$user_details" | jq -e .entity && echo "User $iam_id is already configured" && exit 0
 
 # configure the user
-curl -X POST --location "https://api.dataplatform.cloud.ibm.com/v2/user_profiles" \
+# shellcheck disable=SC2154
+curl -s -X POST --location "https://api.dataplatform.cloud.ibm.com/v2/user_profiles" \
     --header 'Content-Type: application/json' \
     --header "Authorization: Bearer $token" \
     --data-raw "{
