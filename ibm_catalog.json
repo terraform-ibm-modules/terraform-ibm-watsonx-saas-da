@@ -147,7 +147,7 @@
             {
               "key": "watson_discovery_plan",
               "type": "string",
-              "default_value": "Do not install",
+              "default_value": "do not install",
               "options": [
                 {
                   "displayname": "Do not install",
@@ -173,11 +173,11 @@
             {
               "key": "watsonx_assistant_plan",
               "type": "string",
-              "default_value": "Do not install",
+              "default_value": "do not install",
               "options": [
                 {
                   "displayname": "Do not install",
-                  "value": "Do not install"
+                  "value": "do not install"
                 },
                 {
                   "displayname": "Lite",
@@ -207,11 +207,11 @@
             {
               "key": "watsonx_governance_plan",
               "type": "string",
-              "default_value": "Do not install",
+              "default_value": "do not install",
               "options": [
                 {
                   "displayname": "Do not install",
-                  "value": "Do not install"
+                  "value": "do not install"
                 },
                 {
                   "displayname": "Lite",
