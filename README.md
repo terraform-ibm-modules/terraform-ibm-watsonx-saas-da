@@ -15,7 +15,7 @@ Update status and "latest release" badges:
 <!-- Add a description of module(s) in this repo -->
 The watsonx SaaS Deployment Architecture is designed to automate the deployment and configuration of the IBM watsonx platform in an IBM Cloud account. The IBM watsonx platform is made of several services working together to offer AI capabilities to end users, who can explore them using [IBM watsonx projects](https://dataplatform.cloud.ibm.com/docs/content/wsj/manage-data/manage-projects.html?context=wx&audience=wdp).
 
-This deployable architechture also configures a starter project for an IBM Cloud user.
+In addition, this deployable architecture configures a starter project for an IBM Cloud user.
 
 <!-- Below content is automatically populated via pre-commit hook -->
 <!-- BEGIN OVERVIEW HOOK -->

@@ -17,31 +17,31 @@
       "short_description": "Deploy watsonx.ai SaaS to automate the deployment and setup of the IBM watsonx platform.",
       "long_description": "The watsonX.ai SaaS Automation with Assistant and Governance easily deploys and embeds AI across your business, manages all data sources, and accelerates responsible AI workflows on one platform.",
       "provider_name": "FinOps Team.",
-      "offering_docs_url": "https://github.com/terraform-ibm-modules/terraform-ibm-watsonx-saas-da/blob/main/README.md",
+      "offering_docs_url": "https://test.cloud.ibm.com/docs/watsonx-ai-saas-automation?topic=watsonx-ai-saas-automation-responsibilities",
       "support_details": "This is a proof of concept and no official support is given.",
       "features": [
         {
-          "title": "watsonx",
+          "title": "Build with watsonx applications",
           "description": "watsonx combines the power of watsonx.ai studio for AI with the scale of watsonx.data store, enabling the creation of next-generation AI."
         },
         {
-          "title": "watson Studio",
+          "title": "Develop with Watson Studio",
           "description": "Develop sophisticated machine learning models using Notebooks and code-free tools to infuse AI throughout your business."
         },
         {
-          "title": "watsonx Assistant",
+          "title": "Deliver and build conversational interfaces with watsonx Assistant",
           "description": "IBM watsonx Assistant lets you build conversational interfaces into any application, device, or channel."
         },
         {
-          "title": "watson Machine Learning",
+          "title": "Integrate predictive capabilities with Watson Machine Learning",
           "description": "Deploy, manage, and integrate machine learning models into your applications and services in as little as one click."
         },
         {
-          "title": "Watson Discovery",
-          "description": "Add a cognitive search and content analytics engine to applications."
+          "title": "Accelerate buisness decisions Watson Discovery",
+          "description": "Watson Discovery adds a cognitive search and content analytics engine to applications."
         },
         {
-          "title": "watsonx.governance",
+          "title": "Manage and monitor with watsonx.governance",
           "description": "IBM watsonx.governance™ helps you direct, manage, and monitor your organization's AI activities."
         }
       ],
@@ -65,7 +65,7 @@
               }
             ]
           },
-          "release_notes_url": "https://github.com/terraform-ibm-modules/terraform-ibm-watsonx-saas-da/releases",
+          "release_notes_url": "https://test.cloud.ibm.com/docs/watsonx-ai-saas-automation?topic=watsonx-ai-saas-automation-release-notes",
           "configuration": [
             {
               "key": "ibmcloud_api_key",
@@ -150,7 +150,7 @@
               "default_value": "do not install",
               "options": [
                 {
-                  "displayname": "do not install",
+                  "displayname": "Do not install",
                   "value": "do not install"
                 },
                 {
@@ -176,7 +176,7 @@
               "default_value": "do not install",
               "options": [
                 {
-                  "displayname": "do not install",
+                  "displayname": "Do not install",
                   "value": "do not install"
                 },
                 {
@@ -210,7 +210,7 @@
               "default_value": "do not install",
               "options": [
                 {
-                  "displayname": "do not install",
+                  "displayname": "Do not install",
                   "value": "do not install"
                 },
                 {
