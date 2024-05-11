@@ -108,7 +108,7 @@ statement instead the previous block.
 |------|--------|---------|
 | <a name="module_configure_project"></a> [configure\_project](#module\_configure\_project) | ./configure_project | n/a |
 | <a name="module_configure_user"></a> [configure\_user](#module\_configure\_user) | ./configure_user | n/a |
-| <a name="module_cos"></a> [cos](#module\_cos) | terraform-ibm-modules/cos/ibm//modules/fscloud | 8.2.1 |
+| <a name="module_cos"></a> [cos](#module\_cos) | terraform-ibm-modules/cos/ibm//modules/fscloud | 8.2.5 |
 | <a name="module_resource_group"></a> [resource\_group](#module\_resource\_group) | terraform-ibm-modules/resource-group/ibm | 1.1.5 |
 
 ### Resources
