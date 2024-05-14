@@ -17,7 +17,7 @@
       "short_description": "Deploy watsonx.ai SaaS to automate the deployment and setup of the IBM watsonx platform.",
       "long_description": "The watsonX.ai SaaS Automation with Assistant and Governance easily deploys and embeds AI across your business, manages all data sources, and accelerates responsible AI workflows on one platform.",
       "provider_name": "FinOps Team.",
-      "offering_docs_url": "https://test.cloud.ibm.com/docs/watsonx-ai-saas-automation?topic=watsonx-ai-saas-automation-responsibilities",
+      "offering_docs_url": "https://cloud.ibm.com/docs/watsonx-ai-saas-automation?topic=watsonx-ai-saas-automation-overview",
       "support_details": "This is a proof of concept and no official support is given.",
       "features": [
         {
@@ -58,14 +58,14 @@
               {
                 "diagram": {
                   "url": "https://raw.githubusercontent.com/terraform-ibm-modules/terraform-ibm-watsonx-saas-da/main/reference-architectures/watsonx-saas-da.svg",
-                  "caption": "WatsonX.ai SaaS instances",
+                  "caption": "Watsonx.ai SaaS services",
                   "type": "image/svg+xml"
                 },
-                "description": "WatsonX.ai SaaS"
+                "description": "Watsonx.ai SaaS"
               }
             ]
           },
-          "release_notes_url": "https://test.cloud.ibm.com/docs/watsonx-ai-saas-automation?topic=watsonx-ai-saas-automation-release-notes",
+          "release_notes_url": "https://cloud.ibm.com/docs/watsonx-ai-saas-automation?topic=watsonx-ai-saas-automation-release-notes",
           "configuration": [
             {
               "key": "ibmcloud_api_key",

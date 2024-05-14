@@ -22,13 +22,13 @@ version: 0.2.0
 # See https://test.cloud.ibm.com/docs/get-coding?topic=get-coding-deploy-button
 deployment-url: https://cloud.ibm.com/catalog/8bfb1293-8b85-4d3f-a89f-015d0a0719df/architecture/deploy-arch-ibm-watsonx-ai-saas-e8ad6597-8c1a-466a-8bb7-243a109daaa8
 
-docs: https://test.cloud.ibm.com/docs-draft/watsonx-ai-saas-automation
+docs: https://cloud.ibm.com/docs/watsonx-ai-saas-automation
 
 image_source: https://github.com/terraform-ibm-modules/terraform-ibm-watsonx-saas-da/blob/main/reference-architectures/watson-saas-da.svg
 
 related_links:
   - title: 'Overview of Watsonx AI SaaS Automation with Assistant and Governance'
-    url: 'https://test.cloud.ibm.com/docs-draft/watsonx-ai-saas-automation?topic=watsonx-ai-saas-automation-overview'
+    url: 'https://cloud.ibm.com/docs/watsonx-ai-saas-automation?topic=watsonx-ai-saas-automation-overview'
     description: 'Description.'
 
 # use-case from 'code' column in
@@ -130,12 +130,7 @@ The following table outlines the services used in the architecture for each aspe
 | Application platforms | {{site.data.keyword.IBM_notm}} watsonx platform | End users interact with the {{site.data.keyword.IBM_notm}} watsonx platform to manage artificial intelligence assets and data. |
 {: caption="Table 2. Components" caption-side="bottom"}
 
-## Compliance
-{: #compliance}
-
-The Watsonx AI SaaS deployable architecture adheres to the [{{site.data.keyword.Bluemix_notm}} Framework for Financial Services](/docs/framework-financial-services-controls?topic=framework-financial-services-controls-overview) Security and Compliance profile.
-
 ## Next steps
 {: #next-steps}
 
-You are now ready to [plan your deployment](/docs-draft/watsonx-ai-saas-automation?topic=watsonx-ai-saas-automation-planning).
+You are now ready to [plan your deployment](/docs/watsonx-ai-saas-automation?topic=watsonx-ai-saas-automation-planning).
