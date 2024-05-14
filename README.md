@@ -75,7 +75,7 @@ The following permissions are required to deploy this solution.
 - Administrator role on All Account Management services to create a new resource group.
 - Editor platform role on Watson Machine Learning to create and delete the service.
 - Editor platform role on Watson Studio to create or delete the service.
-- Editor platform role on Cloud Object Storage to create and delete the service.
+- Editor and Manager platform roles on Cloud Object Storage to create and delete the service.
 - Editor platform role on watsonx.governance if you must provision.
 - Editor platform role on watsonx Assistant if you must provision.
 - Editor platform role on Watson Discovery if you must provision.
