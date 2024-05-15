@@ -82,8 +82,9 @@ The following permissions are required to deploy this solution.
 
 The IBM watsonx administrator needs the following permissions:
 
-- Administrator role on All Account Management services
-- Administrator role on All Identity and Access enabled services
+- Administrator role on All Account Management services.
+- Administrator role on All Identity and Access enabled services.
+- Manager service role on Cloud Object Storage to create service credentials.
 
 You can use the IBM provided [IAM Access Group Terraform Module](https://github.com/terraform-ibm-modules/terraform-ibm-iam-access-group)
 to configure `deployers` and `watsonx admins` access groups and add members to them.
