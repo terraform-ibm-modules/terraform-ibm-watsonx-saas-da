@@ -75,15 +75,15 @@ The following permissions are required to deploy this solution.
 - Administrator role on All Account Management services to create a new resource group.
 - Editor platform role on Watson Machine Learning to create and delete the service.
 - Editor platform role on Watson Studio to create or delete the service.
-- Editor and Manager platform roles on Cloud Object Storage to create and delete the service.
 - Editor platform role on watsonx.governance if you must provision.
 - Editor platform role on watsonx Assistant if you must provision.
 - Editor platform role on Watson Discovery if you must provision.
 
 The IBM watsonx administrator needs the following permissions:
 
-- Administrator role on All Account Management services
-- Administrator role on All Identity and Access enabled services
+- Administrator role on All Account Management services.
+- Administrator role on All Identity and Access enabled services.
+- Manager service role on Cloud Object Storage.
 
 You can use the IBM provided [IAM Access Group Terraform Module](https://github.com/terraform-ibm-modules/terraform-ibm-iam-access-group)
 to configure `deployers` and `watsonx admins` access groups and add members to them.
