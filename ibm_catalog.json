@@ -230,8 +230,7 @@
           "iam_permissions": [
             {
               "role_crns": [
-                "crn:v1:bluemix:public:iam::::role:Editor",
-                "crn:v1:bluemix:public:iam::::serviceRole:Manager"
+                "crn:v1:bluemix:public:iam::::role:Editor"
               ],
               "service_name": "cloud-object-storage"
             },
