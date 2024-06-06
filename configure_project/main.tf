@@ -19,7 +19,8 @@ resource "restapi_object" "configure_project" {
                     "storage": {
                       "type": "bmcos_object_storage",
                       "guid": "${var.cos_guid}",
-                      "resource_crn": "${var.cos_crn}"
+                      "resource_crn": "${var.cos_crn}",
+                      "delegated": ${var.watsonx_project_delegated}
                     },
                     "description": "${var.watsonx_project_description}",
                     "public": true,
