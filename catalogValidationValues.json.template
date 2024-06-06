@@ -6,5 +6,5 @@
   "region": "us-south",
   "watson_discovery_plan": "plus",
   "watsonx_assistant_plan": "plus",
-  "watson_machine_learning_plan": "v2-standard",
+  "watson_machine_learning_plan": "v2-standard"
 }
