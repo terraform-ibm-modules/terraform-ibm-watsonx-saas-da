@@ -3,7 +3,6 @@
   "use_existing_resource_group": true,
   "resource_prefix": $PREFIX,
   "resource_group_name": "validation",
-  "region": "us-south",
   "watson_discovery_plan": "plus",
   "watsonx_assistant_plan": "plus",
   "watson_machine_learning_plan": "v2-standard"
