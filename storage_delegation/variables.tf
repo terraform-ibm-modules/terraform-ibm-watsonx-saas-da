@@ -1,14 +1,4 @@
 ############################################################
-# Watson variables
-############################################################
-
-variable "ibmcloud_api_key" {
-  description = "The API key that's used with the IBM Cloud Terraform IBM provider."
-  sensitive   = true
-  type        = string
-}
-
-############################################################
 # COS variables
 ############################################################
 

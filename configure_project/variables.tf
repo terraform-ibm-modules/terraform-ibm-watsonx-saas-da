@@ -2,12 +2,6 @@
 # Watson variables
 ############################################################
 
-variable "watsonx_admin_api_key" {
-  description = "The Watson API key that's needed to call Watson APIs for configuring projects."
-  sensitive   = true
-  type        = string
-}
-
 variable "watsonx_project_name" {
   description = "The name of the watsonx project, which serves as a unique identifier for the project."
   type        = string
