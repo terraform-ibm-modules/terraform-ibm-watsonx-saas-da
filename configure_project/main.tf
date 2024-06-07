@@ -54,6 +54,6 @@ resource "restapi_object" "configure_project" {
 }
 
 locals {
-  watsonx_project_id_object = restapi_object.configure_project[0].id
+  watsonx_project_id_object = restapi_object.configure_project.id
   watsonx_project_id        = regex("^.+/([a-f0-9\\-]+)$", local.watsonx_project_id_object)[0]
 }

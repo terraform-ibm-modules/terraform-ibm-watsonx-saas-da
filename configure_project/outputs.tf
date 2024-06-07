@@ -4,6 +4,6 @@ output "watsonx_project_id" {
 }
 
 output "watsonx_project_location" {
-  value       = resource.restapi_object.configure_project[0].id
+  value       = resource.restapi_object.configure_project.id
   description = "Location of the created project"
 }
