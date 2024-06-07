@@ -93,13 +93,13 @@ module "configure_user" {
 }
 
 module "storage_delegation" {
-  source                = "./storage_delegation"
-  watsonx_admin_api_key = var.watsonx_admin_api_key == null || var.watsonx_admin_api_key == "" ? var.ibmcloud_api_key : var.watsonx_admin_api_key
-  cos_kms_crn           = var.cos_kms_crn
-  cos_kms_key_crn       = var.cos_kms_key_crn
-  cos_kms_new_key_name  = "${var.resource_prefix}-${var.cos_kms_new_key_name}"
-  cos_kms_ring_id       = var.cos_kms_ring_id
-  cos_guid              = module.cos.cos_instance_guid
+  source               = "./storage_delegation"
+  ibmcloud_api_key     = var.ibmcloud_api_key
+  cos_kms_crn          = var.cos_kms_crn
+  cos_kms_key_crn      = var.cos_kms_key_crn
+  cos_kms_new_key_name = "${var.resource_prefix}-${var.cos_kms_new_key_name}"
+  cos_kms_ring_id      = var.cos_kms_ring_id
+  cos_guid             = module.cos.cos_instance_guid
 }
 
 module "configure_project" {

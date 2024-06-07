@@ -2,8 +2,8 @@
 # Watson variables
 ############################################################
 
-variable "watsonx_admin_api_key" {
-  description = "The Watson API key that's needed to call Watson APIs for configuring projects."
+variable "ibmcloud_api_key" {
+  description = "The API key that's used with the IBM Cloud Terraform IBM provider."
   sensitive   = true
   type        = string
 }
