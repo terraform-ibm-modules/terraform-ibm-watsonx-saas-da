@@ -32,7 +32,8 @@ resource "restapi_object" "storage_delegation" {
   read_method    = "GET"
   create_path    = "//dataplatform.cloud.ibm.com/api/rest/v1/storage-delegations"
   create_method  = "POST"
-  id_attribute   = "instance_crn"
+  id_attribute   = var.cos_guid
+  object_id      = var.cos_guid
   destroy_method = "DELETE"
   destroy_path   = "//dataplatform.cloud.ibm.com/api/rest/v1/storage-delegations/{id}"
   data           = <<-EOT

@@ -26,6 +26,7 @@ variable "watsonx_project_tags" {
 variable "watsonx_project_delegated" {
   description = "Set to true if the COS instance is delegated by the account admin."
   type        = bool
+  default     = false
 }
 
 ############################################################
