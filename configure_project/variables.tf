@@ -24,7 +24,7 @@ variable "watsonx_project_tags" {
 }
 
 variable "watsonx_project_delegated" {
-  description = "Set to true of the COS instance is delegated by the account admin."
+  description = "Set to true if the COS instance is delegated by the account admin."
   type        = bool
 }
 
@@ -33,7 +33,7 @@ variable "watsonx_project_delegated" {
 ############################################################
 
 variable "cos_guid" {
-  description = "This GUID is the globally unique identifier for the Cloud Object Storage instance."
+  description = "The globally unique identifier of the Cloud Object Storage instance."
   type        = string
 }
 

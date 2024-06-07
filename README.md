@@ -103,8 +103,8 @@ statement instead the previous block.
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.0, <1.7.0 |
-| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | >= 1.62.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.0 |
+| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | >= 1.66.0 |
 
 ### Modules
 
@@ -130,10 +130,10 @@ statement instead the previous block.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_cos_kms_crn"></a> [cos\_kms\_crn](#input\_cos\_kms\_crn) | Key Protect CRN used to encrypt the COS bucket used by the Watson project. | `string` | `null` | no |
-| <a name="input_cos_kms_key_crn"></a> [cos\_kms\_key\_crn](#input\_cos\_kms\_key\_crn) | Key Protect key CRN used to encrypt the COS bucket used by the Watson project. | `string` | `null` | no |
-| <a name="input_cos_kms_new_key_name"></a> [cos\_kms\_new\_key\_name](#input\_cos\_kms\_new\_key\_name) | Name of the Key Protect key to create to encrypt the COS bucket used by the Watson project. | `string` | `""` | no |
-| <a name="input_cos_kms_ring_id"></a> [cos\_kms\_ring\_id](#input\_cos\_kms\_ring\_id) | The ID of the KMS ring to create the cos\_kms\_new\_key\_name into. The parameter will only be used if the DA has to create the KMS key. If it is not set, then the new key will be created in the default ring. | `string` | `null` | no |
+| <a name="input_cos_kms_crn"></a> [cos\_kms\_crn](#input\_cos\_kms\_crn) | Key Protect service instance CRN used to encrypt the COS buckets used by the watsonx projects. | `string` | `null` | no |
+| <a name="input_cos_kms_key_crn"></a> [cos\_kms\_key\_crn](#input\_cos\_kms\_key\_crn) | Key Protect key CRN used to encrypt the COS buckets used by the watsonx projects. If not set, then the cos\_kms\_new\_key\_name must be specified. | `string` | `null` | no |
+| <a name="input_cos_kms_new_key_name"></a> [cos\_kms\_new\_key\_name](#input\_cos\_kms\_new\_key\_name) | Name of the Key Protect key to create for encrypting the COS buckets used by the watsonx projects. | `string` | `""` | no |
+| <a name="input_cos_kms_ring_id"></a> [cos\_kms\_ring\_id](#input\_cos\_kms\_ring\_id) | The identifier of the Key Protect ring to create the cos\_kms\_new\_key\_name into. If it is not set, then the new key will be created in the default ring. | `string` | `null` | no |
 | <a name="input_cos_plan"></a> [cos\_plan](#input\_cos\_plan) | The plan that's used to provision the Cloud Object Storage instance. | `string` | `"standard"` | no |
 | <a name="input_ibmcloud_api_key"></a> [ibmcloud\_api\_key](#input\_ibmcloud\_api\_key) | The API key that's used with the IBM Cloud Terraform IBM provider. | `string` | n/a | yes |
 | <a name="input_location"></a> [location](#input\_location) | The location that's used with the IBM Cloud Terraform IBM provider. It's also used during resource creation. | `string` | `"us-south"` | no |
