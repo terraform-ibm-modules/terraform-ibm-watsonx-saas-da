@@ -1,6 +1,5 @@
 resource "ibm_iam_authorization_policy" "cos_s2s_keyprotect" {
   provider                    = ibm.deployer
-  count                       = var.cos_kms_crn == null || var.cos_kms_crn == "" ? 0 : 1
   source_service_name         = "cloud-object-storage"
   source_resource_instance_id = var.cos_guid
   target_service_name         = "kms"
@@ -27,7 +26,6 @@ data "ibm_kms_key" "kms_key" {
 
 resource "restapi_object" "storage_delegation" {
   provider       = restapi.restapi_watsonx_admin
-  count          = var.cos_kms_crn == null || var.cos_kms_crn == "" ? 0 : 1
   depends_on     = [resource.ibm_iam_authorization_policy.cos_s2s_keyprotect, data.ibm_kms_key.kms_key]
   path           = "//dataplatform.cloud.ibm.com/api/rest/v1/storage-delegations"
   read_path      = "//dataplatform.cloud.ibm.com/api/rest/v1/storage-delegations/{id}"

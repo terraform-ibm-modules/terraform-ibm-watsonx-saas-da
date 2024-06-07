@@ -1,6 +1,5 @@
 resource "restapi_object" "configure_project" {
   provider       = restapi.restapi_watsonx_admin
-  count          = var.watsonx_project_name == null ? 0 : 1
   path           = "//api.dataplatform.cloud.ibm.com"
   read_path      = "//api.dataplatform.cloud.ibm.com{id}"
   read_method    = "GET"

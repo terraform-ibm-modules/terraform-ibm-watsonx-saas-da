@@ -1,3 +1,7 @@
+locals {
+  is_storage_delegated = var.cos_kms_crn == null || var.cos_kms_crn == "" ? false : true
+}
+
 data "ibm_iam_auth_token" "restapi" {
   provider = ibm.watsonx_admin
 }
@@ -114,6 +118,7 @@ module "storage_delegation" {
     ibm.deployer                  = ibm.deployer
     restapi.restapi_watsonx_admin = restapi.restapi_watsonx_admin
   }
+  count                = var.cos_kms_crn == null || var.cos_kms_crn == "" ? 0 : 1
   cos_kms_crn          = var.cos_kms_crn
   cos_kms_key_crn      = var.cos_kms_key_crn
   cos_kms_new_key_name = "${var.resource_prefix}-${var.cos_kms_new_key_name}"
@@ -127,7 +132,8 @@ module "configure_project" {
     restapi.restapi_watsonx_admin = restapi.restapi_watsonx_admin
   }
   depends_on                  = [module.storage_delegation]
-  watsonx_project_name        = var.watsonx_project_name != null ? "${var.resource_prefix}-${var.watsonx_project_name}" : var.watsonx_project_name
+  count                       = var.watsonx_project_name == null || var.watsonx_project_name == "" ? 0 : 1
+  watsonx_project_name        = "${var.resource_prefix}-${var.watsonx_project_name}"
   watsonx_project_description = var.watsonx_project_description
   watsonx_project_tags        = var.watsonx_project_tags
   machine_learning_guid       = ibm_resource_instance.machine_learning_instance.guid
@@ -135,5 +141,5 @@ module "configure_project" {
   machine_learning_name       = ibm_resource_instance.machine_learning_instance.resource_name
   cos_guid                    = module.cos.cos_instance_guid
   cos_crn                     = module.cos.cos_instance_crn
-  watsonx_project_delegated   = module.storage_delegation.is_storage_delegated
+  watsonx_project_delegated   = local.is_storage_delegated
 }
