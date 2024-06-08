@@ -93,7 +93,9 @@ In more advanced use cases, the deployable architecture can be used as part of a
 ![Architecture diagram for the Watsonx AI SaaS deployable architecture](watsonx-saas-da.svg "Architecture diagram for the Watsonx AI SaaS deployable architecture")
 {: caption="Figure 1. Watsonx AI SaaS deployable architecture" caption-side="bottom"}{: external download="watsonx-saas-da.svg"}
 
-The Watsonx AI SaaS deployable architecture creates the services shown in the watsonX services section and an instance of {{site.data.keyword.cos_full_notm}} in a target {{site.data.keyword.Bluemix_notm}} account, resource group, and region. Then, it automatically configures a IBM watsonx starter project that grants access to an existing {{site.data.keyword.Bluemix_notm}} user, for example, an AI researcher. As a result, that user canlog into the {{site.data.keyword.IBM_notm}} watsonx starter project, and begin working.
+The Watsonx AI SaaS deployable architecture creates the services shown in the `watsonx services` section and an instance of {{site.data.keyword.cos_full_notm}} in a target {{site.data.keyword.Bluemix_notm}} account, resource group, and region. Then, it automatically configures a IBM watsonx starter project that grants access to an existing {{site.data.keyword.Bluemix_notm}} user, for example, an AI researcher. As a result, that user can log into the {{site.data.keyword.IBM_notm}} watsonx starter project, and begin working.
+
+Optionally, but recommended, is enabling the storage delegation for the provisioned {{site.data.keyword.cos_full_notm}} instance using your own encryption keys with Key Protect.
 
 Additional services from the optional section can be installed at any time after the initial deployment of the deployable architecture.
 {: note}

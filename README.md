@@ -42,7 +42,7 @@ https://terraform-ibm-modules.github.io/documentation/#/implementation-guideline
 
 The solution supports the following:
 
-- Creating a new resource group, or taking an existing one.
+- Creating a new resource group, or using an existing one.
 - Provisioning the following services:
   - Watson Machine Learning
   - Watson Studio
@@ -54,11 +54,12 @@ As result the IBM watsonx admin can log into [IBM watsonx](https://dataplatform.
 
 Optionally, the solution supports:
 
+- Enabling the storage delegation for the provisioned Cloud Object Storage instance using your own encryption keys with Key Protect.
 - Provisioning of one or more of the services, with a selectable
   service plan:
   - watsonx.governance
   - watsonx Assistant
-  - Watson Discovery
+  - Watson Discovery.
 
 ### Required IAM access policies
 
@@ -72,7 +73,8 @@ Manage > Access (IAM) > Access groups > Access policies.
 
 The following permissions are required to deploy this solution.
 
-- Administrator role on All Account Management services to create a new resource group.
+- Administrator role on All Account Management services to create a new resource group, and to enable storage delegation for the Cloud Object Storage instance.
+- Administrator role on the Key Protect instance used for storage delegation to create and delete the authorization to grant access between the Cloud Object Storage instance and the Key Protect instance.
 - Editor platform role on Watson Machine Learning to create and delete the service.
 - Editor platform role on Watson Studio to create or delete the service.
 - Editor platform role on Cloud Object Storage to create and delete the service.
