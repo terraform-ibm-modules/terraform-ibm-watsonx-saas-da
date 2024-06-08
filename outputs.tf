@@ -138,6 +138,11 @@ output "watsonx_project_location" {
   description = "The location watsonx project that's created."
 }
 
+output "watsonx_project_bucket_name" {
+  value       = module.configure_project[0].watsonx_project_bucket_name
+  description = "The name of the COS bucket created by the watsonx project."
+}
+
 output "watsonx_project_url" {
   value       = "https://dataplatform.cloud.ibm.com/projects/${module.configure_project[0].watsonx_project_id}?context=wx&sync_account_id=${ibm_resource_instance.machine_learning_instance.account_id}"
   description = "The URL of the watsonx project that's created."

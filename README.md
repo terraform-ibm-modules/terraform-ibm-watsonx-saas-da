@@ -183,6 +183,7 @@ statement instead the previous block.
 | <a name="output_watsonx_governance_name"></a> [watsonx\_governance\_name](#output\_watsonx\_governance\_name) | The name of the watsonx.governance instance. |
 | <a name="output_watsonx_governance_plan_id"></a> [watsonx\_governance\_plan\_id](#output\_watsonx\_governance\_plan\_id) | The plan ID of the watsonx.governance instance. |
 | <a name="output_watsonx_platform_endpoint"></a> [watsonx\_platform\_endpoint](#output\_watsonx\_platform\_endpoint) | The endpoint of the watsonx platform. |
+| <a name="output_watsonx_project_bucket_name"></a> [watsonx\_project\_bucket\_name](#output\_watsonx\_project\_bucket\_name) | The name of the COS bucket created by the watsonx project. |
 | <a name="output_watsonx_project_id"></a> [watsonx\_project\_id](#output\_watsonx\_project\_id) | The ID watsonx project that's created. |
 | <a name="output_watsonx_project_location"></a> [watsonx\_project\_location](#output\_watsonx\_project\_location) | The location watsonx project that's created. |
 | <a name="output_watsonx_project_url"></a> [watsonx\_project\_url](#output\_watsonx\_project\_url) | The URL of the watsonx project that's created. |
