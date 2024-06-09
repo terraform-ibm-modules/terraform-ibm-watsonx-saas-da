@@ -16,7 +16,7 @@ module "watsonx_saas" {
   watsonx_admin_api_key       = var.watsonx_admin_api_key
   use_existing_resource_group = "false"
   resource_group_name         = local.unique_identifier
-  resource_prefix             = "example-complete-test"
+  resource_prefix             = "complete-test-${local.unique_identifier}"
   watsonx_project_name        = "project-complete-test"
   watson_discovery_plan       = "plus"
   watsonx_assistant_plan      = "plus"
