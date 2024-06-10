@@ -74,7 +74,7 @@ Manage > Access (IAM) > Access groups > Access policies.
 The following permissions are required to deploy this solution.
 
 - Administrator role on All Account Management services to create a new resource group, and to enable storage delegation for the Cloud Object Storage instance.
-- Administrator role on the Key Protect instance used for storage delegation to create and delete the authorization to grant access between the Cloud Object Storage instance and the Key Protect instance.
+- Manager service role on the Key Protect instance used for storage delegation.
 - Editor platform role on Watson Machine Learning to create and delete the service.
 - Editor platform role on Watson Studio to create or delete the service.
 - Editor platform role on Cloud Object Storage to create and delete the service.
@@ -86,7 +86,7 @@ The IBM watsonx administrator needs the following permissions:
 
 - Administrator role on All Account Management services.
 - Administrator role on All Identity and Access enabled services.
-- Manager service role on Cloud Object Storage to create service credentials.
+- Manager service role on Cloud Object Storage to create service credentials. That is not needed if you configure storage delegation.
 
 You can use the IBM provided [IAM Access Group Terraform Module](https://github.com/terraform-ibm-modules/terraform-ibm-iam-access-group)
 to configure `deployers` and `watsonx admins` access groups and add members to them.

@@ -263,6 +263,12 @@
                 "crn:v1:bluemix:public:iam::::role:Editor"
               ],
               "service_name": "discovery"
+            },
+            {
+              "role_crns": [
+                "crn:v1:bluemix:public:iam::::serviceRole:Manager"
+              ],
+              "service_name": "kms"
             }
           ],
           "compliance": {
@@ -394,6 +400,10 @@
             {
               "key": "resource_group_id",
               "description": "The resource group ID that's used to provision the resources."
+            },
+            {
+              "key": "watsonx_project_bucket_name",
+              "description": "The name of the COS bucket created by the watsonx project."
             }
           ]
         }
