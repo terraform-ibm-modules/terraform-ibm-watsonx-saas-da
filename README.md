@@ -42,7 +42,7 @@ https://terraform-ibm-modules.github.io/documentation/#/implementation-guideline
 
 The solution supports the following:
 
-- Creating a new resource group, or taking an existing one.
+- Creating a new resource group, or using an existing one.
 - Provisioning the following services:
   - Watson Machine Learning
   - Watson Studio
@@ -54,11 +54,12 @@ As result the IBM watsonx admin can log into [IBM watsonx](https://dataplatform.
 
 Optionally, the solution supports:
 
+- Enabling the storage delegation for the provisioned Cloud Object Storage instance using your own encryption keys with Key Protect.
 - Provisioning of one or more of the services, with a selectable
   service plan:
   - watsonx.governance
   - watsonx Assistant
-  - Watson Discovery
+  - Watson Discovery.
 
 ### Required IAM access policies
 
@@ -72,7 +73,8 @@ Manage > Access (IAM) > Access groups > Access policies.
 
 The following permissions are required to deploy this solution.
 
-- Administrator role on All Account Management services to create a new resource group.
+- Administrator role on All Account Management services to create a new resource group, and to enable storage delegation for the Cloud Object Storage instance.
+- Manager service role on the Key Protect instance used for storage delegation.
 - Editor platform role on Watson Machine Learning to create and delete the service.
 - Editor platform role on Watson Studio to create or delete the service.
 - Editor platform role on Cloud Object Storage to create and delete the service.
@@ -84,7 +86,7 @@ The IBM watsonx administrator needs the following permissions:
 
 - Administrator role on All Account Management services.
 - Administrator role on All Identity and Access enabled services.
-- Manager service role on Cloud Object Storage to create service credentials.
+- Manager service role on Cloud Object Storage to create service credentials. That is not needed if you configure storage delegation.
 
 You can use the IBM provided [IAM Access Group Terraform Module](https://github.com/terraform-ibm-modules/terraform-ibm-iam-access-group)
 to configure `deployers` and `watsonx admins` access groups and add members to them.
@@ -103,8 +105,9 @@ statement instead the previous block.
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.0, <1.7.0 |
-| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | >= 1.62.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.0 |
+| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | >= 1.66.0 |
+| <a name="requirement_restapi"></a> [restapi](#requirement\_restapi) | >= 1.19.1 |
 
 ### Modules
 
@@ -114,6 +117,7 @@ statement instead the previous block.
 | <a name="module_configure_user"></a> [configure\_user](#module\_configure\_user) | ./configure_user | n/a |
 | <a name="module_cos"></a> [cos](#module\_cos) | terraform-ibm-modules/cos/ibm//modules/fscloud | 8.3.2 |
 | <a name="module_resource_group"></a> [resource\_group](#module\_resource\_group) | terraform-ibm-modules/resource-group/ibm | 1.1.5 |
+| <a name="module_storage_delegation"></a> [storage\_delegation](#module\_storage\_delegation) | ./storage_delegation | n/a |
 
 ### Resources
 
@@ -124,11 +128,16 @@ statement instead the previous block.
 | [ibm_resource_instance.governance_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/resource_instance) | resource |
 | [ibm_resource_instance.machine_learning_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/resource_instance) | resource |
 | [ibm_resource_instance.studio_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/resource_instance) | resource |
+| [ibm_iam_auth_token.restapi](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/iam_auth_token) | data source |
 
 ### Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_cos_kms_crn"></a> [cos\_kms\_crn](#input\_cos\_kms\_crn) | Key Protect service instance CRN used to encrypt the COS buckets used by the watsonx projects. | `string` | `null` | no |
+| <a name="input_cos_kms_key_crn"></a> [cos\_kms\_key\_crn](#input\_cos\_kms\_key\_crn) | Key Protect key CRN used to encrypt the COS buckets used by the watsonx projects. If not set, then the cos\_kms\_new\_key\_name must be specified. | `string` | `null` | no |
+| <a name="input_cos_kms_new_key_name"></a> [cos\_kms\_new\_key\_name](#input\_cos\_kms\_new\_key\_name) | Name of the Key Protect key to create for encrypting the COS buckets used by the watsonx projects. | `string` | `""` | no |
+| <a name="input_cos_kms_ring_id"></a> [cos\_kms\_ring\_id](#input\_cos\_kms\_ring\_id) | The identifier of the Key Protect ring to create the cos\_kms\_new\_key\_name into. If it is not set, then the new key will be created in the default ring. | `string` | `null` | no |
 | <a name="input_cos_plan"></a> [cos\_plan](#input\_cos\_plan) | The plan that's used to provision the Cloud Object Storage instance. | `string` | `"standard"` | no |
 | <a name="input_ibmcloud_api_key"></a> [ibmcloud\_api\_key](#input\_ibmcloud\_api\_key) | The API key that's used with the IBM Cloud Terraform IBM provider. | `string` | n/a | yes |
 | <a name="input_location"></a> [location](#input\_location) | The location that's used with the IBM Cloud Terraform IBM provider. It's also used during resource creation. | `string` | `"us-south"` | no |
@@ -176,6 +185,7 @@ statement instead the previous block.
 | <a name="output_watsonx_governance_name"></a> [watsonx\_governance\_name](#output\_watsonx\_governance\_name) | The name of the watsonx.governance instance. |
 | <a name="output_watsonx_governance_plan_id"></a> [watsonx\_governance\_plan\_id](#output\_watsonx\_governance\_plan\_id) | The plan ID of the watsonx.governance instance. |
 | <a name="output_watsonx_platform_endpoint"></a> [watsonx\_platform\_endpoint](#output\_watsonx\_platform\_endpoint) | The endpoint of the watsonx platform. |
+| <a name="output_watsonx_project_bucket_name"></a> [watsonx\_project\_bucket\_name](#output\_watsonx\_project\_bucket\_name) | The name of the COS bucket created by the watsonx project. |
 | <a name="output_watsonx_project_id"></a> [watsonx\_project\_id](#output\_watsonx\_project\_id) | The ID watsonx project that's created. |
 | <a name="output_watsonx_project_location"></a> [watsonx\_project\_location](#output\_watsonx\_project\_location) | The location watsonx project that's created. |
 | <a name="output_watsonx_project_url"></a> [watsonx\_project\_url](#output\_watsonx\_project\_url) | The URL of the watsonx project that's created. |

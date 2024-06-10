@@ -2,16 +2,11 @@
 # Watson variables
 ############################################################
 
-variable "watsonx_admin_api_key" {
-  description = "The Watson API key that's needed to call Watson APIs for configuring projects."
-  sensitive   = true
-  type        = string
-}
-
 variable "watsonx_project_name" {
   description = "The name of the watsonx project, which serves as a unique identifier for the project."
   type        = string
 }
+
 variable "watsonx_project_description" {
   description = "This provides a short summary of the watsonx project, explaining its purpose or goals briefly."
   type        = string
@@ -22,12 +17,18 @@ variable "watsonx_project_tags" {
   type        = list(string)
 }
 
+variable "watsonx_project_delegated" {
+  description = "Set to true if the COS instance is delegated by the account admin."
+  type        = bool
+  default     = false
+}
+
 ############################################################
 # COS variables
 ############################################################
 
 variable "cos_guid" {
-  description = "This GUID is the globally unique identifier for the Cloud Object Storage instance."
+  description = "The globally unique identifier of the Cloud Object Storage instance."
   type        = string
 }
 
