@@ -1,8 +1,5 @@
-data "ibm_iam_auth_token" "tokendata" {}
-
 resource "restapi_object" "configure_project" {
-  depends_on     = [data.ibm_iam_auth_token.tokendata]
-  count          = var.watsonx_project_name == null ? 0 : 1
+  provider       = restapi.restapi_watsonx_admin
   path           = "//api.dataplatform.cloud.ibm.com"
   read_path      = "//api.dataplatform.cloud.ibm.com{id}"
   read_method    = "GET"
@@ -19,7 +16,8 @@ resource "restapi_object" "configure_project" {
                     "storage": {
                       "type": "bmcos_object_storage",
                       "guid": "${var.cos_guid}",
-                      "resource_crn": "${var.cos_crn}"
+                      "resource_crn": "${var.cos_crn}",
+                      "delegated": ${var.watsonx_project_delegated}
                     },
                     "description": "${var.watsonx_project_description}",
                     "public": true,
@@ -55,7 +53,18 @@ resource "restapi_object" "configure_project" {
                   EOT
 }
 
+data "restapi_object" "get_project" {
+  depends_on   = [resource.restapi_object.configure_project]
+  provider     = restapi.restapi_watsonx_admin
+  path         = "//api.dataplatform.cloud.ibm.com/v2/projects"
+  results_key  = "resources"
+  search_key   = "metadata/guid"
+  search_value = local.watsonx_project_id
+  id_attribute = "metadata/guid"
+}
+
 locals {
-  watsonx_project_id_object = restapi_object.configure_project[0].id
+  watsonx_project_id_object = restapi_object.configure_project.id
   watsonx_project_id        = regex("^.+/([a-f0-9\\-]+)$", local.watsonx_project_id_object)[0]
+  watsonx_project_data      = jsondecode(data.restapi_object.get_project.api_response)
 }
