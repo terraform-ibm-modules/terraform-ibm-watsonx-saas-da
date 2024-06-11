@@ -95,7 +95,14 @@ In more advanced use cases, the deployable architecture can be used as part of a
 
 The Watsonx AI SaaS deployable architecture creates the services shown in the `watsonx services` section and an instance of {{site.data.keyword.cos_full_notm}} in a target {{site.data.keyword.Bluemix_notm}} account, resource group, and region. Then, it automatically configures a IBM watsonx starter project that grants access to an existing {{site.data.keyword.Bluemix_notm}} user, for example, an AI researcher. As a result, that user can log into the {{site.data.keyword.IBM_notm}} watsonx starter project, and begin working.
 
-Optionally, but recommended, is enabling the storage delegation for the provisioned {{site.data.keyword.cos_full_notm}} instance using your own encryption keys with Key Protect.
+Optionally, but recommended, is enabling the storage delegation for the provisioned {{site.data.keyword.cos_full_notm}} instance using your own encryption keys with Key Protect. The section [Enable storage delegation](https://dataplatform.cloud.ibm.com/docs/content/wsj/console/wdp_admin_cos.html?context=wx&audience=wdp#stor-del) explains the benefits of enabling that option.
+
+The Watsonx AI SaaS deployable architecture can automatically enable storage delegation by taking as input the CRN of the Key Protect instance to use.
+If you do not specify an encryption key, then the deployable architecture automatically creates one for you in a key ring of your choice (if you do not
+specify a key ring, then the default one is used).
+
+The Key Protect instance must be co-located with the watsonx services you are deploying, and it must be in the same target account.
+{: note}
 
 Additional services from the optional section can be installed at any time after the initial deployment of the deployable architecture.
 {: note}
