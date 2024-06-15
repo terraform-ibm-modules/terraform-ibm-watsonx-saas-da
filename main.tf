@@ -11,7 +11,7 @@ module "resource_group" {
     ibm = ibm.deployer
   }
   source                       = "terraform-ibm-modules/resource-group/ibm"
-  version                      = "1.1.5"
+  version                      = "1.1.6"
   resource_group_name          = var.use_existing_resource_group == false ? var.resource_group_name : null
   existing_resource_group_name = var.use_existing_resource_group == true ? var.resource_group_name : null
 }
@@ -21,7 +21,7 @@ module "cos" {
     ibm = ibm.deployer
   }
   source            = "terraform-ibm-modules/cos/ibm//modules/fscloud"
-  version           = "8.3.2"
+  version           = "8.4.1"
   resource_group_id = module.resource_group.resource_group_id
   cos_instance_name = "${var.resource_prefix}-cos-instance"
   cos_plan          = var.cos_plan
