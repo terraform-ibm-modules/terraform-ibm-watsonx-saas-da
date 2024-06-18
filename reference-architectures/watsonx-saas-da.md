@@ -5,7 +5,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-04-29"
+lastupdated: "2024-06-18"
 
 keywords: # Not typically populated
 
@@ -15,7 +15,7 @@ authors:
   - name: Michele Crudele
 
 # The release that the reference architecture describes
-version: 0.2.0
+version: 1.1.1
 
 # Use if the reference architecture has deployable code.
 # Value is the URL to land the user in the IBM Cloud catalog details page for the deployable architecture.
@@ -51,7 +51,7 @@ content-type: reference-architecture
 
 # Set production to true to publish the reference architecture to IBM Cloud docs.
 
-production: false
+production: true
 
 ---
 
@@ -73,7 +73,7 @@ https://test.cloud.ibm.com/docs/solution-as-code?topic=solution-as-code-naming-g
 {: toc-industry="Banking,FinancialSector,ITConsulting,Technology,Telecommunications"}
 {: toc-use-case="AIAndML"}
 {: toc-compliance="FSCloud"}
-{: toc-version="0.2.0"}
+{: toc-version="1.1.1"}
 
 <!--
 The IDs, such as {: #title-id} are required for publishing this reference architecture in IBM Cloud Docs. Set unique IDs for each heading. Also include
