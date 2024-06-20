@@ -1,5 +1,12 @@
 locals {
   is_storage_delegated = var.cos_kms_crn == null || var.cos_kms_crn == "" ? false : true
+  dataplatform_ui_mapping = {
+    "us-south" = "https://dataplatform.cloud.ibm.com",
+    "eu-gb"    = "https://eu-uk.dataplatform.cloud.ibm.com",
+    "eu-de"    = "https://eu-de.dataplatform.cloud.ibm.com",
+    "jp-tok"   = "https://jp-tok.dataplatform.cloud.ibm.com"
+  }
+  dataplatform_ui = local.dataplatform_ui_mapping[var.location]
 }
 
 data "ibm_iam_auth_token" "restapi" {
@@ -109,6 +116,7 @@ module "configure_user" {
   source                = "./configure_user"
   watsonx_admin_api_key = var.watsonx_admin_api_key == null || var.watsonx_admin_api_key == "" ? var.ibmcloud_api_key : var.watsonx_admin_api_key
   resource_group_id     = module.resource_group.resource_group_id
+  location              = var.location
 }
 
 module "storage_delegation" {
@@ -142,4 +150,5 @@ module "configure_project" {
   cos_guid                    = module.cos.cos_instance_guid
   cos_crn                     = module.cos.cos_instance_crn
   watsonx_project_delegated   = local.is_storage_delegated
+  location                    = var.location
 }

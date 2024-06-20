@@ -23,6 +23,13 @@ variable "watsonx_project_delegated" {
   default     = false
 }
 
+variable "location" {
+  description = "The location that's used with the IBM Cloud Terraform IBM provider. It's also used during resource creation."
+  type        = string
+}
+
+
+
 ############################################################
 # COS variables
 ############################################################
