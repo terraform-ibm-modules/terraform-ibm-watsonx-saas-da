@@ -7,21 +7,30 @@ resource "ibm_iam_authorization_policy" "cos_s2s_keyprotect" {
   roles                       = ["Reader"]
 }
 
+data "ibm_resource_instance" "kms_instance" {
+  provider   = ibm.deployer
+  count      = var.cos_kms_crn == null || var.cos_kms_crn == "" ? 0 : 1
+  identifier = var.cos_kms_crn
+}
+
 resource "ibm_kms_key" "kms_key" {
-  provider     = ibm.deployer
-  count        = var.cos_kms_key_crn == null || var.cos_kms_key_crn == "" ? 1 : 0
-  instance_id  = var.cos_kms_crn
-  key_name     = var.cos_kms_new_key_name
-  standard_key = false
-  force_delete = true
-  key_ring_id  = var.cos_kms_ring_id == null || var.cos_kms_ring_id == "" ? "default" : var.cos_kms_ring_id
+  provider      = ibm.deployer
+  depends_on    = [data.ibm_resource_instance.kms_instance]
+  count         = var.cos_kms_key_crn == null || var.cos_kms_key_crn == "" ? 1 : 0
+  instance_id   = var.cos_kms_crn
+  key_name      = var.cos_kms_new_key_name
+  standard_key  = false
+  force_delete  = true
+  endpoint_type = try(jsondecode(data.ibm_resource_instance.kms_instance[0].parameters_json).allowed_network, "{}") == "private-only" ? "private" : "public"
+  key_ring_id   = var.cos_kms_ring_id == null || var.cos_kms_ring_id == "" ? "default" : var.cos_kms_ring_id
 }
 
 data "ibm_kms_key" "kms_key" {
-  provider    = ibm.deployer
-  depends_on  = [resource.ibm_kms_key.kms_key]
-  instance_id = var.cos_kms_crn
-  key_id      = var.cos_kms_key_crn == null || var.cos_kms_key_crn == "" ? resource.ibm_kms_key.kms_key[0].key_id : split(":", var.cos_kms_key_crn)[9]
+  provider      = ibm.deployer
+  depends_on    = [resource.ibm_kms_key.kms_key, data.ibm_resource_instance.kms_instance]
+  endpoint_type = try(jsondecode(data.ibm_resource_instance.kms_instance[0].parameters_json).allowed_network, "{}") == "private-only" ? "private" : "public"
+  instance_id   = var.cos_kms_crn
+  key_id        = var.cos_kms_key_crn == null || var.cos_kms_key_crn == "" ? resource.ibm_kms_key.kms_key[0].key_id : split(":", var.cos_kms_key_crn)[9]
 }
 
 resource "restapi_object" "storage_delegation" {
