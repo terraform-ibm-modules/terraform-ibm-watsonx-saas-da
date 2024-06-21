@@ -57,6 +57,7 @@ Optionally, the solution supports:
 - Enabling the storage delegation for the provisioned Cloud Object Storage instance using your own encryption keys with Key Protect.
 - Provisioning of one or more of the services, with a selectable
   service plan:
+  - watsonx.data
   - watsonx.governance
   - watsonx Assistant
   - Watson Discovery.
@@ -78,6 +79,7 @@ The following permissions are required to deploy this solution.
 - Editor platform role on Watson Machine Learning to create and delete the service.
 - Editor platform role on Watson Studio to create or delete the service.
 - Editor platform role on Cloud Object Storage to create and delete the service.
+- Editor platform role on watsonx.data if you must provision.
 - Editor platform role on watsonx.governance if you must provision.
 - Editor platform role on watsonx Assistant if you must provision.
 - Editor platform role on Watson Discovery if you must provision.
