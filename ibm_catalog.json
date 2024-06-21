@@ -233,6 +233,28 @@
               "custom_config": {
 
               }
+            },
+            {
+              "key": "watsonx_data_plan",
+              "type": "string",
+              "default_value": "do not install",
+              "options": [
+                {
+                  "displayname": "Do not install",
+                  "value": "do not install"
+                },
+                {
+                  "displayname": "Lite",
+                  "value": "lite"
+                },
+                {
+                  "displayname": "Enterprise",
+                  "value": "lakehouse-enterprise"
+                }
+              ],
+              "custom_config": {
+
+              }
             }
           ],
           "iam_permissions": [
