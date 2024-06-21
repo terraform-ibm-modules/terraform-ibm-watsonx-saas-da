@@ -7,6 +7,13 @@ locals {
     "jp-tok"   = "https://jp-tok.dataplatform.cloud.ibm.com"
   }
   dataplatform_ui = local.dataplatform_ui_mapping[var.location]
+  watsonx_data_datacenter_mapping = {
+    "us-south" = "ibm:us-south:dal",
+    "eu-gb"    = "ibm:eu-gb:lon",
+    "eu-de"    = "ibm:eu-de:fra",
+    "jp-tok"   = "ibm:jp-tok:tok"
+  }
+  watsonx_data_datacenter = local.watsonx_data_datacenter_mapping[var.location]
 }
 
 data "ibm_iam_auth_token" "restapi" {
@@ -131,6 +138,12 @@ resource "ibm_resource_instance" "data_instance" {
     create = "15m"
     update = "15m"
     delete = "15m"
+  }
+
+  parameters = {
+    datacenter : local.watsonx_data_datacenter
+    cloud_type : "ibm"
+    region : var.location
   }
 }
 
