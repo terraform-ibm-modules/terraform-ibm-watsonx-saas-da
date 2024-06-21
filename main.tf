@@ -94,6 +94,12 @@ resource "ibm_resource_instance" "governance_instance" {
     update = "15m"
     delete = "15m"
   }
+  lifecycle {
+    precondition {
+      condition     = contains(["eu-de", "us-south"], var.location)
+      error_message = "watsonx.governance is only available in eu-de and us-south regions."
+    }
+  }
 }
 
 resource "ibm_resource_instance" "discovery_instance" {

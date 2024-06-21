@@ -16,8 +16,8 @@ variable "location" {
   description = "The location that's used with the IBM Cloud Terraform IBM provider. It's also used during resource creation."
   type        = string
   validation {
-    condition     = contains(["eu-de", "us-south"], var.location)
-    error_message = "You must specify `eu-de` or `us-south` as the IBM Cloud location."
+    condition     = contains(["eu-de", "us-south", "eu-gb", "jp-tok"], var.location)
+    error_message = "You must specify `eu-de`, `eu-gb`, `jp-tok` or `us-south` as the IBM Cloud location."
   }
 }
 
