@@ -16,6 +16,7 @@ resource "null_resource" "configure_user" {
     environment = {
       iam_token         = local.sensitive_tokendata
       resource_group_id = var.resource_group_id
+      location          = var.location
     }
   }
 }
@@ -31,6 +32,7 @@ resource "null_resource" "restrict_access" {
     interpreter = ["/bin/bash", "-c"]
     environment = {
       iam_token = local.sensitive_tokendata
+      location  = var.location
     }
   }
 }

@@ -84,6 +84,14 @@
                 {
                   "displayname": "us-south",
                   "value": "us-south"
+                },
+                {
+                  "displayname": "eu-gb",
+                  "value": "eu-gb"
+                },
+                {
+                  "displayname": "jp-tok",
+                  "value": "jp-tok"
                 }
               ],
               "custom_config": {

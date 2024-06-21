@@ -1,6 +1,6 @@
 output "watsonx_platform_endpoint" {
   description = "The endpoint of the watsonx platform."
-  value       = "https://dataplatform.cloud.ibm.com/wx/home?context=wx"
+  value       = "${local.dataplatform_ui}/wx/home?context=wx"
 }
 
 output "watsonx_assistant_crn" {
@@ -144,7 +144,7 @@ output "watsonx_project_bucket_name" {
 }
 
 output "watsonx_project_url" {
-  value       = var.watsonx_project_name == null || var.watsonx_project_name == "" ? null : "https://dataplatform.cloud.ibm.com/projects/${module.configure_project[0].watsonx_project_id}?context=wx&sync_account_id=${ibm_resource_instance.machine_learning_instance.account_id}"
+  value       = var.watsonx_project_name == null || var.watsonx_project_name == "" ? null : "${local.dataplatform_ui}/projects/${module.configure_project[0].watsonx_project_id}?context=wx&sync_account_id=${ibm_resource_instance.machine_learning_instance.account_id}"
   description = "The URL of the watsonx project that's created."
 }
 
