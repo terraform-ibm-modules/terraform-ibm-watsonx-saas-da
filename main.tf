@@ -124,7 +124,7 @@ resource "ibm_resource_instance" "data_instance" {
   name              = "${var.resource_prefix}-watsonx-data-instance"
   service           = "lakehouse"
   plan              = var.watsonx_data_plan
-  location          = "Dallas"
+  location          = var.location
   resource_group_id = module.resource_group.resource_group_id
 
   timeouts {
