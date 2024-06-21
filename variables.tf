@@ -119,6 +119,20 @@ variable "watsonx_governance_plan" {
   }
 }
 
+variable "watsonx_data_plan" {
+  default     = "do not install"
+  description = "The plan that's used to provision the watsonx.data instance."
+  type        = string
+  validation {
+    condition = anytrue([
+      var.watsonx_data_plan == "do not install",
+      var.watsonx_data_plan == "lakehouse-enterprise",
+      var.watsonx_data_plan == "lite",
+    ])
+    error_message = "You must use a lakehouse-enterprise or lite plan. Learn more. "
+  }
+}
+
 variable "watsonx_project_name" {
   description = "The name of the watson project."
   type        = string

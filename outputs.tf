@@ -128,6 +128,32 @@ output "watsonx_governance_dashboard_url" {
   value       = var.watsonx_governance_plan != "do not install" ? ibm_resource_instance.governance_instance[0].dashboard_url : null
 }
 
+output "watsonx_data_crn" {
+  description = "The CRN of the watsonx.data instance."
+  value       = var.watsonx_data_plan != "do not install" ? ibm_resource_instance.data_instance[0].crn : null
+}
+
+output "watsonx_data_guid" {
+  description = "The GUID of the watsonx.data instance."
+  value       = var.watsonx_data_plan != "do not install" ? ibm_resource_instance.data_instance[0].guid : null
+}
+
+output "watsonx_data_name" {
+  description = "The name of the watsonx.data instance."
+  value       = var.watsonx_data_plan != "do not install" ? ibm_resource_instance.data_instance[0].resource_name : null
+}
+
+output "watsonx_data_plan_id" {
+  description = "The plan ID of the watsonx.data instance."
+  value       = var.watsonx_data_plan != "do not install" ? ibm_resource_instance.data_instance[0].resource_plan_id : null
+}
+
+output "watsonx_data_dashboard_url" {
+  description = "The dashboard URL of the watsonx.data instance."
+  value       = var.watsonx_data_plan != "do not install" ? ibm_resource_instance.data_instance[0].dashboard_url : null
+}
+
+
 output "watsonx_project_id" {
   value       = var.watsonx_project_name == null || var.watsonx_project_name == "" ? null : module.configure_project[0].watsonx_project_id
   description = "The ID watsonx project that's created."

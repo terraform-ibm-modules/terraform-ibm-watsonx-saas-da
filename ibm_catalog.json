@@ -233,6 +233,28 @@
               "custom_config": {
 
               }
+            },
+            {
+              "key": "watsonx_data_plan",
+              "type": "string",
+              "default_value": "do not install",
+              "options": [
+                {
+                  "displayname": "Do not install",
+                  "value": "do not install"
+                },
+                {
+                  "displayname": "Lite",
+                  "value": "lite"
+                },
+                {
+                  "displayname": "Enterprise",
+                  "value": "lakehouse-enterprise"
+                }
+              ],
+              "custom_config": {
+
+              }
             }
           ],
           "iam_permissions": [
@@ -253,6 +275,12 @@
                 "crn:v1:bluemix:public:iam::::role:Editor"
               ],
               "service_name": "data-science-experience"
+            },
+            {
+              "role_crns": [
+                "crn:v1:bluemix:public:iam::::role:Editor"
+              ],
+              "service_name": "lakehouse"
             },
             {
               "role_crns": [
@@ -372,6 +400,26 @@
             {
               "key": "watson_studio_dashboard_url",
               "description": "The Dashboard URL of the Watson Studio instance."
+            },
+            {
+              "key": "watsonx_data_crn",
+              "description": "The CRN of the watsonx.data instance."
+            },
+            {
+              "key": "watsonx_data_guid",
+              "description": "The ID of the watsonx.data instance."
+            },
+            {
+              "key": "watsonx_data_name",
+              "description": "The name of the watsonx.data instance."
+            },
+            {
+              "key": "watsonx_data_plan_id",
+              "description": "The watsonx.data service plan ID."
+            },
+            {
+              "key": "watsonx_data_dashboard_url",
+              "description": "The dashboard URL of the watsonx.data instance."
             },
             {
               "key": "watsonx_governance_crn",

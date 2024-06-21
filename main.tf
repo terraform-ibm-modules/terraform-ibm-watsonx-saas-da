@@ -7,6 +7,13 @@ locals {
     "jp-tok"   = "https://jp-tok.dataplatform.cloud.ibm.com"
   }
   dataplatform_ui = local.dataplatform_ui_mapping[var.location]
+  watsonx_data_datacenter_mapping = {
+    "us-south" = "ibm:us-south:dal",
+    "eu-gb"    = "ibm:eu-gb:lon",
+    "eu-de"    = "ibm:eu-de:fra",
+    "jp-tok"   = "ibm:jp-tok:tok"
+  }
+  watsonx_data_datacenter = local.watsonx_data_datacenter_mapping[var.location]
 }
 
 data "ibm_iam_auth_token" "restapi" {
@@ -115,6 +122,28 @@ resource "ibm_resource_instance" "discovery_instance" {
     create = "15m"
     update = "15m"
     delete = "15m"
+  }
+}
+
+resource "ibm_resource_instance" "data_instance" {
+  provider          = ibm.deployer
+  count             = var.watsonx_data_plan == "do not install" ? 0 : 1
+  name              = "${var.resource_prefix}-watsonx-data-instance"
+  service           = "lakehouse"
+  plan              = var.watsonx_data_plan
+  location          = var.location
+  resource_group_id = module.resource_group.resource_group_id
+
+  timeouts {
+    create = "15m"
+    update = "15m"
+    delete = "15m"
+  }
+
+  parameters = {
+    datacenter : local.watsonx_data_datacenter
+    cloud_type : "ibm"
+    region : var.location
   }
 }
 

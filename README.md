@@ -57,6 +57,7 @@ Optionally, the solution supports:
 - Enabling the storage delegation for the provisioned Cloud Object Storage instance using your own encryption keys with Key Protect.
 - Provisioning of one or more of the services, with a selectable
   service plan:
+  - watsonx.data
   - watsonx.governance
   - watsonx Assistant
   - Watson Discovery.
@@ -78,6 +79,7 @@ The following permissions are required to deploy this solution.
 - Editor platform role on Watson Machine Learning to create and delete the service.
 - Editor platform role on Watson Studio to create or delete the service.
 - Editor platform role on Cloud Object Storage to create and delete the service.
+- Editor platform role on watsonx.data if you must provision.
 - Editor platform role on watsonx.governance if you must provision.
 - Editor platform role on watsonx Assistant if you must provision.
 - Editor platform role on Watson Discovery if you must provision.
@@ -124,6 +126,7 @@ statement instead the previous block.
 | Name | Type |
 |------|------|
 | [ibm_resource_instance.assistant_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/resource_instance) | resource |
+| [ibm_resource_instance.data_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/resource_instance) | resource |
 | [ibm_resource_instance.discovery_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/resource_instance) | resource |
 | [ibm_resource_instance.governance_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/resource_instance) | resource |
 | [ibm_resource_instance.machine_learning_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/resource_instance) | resource |
@@ -149,6 +152,7 @@ statement instead the previous block.
 | <a name="input_watson_studio_plan"></a> [watson\_studio\_plan](#input\_watson\_studio\_plan) | The plan that's used to provision the Watson Studio instance. The plan you choose for Watson Studio affects the features and capabilities that you can use. | `string` | `"professional-v1"` | no |
 | <a name="input_watsonx_admin_api_key"></a> [watsonx\_admin\_api\_key](#input\_watsonx\_admin\_api\_key) | The API key of the IBM watsonx administrator in the target account. The API key is used to configure the user and the project. | `string` | `null` | no |
 | <a name="input_watsonx_assistant_plan"></a> [watsonx\_assistant\_plan](#input\_watsonx\_assistant\_plan) | The plan that's used to provision the watsonx Assistance instance. | `string` | `"do not install"` | no |
+| <a name="input_watsonx_data_plan"></a> [watsonx\_data\_plan](#input\_watsonx\_data\_plan) | The plan that's used to provision the watsonx.data instance. | `string` | `"do not install"` | no |
 | <a name="input_watsonx_governance_plan"></a> [watsonx\_governance\_plan](#input\_watsonx\_governance\_plan) | The plan used to provision the watsonx.governance instance. The available plans depend on the region where you are provisioning the service from the IBM Cloud catalog. | `string` | `"do not install"` | no |
 | <a name="input_watsonx_project_description"></a> [watsonx\_project\_description](#input\_watsonx\_project\_description) | A description of the watson project that's created by the WatsonX.ai SaaS Deployable Architecture. | `string` | `"Watson project created by the watsonx-ai SaaS deployable architecture."` | no |
 | <a name="input_watsonx_project_name"></a> [watsonx\_project\_name](#input\_watsonx\_project\_name) | The name of the watson project. | `string` | `"demo"` | no |
@@ -179,6 +183,11 @@ statement instead the previous block.
 | <a name="output_watsonx_assistant_guid"></a> [watsonx\_assistant\_guid](#output\_watsonx\_assistant\_guid) | The GUID of the watsonx Assistant instance. |
 | <a name="output_watsonx_assistant_name"></a> [watsonx\_assistant\_name](#output\_watsonx\_assistant\_name) | The name of the watsonx Assistant instance. |
 | <a name="output_watsonx_assistant_plan_id"></a> [watsonx\_assistant\_plan\_id](#output\_watsonx\_assistant\_plan\_id) | The plan ID of the watsonx Assistant instance. |
+| <a name="output_watsonx_data_crn"></a> [watsonx\_data\_crn](#output\_watsonx\_data\_crn) | The CRN of the watsonx.data instance. |
+| <a name="output_watsonx_data_dashboard_url"></a> [watsonx\_data\_dashboard\_url](#output\_watsonx\_data\_dashboard\_url) | The dashboard URL of the watsonx.data instance. |
+| <a name="output_watsonx_data_guid"></a> [watsonx\_data\_guid](#output\_watsonx\_data\_guid) | The GUID of the watsonx.data instance. |
+| <a name="output_watsonx_data_name"></a> [watsonx\_data\_name](#output\_watsonx\_data\_name) | The name of the watsonx.data instance. |
+| <a name="output_watsonx_data_plan_id"></a> [watsonx\_data\_plan\_id](#output\_watsonx\_data\_plan\_id) | The plan ID of the watsonx.data instance. |
 | <a name="output_watsonx_governance_crn"></a> [watsonx\_governance\_crn](#output\_watsonx\_governance\_crn) | The CRN of the watsonx.governance instance. |
 | <a name="output_watsonx_governance_dashboard_url"></a> [watsonx\_governance\_dashboard\_url](#output\_watsonx\_governance\_dashboard\_url) | The dashboard URL of the watsonx.governance instance. |
 | <a name="output_watsonx_governance_guid"></a> [watsonx\_governance\_guid](#output\_watsonx\_governance\_guid) | The GUID of the watsonx.governance instance. |
