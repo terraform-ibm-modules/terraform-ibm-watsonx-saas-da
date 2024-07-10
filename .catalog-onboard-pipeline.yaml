@@ -7,7 +7,7 @@ offerings:
     offering_id: e8ad6597-8c1a-466a-8bb7-243a109daaa8
     variations:
       - name: standard
-        mark_ready: true
+        mark_ready: false
         install_type: fullstack
         validation_type: projects
         project_id: "4b85a2bb-6051-42dd-81ce-b2dd9d3dcaba"
