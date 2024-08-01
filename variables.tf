@@ -53,6 +53,12 @@ variable "cos_plan" {
   }
 }
 
+variable "existing_machine_learning_instance" {
+  default     = null
+  description = "CRN of the an existing Watson Machine Learning instance."
+  type        = string
+}
+
 variable "watson_machine_learning_plan" {
   default     = "v2-standard"
   description = "The plan that's used to provision the Watson Machine Learning instance."
@@ -63,6 +69,12 @@ variable "watson_machine_learning_plan" {
   }
 }
 
+variable "existing_studio_instance" {
+  default     = null
+  description = "CRN of the an existing Watson Studio instance."
+  type        = string
+}
+
 variable "watson_studio_plan" {
   default     = "professional-v1"
   description = "The plan that's used to provision the Watson Studio instance. The plan you choose for Watson Studio affects the features and capabilities that you can use."
@@ -71,6 +83,12 @@ variable "watson_studio_plan" {
     condition     = contains(["free-v1", "professional-v1"], var.watson_studio_plan)
     error_message = "You must use a free-v1 or professional-v1 plan. Learn more."
   }
+}
+
+variable "existing_discovery_instance" {
+  default     = null
+  description = "CRN of the an existing Watson Discovery instance."
+  type        = string
 }
 
 variable "watson_discovery_plan" {
@@ -86,6 +104,12 @@ variable "watson_discovery_plan" {
     ])
     error_message = "You must use a plus, enterprise, or premium plan. Learn more."
   }
+}
+
+variable "existing_assistant_instance" {
+  default     = null
+  description = "CRN of the an existing watsonx Assistance instance."
+  type        = string
 }
 
 variable "watsonx_assistant_plan" {
@@ -105,6 +129,12 @@ variable "watsonx_assistant_plan" {
   }
 }
 
+variable "existing_governance_instance" {
+  default     = null
+  description = "CRN of the an existing watsonx.governance instance."
+  type        = string
+}
+
 variable "watsonx_governance_plan" {
   default     = "do not install"
   description = "The plan used to provision the watsonx.governance instance. The available plans depend on the region where you are provisioning the service from the IBM Cloud catalog."
@@ -117,6 +147,12 @@ variable "watsonx_governance_plan" {
     ])
     error_message = "You must use a lite or essential plan. Learn more. "
   }
+}
+
+variable "existing_data_instance" {
+  default     = null
+  description = "CRN of the an existing watsonx.data instance."
+  type        = string
 }
 
 variable "watsonx_data_plan" {
