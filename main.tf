@@ -109,6 +109,11 @@ resource "ibm_resource_instance" "studio_instance" {
   }
 }
 
+moved {
+  from = ibm_resource_instance.studio_instance
+  to   = ibm_resource_instance.studio_instance[0]
+}
+
 data "ibm_resource_instance" "existing_machine_learning_instance" {
   provider   = ibm.deployer
   count      = var.existing_machine_learning_instance != null ? 1 : 0
@@ -129,6 +134,11 @@ resource "ibm_resource_instance" "machine_learning_instance" {
     update = "15m"
     delete = "15m"
   }
+}
+
+moved {
+  from = ibm_resource_instance.machine_learning_instance
+  to   = ibm_resource_instance.machine_learning_instance[0]
 }
 
 data "ibm_resource_instance" "existing_assistant_instance" {
