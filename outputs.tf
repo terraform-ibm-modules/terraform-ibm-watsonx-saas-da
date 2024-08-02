@@ -170,7 +170,7 @@ output "watsonx_project_bucket_name" {
 }
 
 output "watsonx_project_url" {
-  value       = local.watsonx_project_url
+  value       = var.watsonx_project_name == null || var.watsonx_project_name == "" ? null : module.configure_project[0].watsonx_project_url
   description = "The URL of the watsonx project that's created."
 }
 

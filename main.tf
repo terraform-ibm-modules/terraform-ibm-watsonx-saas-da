@@ -51,15 +51,6 @@ locals {
   watsonx_data_name          = var.existing_data_instance != null ? data.ibm_resource_instance.existing_data_instance[0].resource_name : var.watsonx_data_plan != "do not install" ? resource.ibm_resource_instance.data_instance[0].resource_name : null
   watsonx_data_plan_id       = var.existing_data_instance != null ? null : var.watsonx_data_plan != "do not install" ? resource.ibm_resource_instance.data_instance[0].resource_plan_id : null
   watsonx_data_dashboard_url = var.existing_data_instance != null ? null : var.watsonx_data_plan != "do not install" ? resource.ibm_resource_instance.data_instance[0].dashboard_url : null
-
-
-  account_id = jsondecode(base64decode(regex("^Bearer .+\\.(.+)\\..+$", data.ibm_iam_auth_token.deployer.iam_access_token)[0])).account.bss
-
-  watsonx_project_url = var.watsonx_project_name == null || var.watsonx_project_name == "" ? null : "${local.dataplatform_ui}/projects/${module.configure_project[0].watsonx_project_id}?context=wx&sync_account_id=${local.account_id}"
-}
-
-data "ibm_iam_auth_token" "deployer" {
-  provider = ibm.deployer
 }
 
 data "ibm_iam_auth_token" "restapi" {
