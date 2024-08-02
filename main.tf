@@ -14,6 +14,52 @@ locals {
     "jp-tok"   = "ibm:jp-tok:tok"
   }
   watsonx_data_datacenter = local.watsonx_data_datacenter_mapping[var.location]
+
+  # configuring outputs
+  watsonx_assistant_crn           = var.existing_assistant_instance != null ? data.ibm_resource_instance.existing_assistant_instance[0].crn : var.watsonx_assistant_plan != "do not install" ? resource.ibm_resource_instance.assistant_instance[0].crn : null
+  watsonx_assistant_guid          = var.existing_assistant_instance != null ? data.ibm_resource_instance.existing_assistant_instance[0].guid : var.watsonx_assistant_plan != "do not install" ? resource.ibm_resource_instance.assistant_instance[0].guid : null
+  watsonx_assistant_name          = var.existing_assistant_instance != null ? data.ibm_resource_instance.existing_assistant_instance[0].resource_name : var.watsonx_assistant_plan != "do not install" ? ibm_resource_instance.assistant_instance[0].resource_name : null
+  watsonx_assistant_plan_id       = var.existing_assistant_instance != null ? null : var.watsonx_assistant_plan != "do not install" ? resource.ibm_resource_instance.assistant_instance[0].resource_plan_id : null
+  watsonx_assistant_dashboard_url = var.existing_assistant_instance != null ? null : var.watsonx_assistant_plan != "do not install" ? resource.ibm_resource_instance.assistant_instance[0].dashboard_url : null
+
+  watson_discovery_crn           = var.existing_discovery_instance != null ? data.ibm_resource_instance.existing_discovery_instance[0].crn : var.watson_discovery_plan != "do not install" ? ibm_resource_instance.discovery_instance[0].crn : null
+  watson_discovery_guid          = var.existing_discovery_instance != null ? data.ibm_resource_instance.existing_discovery_instance[0].guid : var.watson_discovery_plan != "do not install" ? ibm_resource_instance.discovery_instance[0].guid : null
+  watson_discovery_name          = var.existing_discovery_instance != null ? data.ibm_resource_instance.existing_discovery_instance[0].resource_name : var.watson_discovery_plan != "do not install" ? ibm_resource_instance.discovery_instance[0].resource_name : null
+  watson_discovery_plan_id       = var.existing_discovery_instance != null ? null : var.watson_discovery_plan != "do not install" ? ibm_resource_instance.discovery_instance[0].resource_plan_id : null
+  watson_discovery_dashboard_url = var.existing_discovery_instance != null ? null : var.watson_discovery_plan != "do not install" ? ibm_resource_instance.discovery_instance[0].dashboard_url : null
+
+  watson_machine_learning_crn           = var.existing_machine_learning_instance != null ? data.ibm_resource_instance.existing_machine_learning_instance[0].crn : resource.ibm_resource_instance.machine_learning_instance[0].crn
+  watson_machine_learning_guid          = var.existing_machine_learning_instance != null ? data.ibm_resource_instance.existing_machine_learning_instance[0].guid : resource.ibm_resource_instance.machine_learning_instance[0].guid
+  watson_machine_learning_name          = var.existing_machine_learning_instance != null ? data.ibm_resource_instance.existing_machine_learning_instance[0].resource_name : resource.ibm_resource_instance.machine_learning_instance[0].resource_name
+  watson_machine_learning_plan_id       = var.existing_machine_learning_instance != null ? null : resource.ibm_resource_instance.machine_learning_instance[0].resource_plan_id
+  watson_machine_learning_dashboard_url = var.existing_machine_learning_instance != null ? null : resource.ibm_resource_instance.machine_learning_instance[0].dashboard_url
+
+  watson_studio_crn           = var.existing_studio_instance != null ? data.ibm_resource_instance.existing_studio_instance[0].crn : resource.ibm_resource_instance.studio_instance[0].crn
+  watson_studio_guid          = var.existing_studio_instance != null ? data.ibm_resource_instance.existing_studio_instance[0].guid : resource.ibm_resource_instance.studio_instance[0].guid
+  watson_studio_name          = var.existing_studio_instance != null ? data.ibm_resource_instance.existing_studio_instance[0].resource_name : resource.ibm_resource_instance.studio_instance[0].resource_name
+  watson_studio_plan_id       = var.existing_studio_instance != null ? null : resource.ibm_resource_instance.studio_instance[0].resource_plan_id
+  watson_studio_dashboard_url = var.existing_studio_instance != null ? null : resource.ibm_resource_instance.studio_instance[0].dashboard_url
+
+  watsonx_governance_crn           = var.existing_governance_instance != null ? data.ibm_resource_instance.existing_governance_instance[0].crn : var.watsonx_governance_plan != "do not install" ? resource.ibm_resource_instance.governance_instance[0].crn : null
+  watsonx_governance_guid          = var.existing_governance_instance != null ? data.ibm_resource_instance.existing_governance_instance[0].guid : var.watsonx_governance_plan != "do not install" ? resource.ibm_resource_instance.governance_instance[0].guid : null
+  watsonx_governance_name          = var.existing_governance_instance != null ? data.ibm_resource_instance.existing_governance_instance[0].resource_name : var.watsonx_governance_plan != "do not install" ? resource.ibm_resource_instance.governance_instance[0].resource_name : null
+  watsonx_governance_plan_id       = var.existing_governance_instance != null ? null : var.watsonx_governance_plan != "do not install" ? resource.ibm_resource_instance.governance_instance[0].resource_plan_id : null
+  watsonx_governance_dashboard_url = var.existing_governance_instance != null ? null : var.watsonx_governance_plan != "do not install" ? resource.ibm_resource_instance.governance_instance[0].dashboard_url : null
+
+  watsonx_data_crn           = var.existing_data_instance != null ? data.ibm_resource_instance.existing_data_instance[0].crn : var.watsonx_data_plan != "do not install" ? resource.ibm_resource_instance.data_instance[0].crn : null
+  watsonx_data_guid          = var.existing_data_instance != null ? data.ibm_resource_instance.existing_data_instance[0].guid : var.watsonx_data_plan != "do not install" ? resource.ibm_resource_instance.data_instance[0].guid : null
+  watsonx_data_name          = var.existing_data_instance != null ? data.ibm_resource_instance.existing_data_instance[0].resource_name : var.watsonx_data_plan != "do not install" ? resource.ibm_resource_instance.data_instance[0].resource_name : null
+  watsonx_data_plan_id       = var.existing_data_instance != null ? null : var.watsonx_data_plan != "do not install" ? resource.ibm_resource_instance.data_instance[0].resource_plan_id : null
+  watsonx_data_dashboard_url = var.existing_data_instance != null ? null : var.watsonx_data_plan != "do not install" ? resource.ibm_resource_instance.data_instance[0].dashboard_url : null
+
+
+  account_id = jsondecode(base64decode(regex("^Bearer .+\\.(.+)\\..+$", data.ibm_iam_auth_token.deployer.iam_access_token)[0])).account.bss
+
+  watsonx_project_url = var.watsonx_project_name == null || var.watsonx_project_name == "" ? null : "${local.dataplatform_ui}/projects/${module.configure_project[0].watsonx_project_id}?context=wx&sync_account_id=${local.account_id}"
+}
+
+data "ibm_iam_auth_token" "deployer" {
+  provider = ibm.deployer
 }
 
 data "ibm_iam_auth_token" "restapi" {
@@ -41,8 +87,15 @@ module "cos" {
   cos_plan          = var.cos_plan
 }
 
+data "ibm_resource_instance" "existing_studio_instance" {
+  provider   = ibm.deployer
+  count      = var.existing_studio_instance != null ? 1 : 0
+  identifier = var.existing_studio_instance
+}
+
 resource "ibm_resource_instance" "studio_instance" {
   provider          = ibm.deployer
+  count             = var.existing_studio_instance != null ? 0 : 1
   name              = "${var.resource_prefix}-watson-studio-instance"
   service           = "data-science-experience"
   plan              = var.watson_studio_plan
@@ -56,8 +109,20 @@ resource "ibm_resource_instance" "studio_instance" {
   }
 }
 
+moved {
+  from = ibm_resource_instance.studio_instance
+  to   = ibm_resource_instance.studio_instance[0]
+}
+
+data "ibm_resource_instance" "existing_machine_learning_instance" {
+  provider   = ibm.deployer
+  count      = var.existing_machine_learning_instance != null ? 1 : 0
+  identifier = var.existing_machine_learning_instance
+}
+
 resource "ibm_resource_instance" "machine_learning_instance" {
   provider          = ibm.deployer
+  count             = var.existing_machine_learning_instance != null ? 0 : 1
   name              = "${var.resource_prefix}-watson-machine-learning-instance"
   service           = "pm-20"
   plan              = var.watson_machine_learning_plan
@@ -71,9 +136,20 @@ resource "ibm_resource_instance" "machine_learning_instance" {
   }
 }
 
+moved {
+  from = ibm_resource_instance.machine_learning_instance
+  to   = ibm_resource_instance.machine_learning_instance[0]
+}
+
+data "ibm_resource_instance" "existing_assistant_instance" {
+  provider   = ibm.deployer
+  count      = var.existing_assistant_instance != null ? 1 : 0
+  identifier = var.existing_assistant_instance
+}
+
 resource "ibm_resource_instance" "assistant_instance" {
   provider          = ibm.deployer
-  count             = var.watsonx_assistant_plan == "do not install" ? 0 : 1
+  count             = var.existing_assistant_instance != null ? 0 : var.watsonx_assistant_plan == "do not install" ? 0 : 1
   name              = "${var.resource_prefix}-watsonx-assistant-instance"
   service           = "conversation"
   plan              = var.watsonx_assistant_plan
@@ -87,9 +163,15 @@ resource "ibm_resource_instance" "assistant_instance" {
   }
 }
 
+data "ibm_resource_instance" "existing_governance_instance" {
+  provider   = ibm.deployer
+  count      = var.existing_governance_instance != null ? 1 : 0
+  identifier = var.existing_governance_instance
+}
+
 resource "ibm_resource_instance" "governance_instance" {
   provider          = ibm.deployer
-  count             = var.watsonx_governance_plan == "do not install" ? 0 : 1
+  count             = var.existing_governance_instance != null ? 0 : var.watsonx_governance_plan == "do not install" ? 0 : 1
   name              = "${var.resource_prefix}-watsonx-governance-instance"
   service           = "aiopenscale"
   plan              = var.watsonx_governance_plan
@@ -109,9 +191,15 @@ resource "ibm_resource_instance" "governance_instance" {
   }
 }
 
+data "ibm_resource_instance" "existing_discovery_instance" {
+  provider   = ibm.deployer
+  count      = var.existing_discovery_instance != null ? 1 : 0
+  identifier = var.existing_discovery_instance
+}
+
 resource "ibm_resource_instance" "discovery_instance" {
   provider          = ibm.deployer
-  count             = var.watson_discovery_plan == "do not install" ? 0 : 1
+  count             = var.existing_discovery_instance != null ? 0 : var.watson_discovery_plan == "do not install" ? 0 : 1
   name              = "${var.resource_prefix}-watson-discovery-instance"
   service           = "discovery"
   plan              = var.watson_discovery_plan
@@ -125,9 +213,15 @@ resource "ibm_resource_instance" "discovery_instance" {
   }
 }
 
+data "ibm_resource_instance" "existing_data_instance" {
+  provider   = ibm.deployer
+  count      = var.existing_data_instance != null ? 1 : 0
+  identifier = var.existing_data_instance
+}
+
 resource "ibm_resource_instance" "data_instance" {
   provider          = ibm.deployer
-  count             = var.watsonx_data_plan == "do not install" ? 0 : 1
+  count             = var.existing_data_instance != null ? 0 : var.watsonx_data_plan == "do not install" ? 0 : 1
   name              = "${var.resource_prefix}-watsonx-data-instance"
   service           = "lakehouse"
   plan              = var.watsonx_data_plan
@@ -179,9 +273,9 @@ module "configure_project" {
   watsonx_project_name        = "${var.resource_prefix}-${var.watsonx_project_name}"
   watsonx_project_description = var.watsonx_project_description
   watsonx_project_tags        = var.watsonx_project_tags
-  machine_learning_guid       = ibm_resource_instance.machine_learning_instance.guid
-  machine_learning_crn        = ibm_resource_instance.machine_learning_instance.crn
-  machine_learning_name       = ibm_resource_instance.machine_learning_instance.resource_name
+  machine_learning_guid       = local.watson_machine_learning_guid
+  machine_learning_crn        = local.watson_machine_learning_crn
+  machine_learning_name       = local.watson_machine_learning_name
   cos_guid                    = module.cos.cos_instance_guid
   cos_crn                     = module.cos.cos_instance_crn
   watsonx_project_delegated   = local.is_storage_delegated
