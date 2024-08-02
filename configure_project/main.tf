@@ -80,4 +80,13 @@ locals {
   watsonx_project_id_object = restapi_object.configure_project.id
   watsonx_project_id        = regex("^.+/([a-f0-9\\-]+)$", local.watsonx_project_id_object)[0]
   watsonx_project_data      = jsondecode(data.restapi_object.get_project.api_response)
+  dataplatform_ui_mapping = {
+    "us-south" = "https://dataplatform.cloud.ibm.com",
+    "eu-gb"    = "https://eu-uk.dataplatform.cloud.ibm.com",
+    "eu-de"    = "https://eu-de.dataplatform.cloud.ibm.com",
+    "jp-tok"   = "https://jp-tok.dataplatform.cloud.ibm.com"
+  }
+  dataplatform_ui = local.dataplatform_ui_mapping[var.location]
+  crn_splitted    = split(":", var.machine_learning_crn)
+  account_id      = split("/", local.crn_splitted[6])[1]
 }
