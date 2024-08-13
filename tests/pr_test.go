@@ -9,37 +9,65 @@ import (
 )
 
 // Use existing resource group
-const resourceGroup = "geretain-test-resources"
+const basicExampleDir = "examples/basic"
 const completeExampleDir = "examples/complete"
 
-func setupOptions(t *testing.T, prefix string, dir string) *testhelper.TestOptions {
-	options := testhelper.TestOptionsDefaultWithVars(&testhelper.TestOptions{
-		Testing:       t,
-		TerraformDir:  dir,
-		Prefix:        prefix,
-		ResourceGroup: resourceGroup,
+func setupOptionsBasicExample(t *testing.T, prefix string, dir string) *testhelper.TestOptions {
+	options := testhelper.TestOptionsDefault(&testhelper.TestOptions{
+		Testing:      t,
+		TerraformDir: dir,
+		IgnoreDestroys: testhelper.Exemptions{ // Ignore for consistency check
+			List: []string{
+				"module.watsonx_saas.module.configure_user.null_resource.configure_user",
+				"module.watsonx_saas.module.configure_user.null_resource.restrict_access",
+			},
+		},
+		IgnoreUpdates: testhelper.Exemptions{ // Ignore for consistency check
+			List: []string{
+				"module.watsonx_saas.module.configure_user.null_resource.configure_user",
+				"module.watsonx_saas.module.configure_user.null_resource.restrict_access",
+			},
+		},
 	})
 	return options
 }
 
-func TestRunCompleteExample(t *testing.T) {
+func setupOptionsCompleteExample(t *testing.T, prefix string, dir string) *testhelper.TestOptions {
+	options := testhelper.TestOptionsDefault(&testhelper.TestOptions{
+		Testing:      t,
+		TerraformDir: dir,
+		IgnoreDestroys: testhelper.Exemptions{ // Ignore for consistency check
+			List: []string{
+				"module.watsonx_saas.module.configure_user.null_resource.configure_user",
+				"module.watsonx_saas.module.configure_user.null_resource.restrict_access",
+			},
+		},
+		IgnoreUpdates: testhelper.Exemptions{ // Ignore for consistency check
+			List: []string{
+				"module.watsonx_saas.module.configure_user.null_resource.configure_user",
+				"module.watsonx_saas.module.configure_user.null_resource.restrict_access",
+			},
+		},
+	})
+	return options
+}
+
+func TestRunBasicExample(t *testing.T) {
 	t.Parallel()
 
-	options := setupOptions(t, "mod-template", completeExampleDir)
+	options := setupOptionsBasicExample(t, "watsonx-basic", basicExampleDir)
 
 	output, err := options.RunTestConsistency()
 	assert.Nil(t, err, "This should not have errored")
 	assert.NotNil(t, output, "Expected some output")
 }
 
-func TestRunUpgradeExample(t *testing.T) {
+func TestRunCompleteExample(t *testing.T) {
 	t.Parallel()
 
-	options := setupOptions(t, "mod-template-upg", completeExampleDir)
+	options := setupOptionsCompleteExample(t, "watsonx-complete", completeExampleDir)
 
-	output, err := options.RunTestUpgrade()
-	if !options.UpgradeTestSkipped {
-		assert.Nil(t, err, "This should not have errored")
-		assert.NotNil(t, output, "Expected some output")
-	}
+	output, err := options.RunTestConsistency()
+	assert.Nil(t, err, "This should not have errored")
+	assert.NotNil(t, output, "Expected some output")
 }

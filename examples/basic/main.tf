@@ -1,24 +1,21 @@
-########################################################################################################################
-# Resource group
-########################################################################################################################
-
-module "resource_group" {
-  source  = "terraform-ibm-modules/resource-group/ibm"
-  version = "1.1.5"
-  # if an existing resource group is not set (null) create a new one using prefix
-  resource_group_name          = var.resource_group == null ? "${var.prefix}-resource-group" : null
-  existing_resource_group_name = var.resource_group
+locals {
+  unique_identifier = random_string.unique_identifier.result
 }
 
-########################################################################################################################
-# COS instance
-########################################################################################################################
+# Access random string generated with random_string.unique_identifier.result
+resource "random_string" "unique_identifier" {
+  length  = 6
+  special = false
+  upper   = false
+}
 
-resource "ibm_resource_instance" "cos_instance" {
-  name              = "${var.prefix}-cos"
-  resource_group_id = module.resource_group.resource_group_id
-  service           = "cloud-object-storage"
-  plan              = "standard"
-  location          = "global"
-  tags              = var.resource_tags
+
+module "watsonx_saas" {
+  source                      = "../.."
+  ibmcloud_api_key            = var.ibmcloud_api_key
+  resource_prefix             = "basic-test-${local.unique_identifier}"
+  location                    = var.location
+  use_existing_resource_group = "false"
+  resource_group_name         = local.unique_identifier
+  watsonx_project_name        = "project-basic-test"
 }

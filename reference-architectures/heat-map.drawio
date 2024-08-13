@@ -1,0 +1,199 @@
+<mxfile host="Electron" modified="2024-04-12T14:17:09.875Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.1.0 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="RLGDXE3Z3SynouD_iRij" version="24.1.0" type="device">
+  <diagram id="iQk230hBdAGukSs-h0T6" name="Page-1">
+    <mxGraphModel dx="1043" dy="796" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-9" value="Application&lt;br&gt;integration" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="160" y="116" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-20" value="Mobile" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fontStyle=0;fillColor=default;verticalAlign=middle;fontSize=12;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="160" y="66" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-21" value="Bare metal servers" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;" parent="1" vertex="1">
+          <mxGeometry x="160" y="166" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-23" value="Primary storage" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#0E62FD;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;verticalAlign=middle;fontSize=12;fontColor=default;fontStyle=1;fillColor=#EDF5FF;" parent="1" vertex="1">
+          <mxGeometry x="160" y="216" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-24" value="Enterprise &lt;br&gt;connectivity" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;" parent="1" vertex="1">
+          <mxGeometry x="160" y="266" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-25" value="Build &amp;amp; test" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;" parent="1" vertex="1">
+          <mxGeometry x="160" y="366" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-26" value="Data security" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#0E62FD;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fontStyle=1;fillColor=#EDF5FF;verticalAlign=middle;fontSize=12;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="160" y="316" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-27" value="Backup &amp;amp; restore" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;" parent="1" vertex="1">
+          <mxGeometry x="160" y="416" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-28" value="Monitoring" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;" parent="1" vertex="1">
+          <mxGeometry x="160" y="466" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-30" value="Edge" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="303" y="66" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-31" value="Blockchain" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="446" y="66" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-32" value="Enterprise &lt;br&gt;applications" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#0E62FD;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=#EDF5FF;fontStyle=1;verticalAlign=middle;fontSize=12;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="589" y="66" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-34" value="Data Ops" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="303" y="116" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-35" value="Data analytics" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="446" y="116" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-36" value="Data storage" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="589" y="116" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-37" value="Business intelligence" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="732" y="116" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-38" value="Virtual servers" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="303" y="166" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-39" value="Virtualization" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="446" y="166" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-40" value="Containers" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="589" y="166" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-41" value="Cloud Foundry" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="732" y="166" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-42" value="Serverless" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="875" y="166" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-43" value="Backup" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="303" y="216" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-44" value="Archive" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="446" y="216" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-45" value="Data migration" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="589" y="216" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-46" value="BYOIP/Edge gateways" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="303" y="266" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-47" value="Load balancing" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="446" y="266" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-48" value="Cloud native connectivity" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="589" y="266" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-49" value="Isolation" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="732" y="266" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-50" value="Content delivery network" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="875" y="266" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-51" value="Domain name service" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="1018" y="266" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-52" value="Identity &amp;amp; access" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#0E62FD;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=#EDF5FF;fontStyle=1;verticalAlign=middle;fontSize=12;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="303" y="316" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-53" value="Application security" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="446" y="316" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-54" value="Infrastructure &amp;amp; endpoints" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="589" y="316" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-55" value="Threat detection &amp;amp; response" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="732" y="316" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-56" value="Governance, risk &amp;amp; compliance" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#0E62FD;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=#EDF5FF;fontStyle=1;verticalAlign=middle;fontSize=12;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="875" y="316" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-57" value="Delivery pipeline" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="303" y="366" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-58" value="Code repository" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="446" y="366" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-59" value="Disaster recovery" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="303" y="416" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-60" value="High availability" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#0E62FD;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=#EDF5FF;fontStyle=1;verticalAlign=middle;fontSize=12;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="446" y="416" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-61" value="Logging" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="303" y="466" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-62" value="Auditing/tracking" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;verticalAlign=middle;fontSize=12;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="446" y="466" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-63" value="Alerting" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="589" y="466" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-64" value="Event management" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="732" y="466" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-65" value="Automated deployment" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;verticalAlign=middle;fontSize=12;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="875" y="466" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-66" value="Management/&lt;br&gt;orchestration" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#A8A8A8;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=default;fontStyle=0;" parent="1" vertex="1">
+          <mxGeometry x="1018" y="466" width="135" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-70" value="" style="endArrow=none;html=1;rounded=0;fontFamily=IBM Plex Sans;fontSize=12;fontColor=default;strokeColor=#C6C6C6;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="143" y="510" as="sourcePoint" />
+            <mxPoint x="143" y="36" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-72" value="Domain" style="text;strokeColor=none;fillColor=none;html=1;fontSize=14;fontStyle=1;verticalAlign=middle;align=left;rounded=0;fontFamily=IBM Plex Sans;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="160" y="30" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-73" value="Aspect" style="text;strokeColor=none;fillColor=none;html=1;fontSize=14;fontStyle=1;verticalAlign=middle;align=right;rounded=0;fontFamily=IBM Plex Sans;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="27" y="30" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-74" value="Application &lt;br&gt;platforms" style="text;strokeColor=none;fillColor=none;html=1;fontSize=12;fontStyle=0;verticalAlign=middle;align=right;rounded=0;fontFamily=IBM Plex Sans;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="27" y="77" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-75" value="Data" style="text;strokeColor=none;fillColor=none;html=1;fontSize=12;fontStyle=0;verticalAlign=middle;align=right;rounded=0;fontFamily=IBM Plex Sans;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="27" y="127" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-76" value="Compute" style="text;strokeColor=none;fillColor=none;html=1;fontSize=12;fontStyle=0;verticalAlign=middle;align=right;rounded=0;fontFamily=IBM Plex Sans;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="27" y="177" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-77" value="Storage" style="text;strokeColor=none;fillColor=none;html=1;fontSize=12;fontStyle=0;verticalAlign=middle;align=right;rounded=0;fontFamily=IBM Plex Sans;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="27" y="227" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-78" value="Networking" style="text;strokeColor=none;fillColor=none;html=1;fontSize=12;fontStyle=0;verticalAlign=middle;align=right;rounded=0;fontFamily=IBM Plex Sans;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="27" y="277" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-79" value="Security" style="text;strokeColor=none;fillColor=none;html=1;fontSize=12;fontStyle=0;verticalAlign=middle;align=right;rounded=0;fontFamily=IBM Plex Sans;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="27" y="327" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-80" value="DevOps" style="text;strokeColor=none;fillColor=none;html=1;fontSize=12;fontStyle=0;verticalAlign=middle;align=right;rounded=0;fontFamily=IBM Plex Sans;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="27" y="377" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-81" value="Resiliency" style="text;strokeColor=none;fillColor=none;html=1;fontSize=12;fontStyle=0;verticalAlign=middle;align=right;rounded=0;fontFamily=IBM Plex Sans;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="27" y="427" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-83" value="Service&lt;br&gt;management" style="text;strokeColor=none;fillColor=none;html=1;fontSize=12;fontStyle=0;verticalAlign=middle;align=right;rounded=0;fontFamily=IBM Plex Sans;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="27" y="477" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-86" value="" style="endArrow=none;html=1;rounded=0;fontFamily=IBM Plex Sans;fontSize=12;fontColor=default;strokeColor=#C6C6C6;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="50" y="520" as="sourcePoint" />
+            <mxPoint x="1160" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-88" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#0E62FD;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fontStyle=1;fillColor=#EDF5FF;" parent="1" vertex="1">
+          <mxGeometry x="160" y="537" width="16" height="16" as="geometry" />
+        </mxCell>
+        <mxCell id="vvGwZ6liFT7NTi3uzbrW-89" value="Included in this architecture" style="text;strokeColor=none;fillColor=none;html=1;fontSize=12;fontStyle=0;verticalAlign=middle;align=left;rounded=0;fontFamily=IBM Plex Sans;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="184" y="535" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="9zC9d3bsEImmLCJwYM-r-1" value="Artificial intelligence" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#0E62FD;align=left;spacingLeft=8;fontFamily=IBM Plex Sans;fillColor=#EDF5FF;fontStyle=1;verticalAlign=middle;fontSize=12;fontColor=default;" parent="1" vertex="1">
+          <mxGeometry x="875" y="116" width="135" height="42" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
