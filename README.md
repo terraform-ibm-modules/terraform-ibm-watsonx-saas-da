@@ -117,7 +117,7 @@ statement instead the previous block.
 |------|--------|---------|
 | <a name="module_configure_project"></a> [configure\_project](#module\_configure\_project) | ./configure_project | n/a |
 | <a name="module_configure_user"></a> [configure\_user](#module\_configure\_user) | ./configure_user | n/a |
-| <a name="module_cos"></a> [cos](#module\_cos) | terraform-ibm-modules/cos/ibm//modules/fscloud | 8.10.1 |
+| <a name="module_cos"></a> [cos](#module\_cos) | terraform-ibm-modules/cos/ibm//modules/fscloud | 8.10.2 |
 | <a name="module_resource_group"></a> [resource\_group](#module\_resource\_group) | terraform-ibm-modules/resource-group/ibm | 1.1.6 |
 | <a name="module_storage_delegation"></a> [storage\_delegation](#module\_storage\_delegation) | ./storage_delegation | n/a |
 
