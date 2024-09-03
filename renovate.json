@@ -1,4 +1,18 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>terraform-ibm-modules/common-dev-assets:commonRenovateConfig"]
+  "extends": ["github>terraform-ibm-modules/common-dev-assets:commonRenovateConfig"],
+  "packageRules": [
+    {
+      "description": "Allow the locked in provider version to be updated to the latest for deployable architectures. This rule is required because the DA in this repo is in the root directory instead of a solutions directory.",
+      "enabled": true,
+      "matchFileNames": ["version.tf"],
+      "matchManagers": ["terraform"],
+      "matchDepTypes": ["required_provider"],
+      "rangeStrategy": "bump",
+      "semanticCommitType": "fix",
+      "group": true,
+      "groupName": "required_provider",
+      "commitMessageExtra": "to latest for deployable architectures"
+    }
+  ]
 }

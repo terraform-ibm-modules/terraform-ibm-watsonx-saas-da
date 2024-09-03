@@ -7,6 +7,14 @@ resource "ibm_iam_authorization_policy" "cos_s2s_keyprotect" {
   roles                       = ["Reader"]
 }
 
+resource "time_sleep" "wait_for_authorization_policy" {
+  depends_on = [ibm_iam_authorization_policy.cos_s2s_keyprotect]
+  # workaround for https://github.com/IBM-Cloud/terraform-provider-ibm/issues/4478
+  create_duration = "30s"
+  # workaround for https://github.com/terraform-ibm-modules/terraform-ibm-cos/issues/672
+  destroy_duration = "30s"
+}
+
 data "ibm_resource_instance" "kms_instance" {
   provider   = ibm.deployer
   count      = var.cos_kms_crn == null || var.cos_kms_crn == "" ? 0 : 1
@@ -35,7 +43,7 @@ data "ibm_kms_key" "kms_key" {
 
 resource "restapi_object" "storage_delegation" {
   provider       = restapi.restapi_watsonx_admin
-  depends_on     = [resource.ibm_iam_authorization_policy.cos_s2s_keyprotect, data.ibm_kms_key.kms_key]
+  depends_on     = [time_sleep.wait_for_authorization_policy, data.ibm_kms_key.kms_key]
   path           = "//dataplatform.cloud.ibm.com/api/rest/v1/storage-delegations"
   read_path      = "//dataplatform.cloud.ibm.com/api/rest/v1/storage-delegations/{id}"
   read_method    = "GET"

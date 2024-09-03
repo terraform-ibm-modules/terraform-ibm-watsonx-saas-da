@@ -11,5 +11,9 @@ terraform {
       version               = ">= 1.66.0"
       configuration_aliases = [ibm.deployer]
     }
+    time = {
+      source  = "hashicorp/time"
+      version = ">= 0.12.0"
+    }
   }
 }
