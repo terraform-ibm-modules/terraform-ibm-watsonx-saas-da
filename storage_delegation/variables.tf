@@ -12,16 +12,14 @@ variable "cos_guid" {
 ############################################################
 
 variable "cos_kms_crn" {
-  description = "Key Protect service instance CRN used to encrypt the COS buckets used by the watsonx projects."
+  description = "Key Protect service instance CRN used to encrypt the COS buckets used by the watsonx projects. Ensure the Key Protect instance is in one of these following regions: `eu-de`, `eu-gb`, `jp-tok`, `us-south`"
   type        = string
-  default     = null
 
   validation {
     condition = anytrue([
-      can(regex("^crn:(.*:){3}kms:(.*:){2}[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}::$", var.cos_kms_crn)),
-      var.cos_kms_crn == null,
+      can(regex("^crn:(.*:){3}kms:(eu-gb|eu-de|us-south|jp-tok)(.*:){1}[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}::$", var.cos_kms_crn))
     ])
-    error_message = "Key Protect CRN validation failed."
+    error_message = "Key Protect CRN validation failed. Ensure the Key Protect instance is in one of these following regions: eu-de, eu-gb, jp-tok, us-south"
   }
 }
 
