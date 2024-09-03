@@ -2,7 +2,7 @@ locals {
   is_storage_delegated = var.cos_kms_crn == null || var.cos_kms_crn == "" ? false : true
   dataplatform_ui_mapping = {
     "us-south" = "https://dataplatform.cloud.ibm.com",
-    "eu-gb"    = "https://eu-uk.dataplatform.cloud.ibm.com",
+    "eu-gb"    = "https://eu-gb.dataplatform.cloud.ibm.com",
     "eu-de"    = "https://eu-de.dataplatform.cloud.ibm.com",
     "jp-tok"   = "https://jp-tok.dataplatform.cloud.ibm.com"
   }
