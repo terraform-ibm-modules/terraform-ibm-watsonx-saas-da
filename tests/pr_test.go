@@ -2,6 +2,7 @@
 package test
 
 import (
+	"math/rand"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -11,6 +12,12 @@ import (
 // Use existing resource group
 const basicExampleDir = "examples/basic"
 const completeExampleDir = "examples/complete"
+
+// Current supported regions
+var validRegions = []string{
+	"us-south",
+	"eu-de",
+}
 
 func setupOptionsBasicExample(t *testing.T, prefix string, dir string) *testhelper.TestOptions {
 	options := testhelper.TestOptionsDefault(&testhelper.TestOptions{
@@ -29,6 +36,11 @@ func setupOptionsBasicExample(t *testing.T, prefix string, dir string) *testhelp
 			},
 		},
 	})
+	terraformVars := map[string]interface{}{
+		"location": validRegions[rand.Intn(len(validRegions))],
+	}
+	options.TerraformVars = terraformVars
+
 	return options
 }
 
