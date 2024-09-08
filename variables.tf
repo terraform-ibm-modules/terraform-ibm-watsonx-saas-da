@@ -169,6 +169,26 @@ variable "watsonx_data_plan" {
   }
 }
 
+variable "existing_orchestrate_instance" {
+  default     = null
+  description = "CRN of the an existing watsonx.data instance."
+  type        = string
+}
+
+variable "watsonx_orchestrate_plan" {
+  default     = "do not install"
+  description = "The plan that's used to provision the watsonx.data instance."
+  type        = string
+  validation {
+    condition = anytrue([
+      var.watsonx_orchestrate_plan == "do not install",
+      var.watsonx_orchestrate_plan == "essentials",
+      var.watsonx_orchestrate_plan == "standard",
+    ])
+    error_message = "You must use a essentials or standard plan. Learn more. "
+  }
+}
+
 variable "watsonx_project_name" {
   description = "The name of the watson project."
   type        = string

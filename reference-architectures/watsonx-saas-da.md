@@ -101,7 +101,7 @@ The Watsonx.ai SaaS with Assistant and Governance deployable architecture can au
 If you do not specify an encryption key, then the deployable architecture automatically creates one for you in a key ring of your choice (if you do not
 specify a key ring, then the default one is used).
 
-The service instances `Watson Studio`, `Watson Machine Learning`, `watsonx.data`, `watsonx.governance`, and `watsonx Assistant` must be co-located in the same region. `Cloud Object Storage` buckets will be created in that region.
+The service instances `Watson Studio`, `Watson Machine Learning`, `watsonx.data`, `watsonx Orchestrate`, `watsonx.governance`, and `watsonx Assistant` must be co-located in the same region. `Cloud Object Storage` buckets will be created in that region.
 
 The `Key Protect` instance must be co-located in the same region of the {{site.data.keyworkd.IBM_notm}} watsonx services you are deploying, and it must be in the same target account.
 {: important}

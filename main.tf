@@ -51,6 +51,12 @@ locals {
   watsonx_data_name          = var.existing_data_instance != null ? data.ibm_resource_instance.existing_data_instance[0].resource_name : var.watsonx_data_plan != "do not install" ? resource.ibm_resource_instance.data_instance[0].resource_name : null
   watsonx_data_plan_id       = var.existing_data_instance != null ? null : var.watsonx_data_plan != "do not install" ? resource.ibm_resource_instance.data_instance[0].resource_plan_id : null
   watsonx_data_dashboard_url = var.existing_data_instance != null ? null : var.watsonx_data_plan != "do not install" ? resource.ibm_resource_instance.data_instance[0].dashboard_url : null
+
+  watsonx_orchestrate_crn           = var.existing_orchestrate_instance != null ? data.ibm_resource_instance.existing_orchestrate_instance[0].crn : var.watsonx_orchestrate_plan != "do not install" ? resource.ibm_resource_instance.orchestrate_instance[0].crn : null
+  watsonx_orchestrate_guid          = var.existing_orchestrate_instance != null ? data.ibm_resource_instance.existing_orchestrate_instance[0].guid : var.watsonx_orchestrate_plan != "do not install" ? resource.ibm_resource_instance.orchestrate_instance[0].guid : null
+  watsonx_orchestrate_name          = var.existing_orchestrate_instance != null ? data.ibm_resource_instance.existing_orchestrate_instance[0].resource_name : var.watsonx_orchestrate_plan != "do not install" ? resource.ibm_resource_instance.orchestrate_instance[0].resource_name : null
+  watsonx_orchestrate_plan_id       = var.existing_orchestrate_instance != null ? null : var.watsonx_orchestrate_plan != "do not install" ? resource.ibm_resource_instance.orchestrate_instance[0].resource_plan_id : null
+  watsonx_orchestrate_dashboard_url = var.existing_orchestrate_instance != null ? null : var.watsonx_orchestrate_plan != "do not install" ? resource.ibm_resource_instance.orchestrate_instance[0].dashboard_url : null
 }
 
 data "ibm_iam_auth_token" "restapi" {
@@ -229,6 +235,35 @@ resource "ibm_resource_instance" "data_instance" {
     datacenter : local.watsonx_data_datacenter
     cloud_type : "ibm"
     region : var.location
+  }
+}
+
+data "ibm_resource_instance" "existing_orchestrate_instance" {
+  provider   = ibm.deployer
+  count      = var.existing_orchestrate_instance != null ? 1 : 0
+  identifier = var.existing_orchestrate_instance
+}
+
+resource "ibm_resource_instance" "orchestrate_instance" {
+  provider          = ibm.deployer
+  count             = var.existing_orchestrate_instance != null ? 0 : var.watsonx_orchestrate_plan == "do not install" ? 0 : 1
+  name              = "${var.resource_prefix}-watsonx-orchestrate-instance"
+  service           = "watsonx-orchestrate"
+  plan              = var.watsonx_orchestrate_plan
+  location          = var.location
+  resource_group_id = module.resource_group.resource_group_id
+
+  timeouts {
+    create = "15m"
+    update = "15m"
+    delete = "15m"
+  }
+
+  lifecycle {
+    precondition {
+      condition     = contains(["us-south"], var.location)
+      error_message = "watsonx Orchestrate is only available in us-south region."
+    }
   }
 }
 
