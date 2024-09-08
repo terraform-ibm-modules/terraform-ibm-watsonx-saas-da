@@ -171,13 +171,13 @@ variable "watsonx_data_plan" {
 
 variable "existing_orchestrate_instance" {
   default     = null
-  description = "CRN of the an existing watsonx.data instance."
+  description = "CRN of the an existing watsonx Orchestrate instance."
   type        = string
 }
 
 variable "watsonx_orchestrate_plan" {
   default     = "do not install"
-  description = "The plan that's used to provision the watsonx.data instance."
+  description = "The plan that's used to provision the watsonx Orchestrate instance."
   type        = string
   validation {
     condition = anytrue([
