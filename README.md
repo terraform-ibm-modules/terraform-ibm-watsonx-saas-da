@@ -58,6 +58,7 @@ Optionally, the solution supports:
 - Provisioning of one or more of the services, with a selectable
   service plan:
   - watsonx.data
+  - watsonx Orchestrate
   - watsonx.governance
   - watsonx Assistant
   - Watson Discovery.
@@ -80,6 +81,7 @@ The following permissions are required to deploy this solution.
 - Editor platform role on Watson Studio to create or delete the service.
 - Editor platform role on Cloud Object Storage to create and delete the service.
 - Editor platform role on watsonx.data if you must provision.
+- Editor platform role on watsonx Orchestrate if you must provision.
 - Editor platform role on watsonx.governance if you must provision.
 - Editor platform role on watsonx Assistant if you must provision.
 - Editor platform role on Watson Discovery if you must provision.
@@ -130,6 +132,7 @@ statement instead the previous block.
 | [ibm_resource_instance.discovery_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.69.0/docs/resources/resource_instance) | resource |
 | [ibm_resource_instance.governance_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.69.0/docs/resources/resource_instance) | resource |
 | [ibm_resource_instance.machine_learning_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.69.0/docs/resources/resource_instance) | resource |
+| [ibm_resource_instance.orchestrate_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.69.0/docs/resources/resource_instance) | resource |
 | [ibm_resource_instance.studio_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.69.0/docs/resources/resource_instance) | resource |
 | [ibm_iam_auth_token.restapi](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.69.0/docs/data-sources/iam_auth_token) | data source |
 | [ibm_resource_instance.existing_assistant_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.69.0/docs/data-sources/resource_instance) | data source |
@@ -137,6 +140,7 @@ statement instead the previous block.
 | [ibm_resource_instance.existing_discovery_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.69.0/docs/data-sources/resource_instance) | data source |
 | [ibm_resource_instance.existing_governance_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.69.0/docs/data-sources/resource_instance) | data source |
 | [ibm_resource_instance.existing_machine_learning_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.69.0/docs/data-sources/resource_instance) | data source |
+| [ibm_resource_instance.existing_orchestrate_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.69.0/docs/data-sources/resource_instance) | data source |
 | [ibm_resource_instance.existing_studio_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.69.0/docs/data-sources/resource_instance) | data source |
 
 ### Inputs
@@ -153,6 +157,7 @@ statement instead the previous block.
 | <a name="input_existing_discovery_instance"></a> [existing\_discovery\_instance](#input\_existing\_discovery\_instance) | CRN of the an existing Watson Discovery instance. | `string` | `null` | no |
 | <a name="input_existing_governance_instance"></a> [existing\_governance\_instance](#input\_existing\_governance\_instance) | CRN of the an existing watsonx.governance instance. | `string` | `null` | no |
 | <a name="input_existing_machine_learning_instance"></a> [existing\_machine\_learning\_instance](#input\_existing\_machine\_learning\_instance) | CRN of the an existing Watson Machine Learning instance. | `string` | `null` | no |
+| <a name="input_existing_orchestrate_instance"></a> [existing\_orchestrate\_instance](#input\_existing\_orchestrate\_instance) | CRN of the an existing watsonx Orchestrate instance. | `string` | `null` | no |
 | <a name="input_existing_studio_instance"></a> [existing\_studio\_instance](#input\_existing\_studio\_instance) | CRN of the an existing Watson Studio instance. | `string` | `null` | no |
 | <a name="input_ibmcloud_api_key"></a> [ibmcloud\_api\_key](#input\_ibmcloud\_api\_key) | The API key that's used with the IBM Cloud Terraform IBM provider. | `string` | n/a | yes |
 | <a name="input_location"></a> [location](#input\_location) | The location that's used with the IBM Cloud Terraform IBM provider. It's also used during resource creation. | `string` | `"us-south"` | no |
@@ -166,6 +171,7 @@ statement instead the previous block.
 | <a name="input_watsonx_assistant_plan"></a> [watsonx\_assistant\_plan](#input\_watsonx\_assistant\_plan) | The plan that's used to provision the watsonx Assistance instance. | `string` | `"do not install"` | no |
 | <a name="input_watsonx_data_plan"></a> [watsonx\_data\_plan](#input\_watsonx\_data\_plan) | The plan that's used to provision the watsonx.data instance. | `string` | `"do not install"` | no |
 | <a name="input_watsonx_governance_plan"></a> [watsonx\_governance\_plan](#input\_watsonx\_governance\_plan) | The plan used to provision the watsonx.governance instance. The available plans depend on the region where you are provisioning the service from the IBM Cloud catalog. | `string` | `"do not install"` | no |
+| <a name="input_watsonx_orchestrate_plan"></a> [watsonx\_orchestrate\_plan](#input\_watsonx\_orchestrate\_plan) | The plan that's used to provision the watsonx Orchestrate instance. | `string` | `"do not install"` | no |
 | <a name="input_watsonx_project_description"></a> [watsonx\_project\_description](#input\_watsonx\_project\_description) | A description of the watson project that's created by the WatsonX.ai SaaS Deployable Architecture. | `string` | `"Watson project created by the watsonx-ai SaaS deployable architecture."` | no |
 | <a name="input_watsonx_project_name"></a> [watsonx\_project\_name](#input\_watsonx\_project\_name) | The name of the watson project. | `string` | `"demo"` | no |
 | <a name="input_watsonx_project_tags"></a> [watsonx\_project\_tags](#input\_watsonx\_project\_tags) | A list of tags associated with the watsonx project. Each tag consists of a single string containing up to 255 characters. These tags can include spaces, letters, numbers, underscores, dashes, as well as the symbols # and @. | `list(string)` | <pre>[<br>  "watsonx-ai-SaaS"<br>]</pre> | no |
@@ -205,6 +211,11 @@ statement instead the previous block.
 | <a name="output_watsonx_governance_guid"></a> [watsonx\_governance\_guid](#output\_watsonx\_governance\_guid) | The GUID of the watsonx.governance instance. |
 | <a name="output_watsonx_governance_name"></a> [watsonx\_governance\_name](#output\_watsonx\_governance\_name) | The name of the watsonx.governance instance. |
 | <a name="output_watsonx_governance_plan_id"></a> [watsonx\_governance\_plan\_id](#output\_watsonx\_governance\_plan\_id) | The plan ID of the watsonx.governance instance. |
+| <a name="output_watsonx_orchestrate_crn"></a> [watsonx\_orchestrate\_crn](#output\_watsonx\_orchestrate\_crn) | The CRN of the watsonx Orchestrate instance. |
+| <a name="output_watsonx_orchestrate_dashboard_url"></a> [watsonx\_orchestrate\_dashboard\_url](#output\_watsonx\_orchestrate\_dashboard\_url) | The dashboard URL of the watsonx Orchestrate instance. |
+| <a name="output_watsonx_orchestrate_guid"></a> [watsonx\_orchestrate\_guid](#output\_watsonx\_orchestrate\_guid) | The GUID of the watsonx Orchestrate instance. |
+| <a name="output_watsonx_orchestrate_name"></a> [watsonx\_orchestrate\_name](#output\_watsonx\_orchestrate\_name) | The name of the watsonx Orchestrate instance. |
+| <a name="output_watsonx_orchestrate_plan_id"></a> [watsonx\_orchestrate\_plan\_id](#output\_watsonx\_orchestrate\_plan\_id) | The plan ID of the watsonx Orchestrate instance. |
 | <a name="output_watsonx_platform_endpoint"></a> [watsonx\_platform\_endpoint](#output\_watsonx\_platform\_endpoint) | The endpoint of the watsonx platform. |
 | <a name="output_watsonx_project_bucket_name"></a> [watsonx\_project\_bucket\_name](#output\_watsonx\_project\_bucket\_name) | The name of the COS bucket created by the watsonx project. |
 | <a name="output_watsonx_project_id"></a> [watsonx\_project\_id](#output\_watsonx\_project\_id) | The ID watsonx project that's created. |

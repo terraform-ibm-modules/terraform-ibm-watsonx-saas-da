@@ -255,6 +255,28 @@
               "custom_config": {
 
               }
+            },
+            {
+              "key": "watsonx_orchestrate_plan",
+              "type": "string",
+              "default_value": "do not install",
+              "options": [
+                {
+                  "displayname": "Do not install",
+                  "value": "do not install"
+                },
+                {
+                  "displayname": "Standard",
+                  "value": "standard"
+                },
+                {
+                  "displayname": "Essentials",
+                  "value": "essentials"
+                }
+              ],
+              "custom_config": {
+
+              }
             }
           ],
           "iam_permissions": [
@@ -420,6 +442,26 @@
             {
               "key": "watsonx_data_dashboard_url",
               "description": "The dashboard URL of the watsonx.data instance."
+            },
+            {
+              "key": "watsonx_orchestrate_crn",
+              "description": "The CRN of the watsonx Orchestrate instance."
+            },
+            {
+              "key": "watsonx_orchestrate_guid",
+              "description": "The ID of the watsonx Orchestrate instance."
+            },
+            {
+              "key": "watsonx_orchestrate_name",
+              "description": "The name of the watsonx Orchestrate instance."
+            },
+            {
+              "key": "watsonx_orchestrate_plan_id",
+              "description": "The watsonx Orchestrate service plan ID."
+            },
+            {
+              "key": "watsonx_orchestrate_dashboard_url",
+              "description": "The dashboard URL of the watsonx Orchestrate instance."
             },
             {
               "key": "watsonx_governance_crn",
