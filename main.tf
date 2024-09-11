@@ -126,10 +126,21 @@ resource "ibm_resource_instance" "machine_learning_instance" {
   location          = var.location
   resource_group_id = module.resource_group.resource_group_id
 
+  parameters = {
+    service-endpoints = var.watson_machine_learning_service_endpoints
+  }
+
   timeouts {
     create = "15m"
     update = "15m"
     delete = "15m"
+  }
+
+  lifecycle {
+    precondition {
+      condition     = contains(["lite"], var.watson_machine_learning_plan) ? var.watson_machine_learning_service_endpoints == "public" : true
+      error_message = "The lite plan only supports public endpoints."
+    }
   }
 }
 
@@ -153,10 +164,21 @@ resource "ibm_resource_instance" "assistant_instance" {
   location          = var.location
   resource_group_id = module.resource_group.resource_group_id
 
+  parameters = {
+    service-endpoints = var.watsonx_assistant_service_endpoints
+  }
+
   timeouts {
     create = "15m"
     update = "15m"
     delete = "15m"
+  }
+
+  lifecycle {
+    precondition {
+      condition     = contains(["free", "plus-trial"], var.watsonx_assistant_plan) ? var.watsonx_assistant_service_endpoints == "public" : true
+      error_message = "The lite and trial plans only support public endpoints."
+    }
   }
 }
 
@@ -180,6 +202,7 @@ resource "ibm_resource_instance" "governance_instance" {
     update = "15m"
     delete = "15m"
   }
+
   lifecycle {
     precondition {
       condition     = contains(["eu-de", "us-south"], var.location)
@@ -202,6 +225,10 @@ resource "ibm_resource_instance" "discovery_instance" {
   plan              = var.watson_discovery_plan
   location          = var.location
   resource_group_id = module.resource_group.resource_group_id
+
+  parameters = {
+    service-endpoints = var.watson_discovery_service_endpoints
+  }
 
   timeouts {
     create = "15m"
