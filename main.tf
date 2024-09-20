@@ -78,7 +78,7 @@ module "cos" {
     ibm = ibm.deployer
   }
   source            = "terraform-ibm-modules/cos/ibm//modules/fscloud"
-  version           = "8.11.10"
+  version           = "8.11.11"
   resource_group_id = module.resource_group.resource_group_id
   cos_instance_name = "${var.resource_prefix}-cos-instance"
   cos_plan          = var.cos_plan
