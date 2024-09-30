@@ -25,4 +25,4 @@ repository:
   description: "A deployable architecture solution to deploy IBM Watsonx SaaS resources."
 
   # Use a comma-separated list of topics to set on the repo (ensure not to use any caps in the topic string).
-  topics: terraform, ibm-cloud, terraform-module, deployable-architecture
+  topics: terraform, ibm-cloud, terraform-module, deployable-architecture, watsonx, core-team
