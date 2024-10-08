@@ -29,7 +29,12 @@ resource "restapi_object" "configure_project" {
                         "type": "machine_learning",
                         "crn": "${var.machine_learning_crn}"
                       }
-                    ]
+                    ],
+                    "settings": {
+                      "access_restrictions": {
+                        "data": ${var.watsonx_mark_as_sensitive}
+                      }
+                    }
                   }
                   EOT
   update_method  = "PATCH"

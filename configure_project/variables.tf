@@ -28,6 +28,12 @@ variable "location" {
   type        = string
 }
 
+variable "watsonx_mark_as_sensitive" {
+  description = "Set to true to allow the WatsonX project to be created with 'Mark as sensitive' flag."
+  type        = bool
+  default     = false
+}
+
 
 
 ############################################################
