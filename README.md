@@ -174,10 +174,11 @@ statement instead the previous block.
 | <a name="input_watsonx_assistant_service_endpoints"></a> [watsonx\_assistant\_service\_endpoints](#input\_watsonx\_assistant\_service\_endpoints) | The type of service endpoints. Possible values: 'public', 'private', 'public-and-private'. | `string` | `"public"` | no |
 | <a name="input_watsonx_data_plan"></a> [watsonx\_data\_plan](#input\_watsonx\_data\_plan) | The plan that's used to provision the watsonx.data instance. | `string` | `"do not install"` | no |
 | <a name="input_watsonx_governance_plan"></a> [watsonx\_governance\_plan](#input\_watsonx\_governance\_plan) | The plan used to provision the watsonx.governance instance. The available plans depend on the region where you are provisioning the service from the IBM Cloud catalog. | `string` | `"do not install"` | no |
+| <a name="input_watsonx_mark_as_sensitive"></a> [watsonx\_mark\_as\_sensitive](#input\_watsonx\_mark\_as\_sensitive) | Set to true to allow the WatsonX project to be created with 'Mark as sensitive' flag. | `bool` | `false` | no |
 | <a name="input_watsonx_orchestrate_plan"></a> [watsonx\_orchestrate\_plan](#input\_watsonx\_orchestrate\_plan) | The plan that's used to provision the watsonx Orchestrate instance. | `string` | `"do not install"` | no |
 | <a name="input_watsonx_project_description"></a> [watsonx\_project\_description](#input\_watsonx\_project\_description) | A description of the watson project that's created by the WatsonX.ai SaaS Deployable Architecture. | `string` | `"Watson project created by the watsonx-ai SaaS deployable architecture."` | no |
 | <a name="input_watsonx_project_name"></a> [watsonx\_project\_name](#input\_watsonx\_project\_name) | The name of the watson project. | `string` | `"demo"` | no |
-| <a name="input_watsonx_project_tags"></a> [watsonx\_project\_tags](#input\_watsonx\_project\_tags) | A list of tags associated with the watsonx project. Each tag consists of a single string containing up to 255 characters. These tags can include spaces, letters, numbers, underscores, dashes, as well as the symbols # and @. | `list(string)` | <pre>[<br/>  "watsonx-ai-SaaS"<br/>]</pre> | no |
+| <a name="input_watsonx_project_tags"></a> [watsonx\_project\_tags](#input\_watsonx\_project\_tags) | A list of tags associated with the watsonx project. Each tag consists of a single string containing up to 255 characters. These tags can include spaces, letters, numbers, underscores, dashes, as well as the symbols # and @. | `list(string)` | <pre>[<br>  "watsonx-ai-SaaS"<br>]</pre> | no |
 
 ### Outputs
 
