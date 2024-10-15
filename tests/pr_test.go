@@ -83,3 +83,14 @@ func TestRunCompleteExample(t *testing.T) {
 	assert.Nil(t, err, "This should not have errored")
 	assert.NotNil(t, output, "Expected some output")
 }
+
+func TestRunUpgradeCompleteExample(t *testing.T) {
+	t.Parallel()
+
+	options := setupOptionsCompleteExample(t, "watsonx-complete-upgrade", completeExampleDir)
+	output, err := options.RunTestUpgrade()
+	if !options.UpgradeTestSkipped {
+		assert.Nil(t, err, "This should not have errored")
+		assert.NotNil(t, output, "Expected some output")
+	}
+}
