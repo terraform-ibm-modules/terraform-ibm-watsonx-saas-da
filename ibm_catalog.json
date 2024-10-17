@@ -277,6 +277,9 @@
               "custom_config": {
 
               }
+            },
+            {
+              "key": "watsonx_mark_as_sensitive"
             }
           ],
           "iam_permissions": [
