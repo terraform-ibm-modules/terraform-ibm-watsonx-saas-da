@@ -67,7 +67,8 @@ resource "restapi_object" "storage_delegation" {
                     "cos_instance_id": "${var.cos_guid}",
                     "kms_key_crn": "${data.ibm_kms_key.kms_key.keys[0].crn}",
                     "catalogs": true,
-                    "projects": true
+                    "projects": true,
+                    "spaces": true
                   }
                   EOT
 }
