@@ -326,6 +326,7 @@ module "configure_project" {
   watsonx_project_name        = "${var.resource_prefix}-${var.watsonx_project_name}"
   watsonx_project_description = var.watsonx_project_description
   watsonx_project_tags        = var.watsonx_project_tags
+  watsonx_mark_as_sensitive   = var.watsonx_mark_as_sensitive
   machine_learning_guid       = local.watson_machine_learning_guid
   machine_learning_crn        = local.watson_machine_learning_crn
   machine_learning_name       = local.watson_machine_learning_name

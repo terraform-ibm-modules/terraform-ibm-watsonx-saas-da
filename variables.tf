@@ -237,6 +237,12 @@ variable "watsonx_project_tags" {
   default     = ["watsonx-ai-SaaS"]
 }
 
+variable "watsonx_mark_as_sensitive" {
+  description = "Set to true to allow the WatsonX project to be created with 'Mark as sensitive' flag."
+  type        = bool
+  default     = false
+}
+
 variable "cos_kms_crn" {
   description = "Key Protect service instance CRN used to encrypt the COS buckets used by the watsonx projects."
   type        = string
