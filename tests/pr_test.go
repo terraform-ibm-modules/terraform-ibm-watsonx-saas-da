@@ -10,8 +10,7 @@ import (
 )
 
 // Use existing resource group
-const basicExampleDir = "examples/basic"
-const completeExampleDir = "examples/complete"
+const rootDaDir = ""
 
 // Current supported regions
 var validRegions = []string{
@@ -19,7 +18,7 @@ var validRegions = []string{
 	"eu-de",
 }
 
-func setupOptionsBasicExample(t *testing.T, prefix string, dir string) *testhelper.TestOptions {
+func setupOptionsRootDA(t *testing.T, prefix string, dir string) *testhelper.TestOptions {
 	options := testhelper.TestOptionsDefault(&testhelper.TestOptions{
 		Testing:      t,
 		TerraformDir: dir,
@@ -36,6 +35,7 @@ func setupOptionsBasicExample(t *testing.T, prefix string, dir string) *testhelp
 			},
 		},
 	})
+
 	terraformVars := map[string]interface{}{
 		"location": validRegions[rand.Intn(len(validRegions))],
 	}
@@ -44,42 +44,24 @@ func setupOptionsBasicExample(t *testing.T, prefix string, dir string) *testhelp
 	return options
 }
 
-func setupOptionsCompleteExample(t *testing.T, prefix string, dir string) *testhelper.TestOptions {
-	options := testhelper.TestOptionsDefault(&testhelper.TestOptions{
-		Testing:      t,
-		TerraformDir: dir,
-		IgnoreDestroys: testhelper.Exemptions{ // Ignore for consistency check
-			List: []string{
-				"module.watsonx_saas.module.configure_user.null_resource.configure_user",
-				"module.watsonx_saas.module.configure_user.null_resource.restrict_access",
-			},
-		},
-		IgnoreUpdates: testhelper.Exemptions{ // Ignore for consistency check
-			List: []string{
-				"module.watsonx_saas.module.configure_user.null_resource.configure_user",
-				"module.watsonx_saas.module.configure_user.null_resource.restrict_access",
-			},
-		},
-	})
-	return options
-}
-
-func TestRunBasicExample(t *testing.T) {
+func TestRunRootDA(t *testing.T) {
 	t.Parallel()
 
-	options := setupOptionsBasicExample(t, "watsonx-basic", basicExampleDir)
+	options := setupOptionsRootDA(t, "watsonx-da", rootDaDir)
 
 	output, err := options.RunTestConsistency()
 	assert.Nil(t, err, "This should not have errored")
 	assert.NotNil(t, output, "Expected some output")
 }
 
-func TestRunCompleteExample(t *testing.T) {
+func TestRunUpgradeRootDA(t *testing.T) {
 	t.Parallel()
 
-	options := setupOptionsCompleteExample(t, "watsonx-complete", completeExampleDir)
+	options := setupOptionsRootDA(t, "watsonx-da-upg", rootDaDir)
 
-	output, err := options.RunTestConsistency()
-	assert.Nil(t, err, "This should not have errored")
-	assert.NotNil(t, output, "Expected some output")
+	output, err := options.RunTestUpgrade()
+	if !options.UpgradeTestSkipped {
+		assert.Nil(t, err, "This should not have errored")
+		assert.NotNil(t, output, "Expected some output")
+	}
 }
