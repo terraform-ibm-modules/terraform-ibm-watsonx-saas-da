@@ -10,7 +10,7 @@ import (
 )
 
 // Use existing resource group
-const rootDaDir = ""
+const rootDaDir = "./"
 
 // Current supported regions
 var validRegions = []string{
