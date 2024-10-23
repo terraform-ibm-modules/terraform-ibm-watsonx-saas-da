@@ -158,7 +158,7 @@ statement instead the previous block.
 | <a name="input_existing_studio_instance"></a> [existing\_studio\_instance](#input\_existing\_studio\_instance) | CRN of the an existing Watson Studio instance. | `string` | `null` | no |
 | <a name="input_ibmcloud_api_key"></a> [ibmcloud\_api\_key](#input\_ibmcloud\_api\_key) | The API key that's used with the IBM Cloud Terraform IBM provider. | `string` | n/a | yes |
 | <a name="input_location"></a> [location](#input\_location) | The location that's used with the IBM Cloud Terraform IBM provider. It's also used during resource creation. | `string` | `"us-south"` | no |
-| <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | The name of a new or an existing resource group where the resources are created. | `string` | n/a | yes |
+| <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | The name of a new or an existing resource group where the resources are created. | `string` | `null` | no |
 | <a name="input_resource_prefix"></a> [resource\_prefix](#input\_resource\_prefix) | The name to be used on all Watson resources as a prefix. | `string` | `"watsonx-poc"` | no |
 | <a name="input_use_existing_resource_group"></a> [use\_existing\_resource\_group](#input\_use\_existing\_resource\_group) | Determines whether to use an existing resource group. | `bool` | `false` | no |
 | <a name="input_watson_discovery_plan"></a> [watson\_discovery\_plan](#input\_watson\_discovery\_plan) | The plan that's used to provision the Watson Discovery instance. | `string` | `"do not install"` | no |
