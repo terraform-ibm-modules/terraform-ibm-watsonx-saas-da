@@ -13,7 +13,7 @@ import (
 const rootDaDir = "./"
 
 // Use existing resource group for test
-const resourceGroup = "geretain-watsonx"
+const resourceGroup = "default"
 
 // Current supported regions
 var validRegions = []string{
