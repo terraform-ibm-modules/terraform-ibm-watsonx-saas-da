@@ -12,6 +12,9 @@ import (
 // Use existing resource group
 const rootDaDir = "./"
 
+// Use existing resource group for test
+const resourceGroup = "geretain-watsonx"
+
 // Current supported regions
 var validRegions = []string{
 	"us-south",
@@ -20,8 +23,9 @@ var validRegions = []string{
 
 func setupOptionsRootDA(t *testing.T, prefix string, dir string) *testhelper.TestOptions {
 	options := testhelper.TestOptionsDefault(&testhelper.TestOptions{
-		Testing:      t,
-		TerraformDir: dir,
+		Testing:       t,
+		TerraformDir:  dir,
+		ResourceGroup: resourceGroup,
 		IgnoreDestroys: testhelper.Exemptions{ // Ignore for consistency check
 			List: []string{
 				"module.watsonx_saas.module.configure_user.null_resource.configure_user",

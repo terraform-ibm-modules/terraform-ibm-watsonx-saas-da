@@ -30,7 +30,6 @@ variable "use_existing_resource_group" {
 variable "resource_group_name" {
   type        = string
   description = "The name of a new or an existing resource group where the resources are created."
-  default     = null
 }
 
 variable "resource_prefix" {
