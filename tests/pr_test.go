@@ -23,9 +23,8 @@ var validRegions = []string{
 
 func setupOptionsRootDA(t *testing.T, prefix string, dir string) *testhelper.TestOptions {
 	options := testhelper.TestOptionsDefault(&testhelper.TestOptions{
-		Testing:       t,
-		TerraformDir:  dir,
-		ResourceGroup: resourceGroup,
+		Testing:      t,
+		TerraformDir: dir,
 		IgnoreDestroys: testhelper.Exemptions{ // Ignore for consistency check
 			List: []string{
 				"module.watsonx_saas.module.configure_user.null_resource.configure_user",
@@ -41,7 +40,8 @@ func setupOptionsRootDA(t *testing.T, prefix string, dir string) *testhelper.Tes
 	})
 
 	terraformVars := map[string]interface{}{
-		"location": validRegions[rand.Intn(len(validRegions))],
+		"location":            validRegions[rand.Intn(len(validRegions))],
+		"resource_group_name": resourceGroup,
 	}
 	options.TerraformVars = terraformVars
 
