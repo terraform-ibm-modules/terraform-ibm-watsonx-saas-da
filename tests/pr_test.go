@@ -27,14 +27,14 @@ func setupOptionsRootDA(t *testing.T, prefix string, dir string) *testhelper.Tes
 		TerraformDir: dir,
 		IgnoreDestroys: testhelper.Exemptions{ // Ignore for consistency check
 			List: []string{
-				"module.watsonx_saas.module.configure_user.null_resource.configure_user",
-				"module.watsonx_saas.module.configure_user.null_resource.restrict_access",
+				"module.configure_user.null_resource.configure_user",
+				"module.configure_user.null_resource.restrict_access",
 			},
 		},
 		IgnoreUpdates: testhelper.Exemptions{ // Ignore for consistency check
 			List: []string{
-				"module.watsonx_saas.module.configure_user.null_resource.configure_user",
-				"module.watsonx_saas.module.configure_user.null_resource.restrict_access",
+				"module.configure_user.null_resource.configure_user",
+				"module.configure_user.null_resource.restrict_access",
 			},
 		},
 	})
