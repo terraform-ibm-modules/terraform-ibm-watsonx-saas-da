@@ -12,9 +12,6 @@ import (
 // Use existing resource group
 const rootDaDir = "./"
 
-// Use existing resource group for test
-const resourceGroup = "default"
-
 // Current supported regions
 var validRegions = []string{
 	"us-south",
@@ -25,6 +22,7 @@ func setupOptionsRootDA(t *testing.T, prefix string, dir string) *testhelper.Tes
 	options := testhelper.TestOptionsDefault(&testhelper.TestOptions{
 		Testing:      t,
 		TerraformDir: dir,
+		Prefix:       prefix,
 		IgnoreDestroys: testhelper.Exemptions{ // Ignore for consistency check
 			List: []string{
 				"module.configure_user.null_resource.configure_user",
@@ -41,7 +39,7 @@ func setupOptionsRootDA(t *testing.T, prefix string, dir string) *testhelper.Tes
 
 	terraformVars := map[string]interface{}{
 		"location":            validRegions[rand.Intn(len(validRegions))],
-		"resource_group_name": resourceGroup,
+		"resource_group_name": options.Prefix,
 	}
 	options.TerraformVars = terraformVars
 
