@@ -1,3 +1,3 @@
 output "all" {
- value = module.watsonx_data
+  value = module.watsonx_data
 }

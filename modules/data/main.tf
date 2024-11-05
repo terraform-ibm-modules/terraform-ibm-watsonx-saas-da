@@ -51,6 +51,6 @@ resource "ibm_resource_instance" "data_instance" {
     datacenter : local.watsonx_data_datacenter
     cloud_type : "ibm"
     region : var.location
-    use_case: "ai"
+    use_case : "ai"
   }
 }
