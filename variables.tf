@@ -246,7 +246,6 @@ variable "watsonx_mark_as_sensitive" {
 variable "cos_kms_crn" {
   description = "Key Protect service instance CRN used to encrypt the COS buckets used by the watsonx projects."
   type        = string
-  default     = null
 
   validation {
     condition = anytrue([

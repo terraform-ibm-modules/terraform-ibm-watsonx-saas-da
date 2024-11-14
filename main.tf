@@ -308,7 +308,6 @@ module "storage_delegation" {
     ibm.deployer                  = ibm.deployer
     restapi.restapi_watsonx_admin = restapi.restapi_watsonx_admin
   }
-  count                = var.cos_kms_crn == null || var.cos_kms_crn == "" ? 0 : 1
   cos_kms_crn          = var.cos_kms_crn
   cos_kms_key_crn      = var.cos_kms_key_crn
   cos_kms_new_key_name = "${var.resource_prefix}-${var.cos_kms_new_key_name}"
