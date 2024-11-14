@@ -7,3 +7,4 @@ CRA_TARGETS:
     CRA_ENVIRONMENT_VARIABLES:  # An optional map of environment variables for CRA, where the key is the variable name and value is the value. Useful for providing TF_VARs.
       TF_VAR_watsonx_admin_api_key: "fake_value"
       TF_VAR_resource_group_name: "test"
+      TF_VAR_cos_kms_crn: "crn:v1:bluemix:public:kms:us-south:a/abac0df06b644a9cabc6e44f55b3880e:a20230fb-9ec3-4376-a27d-8ca21a94728a::"
