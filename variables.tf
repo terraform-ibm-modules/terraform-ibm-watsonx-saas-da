@@ -250,7 +250,7 @@ variable "enable_cos_kms_encryption" {
 }
 
 variable "cos_kms_crn" {
-  description = "Key Protect service instance CRN used to encrypt the COS buckets used by the watsonx projects. Required if `enable_cos_kms_encryption` if true."
+  description = "Key Protect service instance CRN used to encrypt the COS buckets used by the watsonx projects. Required if `enable_cos_kms_encryption` is true."
   type        = string
   default     = null
 

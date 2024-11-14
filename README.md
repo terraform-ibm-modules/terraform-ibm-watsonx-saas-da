@@ -147,7 +147,7 @@ statement instead the previous block.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_cos_kms_crn"></a> [cos\_kms\_crn](#input\_cos\_kms\_crn) | Key Protect service instance CRN used to encrypt the COS buckets used by the watsonx projects. Required if `enable_cos_kms_encryption` if true. | `string` | `null` | no |
+| <a name="input_cos_kms_crn"></a> [cos\_kms\_crn](#input\_cos\_kms\_crn) | Key Protect service instance CRN used to encrypt the COS buckets used by the watsonx projects. Required if `enable_cos_kms_encryption` is true. | `string` | `null` | no |
 | <a name="input_cos_kms_key_crn"></a> [cos\_kms\_key\_crn](#input\_cos\_kms\_key\_crn) | Key Protect key CRN used to encrypt the COS buckets used by the watsonx projects. If not set, then the cos\_kms\_new\_key\_name must be specified. | `string` | `null` | no |
 | <a name="input_cos_kms_new_key_name"></a> [cos\_kms\_new\_key\_name](#input\_cos\_kms\_new\_key\_name) | Name of the Key Protect key to create for encrypting the COS buckets used by the watsonx projects. | `string` | `""` | no |
 | <a name="input_cos_kms_ring_id"></a> [cos\_kms\_ring\_id](#input\_cos\_kms\_ring\_id) | The identifier of the Key Protect ring to create the cos\_kms\_new\_key\_name into. If it is not set, then the new key will be created in the default ring. | `string` | `null` | no |
