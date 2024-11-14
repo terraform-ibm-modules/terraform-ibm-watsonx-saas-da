@@ -57,6 +57,11 @@ locals {
   watsonx_orchestrate_name          = var.existing_orchestrate_instance != null ? data.ibm_resource_instance.existing_orchestrate_instance[0].resource_name : var.watsonx_orchestrate_plan != "do not install" ? resource.ibm_resource_instance.orchestrate_instance[0].resource_name : null
   watsonx_orchestrate_plan_id       = var.existing_orchestrate_instance != null ? null : var.watsonx_orchestrate_plan != "do not install" ? resource.ibm_resource_instance.orchestrate_instance[0].resource_plan_id : null
   watsonx_orchestrate_dashboard_url = var.existing_orchestrate_instance != null ? null : var.watsonx_orchestrate_plan != "do not install" ? resource.ibm_resource_instance.orchestrate_instance[0].dashboard_url : null
+
+  # input variable validation
+  # tflint-ignore: terraform_unused_declarations
+  validate_encryption_inputs = var.enable_cos_kms_encryption && (var.cos_kms_crn == null || var.cos_kms_crn == "") ? tobool("A value must be passed for 'cos_kms_crn' when 'enable_cos_kms_encryption' is set to true") : true
+
 }
 
 data "ibm_iam_auth_token" "restapi" {
@@ -308,7 +313,7 @@ module "storage_delegation" {
     ibm.deployer                  = ibm.deployer
     restapi.restapi_watsonx_admin = restapi.restapi_watsonx_admin
   }
-  count                = var.cos_kms_crn == null || var.cos_kms_crn == "" ? 0 : 1
+  count                = var.enable_cos_kms_encryption ? 1 : 0
   cos_kms_crn          = var.cos_kms_crn
   cos_kms_key_crn      = var.cos_kms_key_crn
   cos_kms_new_key_name = "${var.resource_prefix}-${var.cos_kms_new_key_name}"
