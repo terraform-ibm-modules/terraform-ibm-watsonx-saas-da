@@ -9,6 +9,17 @@ resource "random_string" "unique_identifier" {
   upper   = false
 }
 
+data "ibm_resource_group" "group" {
+  is_default = "true"
+}
+
+module "kms" {
+  source                    = "terraform-ibm-modules/kms-all-inclusive/ibm"
+  version                   = "4.16.8"
+  resource_group_id         = data.ibm_resource_group.group.id
+  region                    = var.location
+  key_protect_instance_name = "watsonx-kp"
+}
 
 module "watsonx_saas" {
   source                      = "../.."
@@ -23,6 +34,6 @@ module "watsonx_saas" {
   watsonx_governance_plan     = "essentials"
   watsonx_data_plan           = "lakehouse-enterprise"
   location                    = var.location
-  cos_kms_crn                 = "crn:v1:bluemix:public:kms:us-south:a/0e550c0a99db49b1813ffb36fadec76b:85cee4b9-5cd2-423c-ba7f-22e89e96c7d3::"
+  cos_kms_crn                 = module.kms.key_protect_crn
   cos_kms_new_key_name        = "testCompleteExample"
 }

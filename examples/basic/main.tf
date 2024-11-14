@@ -18,4 +18,5 @@ module "watsonx_saas" {
   use_existing_resource_group = "false"
   resource_group_name         = local.unique_identifier
   watsonx_project_name        = "project-basic-test"
+  enable_cos_kms_encryption   = false
 }
