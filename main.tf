@@ -60,7 +60,7 @@ locals {
 
   # input variable validation
   # tflint-ignore: terraform_unused_declarations
-  validate_encryption_inputs = var.enable_cos_kms_encryption && var.cos_kms_crn == null ? tobool("A value must be passed for 'cos_kms_crn' when 'enable_cos_kms_encryption' is set to true") : true
+  validate_encryption_inputs = var.enable_cos_kms_encryption && (var.cos_kms_crn == null || var.cos_kms_crn == "") ? tobool("A value must be passed for 'cos_kms_crn' when 'enable_cos_kms_encryption' is set to true") : true
 
 }
 
