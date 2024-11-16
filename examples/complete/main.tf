@@ -15,7 +15,7 @@ data "ibm_resource_group" "group" {
 
 module "kms" {
   source                    = "terraform-ibm-modules/kms-all-inclusive/ibm"
-  version                   = "4.16.8"
+  version                   = "4.16.9"
   resource_group_id         = data.ibm_resource_group.group.id
   region                    = var.location
   key_protect_instance_name = "watsonx-kp"
