@@ -2,10 +2,13 @@
 package test
 
 import (
+	"log"
 	"math/rand"
+	"os"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+	"github.com/terraform-ibm-modules/ibmcloud-terratest-wrapper/common"
 	"github.com/terraform-ibm-modules/ibmcloud-terratest-wrapper/testhelper"
 )
 
@@ -16,6 +19,23 @@ const rootDaDir = "./"
 var validRegions = []string{
 	"us-south",
 	"eu-de",
+}
+
+// Define a struct with fields that match the structure of the YAML data
+const yamlLocation = "../common-dev-assets/common-go-assets/common-permanent-resources.yaml"
+
+var permanentResources map[string]interface{}
+
+// TestMain will be run before any parallel tests, used to read data from yaml for use with tests
+func TestMain(m *testing.M) {
+
+	var err error
+	permanentResources, err = common.LoadMapFromYaml(yamlLocation)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	os.Exit(m.Run())
 }
 
 func setupOptionsRootDA(t *testing.T, prefix string, dir string) *testhelper.TestOptions {
@@ -35,13 +55,13 @@ func setupOptionsRootDA(t *testing.T, prefix string, dir string) *testhelper.Tes
 				"module.configure_user.null_resource.restrict_access",
 			},
 		},
+		TerraformVars: map[string]interface{}{
+			"location":            validRegions[rand.Intn(len(validRegions))],
+			"resource_group_name": prefix,
+			"cos_kms_crn":         permanentResources["hpcs_south_crn"],
+			"cons_kms_key_crn":    permanentResources["hpcs_south_root_key_crn"],
+		},
 	})
-
-	terraformVars := map[string]interface{}{
-		"location":            validRegions[rand.Intn(len(validRegions))],
-		"resource_group_name": options.Prefix,
-	}
-	options.TerraformVars = terraformVars
 
 	return options
 }
