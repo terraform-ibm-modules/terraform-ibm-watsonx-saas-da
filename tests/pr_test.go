@@ -63,8 +63,9 @@ func setupOptionsRootDA(t *testing.T, prefix string, dir string) *testhelper.Tes
 			},
 		},
 		TerraformVars: map[string]interface{}{
-			"location":            validRegions[rand.Intn(len(validRegions))],
-			"resource_group_name": prefix,
+			"location":                  validRegions[rand.Intn(len(validRegions))],
+			"resource_group_name":       prefix,
+			"enable_cos_kms_encryption": false,
 		},
 	})
 
