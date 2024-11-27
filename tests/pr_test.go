@@ -65,8 +65,6 @@ func setupOptionsRootDA(t *testing.T, prefix string, dir string) *testhelper.Tes
 		TerraformVars: map[string]interface{}{
 			"location":            validRegions[rand.Intn(len(validRegions))],
 			"resource_group_name": prefix,
-			"cos_kms_crn":         permanentResources["hpcs_south_crn"],
-			"cos_kms_key_crn":     permanentResources["hpcs_south_root_key_crn"],
 		},
 	})
 
