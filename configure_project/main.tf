@@ -60,7 +60,7 @@ resource "restapi_object" "configure_project" {
 
 resource "time_sleep" "wait_5_seconds" {
   depends_on      = [restapi_object.configure_project]
-  create_duration = "5s"
+  create_duration = "10s"
 }
 
 data "restapi_object" "get_project" {
