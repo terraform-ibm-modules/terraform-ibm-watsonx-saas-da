@@ -8,3 +8,4 @@ CRA_TARGETS:
       TF_VAR_watsonx_admin_api_key: "fake_value"
       TF_VAR_resource_group_name: "test"
       TF_VAR_cos_kms_crn: "crn:v1:bluemix:public:kms:us-south:a/abac0df06b644a9cabc6e44f55b3880e:a20230fb-9ec3-4376-a27d-8ca21a94728a::"
+      TF_VAR_provider_visibility: "public"
