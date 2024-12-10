@@ -6,16 +6,50 @@ locals {
     "eu-de"    = "eu-de.dataplatform.cloud.ibm.com",
     "jp-tok"   = "jp-tok.dataplatform.cloud.ibm.com"
   }
-  dataplatform_ui = local.dataplatform_ui_mapping[local.location]
+  dataplatform_ui             = local.dataplatform_ui_mapping[local.location]
+  parsed_kms_key_crn          = var.cos_kms_key_crn != null ? split(":", var.cos_kms_key_crn) : []
+  kms_service                 = length(local.parsed_kms_key_crn) > 0 ? local.parsed_kms_key_crn[4] : null
+  kms_scope                   = length(local.parsed_kms_key_crn) > 0 ? local.parsed_kms_key_crn[6] : null
+  kms_account_id              = length(local.parsed_kms_key_crn) > 0 ? split("/", local.kms_scope)[1] : null
+  kms_key_id                  = length(local.parsed_kms_key_crn) > 0 ? local.parsed_kms_key_crn[9] : null
+  target_resource_instance_id = split(":", var.cos_kms_crn)[7]
 }
 
 resource "ibm_iam_authorization_policy" "cos_s2s_keyprotect" {
   provider                    = ibm.deployer
   source_service_name         = "cloud-object-storage"
   source_resource_instance_id = var.cos_guid
-  target_service_name         = "kms"
-  target_resource_instance_id = split(":", var.cos_kms_crn)[7]
-  roles                       = ["Reader"]
+  resource_attributes {
+    name     = "serviceName"
+    operator = "stringEquals"
+    value    = local.kms_service
+  }
+  resource_attributes {
+    name     = "accountId"
+    operator = "stringEquals"
+    value    = local.kms_account_id
+  }
+  resource_attributes {
+    name     = "serviceInstance"
+    operator = "stringEquals"
+    value    = local.target_resource_instance_id
+  }
+  resource_attributes {
+    name     = "resourceType"
+    operator = "stringEquals"
+    value    = "key"
+  }
+  resource_attributes {
+    name     = "resource"
+    operator = "stringEquals"
+    value    = local.kms_key_id
+  }
+  # Scope of policy now includes the key, so ensure to create new policy before
+  # destroying old one to prevent any disruption to every day services.
+  lifecycle {
+    create_before_destroy = true
+  }
+  roles = ["Reader"]
 }
 
 resource "time_sleep" "wait_for_authorization_policy" {
