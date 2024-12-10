@@ -73,6 +73,23 @@
               "type": "password"
             },
             {
+              "key": "provider_visibility",
+              "options": [
+                {
+                  "displayname": "private",
+                  "value": "private"
+                },
+                {
+                  "displayname": "public",
+                  "value": "public"
+                },
+                {
+                  "displayname": "public-and-private",
+                  "value": "public-and-private"
+                }
+              ]
+            },
+            {
               "key": "location",
               "type": "string",
               "default_value": "us-south",
@@ -337,7 +354,7 @@
             "profiles": [
                 {
                     "profile_name": "IBM Cloud Framework for Financial Services",
-                    "profile_version": "1.6.0"
+                    "profile_version": "1.7.0"
                 }
             ]
           },

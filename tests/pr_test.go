@@ -66,6 +66,7 @@ func setupOptionsRootDA(t *testing.T, prefix string, dir string) *testhelper.Tes
 			"location":                  validRegions[rand.Intn(len(validRegions))],
 			"resource_group_name":       prefix,
 			"enable_cos_kms_encryption": false,
+			"provider_visibility":       "public",
 		},
 	})
 
@@ -153,6 +154,7 @@ func TestWithExistingKP(t *testing.T) {
 			TerraformVars: map[string]interface{}{
 				"location":            validRegions[rand.Intn(len(validRegions))],
 				"resource_group_name": prefix,
+				"provider_visibility": "public",
 				"cos_kms_crn":         terraform.Output(t, existingTerraformOptions, "key_protect_crn"),
 				"cos_kms_key_crn":     terraform.Output(t, existingTerraformOptions, "kms_key_crn"),
 			},
