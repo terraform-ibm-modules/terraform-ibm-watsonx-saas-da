@@ -238,6 +238,7 @@ func TestRunUpgradeExistingKP(t *testing.T) {
 			TerraformVars: map[string]interface{}{
 				"location":            validRegions[rand.Intn(len(validRegions))],
 				"resource_group_name": prefix,
+				"provider_visibility": "public",
 				"cos_kms_crn":         terraform.Output(t, existingTerraformOptions, "key_protect_crn"),
 				"cos_kms_key_crn":     terraform.Output(t, existingTerraformOptions, "kms_key_crn"),
 			},
