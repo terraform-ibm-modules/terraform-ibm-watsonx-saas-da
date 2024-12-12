@@ -1,3 +1,9 @@
+module "crn_parser" {
+  source  = "terraform-ibm-modules/common-utilities/ibm//modules/crn-parser"
+  version = "1.1.0"
+  crn     = var.cos_kms_key_crn
+}
+
 locals {
   location = split(":", var.cos_kms_crn)[5]
   dataplatform_ui_mapping = {
@@ -7,11 +13,9 @@ locals {
     "jp-tok"   = "jp-tok.dataplatform.cloud.ibm.com"
   }
   dataplatform_ui             = local.dataplatform_ui_mapping[local.location]
-  parsed_kms_key_crn          = var.cos_kms_key_crn != null ? split(":", var.cos_kms_key_crn) : []
-  kms_service                 = length(local.parsed_kms_key_crn) > 0 ? local.parsed_kms_key_crn[4] : null
-  kms_scope                   = length(local.parsed_kms_key_crn) > 0 ? local.parsed_kms_key_crn[6] : null
-  kms_account_id              = length(local.parsed_kms_key_crn) > 0 ? split("/", local.kms_scope)[1] : null
-  kms_key_id                  = length(local.parsed_kms_key_crn) > 0 ? local.parsed_kms_key_crn[9] : null
+  kms_service                 = module.crn_parser.service_name
+  kms_account_id              = module.crn_parser.account_id
+  kms_key_id                  = module.crn_parser.resource
   target_resource_instance_id = split(":", var.cos_kms_crn)[7]
 }
 
