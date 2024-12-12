@@ -152,11 +152,12 @@ func TestWithExistingKP(t *testing.T) {
 				},
 			},
 			TerraformVars: map[string]interface{}{
-				"location":            validRegions[rand.Intn(len(validRegions))],
-				"resource_group_name": prefix,
-				"provider_visibility": "public",
-				"cos_kms_crn":         terraform.Output(t, existingTerraformOptions, "key_protect_crn"),
-				"cos_kms_key_crn":     terraform.Output(t, existingTerraformOptions, "kms_key_crn"),
+				"location":                  validRegions[rand.Intn(len(validRegions))],
+				"resource_group_name":       prefix,
+				"provider_visibility":       "public",
+				"enable_cos_kms_encryption": true,
+				"cos_kms_crn":               terraform.Output(t, existingTerraformOptions, "key_protect_crn"),
+				"cos_kms_key_crn":           terraform.Output(t, existingTerraformOptions, "kms_key_crn"),
 			},
 		})
 
@@ -236,11 +237,12 @@ func TestRunUpgradeExistingKP(t *testing.T) {
 				},
 			},
 			TerraformVars: map[string]interface{}{
-				"location":            validRegions[rand.Intn(len(validRegions))],
-				"resource_group_name": prefix,
-				"provider_visibility": "public",
-				"cos_kms_crn":         terraform.Output(t, existingTerraformOptions, "key_protect_crn"),
-				"cos_kms_key_crn":     terraform.Output(t, existingTerraformOptions, "kms_key_crn"),
+				"location":                  validRegions[rand.Intn(len(validRegions))],
+				"resource_group_name":       prefix,
+				"provider_visibility":       "public",
+				"enable_cos_kms_encryption": true,
+				"cos_kms_crn":               terraform.Output(t, existingTerraformOptions, "key_protect_crn"),
+				"cos_kms_key_crn":           terraform.Output(t, existingTerraformOptions, "kms_key_crn"),
 			},
 		})
 
