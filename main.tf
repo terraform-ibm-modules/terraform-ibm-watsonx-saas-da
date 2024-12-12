@@ -62,6 +62,8 @@ locals {
   # tflint-ignore: terraform_unused_declarations
   validate_encryption_inputs = var.enable_cos_kms_encryption && (var.cos_kms_crn == null || var.cos_kms_crn == "") ? tobool("A value must be passed for 'cos_kms_crn' when 'enable_cos_kms_encryption' is set to true") : true
 
+  # tflint-ignore: terraform_unused_declarations
+  validate_enable_cos_kms_encryption = (var.cos_kms_crn != null || var.cos_kms_key_crn != null) && var.enable_cos_kms_encryption == false ? tobool("If a value for 'cos_kms_crn' or 'cos_kms_key_crn' is passed then 'enable_cos_kms_encryption' must be set to true") : true
 }
 
 data "ibm_iam_auth_token" "restapi" {
