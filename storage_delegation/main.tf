@@ -4,11 +4,6 @@ module "crn_parser_kms_key" {
   crn     = data.ibm_kms_key.kms_key.keys[0].crn
 }
 
-module "crn_parser_kms_instance" {
-  source  = "terraform-ibm-modules/common-utilities/ibm//modules/crn-parser"
-  version = "1.1.0"
-  crn     = var.cos_kms_crn
-}
 
 locals {
   location = split(":", var.cos_kms_crn)[5]
@@ -18,14 +13,16 @@ locals {
     "eu-de"    = "eu-de.dataplatform.cloud.ibm.com",
     "jp-tok"   = "jp-tok.dataplatform.cloud.ibm.com"
   }
+  create_access_policy_kms    = !var.skip_iam_authorization_policy
   dataplatform_ui             = local.dataplatform_ui_mapping[local.location]
   kms_service                 = module.crn_parser_kms_key.service_name
   kms_account_id              = module.crn_parser_kms_key.account_id
   kms_key_id                  = module.crn_parser_kms_key.resource
-  target_resource_instance_id = module.crn_parser_kms_instance.service_instance
+  target_resource_instance_id = module.crn_parser_kms_key.service_instance
 }
 
 resource "ibm_iam_authorization_policy" "cos_s2s_keyprotect" {
+  count                       = local.create_access_policy_kms ? 1 : 0
   provider                    = ibm.deployer
   source_service_name         = "cloud-object-storage"
   source_resource_instance_id = var.cos_guid

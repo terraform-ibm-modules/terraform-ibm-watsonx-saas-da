@@ -40,3 +40,9 @@ variable "cos_kms_ring_id" {
   type        = string
   default     = null
 }
+
+variable "skip_iam_authorization_policy" {
+  type        = bool
+  description = "Whether to create an IAM authorization policy that permits the Object Storage instance to read the encryption key from the KMS instance. An authorization policy must exist before an encrypted bucket can be created. Set to `true` to avoid creating the policy. If set to `false`, specify a value for the KMS instance in `existing_kms_guid`."
+  default     = false
+}
