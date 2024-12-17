@@ -64,7 +64,7 @@ resource "time_sleep" "wait_20_seconds" {
 }
 
 data "restapi_object" "get_project" {
-  depends_on   = [resource.restapi_object.configure_project, resource.time_sleep.wait_10_seconds]
+  depends_on   = [resource.restapi_object.configure_project, resource.time_sleep.wait_20_seconds]
   provider     = restapi.restapi_watsonx_admin
   path         = "${local.dataplatform_api}/v2/projects"
   query_string = "project_ids=${local.watsonx_project_id}"
