@@ -13,7 +13,6 @@ locals {
     "eu-de"    = "eu-de.dataplatform.cloud.ibm.com",
     "jp-tok"   = "jp-tok.dataplatform.cloud.ibm.com"
   }
-  create_access_policy_kms    = !var.skip_iam_authorization_policy
   dataplatform_ui             = local.dataplatform_ui_mapping[local.location]
   kms_service                 = module.crn_parser_kms_key.service_name
   kms_account_id              = module.crn_parser_kms_key.account_id
@@ -22,7 +21,7 @@ locals {
 }
 
 resource "ibm_iam_authorization_policy" "cos_s2s_keyprotect" {
-  count                       = local.create_access_policy_kms ? 1 : 0
+  count                       = !var.skip_iam_authorization_policy ? 1 : 0
   provider                    = ibm.deployer
   source_service_name         = "cloud-object-storage"
   source_resource_instance_id = var.cos_guid
