@@ -58,9 +58,9 @@ resource "restapi_object" "configure_project" {
                   EOT
 }
 
-resource "time_sleep" "wait_10_seconds" {
+resource "time_sleep" "wait_20_seconds" {
   depends_on      = [restapi_object.configure_project]
-  create_duration = "10s"
+  create_duration = "20s"
 }
 
 data "restapi_object" "get_project" {
