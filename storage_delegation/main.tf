@@ -1,4 +1,4 @@
-module "crn_parser_kms_key" {
+module "kms_key_crn_parser" {
   source  = "terraform-ibm-modules/common-utilities/ibm//modules/crn-parser"
   version = "1.1.0"
   crn     = data.ibm_kms_key.kms_key.keys[0].crn
@@ -14,10 +14,10 @@ locals {
     "jp-tok"   = "jp-tok.dataplatform.cloud.ibm.com"
   }
   dataplatform_ui             = local.dataplatform_ui_mapping[local.location]
-  kms_service                 = module.crn_parser_kms_key.service_name
-  kms_account_id              = module.crn_parser_kms_key.account_id
-  kms_key_id                  = module.crn_parser_kms_key.resource
-  target_resource_instance_id = module.crn_parser_kms_key.service_instance
+  kms_service                 = module.kms_key_crn_parser.service_name
+  kms_account_id              = module.kms_key_crn_parser.account_id
+  kms_key_id                  = module.kms_key_crn_parser.resource
+  target_resource_instance_id = module.kms_key_crn_parser.service_instance
 }
 
 resource "ibm_iam_authorization_policy" "cos_s2s_keyprotect" {
