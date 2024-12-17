@@ -180,34 +180,6 @@ func TestWithExistingKP(t *testing.T) {
 
 }
 
-func setupOptionsUpgradeRootDA(t *testing.T, prefix string, dir string) *testhelper.TestOptions {
-	options := testhelper.TestOptionsDefault(&testhelper.TestOptions{
-		Testing:      t,
-		TerraformDir: dir,
-		Prefix:       prefix,
-		IgnoreDestroys: testhelper.Exemptions{ // Ignore for consistency check
-			List: []string{
-				"module.configure_user.null_resource.configure_user",
-				"module.configure_user.null_resource.restrict_access",
-			},
-		},
-		IgnoreUpdates: testhelper.Exemptions{ // Ignore for consistency check
-			List: []string{
-				"module.configure_user.null_resource.configure_user",
-				"module.configure_user.null_resource.restrict_access",
-			},
-		},
-		TerraformVars: map[string]interface{}{
-			"location":                  validRegions[rand.Intn(len(validRegions))],
-			"resource_group_name":       prefix,
-			"enable_cos_kms_encryption": true,
-			"provider_visibility":       "public",
-		},
-	})
-
-	return options
-}
-
 func TestRunUpgradeExistingKP(t *testing.T) {
 	t.Parallel()
 
