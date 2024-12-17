@@ -44,7 +44,7 @@ variable "resource_group_name" {
 variable "resource_prefix" {
   description = "The name to be used on all Watson resources as a prefix."
   type        = string
-  default     = "watsonx-poc"
+  default     = "watsonx-test"
 
   validation {
     condition     = var.resource_prefix != "" && length(var.resource_prefix) <= 25
