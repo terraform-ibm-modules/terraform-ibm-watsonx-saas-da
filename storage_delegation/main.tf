@@ -1,3 +1,10 @@
+module "kms_key_crn_parser" {
+  source  = "terraform-ibm-modules/common-utilities/ibm//modules/crn-parser"
+  version = "1.1.0"
+  crn     = data.ibm_kms_key.kms_key.keys[0].crn
+}
+
+
 locals {
   location = split(":", var.cos_kms_crn)[5]
   dataplatform_ui_mapping = {
@@ -6,16 +13,49 @@ locals {
     "eu-de"    = "eu-de.dataplatform.cloud.ibm.com",
     "jp-tok"   = "jp-tok.dataplatform.cloud.ibm.com"
   }
-  dataplatform_ui = local.dataplatform_ui_mapping[local.location]
+  dataplatform_ui             = local.dataplatform_ui_mapping[local.location]
+  kms_service                 = module.kms_key_crn_parser.service_name
+  kms_account_id              = module.kms_key_crn_parser.account_id
+  kms_key_id                  = module.kms_key_crn_parser.resource
+  target_resource_instance_id = module.kms_key_crn_parser.service_instance
 }
 
 resource "ibm_iam_authorization_policy" "cos_s2s_keyprotect" {
+  count                       = !var.skip_iam_authorization_policy ? 1 : 0
   provider                    = ibm.deployer
   source_service_name         = "cloud-object-storage"
   source_resource_instance_id = var.cos_guid
-  target_service_name         = "kms"
-  target_resource_instance_id = split(":", var.cos_kms_crn)[7]
-  roles                       = ["Reader"]
+  resource_attributes {
+    name     = "serviceName"
+    operator = "stringEquals"
+    value    = local.kms_service
+  }
+  resource_attributes {
+    name     = "accountId"
+    operator = "stringEquals"
+    value    = local.kms_account_id
+  }
+  resource_attributes {
+    name     = "serviceInstance"
+    operator = "stringEquals"
+    value    = local.target_resource_instance_id
+  }
+  resource_attributes {
+    name     = "resourceType"
+    operator = "stringEquals"
+    value    = "key"
+  }
+  resource_attributes {
+    name     = "resource"
+    operator = "stringEquals"
+    value    = local.kms_key_id
+  }
+  # Scope of policy now includes the key, so ensure to create new policy before
+  # destroying old one to prevent any disruption to every day services.
+  lifecycle {
+    create_before_destroy = true
+  }
+  roles = ["Reader"]
 }
 
 resource "time_sleep" "wait_for_authorization_policy" {
