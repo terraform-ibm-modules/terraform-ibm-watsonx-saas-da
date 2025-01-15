@@ -17,7 +17,7 @@ bss_account_id="$(echo "$token_decoded" | jq -r .account.bss)"
 if [ "$location" == "us-south" ]; then
     dataplatform_api="https://api.dataplatform.cloud.ibm.com"
 elif [ "$location" == "eu-gb" ]; then
-    dataplatform_api="https://api.eu-uk.dataplatform.cloud.ibm.com"
+    dataplatform_api="https://api.eu-gb.dataplatform.cloud.ibm.com"
 elif [ "$location" == "eu-de" ]; then
     dataplatform_api="https://api.eu-de.dataplatform.cloud.ibm.com"
 elif [ "$location" == "jp-tok" ]; then
