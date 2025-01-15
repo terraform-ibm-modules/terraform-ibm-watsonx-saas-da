@@ -26,6 +26,8 @@ const rootDaDir = "./"
 var validRegions = []string{
 	"us-south",
 	"eu-de",
+	"eu-gb",
+	"jp-tok",
 }
 
 // Define a struct with fields that match the structure of the YAML data
@@ -107,7 +109,7 @@ func TestWithExistingKP(t *testing.T) {
 	prefix := fmt.Sprintf("kp-t-%s", strings.ToLower(random.UniqueId()))
 	realTerraformDir := "./resources/kp-instance"
 	tempTerraformDir, _ := files.CopyTerraformFolderToTemp(realTerraformDir, fmt.Sprintf(prefix+"-%s", strings.ToLower(random.UniqueId())))
-	region := "us-south"
+	region := validRegions[rand.Intn(len(validRegions))]
 
 	// Verify ibmcloud_api_key variable is set
 	checkVariable := "TF_VAR_ibmcloud_api_key"
@@ -153,7 +155,7 @@ func TestWithExistingKP(t *testing.T) {
 				},
 			},
 			TerraformVars: map[string]interface{}{
-				"location":                  validRegions[rand.Intn(len(validRegions))],
+				"location":                  region,
 				"resource_group_name":       prefix,
 				"provider_visibility":       "public",
 				"enable_cos_kms_encryption": true,
@@ -192,7 +194,7 @@ func TestRunUpgradeExistingKP(t *testing.T) {
 	prefix := fmt.Sprintf("kp-ut-%s", strings.ToLower(random.UniqueId()))
 	realTerraformDir := "./resources/kp-instance"
 	tempTerraformDir, _ := files.CopyTerraformFolderToTemp(realTerraformDir, fmt.Sprintf(prefix+"-%s", strings.ToLower(random.UniqueId())))
-	region := "us-south"
+	region := validRegions[rand.Intn(len(validRegions))]
 
 	// Verify ibmcloud_api_key variable is set
 	checkVariable := "TF_VAR_ibmcloud_api_key"
@@ -239,7 +241,7 @@ func TestRunUpgradeExistingKP(t *testing.T) {
 				},
 			},
 			TerraformVars: map[string]interface{}{
-				"location":                  validRegions[rand.Intn(len(validRegions))],
+				"location":                  region,
 				"resource_group_name":       prefix,
 				"provider_visibility":       "public",
 				"enable_cos_kms_encryption": true,
