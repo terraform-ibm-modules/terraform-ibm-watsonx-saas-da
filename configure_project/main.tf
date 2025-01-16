@@ -77,7 +77,7 @@ data "restapi_object" "get_project" {
 locals {
   dataplatform_api_mapping = {
     "us-south" = "//api.dataplatform.cloud.ibm.com",
-    "eu-gb"    = "//api.eu-uk.dataplatform.cloud.ibm.com",
+    "eu-gb"    = "//api.eu-gb.dataplatform.cloud.ibm.com",
     "eu-de"    = "//api.eu-de.dataplatform.cloud.ibm.com",
     "jp-tok"   = "//api.jp-tok.dataplatform.cloud.ibm.com"
   }
@@ -87,7 +87,7 @@ locals {
   watsonx_project_data      = jsondecode(data.restapi_object.get_project.api_response)
   dataplatform_ui_mapping = {
     "us-south" = "https://dataplatform.cloud.ibm.com",
-    "eu-gb"    = "https://eu-uk.dataplatform.cloud.ibm.com",
+    "eu-gb"    = "https://eu-gb.dataplatform.cloud.ibm.com",
     "eu-de"    = "https://eu-de.dataplatform.cloud.ibm.com",
     "jp-tok"   = "https://jp-tok.dataplatform.cloud.ibm.com"
   }

@@ -68,9 +68,7 @@
           "release_notes_url": "https://cloud.ibm.com/docs/watsonx-ai-saas-automation?topic=watsonx-ai-saas-automation-release-notes",
           "configuration": [
             {
-              "key": "ibmcloud_api_key",
-              "required": true,
-              "type": "password"
+              "key": "ibmcloud_api_key"
             },
             {
               "key": "provider_visibility",
@@ -90,9 +88,19 @@
               ]
             },
             {
+              "key": "resource_prefix"
+            },
+            {
+              "key": "use_existing_resource_group"
+            },
+            {
+              "key": "resource_group_name"
+            },
+            {
+              "key": "watsonx_admin_api_key"
+            },
+            {
               "key": "location",
-              "type": "string",
-              "default_value": "us-south",
               "options": [
                 {
                   "displayname": "eu-de",
@@ -110,29 +118,10 @@
                   "displayname": "jp-tok",
                   "value": "jp-tok"
                 }
-              ],
-              "custom_config": {
-
-              }
-            },
-            {
-              "key": "cos_plan",
-              "type": "string",
-              "default_value": "standard",
-              "options": [
-                {
-                  "displayname": "standard",
-                  "value": "standard"
-                }
-              ],
-              "custom_config": {
-
-              }
+              ]
             },
             {
               "key": "watson_machine_learning_plan",
-              "type": "string",
-              "default_value": "v2-standard",
               "options": [
                 {
                   "displayname": "Lite",
@@ -146,15 +135,30 @@
                   "displayname": "Essentials",
                   "value": "v2-standard"
                 }
-              ],
-              "custom_config": {
-
-              }
+              ]
+            },
+            {
+              "key": "watson_machine_learning_service_endpoints",
+              "options": [
+                {
+                  "displayname": "Public",
+                  "value": "public"
+                },
+                {
+                  "displayname": "Public and Private",
+                  "value": "public-and-private"
+                },
+                {
+                  "displayname": "Private",
+                  "value": "private"
+                }
+              ]
+            },
+            {
+              "key": "existing_machine_learning_instance"
             },
             {
               "key": "watson_studio_plan",
-              "type": "string",
-              "default_value": "professional-v1",
               "options": [
                 {
                   "displayname": "Lite",
@@ -164,15 +168,13 @@
                   "displayname": "Professional",
                   "value": "professional-v1"
                 }
-              ],
-              "custom_config": {
-
-              }
+              ]
+            },
+            {
+              "key": "existing_studio_instance"
             },
             {
               "key": "watson_discovery_plan",
-              "type": "string",
-              "default_value": "do not install",
               "options": [
                 {
                   "displayname": "Do not install",
@@ -190,15 +192,30 @@
                   "displayname": "Premium",
                   "value": "premium"
                 }
-              ],
-              "custom_config": {
-
-              }
+              ]
+            },
+            {
+              "key": "watson_discovery_service_endpoints",
+              "options": [
+                {
+                  "displayname": "Public",
+                  "value": "public"
+                },
+                {
+                  "displayname": "Public and Private",
+                  "value": "public-and-private"
+                },
+                {
+                  "displayname": "Private",
+                  "value": "private"
+                }
+              ]
+            },
+            {
+              "key": "existing_discovery_instance"
             },
             {
               "key": "watsonx_assistant_plan",
-              "type": "string",
-              "default_value": "do not install",
               "options": [
                 {
                   "displayname": "Do not install",
@@ -224,15 +241,30 @@
                   "displayname": "Enterprise with data isolation",
                   "value": "enterprisedataisolation"
                 }
-              ],
-              "custom_config": {
-
-              }
+              ]
+            },
+            {
+              "key": "watsonx_assistant_service_endpoints",
+              "options": [
+                {
+                  "displayname": "Public",
+                  "value": "public"
+                },
+                {
+                  "displayname": "Public and Private",
+                  "value": "public-and-private"
+                },
+                {
+                  "displayname": "Private",
+                  "value": "private"
+                }
+              ]
+            },
+            {
+              "key": "existing_assistant_instance"
             },
             {
               "key": "watsonx_governance_plan",
-              "type": "string",
-              "default_value": "do not install",
               "options": [
                 {
                   "displayname": "Do not install",
@@ -246,15 +278,13 @@
                   "displayname": "Essentials",
                   "value": "essentials"
                 }
-              ],
-              "custom_config": {
-
-              }
+              ]
+            },
+            {
+              "key": "existing_governance_instance"
             },
             {
               "key": "watsonx_data_plan",
-              "type": "string",
-              "default_value": "do not install",
               "options": [
                 {
                   "displayname": "Do not install",
@@ -268,15 +298,13 @@
                   "displayname": "Enterprise",
                   "value": "lakehouse-enterprise"
                 }
-              ],
-              "custom_config": {
-
-              }
+              ]
+            },
+            {
+              "key": "existing_data_instance"
             },
             {
               "key": "watsonx_orchestrate_plan",
-              "type": "string",
-              "default_value": "do not install",
               "options": [
                 {
                   "displayname": "Do not install",
@@ -290,13 +318,46 @@
                   "displayname": "Essentials",
                   "value": "essentials"
                 }
-              ],
-              "custom_config": {
-
-              }
+              ]
+            },
+            {
+              "key": "existing_orchestrate_instance"
+            },
+            {
+              "key": "watsonx_project_name"
+            },
+            {
+              "key": "watsonx_project_description"
+            },
+            {
+              "key": "watsonx_project_tags"
             },
             {
               "key": "watsonx_mark_as_sensitive"
+            },
+            {
+              "key": "enable_cos_kms_encryption"
+            },
+            {
+              "key": "cos_plan",
+              "options": [
+                {
+                  "displayname": "standard",
+                  "value": "standard"
+                }
+              ]
+            },
+            {
+              "key": "cos_kms_crn"
+            },
+            {
+              "key": "cos_kms_key_crn"
+            },
+            {
+              "key": "cos_kms_new_key_name"
+            },
+            {
+              "key": "cos_kms_ring_id"
             }
           ],
           "iam_permissions": [
@@ -357,173 +418,7 @@
                     "profile_version": "1.7.0"
                 }
             ]
-          },
-          "outputs": [
-            {
-              "key": "watsonx_platform_endpoint",
-              "description": "The endpoint of the watsonx platform."
-            },
-            {
-              "key": "watsonx_assistant_crn",
-              "description": "The CRN of the watsonx Assistant instance."
-            },
-            {
-              "key": "watsonx_assistant_guid",
-              "description": "The ID of the watsonx Assistant instance."
-            },
-            {
-              "key": "watsonx_assistant_name",
-              "description": "The name of the watsonx Assistant instance."
-            },
-            {
-              "key": "watsonx_assistant_plan_id",
-              "description": "The ID of the watsonx Assistant service plan."
-            },
-            {
-              "key": "watsonx_assistant_dashboard_url",
-              "description": "The Dashboard URL of the watsonx Assistant instance."
-            },
-            {
-              "key": "watson_discovery_crn",
-              "description": "The CRN of the Watson Discovery instance."
-            },
-            {
-              "key": "watson_discovery_guid",
-              "description": "The ID of the Watson Discovery instance."
-            },
-            {
-              "key": "watson_discovery_name",
-              "description": "The name of the Watson Discovery instance."
-            },
-            {
-              "key": "watson_discovery_plan_id",
-              "description": "The Watson Discovery service plan ID."
-            },
-            {
-              "key": "watson_discovery_dashboard_url",
-              "description": "The Dashboard URL of the Watson Discovery instance."
-            },
-            {
-              "key": "watson_machine_learning_crn",
-              "description": "The CRN of the Watson Machine Learning instance."
-            },
-            {
-              "key": "watson_machine_learning_guid",
-              "description": "The ID of the Watson Machine Learning instance."
-            },
-            {
-              "key": "watson_machine_learning_name",
-              "description": "The name of the Watson Machine Learning instance."
-            },
-            {
-              "key": "watson_machine_learning_plan_id",
-              "description": "The Watson Machine Learning service plan ID."
-            },
-            {
-              "key": "watson_machine_learning_dashboard_url",
-              "description": "The Dashboard URL of the Watson Machine Learning instance."
-            },
-            {
-              "key": "watson_studio_crn",
-              "description": "The ID of the Watson Studio instance."
-            },
-            {
-              "key": "watson_studio_guid",
-              "description": "The ID of the Watson Studio instance."
-            },
-            {
-              "key": "watson_studio_name",
-              "description": "The name of the Watson Studio instance."
-            },
-            {
-              "key": "watson_studio_plan_id",
-              "description": "The Watson Studio service plan ID."
-            },
-            {
-              "key": "watson_studio_dashboard_url",
-              "description": "The Dashboard URL of the Watson Studio instance."
-            },
-            {
-              "key": "watsonx_data_crn",
-              "description": "The CRN of the watsonx.data instance."
-            },
-            {
-              "key": "watsonx_data_guid",
-              "description": "The ID of the watsonx.data instance."
-            },
-            {
-              "key": "watsonx_data_name",
-              "description": "The name of the watsonx.data instance."
-            },
-            {
-              "key": "watsonx_data_plan_id",
-              "description": "The watsonx.data service plan ID."
-            },
-            {
-              "key": "watsonx_data_dashboard_url",
-              "description": "The dashboard URL of the watsonx.data instance."
-            },
-            {
-              "key": "watsonx_orchestrate_crn",
-              "description": "The CRN of the watsonx Orchestrate instance."
-            },
-            {
-              "key": "watsonx_orchestrate_guid",
-              "description": "The ID of the watsonx Orchestrate instance."
-            },
-            {
-              "key": "watsonx_orchestrate_name",
-              "description": "The name of the watsonx Orchestrate instance."
-            },
-            {
-              "key": "watsonx_orchestrate_plan_id",
-              "description": "The watsonx Orchestrate service plan ID."
-            },
-            {
-              "key": "watsonx_orchestrate_dashboard_url",
-              "description": "The dashboard URL of the watsonx Orchestrate instance."
-            },
-            {
-              "key": "watsonx_governance_crn",
-              "description": "The CRN of the watsonx.governance instance."
-            },
-            {
-              "key": "watsonx_governance_guid",
-              "description": "The ID of the watsonx.governance instance."
-            },
-            {
-              "key": "watsonx_governance_name",
-              "description": "The name of the watsonx.governance instance."
-            },
-            {
-              "key": "watsonx_governance_plan_id",
-              "description": "The watsonx.governance service plan ID."
-            },
-            {
-              "key": "watsonx_governance_dashboard_url",
-              "description": "The dashboard URL of the watsonx.governance instance."
-            },
-            {
-              "key": "watsonx_project_id",
-              "description": "The ID of the watsonx project."
-            },
-            {
-              "key": "watsonx_project_location",
-              "description": "The location of the watsonx project."
-            },
-            {
-              "key": "watsonx_project_url",
-              "description": "The URL of the watsonx project."
-            },
-            {
-              "key": "resource_group_id",
-              "description": "The resource group ID that's used to provision the resources."
-            },
-            {
-              "key": "watsonx_project_bucket_name",
-              "description": "The name of the COS bucket created by the watsonx project."
-            }
-          ]
+          }
         }
       ]
     }
