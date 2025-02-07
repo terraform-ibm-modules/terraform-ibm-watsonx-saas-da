@@ -1,0 +1,158 @@
+{
+  "inputs": [
+    {
+      "name": "prefix",
+      "required": true,
+      "type": "string",
+      "hidden": false,
+      "default": "saas"
+    },
+    {
+      "name": "resource_group_name",
+      "required": false,
+      "type": "string",
+      "hidden": false
+    },
+    {
+      "name": "region",
+      "required": false,
+      "type": "string",
+      "hidden": false,
+      "default": "us-south"
+    }
+  ],
+  "members": [
+    {
+      "name": "Cloud automation for watsonx Assistant",
+      "version_locator": "7df1e4ca-d54c-4fd0-82ce-3d13247308cd.f9b3b56a-4587-4841-b62b-6254f379baa8",
+      "inputs": [
+        {
+          "name": "resource_group_name",
+          "value": "ref:../../inputs/resource_group_name"
+        },
+        {
+          "name": "prefix",
+          "value": "ref:../../inputs/prefix"
+        },
+        {
+          "name": "ibmcloud_api_key",
+          "value": ""
+        },
+        {
+          "name": "region",
+          "value": "ref:../../inputs/region"
+        }
+      ]
+    },
+    {
+      "name": "Cloud automation for watsonx.data",
+      "version_locator": "7df1e4ca-d54c-4fd0-82ce-3d13247308cd.d4e3fe4c-988e-4c67-bf3c-6506a5a6d084",
+      "inputs": [
+        {
+          "name": "resource_group_name",
+          "value": "ref:../../inputs/resource_group_name"
+        },
+        {
+          "name": "prefix",
+          "value": "ref:../../inputs/prefix"
+        },
+        {
+          "name": "ibmcloud_api_key",
+          "value": ""
+        },
+        {
+          "name": "region",
+          "value": "ref:../../inputs/region"
+        }
+      ]
+    },
+    {
+      "name": "Cloud automation for watsonx.governance",
+      "version_locator": "7df1e4ca-d54c-4fd0-82ce-3d13247308cd.03766faf-ed07-49a9-a11e-95c5640a6ac7",
+      "inputs": [
+        {
+          "name": "resource_group_name",
+          "value": "ref:../../inputs/resource_group_name"
+        },
+        {
+          "name": "prefix",
+          "value": "ref:../../inputs/prefix"
+        },
+        {
+          "name": "ibmcloud_api_key",
+          "value": ""
+        },
+        {
+          "name": "region",
+          "value": "ref:../../inputs/region"
+        }
+      ]
+    },
+    {
+      "name": "Cloud automation for watsonx Orchestrate",
+      "version_locator": "7df1e4ca-d54c-4fd0-82ce-3d13247308cd.c50afda9-79c5-46b4-b51f-7579098d583d",
+      "inputs": [
+        {
+          "name": "resource_group_name",
+          "value": "ref:../../inputs/resource_group_name"
+        },
+        {
+          "name": "prefix",
+          "value": "ref:../../inputs/prefix"
+        },
+        {
+          "name": "ibmcloud_api_key",
+          "value": ""
+        },
+        {
+          "name": "region",
+          "value": "ref:../../inputs/region"
+        }
+      ]
+    },
+    {
+      "name": "Cloud automation for Watson Discovery",
+      "version_locator": "7df1e4ca-d54c-4fd0-82ce-3d13247308cd.fa2c3907-72cd-4539-8599-3b2692f37b2f",
+      "inputs": [
+        {
+          "name": "resource_group_name",
+          "value": "ref:../../inputs/resource_group_name"
+        },
+        {
+          "name": "prefix",
+          "value": "ref:../../inputs/prefix"
+        },
+        {
+          "name": "ibmcloud_api_key",
+          "value": ""
+        },
+        {
+          "name": "region",
+          "value": "ref:../../inputs/region"
+        }
+      ]
+    },
+    {
+      "name": "Cloud automation for watsonx.ai",
+      "version_locator": "7df1e4ca-d54c-4fd0-82ce-3d13247308cd.8cee5386-dbef-486a-8293-b884b02e6185",
+      "inputs": [
+        {
+          "name": "resource_group_name",
+          "value": "ref:../../inputs/resource_group_name"
+        },
+        {
+          "name": "prefix",
+          "value": "ref:../../inputs/prefix"
+        },
+        {
+          "name": "ibmcloud_api_key",
+          "value": ""
+        },
+        {
+          "name": "region",
+          "value": "ref:../../inputs/region"
+        }
+      ]
+    }
+  ]
+}
