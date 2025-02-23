@@ -17,7 +17,7 @@ module "key_protect_module" {
 
 module "kms_root_key" {
   source          = "terraform-ibm-modules/kms-key/ibm"
-  version         = "1.3.1"
+  version         = "1.4.0"
   kms_instance_id = module.key_protect_module.key_protect_id
   key_name        = "test-r-key"
 }
