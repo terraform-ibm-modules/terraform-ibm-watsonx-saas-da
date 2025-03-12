@@ -1,8 +1,8 @@
 {
   "products": [
     {
-      "label": "Watsonx.ai SaaS with Assistant and Governance",
-      "name": "deploy-arch-ibm-watsonx-ai-saas",
+      "label": "[Add-ons Beta] Watsonx.ai SaaS with Assistant and Governance",
+      "name": "testing-deploy-arch-ibm-watsonx-ai-saas",
       "product_kind": "solution",
       "tags": [
         "watson",
@@ -49,10 +49,9 @@
         {
           "label": "standard",
           "name": "standard",
-          "working_directory": "./",
+          "working_directory": "solutions/basic",
           "install_type": "fullstack",
-          "licenses": [
-          ],
+          "licenses": [],
           "architecture": {
             "diagrams": [
               {
@@ -71,36 +70,12 @@
               "key": "ibmcloud_api_key"
             },
             {
-              "key": "provider_visibility",
-              "options": [
-                {
-                  "displayname": "private",
-                  "value": "private"
-                },
-                {
-                  "displayname": "public",
-                  "value": "public"
-                },
-                {
-                  "displayname": "public-and-private",
-                  "value": "public-and-private"
-                }
-              ]
+              "key": "prefix",
+              "description": "The prefix to use for all resources in this solution",
+              "required": true
             },
             {
-              "key": "resource_prefix"
-            },
-            {
-              "key": "use_existing_resource_group"
-            },
-            {
-              "key": "resource_group_name"
-            },
-            {
-              "key": "watsonx_admin_api_key"
-            },
-            {
-              "key": "location",
+              "key": "region",
               "options": [
                 {
                   "displayname": "eu-de",
@@ -119,245 +94,6 @@
                   "value": "jp-tok"
                 }
               ]
-            },
-            {
-              "key": "watson_machine_learning_plan",
-              "options": [
-                {
-                  "displayname": "Lite",
-                  "value": "lite"
-                },
-                {
-                  "displayname": "Standard",
-                  "value": "v2-professional"
-                },
-                {
-                  "displayname": "Essentials",
-                  "value": "v2-standard"
-                }
-              ]
-            },
-            {
-              "key": "watson_machine_learning_service_endpoints",
-              "options": [
-                {
-                  "displayname": "Public",
-                  "value": "public"
-                },
-                {
-                  "displayname": "Public and Private",
-                  "value": "public-and-private"
-                },
-                {
-                  "displayname": "Private",
-                  "value": "private"
-                }
-              ]
-            },
-            {
-              "key": "existing_machine_learning_instance"
-            },
-            {
-              "key": "watson_studio_plan",
-              "options": [
-                {
-                  "displayname": "Lite",
-                  "value": "free-v1"
-                },
-                {
-                  "displayname": "Professional",
-                  "value": "professional-v1"
-                }
-              ]
-            },
-            {
-              "key": "existing_studio_instance"
-            },
-            {
-              "key": "watson_discovery_plan",
-              "options": [
-                {
-                  "displayname": "Do not install",
-                  "value": "do not install"
-                },
-                {
-                  "displayname": "Plus",
-                  "value": "plus"
-                },
-                {
-                  "displayname": "Enterprise",
-                  "value": "enterprise"
-                },
-                {
-                  "displayname": "Premium",
-                  "value": "premium"
-                }
-              ]
-            },
-            {
-              "key": "watson_discovery_service_endpoints",
-              "options": [
-                {
-                  "displayname": "Public",
-                  "value": "public"
-                },
-                {
-                  "displayname": "Public and Private",
-                  "value": "public-and-private"
-                },
-                {
-                  "displayname": "Private",
-                  "value": "private"
-                }
-              ]
-            },
-            {
-              "key": "existing_discovery_instance"
-            },
-            {
-              "key": "watsonx_assistant_plan",
-              "options": [
-                {
-                  "displayname": "Do not install",
-                  "value": "do not install"
-                },
-                {
-                  "displayname": "Lite",
-                  "value": "free"
-                },
-                {
-                  "displayname": "Trial",
-                  "value": "plus-trial"
-                },
-                {
-                  "displayname": "Plus",
-                  "value": "plus"
-                },
-                {
-                  "displayname": "Enterprise",
-                  "value": "enterprise"
-                },
-                {
-                  "displayname": "Enterprise with data isolation",
-                  "value": "enterprisedataisolation"
-                }
-              ]
-            },
-            {
-              "key": "watsonx_assistant_service_endpoints",
-              "options": [
-                {
-                  "displayname": "Public",
-                  "value": "public"
-                },
-                {
-                  "displayname": "Public and Private",
-                  "value": "public-and-private"
-                },
-                {
-                  "displayname": "Private",
-                  "value": "private"
-                }
-              ]
-            },
-            {
-              "key": "existing_assistant_instance"
-            },
-            {
-              "key": "watsonx_governance_plan",
-              "options": [
-                {
-                  "displayname": "Do not install",
-                  "value": "do not install"
-                },
-                {
-                  "displayname": "Lite",
-                  "value": "lite"
-                },
-                {
-                  "displayname": "Essentials",
-                  "value": "essentials"
-                }
-              ]
-            },
-            {
-              "key": "existing_governance_instance"
-            },
-            {
-              "key": "watsonx_data_plan",
-              "options": [
-                {
-                  "displayname": "Do not install",
-                  "value": "do not install"
-                },
-                {
-                  "displayname": "Lite",
-                  "value": "lite"
-                },
-                {
-                  "displayname": "Enterprise",
-                  "value": "lakehouse-enterprise"
-                }
-              ]
-            },
-            {
-              "key": "existing_data_instance"
-            },
-            {
-              "key": "watsonx_orchestrate_plan",
-              "options": [
-                {
-                  "displayname": "Do not install",
-                  "value": "do not install"
-                },
-                {
-                  "displayname": "Standard",
-                  "value": "standard"
-                },
-                {
-                  "displayname": "Essentials",
-                  "value": "essentials"
-                }
-              ]
-            },
-            {
-              "key": "existing_orchestrate_instance"
-            },
-            {
-              "key": "watsonx_project_name"
-            },
-            {
-              "key": "watsonx_project_description"
-            },
-            {
-              "key": "watsonx_project_tags"
-            },
-            {
-              "key": "watsonx_mark_as_sensitive"
-            },
-            {
-              "key": "enable_cos_kms_encryption"
-            },
-            {
-              "key": "cos_plan",
-              "options": [
-                {
-                  "displayname": "standard",
-                  "value": "standard"
-                }
-              ]
-            },
-            {
-              "key": "cos_kms_crn"
-            },
-            {
-              "key": "cos_kms_key_crn"
-            },
-            {
-              "key": "cos_kms_new_key_name"
-            },
-            {
-              "key": "cos_kms_ring_id"
             }
           ],
           "iam_permissions": [
@@ -410,15 +146,129 @@
               "service_name": "kms"
             }
           ],
-          "compliance": {
-            "authority": "scc-v3",
-            "profiles": [
+          "dependencies": [
+            {
+              "name": "deploy-arch-ibm-watsonx-ai",
+              "label": "[Add-ons Beta] Cloud automation for watsonx.ai",
+              "id": "85b7c3d8-c947-408c-896c-52b375ceb1c0-global",
+              "version": "^v1.3.3",
+              "flavors": [
+                "fully-configurable"
+              ],
+              "catalog_id": "7a4d68b4-cf8b-40cd-a3d1-f49aff526eb3",
+              "optional": true,
+              "on_by_default": true,
+              "input_mapping": [
                 {
-                    "profile_name": "IBM Cloud Framework for Financial Services",
-                    "profile_version": "1.7.0"
+                  "dependency_input": "prefix",
+                  "version_input": "prefix",
+                  "reference_version": true
+                },
+                {
+                  "dependency_input": "region",
+                  "version_input": "region",
+                  "reference_version": true
                 }
-            ]
-          }
+              ]
+            },
+            {
+              "name": "deploy-arch-ibm-watson-discovery",
+              "label": "[Add-ons Beta] Cloud automation for Watson Discovery",
+              "id": "0f616276-a8a4-4399-bcbf-d3129f30295e-global",
+              "version": "^v1.3.1",
+              "flavors": [
+                "fully-configurable"
+              ],
+              "catalog_id": "7a4d68b4-cf8b-40cd-a3d1-f49aff526eb3",
+              "optional": true,
+              "on_by_default": true,
+              "input_mapping": [
+                {
+                  "dependency_input": "prefix",
+                  "version_input": "prefix",
+                  "reference_version": true
+                },
+                {
+                  "dependency_input": "region",
+                  "version_input": "region",
+                  "reference_version": true
+                }
+              ]
+            },
+            {
+              "name": "deploy-arch-ibm-watsonx-data",
+              "label": "[Add-ons Beta] Cloud automation for watsonx.data",
+              "id": "40dddcc7-246e-4c56-9e04-ac173f855868-global",
+              "version": "^v1.4.3",
+              "flavors": [
+                "fully-configurable"
+              ],
+              "catalog_id": "7a4d68b4-cf8b-40cd-a3d1-f49aff526eb3",
+              "optional": true,
+              "on_by_default": true,
+              "input_mapping": [
+                {
+                  "dependency_input": "prefix",
+                  "version_input": "prefix",
+                  "reference_version": true
+                },
+                {
+                  "dependency_input": "region",
+                  "version_input": "region",
+                  "reference_version": true
+                }
+              ]
+            },
+            {
+              "name": "deploy-arch-ibm-watsonx-orchestrate",
+              "label": "[Add-ons Beta] Cloud automation for watsonx Orchestrate",
+              "id": "91ae7825-6b75-46f4-a305-c675c95aa3bc-global",
+              "version": "^v1.3.1",
+              "flavors": [
+                "fully-configurable"
+              ],
+              "catalog_id": "7a4d68b4-cf8b-40cd-a3d1-f49aff526eb3",
+              "optional": true,
+              "on_by_default": true,
+              "input_mapping": [
+                {
+                  "dependency_input": "prefix",
+                  "version_input": "prefix",
+                  "reference_version": true
+                },
+                {
+                  "dependency_input": "region",
+                  "version_input": "region",
+                  "reference_version": true
+                }
+              ]
+            },
+            {
+              "name": "deploy-arch-ibm-watsonx-governance",
+              "label": "[Add-ons Beta] Cloud automation for watsonx.governance",
+              "id": "5d7c4272-dc45-49e6-8ef3-7f86af1e30d7-global",
+              "version": "^v1.3.1",
+              "flavors": [
+                "fully-configurable"
+              ],
+              "catalog_id": "7a4d68b4-cf8b-40cd-a3d1-f49aff526eb3",
+              "optional": true,
+              "on_by_default": true,
+              "input_mapping": [
+                {
+                  "dependency_input": "prefix",
+                  "version_input": "prefix",
+                  "reference_version": true
+                },
+                {
+                  "dependency_input": "region",
+                  "version_input": "region",
+                  "reference_version": true
+                }
+              ]
+            }
+          ],
+          "dependency_version_2": true
         }
       ]
     }
