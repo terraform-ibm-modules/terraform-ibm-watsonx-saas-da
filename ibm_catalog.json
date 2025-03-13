@@ -47,8 +47,8 @@
       ],
       "flavors": [
         {
-          "label": "standard",
-          "name": "standard",
+          "label": "Fully configurable",
+          "name": "fully-configurable",
           "working_directory": "solutions/basic",
           "install_type": "fullstack",
           "licenses": [],
