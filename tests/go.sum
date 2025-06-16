@@ -9,8 +9,8 @@ github.com/IBM/cloud-databases-go-sdk v0.7.1/go.mod h1:JYucI1PdwqbAd8XGdDAchxzxR
 github.com/IBM/go-sdk-core/v5 v5.9.2/go.mod h1:YlOwV9LeuclmT/qi/LAK2AsobbAP42veV0j68/rlZsE=
 github.com/IBM/go-sdk-core/v5 v5.19.1 h1:sleVks1O4XjgF4YEGvyDh6PZbP6iZhlTPeDkQc8nWDs=
 github.com/IBM/go-sdk-core/v5 v5.19.1/go.mod h1:Q3BYO6iDA2zweQPDGbNTtqft5tDcEpm6RTuqMlPcvbw=
-github.com/IBM/platform-services-go-sdk v0.81.1 h1:Ch9wUIigyA3HzW7MQnA1WTHAw+QA6W4bSP3ThgzDpx0=
-github.com/IBM/platform-services-go-sdk v0.81.1/go.mod h1:XOowH+JnIih3FA7uilLVM/9VH7XgCmJ4T/i6eZi7gkw=
+github.com/IBM/platform-services-go-sdk v0.82.0 h1:uONc6Ray0hyN4/FWcYBTH+KceSbKLBn2oL1b35+h+Hg=
+github.com/IBM/platform-services-go-sdk v0.82.0/go.mod h1:XOowH+JnIih3FA7uilLVM/9VH7XgCmJ4T/i6eZi7gkw=
 github.com/IBM/project-go-sdk v0.3.6 h1:DRiANKnAePevFsIKSvR89SUaMa2xsd7YKK71Ka1eqKI=
 github.com/IBM/project-go-sdk v0.3.6/go.mod h1:FOJM9ihQV3EEAY6YigcWiTNfVCThtdY8bLC/nhQHFvo=
 github.com/IBM/schematics-go-sdk v0.4.0 h1:x01f/tPquYJYLQzJLGuxWfCbV/EdSMXRikOceNy/JLM=
@@ -147,8 +147,8 @@ github.com/google/uuid v1.1.1/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+
 github.com/google/uuid v1.3.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
 github.com/google/uuid v1.6.0 h1:NIvaJDMOsjHA8n1jAhLSgzrAzy1Hgr+hNrb57e+94F0=
 github.com/google/uuid v1.6.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
-github.com/gruntwork-io/terratest v0.49.0 h1:GurfpHEOEr8vntB77QcxDh+P7aiQRUgPFdgb6q9PuWI=
-github.com/gruntwork-io/terratest v0.49.0/go.mod h1:/+dfGio9NqUpvvukuPo29B8zy6U5FYJn9PdmvwztK4A=
+github.com/gruntwork-io/terratest v0.50.0 h1:AbBJ7IRCpLZ9H4HBrjeoWESITv8nLjN6/f1riMNcAsw=
+github.com/gruntwork-io/terratest v0.50.0/go.mod h1:see0lbKvAqz6rvzvN2wyfuFQQG4PWcAb2yHulF6B2q4=
 github.com/hashicorp/errwrap v1.0.0/go.mod h1:YH+1FKiLXxHSkmPseP+kNlulaMuP3n2brvKWEqk/Jc4=
 github.com/hashicorp/errwrap v1.1.0 h1:OxrOeh75EUXMY8TBjag2fzXGZ40LB6IKw45YeGUDY2I=
 github.com/hashicorp/errwrap v1.1.0/go.mod h1:YH+1FKiLXxHSkmPseP+kNlulaMuP3n2brvKWEqk/Jc4=
@@ -295,8 +295,8 @@ github.com/stretchr/testify v1.8.0/go.mod h1:yNjHg4UonilssWZ8iaSj1OCr/vHnekPRkoO
 github.com/stretchr/testify v1.8.2/go.mod h1:w2LPCIKwWwSfY2zedu0+kehJoqGctiVI29o6fzry7u4=
 github.com/stretchr/testify v1.10.0 h1:Xv5erBjTwe/5IxqUQTdXv5kgmIvbHo3QQyRwhJsOfJA=
 github.com/stretchr/testify v1.10.0/go.mod h1:r2ic/lqez/lEtzL7wO/rwa5dbSLXVDPFyf8C91i36aY=
-github.com/terraform-ibm-modules/ibmcloud-terratest-wrapper v1.50.1 h1:5t2x8tkTeEeLrVy141bLVTWfd8zC9pvidByXJxUH6k8=
-github.com/terraform-ibm-modules/ibmcloud-terratest-wrapper v1.50.1/go.mod h1:DPxpxzMr8GCuuUzNlNWdAFAHfHRv1mETuEs2G47+7+M=
+github.com/terraform-ibm-modules/ibmcloud-terratest-wrapper v1.51.1 h1:nft5cgTNXUYh7aLOFuW5FtDDJuEqQnmymyKa+Gi6zjg=
+github.com/terraform-ibm-modules/ibmcloud-terratest-wrapper v1.51.1/go.mod h1:54ZWPEX65r9591mENWaz8kL+iR6GH8FERXQk2OgxifA=
 github.com/tidwall/pretty v1.0.0/go.mod h1:XNkn88O1ChpSDQmQeStsy+sBenx6DDtFZJxhVysOjyk=
 github.com/tmccombs/hcl2json v0.6.4 h1:/FWnzS9JCuyZ4MNwrG4vMrFrzRgsWEOVi+1AyYUVLGw=
 github.com/tmccombs/hcl2json v0.6.4/go.mod h1:+ppKlIW3H5nsAsZddXPy2iMyvld3SHxyjswOZhavRDk=
