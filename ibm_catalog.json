@@ -5,9 +5,13 @@
       "name": "deploy-arch-ibm-watsonx-ai-saas",
       "product_kind": "solution",
       "tags": [
+        "ibm_created",
+        "target_terraform",
+        "terraform",
+        "solution",
         "watson",
         "watsonx.ai",
-        "ibm_created"
+        "converged_infra"
       ],
       "keywords": [
         "watson",
@@ -51,8 +55,7 @@
           "name": "standard",
           "working_directory": "./",
           "install_type": "fullstack",
-          "licenses": [
-          ],
+          "licenses": [],
           "architecture": {
             "diagrams": [
               {
@@ -413,10 +416,10 @@
           "compliance": {
             "authority": "scc-v3",
             "profiles": [
-                {
-                    "profile_name": "IBM Cloud Framework for Financial Services",
-                    "profile_version": "1.7.0"
-                }
+              {
+                "profile_name": "IBM Cloud Framework for Financial Services",
+                "profile_version": "1.7.0"
+              }
             ]
           }
         }
