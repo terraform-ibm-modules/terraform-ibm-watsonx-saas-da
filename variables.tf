@@ -255,7 +255,7 @@ variable "watsonx_mark_as_sensitive" {
 variable "enable_cos_kms_encryption" {
   description = "Flag to enable COS KMS encryption. If set to true, a value must be passed for `cos_kms_crn`."
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "cos_kms_crn" {
