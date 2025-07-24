@@ -255,7 +255,7 @@ variable "watsonx_mark_as_sensitive" {
 variable "enable_cos_kms_encryption" {
   description = "Flag to enable COS KMS encryption. If set to true, a value must be passed for `cos_kms_crn`."
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "cos_kms_crn" {
@@ -281,7 +281,7 @@ variable "cos_kms_key_crn" {
 variable "cos_kms_new_key_name" {
   description = "Name of the Key Protect key to create for encrypting the COS buckets used by the watsonx projects."
   type        = string
-  default     = ""
+  default     = null
 }
 
 variable "cos_kms_ring_id" {
