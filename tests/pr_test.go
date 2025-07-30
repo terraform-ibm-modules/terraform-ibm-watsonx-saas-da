@@ -106,7 +106,7 @@ func TestWithExistingKP(t *testing.T) {
 	// Provision KP first
 	// ------------------------------------------------------------------------------------
 
-	prefix := fmt.Sprintf("kp-t-%s", strings.ToLower(random.UniqueId()))
+	prefix := fmt.Sprintf("kp-wx-%s", strings.ToLower(random.UniqueId()))
 	realTerraformDir := "./resources/kp-instance"
 	tempTerraformDir, _ := files.CopyTerraformFolderToTemp(realTerraformDir, fmt.Sprintf(prefix+"-%s", strings.ToLower(random.UniqueId())))
 	region := validRegions[rand.Intn(len(validRegions))]
@@ -160,8 +160,9 @@ func TestWithExistingKP(t *testing.T) {
 				"provider_visibility":       "public",
 				"enable_cos_kms_encryption": true,
 				"cos_kms_crn":               terraform.Output(t, existingTerraformOptions, "key_protect_crn"),
-				"cos_kms_key_crn":           terraform.Output(t, existingTerraformOptions, "kms_key_crn"),
-				"resource_prefix":           prefix,
+				"cos_kms_new_key_name":      "key",
+				//"cos_kms_key_crn":           terraform.Output(t, existingTerraformOptions, "kms_key_crn"),
+				"resource_prefix": prefix,
 			},
 		})
 
