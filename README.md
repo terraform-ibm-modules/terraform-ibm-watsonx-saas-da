@@ -107,8 +107,8 @@ statement instead the previous block.
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.0 |
-| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | 1.80.0 |
-| <a name="requirement_restapi"></a> [restapi](#requirement\_restapi) | 1.20.0 |
+| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | 1.81.1 |
+| <a name="requirement_restapi"></a> [restapi](#requirement\_restapi) | 2.0.1 |
 
 ### Modules
 
@@ -116,29 +116,29 @@ statement instead the previous block.
 |------|--------|---------|
 | <a name="module_configure_project"></a> [configure\_project](#module\_configure\_project) | ./configure_project | n/a |
 | <a name="module_configure_user"></a> [configure\_user](#module\_configure\_user) | ./configure_user | n/a |
-| <a name="module_cos"></a> [cos](#module\_cos) | terraform-ibm-modules/cos/ibm//modules/fscloud | 10.1.2 |
-| <a name="module_resource_group"></a> [resource\_group](#module\_resource\_group) | terraform-ibm-modules/resource-group/ibm | 1.2.0 |
+| <a name="module_cos"></a> [cos](#module\_cos) | terraform-ibm-modules/cos/ibm//modules/fscloud | 10.2.4 |
+| <a name="module_resource_group"></a> [resource\_group](#module\_resource\_group) | terraform-ibm-modules/resource-group/ibm | 1.3.0 |
 | <a name="module_storage_delegation"></a> [storage\_delegation](#module\_storage\_delegation) | ./storage_delegation | n/a |
 
 ### Resources
 
 | Name | Type |
 |------|------|
-| [ibm_resource_instance.assistant_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.80.0/docs/resources/resource_instance) | resource |
-| [ibm_resource_instance.data_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.80.0/docs/resources/resource_instance) | resource |
-| [ibm_resource_instance.discovery_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.80.0/docs/resources/resource_instance) | resource |
-| [ibm_resource_instance.governance_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.80.0/docs/resources/resource_instance) | resource |
-| [ibm_resource_instance.machine_learning_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.80.0/docs/resources/resource_instance) | resource |
-| [ibm_resource_instance.orchestrate_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.80.0/docs/resources/resource_instance) | resource |
-| [ibm_resource_instance.studio_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.80.0/docs/resources/resource_instance) | resource |
-| [ibm_iam_auth_token.restapi](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.80.0/docs/data-sources/iam_auth_token) | data source |
-| [ibm_resource_instance.existing_assistant_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.80.0/docs/data-sources/resource_instance) | data source |
-| [ibm_resource_instance.existing_data_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.80.0/docs/data-sources/resource_instance) | data source |
-| [ibm_resource_instance.existing_discovery_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.80.0/docs/data-sources/resource_instance) | data source |
-| [ibm_resource_instance.existing_governance_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.80.0/docs/data-sources/resource_instance) | data source |
-| [ibm_resource_instance.existing_machine_learning_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.80.0/docs/data-sources/resource_instance) | data source |
-| [ibm_resource_instance.existing_orchestrate_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.80.0/docs/data-sources/resource_instance) | data source |
-| [ibm_resource_instance.existing_studio_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.80.0/docs/data-sources/resource_instance) | data source |
+| [ibm_resource_instance.assistant_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.81.1/docs/resources/resource_instance) | resource |
+| [ibm_resource_instance.data_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.81.1/docs/resources/resource_instance) | resource |
+| [ibm_resource_instance.discovery_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.81.1/docs/resources/resource_instance) | resource |
+| [ibm_resource_instance.governance_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.81.1/docs/resources/resource_instance) | resource |
+| [ibm_resource_instance.machine_learning_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.81.1/docs/resources/resource_instance) | resource |
+| [ibm_resource_instance.orchestrate_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.81.1/docs/resources/resource_instance) | resource |
+| [ibm_resource_instance.studio_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.81.1/docs/resources/resource_instance) | resource |
+| [ibm_iam_auth_token.restapi](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.81.1/docs/data-sources/iam_auth_token) | data source |
+| [ibm_resource_instance.existing_assistant_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.81.1/docs/data-sources/resource_instance) | data source |
+| [ibm_resource_instance.existing_data_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.81.1/docs/data-sources/resource_instance) | data source |
+| [ibm_resource_instance.existing_discovery_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.81.1/docs/data-sources/resource_instance) | data source |
+| [ibm_resource_instance.existing_governance_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.81.1/docs/data-sources/resource_instance) | data source |
+| [ibm_resource_instance.existing_machine_learning_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.81.1/docs/data-sources/resource_instance) | data source |
+| [ibm_resource_instance.existing_orchestrate_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.81.1/docs/data-sources/resource_instance) | data source |
+| [ibm_resource_instance.existing_studio_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.81.1/docs/data-sources/resource_instance) | data source |
 
 ### Inputs
 
