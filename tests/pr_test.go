@@ -100,6 +100,8 @@ func TestRunUpgradeRootDA(t *testing.T) {
 }
 
 func TestWithExistingKP(t *testing.T) {
+	// SKIPPING THIS TEST (temporary) - because of Storage delegation issue https://github.ibm.com/GoldenEye/issues/issues/15336
+	t.Skip()
 	t.Parallel()
 
 	// ------------------------------------------------------------------------------------
@@ -160,9 +162,8 @@ func TestWithExistingKP(t *testing.T) {
 				"provider_visibility":       "public",
 				"enable_cos_kms_encryption": true,
 				"cos_kms_crn":               terraform.Output(t, existingTerraformOptions, "key_protect_crn"),
-				"cos_kms_new_key_name":      "key",
-				//"cos_kms_key_crn":           terraform.Output(t, existingTerraformOptions, "kms_key_crn"),
-				"resource_prefix": prefix,
+				"cos_kms_key_crn":           terraform.Output(t, existingTerraformOptions, "kms_key_crn"),
+				"resource_prefix":           prefix,
 			},
 		})
 
