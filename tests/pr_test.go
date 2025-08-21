@@ -47,9 +47,8 @@ func TestMain(m *testing.M) {
 	os.Exit(m.Run())
 }
 
-func setupOptionsRootDA(t *testing.T, prefix1 string, dir string) *testhelper.TestOptions {
+func setupOptionsRootDA(t *testing.T, prefix string, dir string) *testhelper.TestOptions {
 
-	prefix := fmt.Sprintf(prefix1, strings.ToLower(random.UniqueId()))
 	options := testhelper.TestOptionsDefault(&testhelper.TestOptions{
 		Testing:      t,
 		TerraformDir: dir,
