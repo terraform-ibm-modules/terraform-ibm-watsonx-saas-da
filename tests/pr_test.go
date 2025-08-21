@@ -47,7 +47,9 @@ func TestMain(m *testing.M) {
 	os.Exit(m.Run())
 }
 
-func setupOptionsRootDA(t *testing.T, prefix string, dir string) *testhelper.TestOptions {
+func setupOptionsRootDA(t *testing.T, prefix1 string, dir string) *testhelper.TestOptions {
+
+	prefix := fmt.Sprintf(prefix1, strings.ToLower(random.UniqueId()))
 	options := testhelper.TestOptionsDefault(&testhelper.TestOptions{
 		Testing:      t,
 		TerraformDir: dir,
@@ -80,7 +82,7 @@ func setupOptionsRootDA(t *testing.T, prefix string, dir string) *testhelper.Tes
 func TestRunRootDA(t *testing.T) {
 	t.Parallel()
 
-	options := setupOptionsRootDA(t, "watsonx-da", rootDaDir)
+	options := setupOptionsRootDA(t, "wx-da", rootDaDir)
 
 	output, err := options.RunTestConsistency()
 	assert.Nil(t, err, "This should not have errored")
@@ -90,7 +92,7 @@ func TestRunRootDA(t *testing.T) {
 func TestRunUpgradeRootDA(t *testing.T) {
 	t.Parallel()
 
-	options := setupOptionsRootDA(t, "watsonx-da-upg", rootDaDir)
+	options := setupOptionsRootDA(t, "wx-da-upg", rootDaDir)
 
 	output, err := options.RunTestUpgrade()
 	if !options.UpgradeTestSkipped {
