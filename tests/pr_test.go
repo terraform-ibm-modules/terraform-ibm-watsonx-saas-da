@@ -48,6 +48,7 @@ func TestMain(m *testing.M) {
 }
 
 func setupOptionsRootDA(t *testing.T, prefix string, dir string) *testhelper.TestOptions {
+
 	options := testhelper.TestOptionsDefault(&testhelper.TestOptions{
 		Testing:      t,
 		TerraformDir: dir,
@@ -80,7 +81,7 @@ func setupOptionsRootDA(t *testing.T, prefix string, dir string) *testhelper.Tes
 func TestRunRootDA(t *testing.T) {
 	t.Parallel()
 
-	options := setupOptionsRootDA(t, "watsonx-da", rootDaDir)
+	options := setupOptionsRootDA(t, "wx-da", rootDaDir)
 
 	output, err := options.RunTestConsistency()
 	assert.Nil(t, err, "This should not have errored")
@@ -90,7 +91,7 @@ func TestRunRootDA(t *testing.T) {
 func TestRunUpgradeRootDA(t *testing.T) {
 	t.Parallel()
 
-	options := setupOptionsRootDA(t, "watsonx-da-upg", rootDaDir)
+	options := setupOptionsRootDA(t, "wx-da-upg", rootDaDir)
 
 	output, err := options.RunTestUpgrade()
 	if !options.UpgradeTestSkipped {
@@ -100,13 +101,15 @@ func TestRunUpgradeRootDA(t *testing.T) {
 }
 
 func TestWithExistingKP(t *testing.T) {
+	// SKIPPING THIS TEST (temporary) - because of Storage delegation issue https://github.ibm.com/GoldenEye/issues/issues/15336
+	t.Skip()
 	t.Parallel()
 
 	// ------------------------------------------------------------------------------------
 	// Provision KP first
 	// ------------------------------------------------------------------------------------
 
-	prefix := fmt.Sprintf("kp-t-%s", strings.ToLower(random.UniqueId()))
+	prefix := fmt.Sprintf("kp-wx-%s", strings.ToLower(random.UniqueId()))
 	realTerraformDir := "./resources/kp-instance"
 	tempTerraformDir, _ := files.CopyTerraformFolderToTemp(realTerraformDir, fmt.Sprintf(prefix+"-%s", strings.ToLower(random.UniqueId())))
 	region := validRegions[rand.Intn(len(validRegions))]
@@ -185,6 +188,8 @@ func TestWithExistingKP(t *testing.T) {
 }
 
 func TestRunUpgradeExistingKP(t *testing.T) {
+	// SKIPPING THIS TEST (temporary) - because of Storage delegation issue https://github.ibm.com/GoldenEye/issues/issues/15336
+	t.Skip()
 	t.Parallel()
 
 	// ------------------------------------------------------------------------------------
