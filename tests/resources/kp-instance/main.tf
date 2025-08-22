@@ -13,6 +13,7 @@ module "key_protect_module" {
   region            = var.region
   tags              = var.resource_tags
   access_tags       = var.access_tags
+  allowed_network   = "public-and-private"
 }
 
 module "kms_root_key" {
