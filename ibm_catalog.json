@@ -417,8 +417,8 @@
             "authority": "scc-v3",
             "profiles": [
               {
-                "profile_name": "IBM Cloud Framework for Financial Services",
-                "profile_version": "1.7.0"
+                "profile_name": "AI Security Guardrails 2.0",
+                "profile_version": "1.1.0"
               }
             ]
           },
