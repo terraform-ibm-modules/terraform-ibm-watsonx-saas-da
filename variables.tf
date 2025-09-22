@@ -63,7 +63,7 @@ variable "resource_prefix" {
 
   validation {
     # must not exceed 16 characters in length
-    condition     = var.prefix == null || var.prefix == "" ? true : length(var.prefix) <= 16
+    condition     = var.resource_prefix == null || var.resource_prefix == "" ? true : length(var.resource_prefix) <= 16
     error_message = "Prefix must not exceed 16 characters."
   }
 }
