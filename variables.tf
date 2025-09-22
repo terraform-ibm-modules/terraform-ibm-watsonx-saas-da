@@ -22,7 +22,7 @@ variable "watsonx_admin_api_key" {
 
 variable "location" {
   default     = "us-south"
-  description = "The location that's used with the IBM Cloud Terraform IBM provider. It's also used during resource creation."
+  description = "The location that's used with the IBM Cloud Terraform IBM provider. It's also used during resource creation. [Learn more](https://terraform-ibm-modules.github.io/documentation/#/region) about how to select different regions for different services."
   type        = string
   validation {
     condition     = contains(["eu-de", "us-south", "eu-gb", "jp-tok"], var.location)
