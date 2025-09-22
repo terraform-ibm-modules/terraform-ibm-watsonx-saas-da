@@ -26,7 +26,7 @@
       "features": [
         {
           "title": "Build with watsonx applications",
-          "description": "watsonx combines the power of watsonx.ai studio for AI with the scale of watsonx.data store, enabling the creation of next-generation AI."
+          "description": "watsonx combines the power of watsonx.ai Studio for AI with the scale of watsonx.data store, enabling the creation of next-generation AI."
         },
         {
           "title": "Develop with Watson Studio",
@@ -41,7 +41,7 @@
           "description": "Deploy, manage, and integrate machine learning models into your applications and services in as little as one click."
         },
         {
-          "title": "Accelerate buisness decisions Watson Discovery",
+          "title": "Accelerate business decisions with Watson Discovery",
           "description": "Watson Discovery adds a cognitive search and content analytics engine to applications."
         },
         {
@@ -51,7 +51,7 @@
       ],
       "flavors": [
         {
-          "label": "standard",
+          "label": "Standard",
           "name": "standard",
           "working_directory": "./",
           "install_type": "fullstack",
@@ -75,6 +75,7 @@
             },
             {
               "key": "provider_visibility",
+              "hidden": true,
               "options": [
                 {
                   "displayname": "private",
