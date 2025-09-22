@@ -101,8 +101,6 @@ func TestRunUpgradeRootDA(t *testing.T) {
 }
 
 func TestWithExistingKP(t *testing.T) {
-	// SKIPPING THIS TEST (temporary) - because of Storage delegation issue https://github.ibm.com/GoldenEye/issues/issues/15336
-	t.Skip()
 	t.Parallel()
 
 	// ------------------------------------------------------------------------------------
@@ -188,8 +186,6 @@ func TestWithExistingKP(t *testing.T) {
 }
 
 func TestRunUpgradeExistingKP(t *testing.T) {
-	// SKIPPING THIS TEST (temporary) - because of Storage delegation issue https://github.ibm.com/GoldenEye/issues/issues/15336
-	t.Skip()
 	t.Parallel()
 
 	// ------------------------------------------------------------------------------------
