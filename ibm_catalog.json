@@ -98,7 +98,18 @@
               "key": "use_existing_resource_group"
             },
             {
-              "key": "resource_group_name"
+              "key": "resource_group_name",
+              "type": "string",
+              "custom_config": {
+                "type": "resource_group",
+                "grouping": "deployment",
+                "original_grouping": "deployment",
+                "config_constraints": {
+                  "identifier": "rg_name"
+                }
+              },
+              "default_value": "Default",
+              "description": "The name of a new or an existing resource group to provision the resources."
             },
             {
               "key": "watsonx_admin_api_key"
