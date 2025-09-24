@@ -1,5 +1,5 @@
 variable "ibmcloud_api_key" {
-  description = "The API key that's used with the IBM Cloud Terraform IBM provider."
+  description = "The API key that is used with the IBM Cloud Terraform provider."
   sensitive   = true
   type        = string
 }
@@ -22,7 +22,7 @@ variable "watsonx_admin_api_key" {
 
 variable "location" {
   default     = "us-south"
-  description = "The location that's used with the IBM Cloud Terraform IBM provider. It's also used during resource creation. [Learn more](https://terraform-ibm-modules.github.io/documentation/#/region) about how to select different regions for different services."
+  description = "The location that is used with the IBM Cloud Terraform IBM provider. It is also used during resource creation. [Learn more](https://terraform-ibm-modules.github.io/documentation/#/region) about how to select different regions for different services."
   type        = string
   validation {
     condition     = contains(["eu-de", "us-south", "eu-gb", "jp-tok"], var.location)
@@ -70,7 +70,7 @@ variable "resource_prefix" {
 
 variable "cos_plan" {
   default     = "standard"
-  description = "The plan that's used to provision the Cloud Object Storage instance."
+  description = "The plan that is used to provision the Cloud Object Storage instance."
   type        = string
   validation {
     condition     = contains(["standard"], var.cos_plan)
@@ -80,13 +80,13 @@ variable "cos_plan" {
 
 variable "existing_machine_learning_instance" {
   default     = null
-  description = "CRN of the an existing Watson Machine Learning instance."
+  description = "CRN of an existing Watson Machine Learning instance."
   type        = string
 }
 
 variable "watson_machine_learning_plan" {
   default     = "v2-standard"
-  description = "The plan that's used to provision the Watson Machine Learning instance."
+  description = "The plan that is used to provision the Watson Machine Learning instance."
   type        = string
   validation {
     condition     = contains(["lite", "v2-professional", "v2-standard"], var.watson_machine_learning_plan)
@@ -96,7 +96,7 @@ variable "watson_machine_learning_plan" {
 
 variable "watson_machine_learning_service_endpoints" {
   default     = "public"
-  description = "The type of service endpoints. Possible values: 'public', 'private', 'public-and-private'."
+  description = "The type of service endpoints. Possible values are 'public', 'private', 'public-and-private'."
   type        = string
   validation {
     condition     = contains(["public", "public-and-private", "private"], var.watson_machine_learning_service_endpoints)
@@ -106,13 +106,13 @@ variable "watson_machine_learning_service_endpoints" {
 
 variable "existing_studio_instance" {
   default     = null
-  description = "CRN of the an existing Watson Studio instance."
+  description = "CRN of an existing Watson Studio instance."
   type        = string
 }
 
 variable "watson_studio_plan" {
   default     = "professional-v1"
-  description = "The plan that's used to provision the Watson Studio instance. The plan you choose for Watson Studio affects the features and capabilities that you can use."
+  description = "The plan that is used to provision the Watson Studio instance. The plan you choose for Watson Studio affects the features and capabilities that you can use."
   type        = string
   validation {
     condition     = contains(["free-v1", "professional-v1"], var.watson_studio_plan)
@@ -122,13 +122,13 @@ variable "watson_studio_plan" {
 
 variable "existing_discovery_instance" {
   default     = null
-  description = "CRN of the an existing Watson Discovery instance."
+  description = "CRN of an existing Watson Discovery instance."
   type        = string
 }
 
 variable "watson_discovery_plan" {
   default     = "do not install"
-  description = "The plan that's used to provision the Watson Discovery instance."
+  description = "The plan that is used to provision the Watson Discovery instance."
   type        = string
   validation {
     condition = anytrue([
@@ -143,7 +143,7 @@ variable "watson_discovery_plan" {
 
 variable "watson_discovery_service_endpoints" {
   default     = "public"
-  description = "The type of service endpoints. Possible values: 'public', 'private', 'public-and-private'."
+  description = "The type of service endpoints. Possible values are 'public', 'private', 'public-and-private'."
   type        = string
   validation {
     condition     = contains(["public", "public-and-private", "private"], var.watson_discovery_service_endpoints)
@@ -153,13 +153,13 @@ variable "watson_discovery_service_endpoints" {
 
 variable "existing_assistant_instance" {
   default     = null
-  description = "CRN of the an existing watsonx Assistance instance."
+  description = "CRN of an existing watsonx Assistance instance."
   type        = string
 }
 
 variable "watsonx_assistant_plan" {
   default     = "do not install"
-  description = "The plan that's used to provision the watsonx Assistance instance."
+  description = "The plan that is used to provision the watsonx Assistance instance."
   type        = string
   validation {
     condition = anytrue([
@@ -176,7 +176,7 @@ variable "watsonx_assistant_plan" {
 
 variable "watsonx_assistant_service_endpoints" {
   default     = "public"
-  description = "The type of service endpoints. Possible values: 'public', 'private', 'public-and-private'."
+  description = "The type of service endpoints. Possible values are 'public', 'private', 'public-and-private'."
   type        = string
   validation {
     condition     = contains(["public", "public-and-private", "private"], var.watsonx_assistant_service_endpoints)
@@ -186,7 +186,7 @@ variable "watsonx_assistant_service_endpoints" {
 
 variable "existing_governance_instance" {
   default     = null
-  description = "CRN of the an existing watsonx.governance instance."
+  description = "CRN of an existing watsonx.governance instance."
   type        = string
 }
 
@@ -206,13 +206,13 @@ variable "watsonx_governance_plan" {
 
 variable "existing_data_instance" {
   default     = null
-  description = "CRN of the an existing watsonx.data instance."
+  description = "CRN of an existing watsonx.data instance."
   type        = string
 }
 
 variable "watsonx_data_plan" {
   default     = "do not install"
-  description = "The plan that's used to provision the watsonx.data instance."
+  description = "The plan that is used to provision the watsonx.data instance."
   type        = string
   validation {
     condition = anytrue([
@@ -226,13 +226,13 @@ variable "watsonx_data_plan" {
 
 variable "existing_orchestrate_instance" {
   default     = null
-  description = "CRN of the an existing watsonx Orchestrate instance."
+  description = "CRN of an existing watsonx Orchestrate instance."
   type        = string
 }
 
 variable "watsonx_orchestrate_plan" {
   default     = "do not install"
-  description = "The plan that's used to provision the watsonx Orchestrate instance."
+  description = "The plan that is used to provision the watsonx Orchestrate instance."
   type        = string
   validation {
     condition = anytrue([
@@ -251,7 +251,7 @@ variable "watsonx_project_name" {
 }
 
 variable "watsonx_project_description" {
-  description = "A description of the watson project that's created by the WatsonX.ai SaaS Deployable Architecture."
+  description = "A description of the watson project that is created by the WatsonX.ai SaaS Deployable Architecture."
   type        = string
   default     = "Watson project created by the watsonx-ai SaaS deployable architecture."
 }

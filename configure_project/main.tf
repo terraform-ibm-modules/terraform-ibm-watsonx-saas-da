@@ -92,6 +92,6 @@ locals {
     "jp-tok"   = "https://jp-tok.dataplatform.cloud.ibm.com"
   }
   dataplatform_ui = local.dataplatform_ui_mapping[var.location]
-  crn_splitted    = split(":", var.machine_learning_crn)
-  account_id      = split("/", local.crn_splitted[6])[1]
+  crn_split       = split(":", var.machine_learning_crn)
+  account_id      = split("/", local.crn_split[6])[1]
 }
