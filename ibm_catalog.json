@@ -26,7 +26,7 @@
       "features": [
         {
           "title": "Build with watsonx applications",
-          "description": "watsonx combines the power of watsonx.ai studio for AI with the scale of watsonx.data store, enabling the creation of next-generation AI."
+          "description": "watsonx combines the power of watsonx.ai Studio for AI with the scale of watsonx.data store, enabling the creation of next-generation AI."
         },
         {
           "title": "Develop with Watson Studio",
@@ -41,17 +41,17 @@
           "description": "Deploy, manage, and integrate machine learning models into your applications and services in as little as one click."
         },
         {
-          "title": "Accelerate buisness decisions Watson Discovery",
+          "title": "Accelerate business decisions with Watson Discovery",
           "description": "Watson Discovery adds a cognitive search and content analytics engine to applications."
         },
         {
           "title": "Manage and monitor with watsonx.governance",
-          "description": "IBM watsonx.governance™ helps you direct, manage, and monitor your organization's AI activities."
+          "description": "IBM watsonx.governance helps you direct, manage, and monitor your organization's AI activities."
         }
       ],
       "flavors": [
         {
-          "label": "standard",
+          "label": "Standard",
           "name": "standard",
           "working_directory": "./",
           "install_type": "fullstack",
@@ -75,6 +75,7 @@
             },
             {
               "key": "provider_visibility",
+              "hidden": true,
               "options": [
                 {
                   "displayname": "private",
@@ -91,13 +92,25 @@
               ]
             },
             {
-              "key": "resource_prefix"
+              "key": "prefix",
+              "required": true
             },
             {
               "key": "use_existing_resource_group"
             },
             {
-              "key": "resource_group_name"
+              "key": "resource_group_name",
+              "type": "string",
+              "custom_config": {
+                "type": "resource_group",
+                "grouping": "deployment",
+                "original_grouping": "deployment",
+                "config_constraints": {
+                  "identifier": "rg_name"
+                }
+              },
+              "default_value": "Default",
+              "description": "The name of a new or an existing resource group to provision the resources."
             },
             {
               "key": "watsonx_admin_api_key"
@@ -106,19 +119,19 @@
               "key": "location",
               "options": [
                 {
-                  "displayname": "eu-de",
+                  "displayname": "Frankfurt (eu-de)",
                   "value": "eu-de"
                 },
                 {
-                  "displayname": "us-south",
+                  "displayname": "Dallas (us-south)",
                   "value": "us-south"
                 },
                 {
-                  "displayname": "eu-gb",
+                  "displayname": "London (eu-gb)",
                   "value": "eu-gb"
                 },
                 {
-                  "displayname": "jp-tok",
+                  "displayname": "Tokyo (jp-tok)",
                   "value": "jp-tok"
                 }
               ]
@@ -333,7 +346,15 @@
               "key": "watsonx_project_description"
             },
             {
-              "key": "watsonx_project_tags"
+              "key": "watsonx_project_tags",
+              "custom_config": {
+                "type": "array",
+                "grouping": "deployment",
+                "original_grouping": "deployment",
+                "config_constraints": {
+                  "type": "string"
+                }
+              }
             },
             {
               "key": "watsonx_mark_as_sensitive"
@@ -366,51 +387,66 @@
           "iam_permissions": [
             {
               "role_crns": [
-                "crn:v1:bluemix:public:iam::::role:Editor"
+                "crn:v1:bluemix:public:iam::::role:Viewer"
               ],
-              "service_name": "cloud-object-storage"
+              "service_name": "Resource group only",
+              "notes": "Viewer access is required in the resource group you want to provision in."
             },
             {
               "role_crns": [
                 "crn:v1:bluemix:public:iam::::role:Editor"
               ],
-              "service_name": "pm-20"
+              "service_name": "cloud-object-storage",
+              "notes": "Required to deploy Cloud Automation for Object Storage."
             },
             {
               "role_crns": [
                 "crn:v1:bluemix:public:iam::::role:Editor"
               ],
-              "service_name": "data-science-experience"
+              "service_name": "pm-20",
+              "notes": "Required for creating a instance of watsonx.ai Runtime."
             },
             {
               "role_crns": [
                 "crn:v1:bluemix:public:iam::::role:Editor"
               ],
-              "service_name": "lakehouse"
+              "service_name": "data-science-experience",
+              "notes": "Required for creating a instance of watsonx.ai Studio."
             },
             {
               "role_crns": [
                 "crn:v1:bluemix:public:iam::::role:Editor"
               ],
-              "service_name": "aiopenscale"
+              "service_name": "lakehouse",
+              "notes": "Required to create an instance of watsonx.data"
             },
             {
               "role_crns": [
                 "crn:v1:bluemix:public:iam::::role:Editor"
               ],
-              "service_name": "conversation"
+              "service_name": "aiopenscale",
+              "notes": "Required to create an instance of watsonx.governance."
             },
             {
               "role_crns": [
                 "crn:v1:bluemix:public:iam::::role:Editor"
               ],
-              "service_name": "discovery"
+              "service_name": "conversation",
+              "notes": "Required to create an instance of watsonx Assistant."
+            },
+            {
+              "role_crns": [
+                "crn:v1:bluemix:public:iam::::role:Editor"
+              ],
+              "service_name": "discovery",
+              "notes": "Required to create an instance of Watson Discovery."
             },
             {
               "role_crns": [
                 "crn:v1:bluemix:public:iam::::serviceRole:Manager"
               ],
-              "service_name": "kms"
+              "service_name": "kms",
+              "notes": "[Optional] Required to deploy Cloud automation for Key Protect, so you can use your own managed encryption keys."
             }
           ],
           "compliance": {
