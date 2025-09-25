@@ -1,5 +1,5 @@
 <!-- Update the title -->
-# Watsonx.ai SaaS with Assistant and Governance Deployable Architecture
+# Cloud foundation for AI ops and governance with watsonx deployable architecture
 
 <!--
 Update status and "latest release" badges:
@@ -13,7 +13,7 @@ Update status and "latest release" badges:
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 <!-- Add a description of module(s) in this repo -->
-The Watsonx.ai SaaS with Assistant and Governance Deployable Architecture is designed to automate the deployment and configuration of the IBM watsonx platform in an IBM Cloud account. The IBM watsonx platform is made of several services working together to offer AI capabilities to end users, who can explore them using [IBM watsonx projects](https://dataplatform.cloud.ibm.com/docs/content/wsj/manage-data/manage-projects.html?context=wx&audience=wdp).
+The Cloud foundation for AI ops and governance with watsonx deployable architecture is designed to automate the deployment and configuration of the IBM watsonx platform in an IBM Cloud account. The IBM watsonx platform is made of several services working together to offer AI capabilities to end users, who can explore them using [IBM watsonx projects](https://dataplatform.cloud.ibm.com/docs/content/wsj/manage-data/manage-projects.html?context=wx&audience=wdp).
 
 In addition, this deployable architecture configures a starter project for an IBM Cloud user.
 
