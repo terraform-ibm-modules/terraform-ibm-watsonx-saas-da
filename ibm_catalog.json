@@ -1,7 +1,7 @@
 {
   "products": [
     {
-      "label": "Watsonx.ai SaaS with Assistant and Governance",
+      "label": "Cloud foundation for AI ops and governance with watsonx",
       "name": "deploy-arch-ibm-watsonx-ai-saas",
       "product_kind": "solution",
       "tags": [
@@ -18,8 +18,8 @@
         "watsonx",
         "ai"
       ],
-      "short_description": "Deploy Watsonx.ai SaaS with Assistant and Governance to automate the deployment and setup of the IBM watsonx platform.",
-      "long_description": "The Watsonx.ai SaaS with Assistant and Governance deployable architecture easily deploys and embeds AI across your business, manages all data sources, and accelerates responsible AI workflows on one platform.",
+      "short_description": "Deploy Cloud foundation for AI ops and governance with watsonx to automate the deployment and setup of the IBM watsonx platform.",
+      "long_description": "The Cloud foundation for AI ops and governance with watsonx deployable architecture easily deploys and embeds AI across your business, manages all data sources, and accelerates responsible AI workflows on one platform.",
       "provider_name": "FinOps Team.",
       "offering_docs_url": "https://cloud.ibm.com/docs/watsonx-ai-saas-automation?topic=watsonx-ai-saas-automation-overview",
       "support_details": "This is a proof of concept and no official support is given.",
@@ -61,10 +61,10 @@
               {
                 "diagram": {
                   "url": "https://raw.githubusercontent.com/terraform-ibm-modules/terraform-ibm-watsonx-saas-da/main/reference-architectures/watsonx-saas-da.svg",
-                  "caption": "Watsonx.ai SaaS with Assistant and Governance services",
+                  "caption": "Cloud foundation for AI ops and governance with watsonx",
                   "type": "image/svg+xml"
                 },
-                "description": "Watsonx.ai SaaS with Assistant and Governance"
+                "description": "Cloud foundation for AI ops and governance with watsonx"
               }
             ]
           },
