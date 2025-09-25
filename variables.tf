@@ -42,7 +42,7 @@ variable "resource_group_name" {
   default     = null
 }
 
-variable "resource_prefix" {
+variable "prefix" {
   description = "The name to be used on all Watson resources as a prefix."
   type        = string
   default     = "watsonx-poc"
@@ -53,10 +53,10 @@ variable "resource_prefix" {
     # - Starts with a lowercase letter: [a-z]
     # - Contains only lowercase letters (a–z), digits (0–9), and hyphens (-)
     # - Must not end with a hyphen (-): [a-z0-9]
-    condition = (var.resource_prefix == null || var.resource_prefix == "" ? true :
+    condition = (var.prefix == null || var.prefix == "" ? true :
       alltrue([
-        can(regex("^[a-z][-a-z0-9]*[a-z0-9]$", var.resource_prefix)),
-        length(regexall("--", var.resource_prefix)) == 0
+        can(regex("^[a-z][-a-z0-9]*[a-z0-9]$", var.prefix)),
+        length(regexall("--", var.prefix)) == 0
       ])
     )
     error_message = "Prefix must begin with a lowercase letter and may contain only lowercase letters, digits, and hyphens '-'. It must not end with a hyphen('-'), and cannot contain consecutive hyphens ('--')."
@@ -64,7 +64,7 @@ variable "resource_prefix" {
 
   validation {
     # must not exceed 16 characters in length
-    condition     = var.resource_prefix == null || var.resource_prefix == "" ? true : length(var.resource_prefix) <= 16
+    condition     = var.prefix == null || var.prefix == "" ? true : length(var.prefix) <= 16
     error_message = "Prefix must not exceed 16 characters."
   }
 }

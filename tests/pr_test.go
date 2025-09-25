@@ -72,7 +72,7 @@ func setupOptionsRootDA(t *testing.T, prefix string, dir string) *testhelper.Tes
 		"resource_group_name":       prefix,
 		"enable_cos_kms_encryption": false,
 		"provider_visibility":       "public",
-		"resource_prefix":           options.Prefix,
+		"prefix":                    options.Prefix,
 	}
 
 	return options
@@ -162,7 +162,7 @@ func TestWithExistingKP(t *testing.T) {
 				"enable_cos_kms_encryption": true,
 				"cos_kms_crn":               terraform.Output(t, existingTerraformOptions, "key_protect_crn"),
 				"cos_kms_key_crn":           terraform.Output(t, existingTerraformOptions, "kms_key_crn"),
-				"resource_prefix":           prefix,
+				"prefix":                    prefix,
 			},
 		})
 
@@ -247,7 +247,7 @@ func TestRunUpgradeExistingKP(t *testing.T) {
 				"provider_visibility":       "public",
 				"enable_cos_kms_encryption": true,
 				"cos_kms_crn":               terraform.Output(t, existingTerraformOptions, "key_protect_crn"),
-				"resource_prefix":           prefix,
+				"prefix":                    prefix,
 			},
 		})
 
