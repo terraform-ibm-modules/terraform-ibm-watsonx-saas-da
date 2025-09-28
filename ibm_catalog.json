@@ -41,7 +41,7 @@
           "description": "Deploy, manage, and integrate machine learning models into your applications and services in as little as one click."
         },
         {
-          "title": "Accelerate buisness decisions Watson Discovery",
+          "title": "Accelerate business decisions Watson Discovery",
           "description": "Watson Discovery adds a cognitive search and content analytics engine to applications."
         },
         {
@@ -91,7 +91,14 @@
               ]
             },
             {
-              "key": "resource_prefix"
+              "key": "resource_prefix",
+              "value_constraints": [
+                {
+                  "type": "regex",
+                  "description": "Resource prefix must not be empty and must not exceed 25 characters.",
+                  "value": "^.{1,25}$"
+                }
+              ]
             },
             {
               "key": "use_existing_resource_group"
@@ -351,10 +358,24 @@
               ]
             },
             {
-              "key": "cos_kms_crn"
+              "key": "cos_kms_crn",
+              "value_constraints": [
+                {
+                  "type": "regex",
+                  "description": "The value provided for 'cos_kms_crn' is not valid.",
+                  "value": "^__NULL__$|^crn:(.*:){3}(kms|hs-crypto):(.*:){2}[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}::$"
+                }
+              ]
             },
             {
-              "key": "cos_kms_key_crn"
+              "key": "cos_kms_key_crn",
+              "value_constraints": [
+                {
+                  "type": "regex",
+                  "description": "The value provided for 'cos_kms_key_crn' is not valid.",
+                  "value": "^__NULL__$|^crn:(.*:){3}(kms|hs-crypto):(.*:){2}[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}:key:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+                }
+              ]
             },
             {
               "key": "cos_kms_new_key_name"
