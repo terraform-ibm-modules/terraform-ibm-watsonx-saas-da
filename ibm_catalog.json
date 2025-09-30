@@ -321,12 +321,16 @@
                   "value": "do not install"
                 },
                 {
-                  "displayname": "Standard",
-                  "value": "standard"
+                  "displayname": "Trial",
+                  "value": "lite"
                 },
                 {
-                  "displayname": "Essentials",
-                  "value": "essentials"
+                  "displayname": "Essentials Agentic with Monthly Active Users",
+                  "value": "essentials-agentic-mau"
+                },
+                {
+                  "displayname": "Standard Agentic with Monthly Active Users",
+                  "value": "standard-agentic-mau"
                 }
               ]
             },
