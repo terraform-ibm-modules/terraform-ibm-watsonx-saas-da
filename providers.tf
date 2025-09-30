@@ -1,15 +1,17 @@
 provider "ibm" {
-  alias            = "deployer"
-  ibmcloud_api_key = var.ibmcloud_api_key
-  region           = var.location
-  visibility       = var.provider_visibility
+  alias                 = "deployer"
+  ibmcloud_api_key      = var.ibmcloud_api_key
+  region                = var.location
+  visibility            = var.provider_visibility
+  private_endpoint_type = (var.provider_visibility == "private" && var.location == "ca-mon") ? "vpe" : null
 }
 
 provider "ibm" {
-  alias            = "watsonx_admin"
-  ibmcloud_api_key = var.watsonx_admin_api_key == null || var.watsonx_admin_api_key == "" ? var.ibmcloud_api_key : var.watsonx_admin_api_key
-  region           = var.location
-  visibility       = var.provider_visibility
+  alias                 = "watsonx_admin"
+  ibmcloud_api_key      = var.watsonx_admin_api_key == null || var.watsonx_admin_api_key == "" ? var.ibmcloud_api_key : var.watsonx_admin_api_key
+  region                = var.location
+  visibility            = var.provider_visibility
+  private_endpoint_type = (var.provider_visibility == "private" && var.location == "ca-mon") ? "vpe" : null
 }
 
 
