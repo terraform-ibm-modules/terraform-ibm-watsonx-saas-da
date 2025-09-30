@@ -221,10 +221,11 @@ variable "watsonx_orchestrate_plan" {
   validation {
     condition = anytrue([
       var.watsonx_orchestrate_plan == "do not install",
-      var.watsonx_orchestrate_plan == "essentials",
-      var.watsonx_orchestrate_plan == "standard",
+      var.watsonx_orchestrate_plan == "lite",
+      var.watsonx_orchestrate_plan == "essentials-agentic-mau",
+      var.watsonx_orchestrate_plan == "standard-agentic-mau",
     ])
-    error_message = "You must use a essentials or standard plan. Learn more. "
+    error_message = "You must use a lite, essentials-agentic-mau or standard-agentic-mau plan. Learn more. "
   }
 }
 
