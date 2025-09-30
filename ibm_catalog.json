@@ -92,8 +92,14 @@
               ]
             },
             {
-              "key": "prefix",
-              "required": true
+              "key": "resource_prefix",
+              "value_constraints": [
+                {
+                  "type": "regex",
+                  "description": "Resource prefix must not be empty and must not exceed 25 characters.",
+                  "value": "^.{1,25}$"
+                }
+              ]
             },
             {
               "key": "use_existing_resource_group"
@@ -327,12 +333,16 @@
                   "value": "do not install"
                 },
                 {
-                  "displayname": "Standard",
-                  "value": "standard"
+                  "displayname": "Trial",
+                  "value": "lite"
                 },
                 {
-                  "displayname": "Essentials",
-                  "value": "essentials"
+                  "displayname": "Essentials Agentic with Monthly Active Users",
+                  "value": "essentials-agentic-mau"
+                },
+                {
+                  "displayname": "Standard Agentic with Monthly Active Users",
+                  "value": "standard-agentic-mau"
                 }
               ]
             },
@@ -372,10 +382,24 @@
               ]
             },
             {
-              "key": "cos_kms_crn"
+              "key": "cos_kms_crn",
+              "value_constraints": [
+                {
+                  "type": "regex",
+                  "description": "The value provided for 'cos_kms_crn' is not valid.",
+                  "value": "^__NULL__$|^crn:(.*:){3}(kms|hs-crypto):(.*:){2}[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}::$"
+                }
+              ]
             },
             {
-              "key": "cos_kms_key_crn"
+              "key": "cos_kms_key_crn",
+              "value_constraints": [
+                {
+                  "type": "regex",
+                  "description": "The value provided for 'cos_kms_key_crn' is not valid.",
+                  "value": "^__NULL__$|^crn:(.*:){3}(kms|hs-crypto):(.*:){2}[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}:key:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+                }
+              ]
             },
             {
               "key": "cos_kms_new_key_name"
