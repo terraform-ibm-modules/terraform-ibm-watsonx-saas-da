@@ -21,6 +21,7 @@ In addition, this deployable architecture configures a starter project for an IB
 <!-- BEGIN OVERVIEW HOOK -->
 ## Overview
 * [terraform-ibm-watsonx-saas-da](#terraform-ibm-watsonx-saas-da)
+* [Examples](./examples)
 * [Contributing](#contributing)
 <!-- END OVERVIEW HOOK -->
 
