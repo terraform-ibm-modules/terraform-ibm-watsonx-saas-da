@@ -4,14 +4,18 @@ locals {
     "us-south" = "https://dataplatform.cloud.ibm.com",
     "eu-gb"    = "https://eu-gb.dataplatform.cloud.ibm.com",
     "eu-de"    = "https://eu-de.dataplatform.cloud.ibm.com",
-    "jp-tok"   = "https://jp-tok.dataplatform.cloud.ibm.com"
+    "jp-tok"   = "https://jp-tok.dataplatform.cloud.ibm.com",
+    "au-syd"   = "https://au-syd.dai.cloud.ibm.com",
+    "ca-tor"   = "https://ca-tor.dai.cloud.ibm.com"
   }
   dataplatform_ui = local.dataplatform_ui_mapping[var.location]
   watsonx_data_datacenter_mapping = {
     "us-south" = "ibm:us-south:dal",
     "eu-gb"    = "ibm:eu-gb:lon",
     "eu-de"    = "ibm:eu-de:fra",
-    "jp-tok"   = "ibm:jp-tok:tok"
+    "jp-tok"   = "ibm:jp-tok:tok",
+    "au-syd"   = "ibm:au-syd:syd",
+    "ca-tor"   = "ibm:ca-tor:tor"
   }
   watsonx_data_datacenter = local.watsonx_data_datacenter_mapping[var.location]
 
