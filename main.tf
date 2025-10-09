@@ -3,7 +3,7 @@
 ##############################################################################################################
 
 locals {
-  is_storage_delegated = var.cos_kms_crn == null || var.cos_kms_crn == "" ? false : true
+  is_storage_delegated = var.cos_kms_crn == null || var.cos_kms_crn == "" || var.existing_cos_instance_crn == null ? false : true
   dataplatform_ui_mapping = {
     "us-south" = "https://dataplatform.cloud.ibm.com",
     "eu-gb"    = "https://eu-gb.dataplatform.cloud.ibm.com",
@@ -86,16 +86,25 @@ module "resource_group" {
 ##############################################################################################################
 
 module "existing_cos_crn_parser" {
+  providers = {
+    ibm = ibm.deployer
+  }
   count   = var.existing_cos_instance_crn != null ? 1 : 0
   source  = "terraform-ibm-modules/common-utilities/ibm//modules/crn-parser"
   version = "1.2.0"
   crn     = var.existing_cos_instance_crn
 }
 
+locals {
+  cos_instance_crn  = var.existing_cos_instance_crn == null ? module.cos.cos_instance_crn : var.existing_cos_instance_crn
+  cos_instance_guid = var.existing_cos_instance_crn == null ? module.cos.cos_instance_guid : module.existing_cos_crn_parser[0].service_instance
+}
+
 module "cos" {
   providers = {
     ibm = ibm.deployer
   }
+  count             = var.existing_cos_instance_crn == null ? 1 : 0
   source            = "terraform-ibm-modules/cos/ibm//modules/fscloud"
   version           = "10.1.2"
   resource_group_id = module.resource_group.resource_group_id
@@ -359,16 +368,16 @@ module "configure_user" {
 module "storage_delegation" {
   source     = "./storage_delegation"
   depends_on = [module.cos]
+  count      = var.enable_cos_kms_encryption ? 1 : 0 #TODO: CHECK IF EXISTING KMS KEY CRN IS NEEDED HERE
   providers = {
     ibm.deployer                  = ibm.deployer
     restapi.restapi_watsonx_admin = restapi.restapi_watsonx_admin
   }
-  count                = var.enable_cos_kms_encryption ? 1 : 0
   cos_kms_crn          = var.cos_kms_crn
   cos_kms_key_crn      = var.cos_kms_key_crn
   cos_kms_new_key_name = "${var.resource_prefix}-${var.cos_kms_new_key_name}"
   cos_kms_ring_id      = var.cos_kms_ring_id
-  cos_guid             = module.cos.cos_instance_guid
+  cos_guid             = local.cos_instance_guid
 }
 
 ##############################################################################################################
@@ -389,8 +398,8 @@ module "configure_project" {
   machine_learning_guid       = local.watson_machine_learning_guid
   machine_learning_crn        = local.watson_machine_learning_crn
   machine_learning_name       = local.watson_machine_learning_name
-  cos_guid                    = module.cos.cos_instance_guid
-  cos_crn                     = module.cos.cos_instance_crn
+  cos_guid                    = local.cos_instance_guid
+  cos_crn                     = local.cos_instance_crn
   watsonx_project_delegated   = local.is_storage_delegated
   location                    = var.location
 }
