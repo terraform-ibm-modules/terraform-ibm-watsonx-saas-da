@@ -322,12 +322,29 @@ variable "cos_kms_crn" {
     ])
     error_message = "Key Protect CRN validation failed."
   }
+
+  validation {
+    condition     = (var.cos_kms_crn != null && length(var.cos_kms_crn) > 0) || !var.enable_cos_kms_encryption
+    error_message = "If a value for 'cos_kms_crn' is provided then 'enable_cos_kms_encryption' must be set to true."
+  }
+
 }
 
 variable "cos_kms_key_crn" {
   description = "Key Protect key CRN used to encrypt the COS buckets used by the watsonx projects. If not set, then the cos_kms_new_key_name must be specified."
   type        = string
   default     = null
+
+  validation {
+    condition     = (var.cos_kms_key_crn != null || length(var.cos_kms_key_crn) > 0) || !var.enable_cos_kms_encryption
+    error_message = "If a value for 'cos_kms_key_crn' is passed then 'enable_cos_kms_encryption' must be set to true."
+  }
+
+  validation {
+    condition     = (var.cos_kms_key_crn != null && length(var.cos_kms_key_crn) > 0) || length(var.cos_kms_new_key_name) > 0
+    error_message = "If 'cos_kms_key_crn' is not set, then 'cos_kms_new_key_name' must be specified."
+  }
+
 }
 
 variable "cos_kms_new_key_name" {
