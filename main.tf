@@ -86,9 +86,6 @@ module "resource_group" {
 ##############################################################################################################
 
 module "existing_cos_crn_parser" {
-  providers = {
-    ibm = ibm.deployer
-  }
   count   = var.existing_cos_instance_crn != null ? 1 : 0
   source  = "terraform-ibm-modules/common-utilities/ibm//modules/crn-parser"
   version = "1.2.0"
@@ -96,8 +93,8 @@ module "existing_cos_crn_parser" {
 }
 
 locals {
-  cos_instance_crn  = var.existing_cos_instance_crn == null ? module.cos.cos_instance_crn : var.existing_cos_instance_crn
-  cos_instance_guid = var.existing_cos_instance_crn == null ? module.cos.cos_instance_guid : module.existing_cos_crn_parser[0].service_instance
+  cos_instance_crn  = var.existing_cos_instance_crn == null ? module.cos[0].cos_instance_crn : var.existing_cos_instance_crn
+  cos_instance_guid = var.existing_cos_instance_crn == null ? module.cos[0].cos_instance_guid : module.existing_cos_crn_parser[0].service_instance
 }
 
 module "cos" {
@@ -106,7 +103,7 @@ module "cos" {
   }
   count             = var.existing_cos_instance_crn == null ? 1 : 0
   source            = "terraform-ibm-modules/cos/ibm//modules/fscloud"
-  version           = "10.1.2"
+  version           = "10.4.0"
   resource_group_id = module.resource_group.resource_group_id
   cos_instance_name = "${var.resource_prefix}-cos-instance"
   cos_plan          = var.cos_plan

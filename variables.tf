@@ -324,8 +324,8 @@ variable "cos_kms_crn" {
   }
 
   validation {
-    condition     = (var.cos_kms_crn != null && length(var.cos_kms_crn) > 0) || !var.enable_cos_kms_encryption
-    error_message = "If a value for 'cos_kms_crn' is provided then 'enable_cos_kms_encryption' must be set to true."
+    condition     = try(length(var.cos_kms_crn), 0) > 0 || !var.enable_cos_kms_encryption
+    error_message = "If 'enable_cos_kms_encryption' is true, you must provide a valid 'cos_kms_crn'."
   }
 
 }
@@ -336,15 +336,14 @@ variable "cos_kms_key_crn" {
   default     = null
 
   validation {
-    condition     = (var.cos_kms_key_crn != null || length(var.cos_kms_key_crn) > 0) || !var.enable_cos_kms_encryption
-    error_message = "If a value for 'cos_kms_key_crn' is passed then 'enable_cos_kms_encryption' must be set to true."
+    condition     = try(length(var.cos_kms_key_crn), 0) > 0 || !var.enable_cos_kms_encryption
+    error_message = "If 'enable_cos_kms_encryption' is true, you must provide a valid 'cos_kms_key_crn'."
   }
 
   validation {
-    condition     = (var.cos_kms_key_crn != null && length(var.cos_kms_key_crn) > 0) || length(var.cos_kms_new_key_name) > 0
+    condition     = try(length(var.cos_kms_key_crn), 0) > 0 || try(length(var.cos_kms_new_key_name), 0) > 0
     error_message = "If 'cos_kms_key_crn' is not set, then 'cos_kms_new_key_name' must be specified."
   }
-
 }
 
 variable "cos_kms_new_key_name" {
