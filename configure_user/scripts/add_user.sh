@@ -25,6 +25,10 @@ elif [ "$location" == "eu-de" ]; then
     dataplatform_api="https://api.eu-de.dataplatform.cloud.ibm.com"
 elif [ "$location" == "jp-tok" ]; then
     dataplatform_api="https://api.jp-tok.dataplatform.cloud.ibm.com"
+elif [ "$location" == "au-syd" ]; then
+    dataplatform_api="https://api.au-syd.dai.cloud.ibm.com"
+elif [ "$location" == "ca-tor" ]; then
+    dataplatform_api="https://api.ca-tor.dai.cloud.ibm.com"
 else
     echo "Unknown region" && exit 1
 fi
