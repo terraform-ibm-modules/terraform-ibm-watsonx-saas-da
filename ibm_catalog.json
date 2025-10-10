@@ -101,9 +101,6 @@
               ]
             },
             {
-              "key": "use_existing_resource_group"
-            },
-            {
               "key": "resource_group_name"
             },
             {
