@@ -164,6 +164,7 @@ func TestWithExistingKP(t *testing.T) {
 				"enable_cos_kms_encryption": true,
 				"cos_kms_crn":               terraform.Output(t, existingTerraformOptions, "key_protect_crn"),
 				"cos_kms_key_crn":           terraform.Output(t, existingTerraformOptions, "kms_key_crn"),
+				"existing_cos_instance_crn": permanentResources["general_test_storage_cos_instance_crn"],
 				"resource_prefix":           prefix,
 			},
 		})
@@ -249,6 +250,7 @@ func TestRunUpgradeExistingKP(t *testing.T) {
 				"provider_visibility":       "public",
 				"enable_cos_kms_encryption": true,
 				"cos_kms_crn":               terraform.Output(t, existingTerraformOptions, "key_protect_crn"),
+				"existing_cos_instance_crn": permanentResources["general_test_storage_cos_instance_crn"],
 				"resource_prefix":           prefix,
 			},
 		})
