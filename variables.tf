@@ -324,10 +324,9 @@ variable "cos_kms_crn" {
   }
 
   validation {
-    condition     = !var.enable_cos_kms_encryption || (try(length(var.cos_kms_crn), 0) > 0 || try(length(var.existing_cos_kms_crn), 0) > 0)
-    error_message = "If 'enable_cos_kms_encryption' is true, you must provide either 'cos_kms_crn' or 'existing_cos_kms_crn'."
+    condition     = !var.enable_cos_kms_encryption || try(length(var.cos_kms_crn), 0) > 0
+    error_message = "If 'enable_cos_kms_encryption' is true, you must provide 'cos_kms_crn'."
   }
-
 }
 
 variable "cos_kms_key_crn" {
@@ -336,8 +335,8 @@ variable "cos_kms_key_crn" {
   default     = null
 
   validation {
-    condition     = !var.enable_cos_kms_encryption || (try(length(var.cos_kms_key_crn), 0) > 0 || try(length(var.cos_kms_new_key_name), 0) > 0 || try(length(var.existing_cos_kms_key_crn), 0) > 0)
-    error_message = "If 'enable_cos_kms_encryption' is true, you must provide one of: 'cos_kms_key_crn' or 'cos_kms_new_key_name' or 'existing_cos_kms_key_crn'."
+    condition     = !var.enable_cos_kms_encryption || (try(length(var.cos_kms_key_crn), 0) > 0 || try(length(var.cos_kms_new_key_name), 0) > 0)
+    error_message = "If 'enable_cos_kms_encryption' is true, you must provide one of: 'cos_kms_key_crn' or 'cos_kms_new_key_name'."
   }
 }
 
@@ -349,25 +348,6 @@ variable "cos_kms_new_key_name" {
 
 variable "cos_kms_ring_id" {
   description = "The identifier of the Key Protect ring to create the cos_kms_new_key_name into. If it is not set, then the new key will be created in the default ring."
-  type        = string
-  default     = null
-}
-
-# Existing COS KMS Resources
-
-variable "existing_cos_kms_crn" {
-  description = "CRN of an existing Key Protect (KMS) instance to use for COS encryption. Mutually exclusive with 'cos_kms_crn'."
-  type        = string
-  default     = null
-
-  validation {
-    condition     = var.existing_cos_kms_crn == null || can(regex("^crn:(.*:){3}kms:(.*:){2}[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}::$", var.existing_cos_kms_crn))
-    error_message = "Invalid format for existing COS KMS CRN."
-  }
-}
-
-variable "existing_cos_kms_key_crn" {
-  description = "CRN of an existing Key Protect key used to encrypt the COS buckets. Required only if you are using an existing KMS instance via 'existing_cos_kms_crn'. This is not required if you are creating a new key or using 'cos_kms_key_crn'."
   type        = string
   default     = null
 }

@@ -100,7 +100,7 @@ module "cos_kms_key_crn_parser" {
   count   = var.enable_cos_kms_encryption ? 1 : 0
   source  = "terraform-ibm-modules/common-utilities/ibm//modules/crn-parser"
   version = "1.2.0"
-  crn     = var.existing_cos_kms_key_crn != null ? var.existing_cos_kms_key_crn : var.cos_kms_key_crn
+  crn     = var.cos_kms_key_crn
 }
 
 ##############################################################################################################
@@ -114,11 +114,9 @@ locals {
   cos_instance_crn  = var.existing_cos_instance_crn == null ? module.cos[0].cos_instance_crn : var.existing_cos_instance_crn
   cos_instance_guid = var.existing_cos_instance_crn == null ? module.cos[0].cos_instance_guid : module.existing_cos_crn_parser[0].service_instance
 
-  # fetch KMS region from cos_kms_region or existing_cos_kms_key_crn
-  kms_region           = (var.cos_kms_key_crn != null || var.existing_cos_kms_key_crn != null) ? module.cos_kms_key_crn_parser[0].region : null
-  cos_kms_crn          = var.existing_cos_kms_crn != null ? var.existing_cos_kms_crn : var.cos_kms_crn
-  cos_kms_key_crn      = var.existing_cos_kms_key_crn != null ? var.existing_cos_kms_key_crn : var.cos_kms_key_crn
-  cos_kms_new_key_name = var.existing_cos_kms_key_crn == null ? "${var.resource_prefix}-${var.cos_kms_new_key_name}" : null
+  # fetch KMS region from cos_kms_key_crn
+  kms_region           = var.cos_kms_key_crn != null ? module.cos_kms_key_crn_parser[0].region : null
+  cos_kms_new_key_name = var.existing_cos_instance_crn == null ? "${var.resource_prefix}-${var.cos_kms_new_key_name}" : null
 }
 
 module "cos" {
@@ -396,10 +394,10 @@ module "storage_delegation" {
   cos_guid = local.cos_instance_guid
 
   # KMS fields
-  cos_kms_crn          = local.cos_kms_crn
-  cos_kms_key_crn      = local.cos_kms_key_crn
-  cos_kms_new_key_name = local.cos_kms_new_key_name
   cos_kms_ring_id      = var.cos_kms_ring_id
+  cos_kms_crn          = var.cos_kms_crn
+  cos_kms_key_crn      = var.cos_kms_key_crn
+  cos_kms_new_key_name = local.cos_kms_new_key_name
 }
 
 ##############################################################################################################
