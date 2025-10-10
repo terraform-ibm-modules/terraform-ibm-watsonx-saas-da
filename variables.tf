@@ -34,6 +34,12 @@ variable "location" {
 
 }
 
+variable "use_existing_resource_group" {
+  type        = bool
+  description = "Determines whether to use an existing resource group."
+  default     = false
+}
+
 variable "resource_group_name" {
   type        = string
   description = "The name of a new or an existing resource group where the resources are created."
@@ -296,7 +302,7 @@ variable "cos_plan" {
 
 variable "existing_cos_instance_crn" {
   type        = string
-  description = "The CRN of an existing Cloud Object Storage instance."
+  description = "The CRN of an existing Cloud Object Storage instance. If not specified, a new instance will be created."
   default     = null
 }
 
