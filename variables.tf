@@ -28,8 +28,8 @@ variable "location" {
   }
 
   validation {
-    condition     = var.cos_kms_key_crn != null ? local.kms_region == var.location : true
-    error_message = "The key management service instance must be in the same location as the watsonx.ai instance."
+    condition     = var.enable_cos_kms_encryption && var.cos_kms_key_crn != null ? local.kms_region == var.location : true
+    error_message = "If KMS encryption is enabled, the Key Management Service instance must be in the same location as the watsonx.ai instance."
   }
 
 }

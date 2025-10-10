@@ -97,7 +97,7 @@ module "existing_cos_crn_parser" {
 }
 
 module "cos_kms_key_crn_parser" {
-  count   = var.enable_cos_kms_encryption ? 1 : 0
+  count   = var.enable_cos_kms_encryption && var.cos_kms_key_crn != null ? 1 : 0
   source  = "terraform-ibm-modules/common-utilities/ibm//modules/crn-parser"
   version = "1.2.0"
   crn     = var.cos_kms_key_crn
@@ -115,7 +115,7 @@ locals {
   cos_instance_guid = var.existing_cos_instance_crn == null ? module.cos[0].cos_instance_guid : module.existing_cos_crn_parser[0].service_instance
 
   # fetch KMS region from cos_kms_key_crn
-  kms_region           = var.cos_kms_key_crn != null ? module.cos_kms_key_crn_parser[0].region : null
+  kms_region           = var.enable_cos_kms_encryption && var.cos_kms_key_crn != null ? module.cos_kms_key_crn_parser[0].region : null
   cos_kms_new_key_name = var.existing_cos_instance_crn == null ? "${var.resource_prefix}-${var.cos_kms_new_key_name}" : null
 }
 
