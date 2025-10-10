@@ -124,6 +124,14 @@
                 {
                   "displayname": "jp-tok",
                   "value": "jp-tok"
+                },
+                {
+                  "displayname": "au-syd",
+                  "value": "au-syd"
+                },
+                {
+                  "displayname": "ca-tor",
+                  "value": "ca-tor"
                 }
               ]
             },

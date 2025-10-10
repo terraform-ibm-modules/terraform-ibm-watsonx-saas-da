@@ -28,6 +28,8 @@ var validRegions = []string{
 	"eu-de",
 	"eu-gb",
 	"jp-tok",
+	"au-syd",
+	"ca-tor",
 }
 
 // Define a struct with fields that match the structure of the YAML data
