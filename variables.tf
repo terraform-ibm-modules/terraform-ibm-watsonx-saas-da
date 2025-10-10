@@ -26,6 +26,12 @@ variable "location" {
     condition     = contains(["eu-de", "us-south", "eu-gb", "jp-tok"], var.location)
     error_message = "You must specify `eu-de`, `eu-gb`, `jp-tok` or `us-south` as the IBM Cloud location."
   }
+
+  validation {
+    condition     = var.cos_kms_key_crn != null ? local.kms_region == var.location : true
+    error_message = "The key management service instance must be in the same location as the watsonx.ai instance."
+  }
+
 }
 
 variable "use_existing_resource_group" {
@@ -353,4 +359,47 @@ variable "cos_kms_ring_id" {
   default     = null
 }
 
+# Existing COS KMS Resources (Mutually Exclusive with KMS instances needed for new cos instance.)
+
+variable "existing_cos_kms_crn" {
+  description = "CRN of an existing Key Protect (KMS) instance to use for COS encryption. Mutually exclusive with 'cos_kms_crn'."
+  type        = string
+  default     = null
+
+  validation {
+    condition = (
+      !var.enable_cos_kms_encryption ||
+      # If encryption enabled, this must be provided when no new KMS CRN is given
+      (try(length(var.existing_cos_kms_crn), 0) > 0 && try(length(var.cos_kms_crn), 0) == 0)
+      # Or vice versa
+      || (try(length(var.cos_kms_crn), 0) > 0 && try(length(var.existing_cos_kms_crn), 0) == 0)
+    )
+    error_message = "When 'enable_cos_kms_encryption' is true, provide either 'cos_kms_crn' or 'existing_cos_kms_crn', if using existing cos instance (not both) "
+  }
+
+}
+
+variable "existing_cos_kms_key_crn" {
+  description = "CRN of an existing Key Protect key used to encrypt the COS buckets. Required only if you are using an existing KMS instance via 'existing_cos_kms_crn'. This is not required if you are creating a new key or using 'cos_kms_key_crn'."
+  type        = string
+  default     = null
+
+  validation {
+    condition = (
+      !var.enable_cos_kms_encryption
+      # If encryption enabled, ensure exactly one path: existing OR new
+      ||
+      (
+        (
+          try(length(var.existing_cos_kms_key_crn), 0) > 0 && try(length(var.cos_kms_key_crn), 0) == 0 && try(length(var.cos_kms_new_key_name), 0) == 0
+        )
+        ||
+        (
+          try(length(var.existing_cos_kms_key_crn), 0) == 0 && (try(length(var.cos_kms_key_crn), 0) > 0 || try(length(var.cos_kms_new_key_name), 0) > 0)
+        )
+      )
+    )
+    error_message = "Provide either 'existing_cos_kms_key_crn' OR  one of 'cos_kms_key_crn' / 'cos_kms_new_key_name' , when 'enable_cos_kms_encryption' is true."
+  }
+}
 ##############################################################################################################

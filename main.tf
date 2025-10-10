@@ -1,9 +1,26 @@
+data "ibm_iam_auth_token" "restapi" {
+  provider = ibm.watsonx_admin
+}
+
+##############################################################################################################
+# Resource Group
+##############################################################################################################
+
+module "resource_group" {
+  providers = {
+    ibm = ibm.deployer
+  }
+  source                       = "terraform-ibm-modules/resource-group/ibm"
+  version                      = "1.2.0"
+  resource_group_name          = var.use_existing_resource_group == false ? var.resource_group_name : null
+  existing_resource_group_name = var.use_existing_resource_group == true ? var.resource_group_name : null
+}
+
 ##############################################################################################################
 # Locals Block
 ##############################################################################################################
 
 locals {
-  is_storage_delegated = var.cos_kms_crn == null || var.cos_kms_crn == "" || var.existing_cos_instance_crn == null ? false : true
   dataplatform_ui_mapping = {
     "us-south" = "https://dataplatform.cloud.ibm.com",
     "eu-gb"    = "https://eu-gb.dataplatform.cloud.ibm.com",
@@ -18,8 +35,10 @@ locals {
     "jp-tok"   = "ibm:jp-tok:tok"
   }
   watsonx_data_datacenter = local.watsonx_data_datacenter_mapping[var.location]
+}
 
-  # configuring outputs
+# Configuring outputs
+locals {
   watsonx_assistant_crn           = var.existing_assistant_instance != null ? data.ibm_resource_instance.existing_assistant_instance[0].crn : var.watsonx_assistant_plan != "do not install" ? resource.ibm_resource_instance.assistant_instance[0].crn : null
   watsonx_assistant_guid          = var.existing_assistant_instance != null ? data.ibm_resource_instance.existing_assistant_instance[0].guid : var.watsonx_assistant_plan != "do not install" ? resource.ibm_resource_instance.assistant_instance[0].guid : null
   watsonx_assistant_name          = var.existing_assistant_instance != null ? data.ibm_resource_instance.existing_assistant_instance[0].resource_name : var.watsonx_assistant_plan != "do not install" ? ibm_resource_instance.assistant_instance[0].resource_name : null
@@ -63,26 +82,8 @@ locals {
   watsonx_orchestrate_dashboard_url = var.existing_orchestrate_instance != null ? null : var.watsonx_orchestrate_plan != "do not install" ? resource.ibm_resource_instance.orchestrate_instance[0].dashboard_url : null
 }
 
-data "ibm_iam_auth_token" "restapi" {
-  provider = ibm.watsonx_admin
-}
-
 ##############################################################################################################
-# Resource Group
-##############################################################################################################
-
-module "resource_group" {
-  providers = {
-    ibm = ibm.deployer
-  }
-  source                       = "terraform-ibm-modules/resource-group/ibm"
-  version                      = "1.2.0"
-  resource_group_name          = var.use_existing_resource_group == false ? var.resource_group_name : null
-  existing_resource_group_name = var.use_existing_resource_group == true ? var.resource_group_name : null
-}
-
-##############################################################################################################
-# Cloud Object Storage
+# CRN PARSERS
 ##############################################################################################################
 
 module "existing_cos_crn_parser" {
@@ -92,9 +93,29 @@ module "existing_cos_crn_parser" {
   crn     = var.existing_cos_instance_crn
 }
 
+module "cos_kms_key_crn_parser" {
+  count   = var.enable_cos_kms_encryption ? 1 : 0
+  source  = "terraform-ibm-modules/common-utilities/ibm//modules/crn-parser"
+  version = "1.2.0"
+  crn     = var.existing_cos_kms_key_crn != null ? var.existing_cos_kms_key_crn : var.cos_kms_key_crn
+}
+
+##############################################################################################################
+# Cloud Object Storage
+##############################################################################################################
+
 locals {
+
+  is_storage_delegated = var.enable_cos_kms_encryption ? true : false
+
   cos_instance_crn  = var.existing_cos_instance_crn == null ? module.cos[0].cos_instance_crn : var.existing_cos_instance_crn
   cos_instance_guid = var.existing_cos_instance_crn == null ? module.cos[0].cos_instance_guid : module.existing_cos_crn_parser[0].service_instance
+
+  # fetch KMS region from cos_kms_region or existing_cos_kms_key_crn
+  kms_region           = (var.cos_kms_key_crn != null || var.existing_cos_kms_key_crn != null) ? module.cos_kms_key_crn_parser[0].region : null
+  cos_kms_crn          = var.existing_cos_kms_crn != null ? var.existing_cos_kms_crn : var.cos_kms_crn
+  cos_kms_key_crn      = var.existing_cos_kms_key_crn != null ? var.existing_cos_kms_key_crn : var.cos_kms_key_crn
+  cos_kms_new_key_name = var.existing_cos_kms_key_crn == null ? "${var.resource_prefix}-${var.cos_kms_new_key_name}" : null
 }
 
 module "cos" {
@@ -363,18 +384,19 @@ module "configure_user" {
 ##############################################################################################################
 
 module "storage_delegation" {
-  source     = "./storage_delegation"
-  depends_on = [module.cos]
-  count      = var.enable_cos_kms_encryption ? 1 : 0 #TODO: CHECK IF EXISTING KMS KEY CRN IS NEEDED HERE
+  source = "./storage_delegation"
+  count  = var.enable_cos_kms_encryption ? 1 : 0
   providers = {
     ibm.deployer                  = ibm.deployer
     restapi.restapi_watsonx_admin = restapi.restapi_watsonx_admin
   }
-  cos_kms_crn          = var.cos_kms_crn
-  cos_kms_key_crn      = var.cos_kms_key_crn
-  cos_kms_new_key_name = "${var.resource_prefix}-${var.cos_kms_new_key_name}"
+  cos_guid = local.cos_instance_guid
+
+  # KMS fields
+  cos_kms_crn          = local.cos_kms_crn
+  cos_kms_key_crn      = local.cos_kms_key_crn
+  cos_kms_new_key_name = local.cos_kms_new_key_name
   cos_kms_ring_id      = var.cos_kms_ring_id
-  cos_guid             = local.cos_instance_guid
 }
 
 ##############################################################################################################
@@ -386,17 +408,23 @@ module "configure_project" {
   providers = {
     restapi.restapi_watsonx_admin = restapi.restapi_watsonx_admin
   }
-  depends_on                  = [module.storage_delegation]
-  count                       = var.watsonx_project_name == null || var.watsonx_project_name == "" ? 0 : 1
+  depends_on = [module.storage_delegation]
+  count      = var.watsonx_project_name == null || var.watsonx_project_name == "" ? 0 : 1
+  location   = var.location
+
+  # watsonx Project
   watsonx_project_name        = "${var.resource_prefix}-${var.watsonx_project_name}"
   watsonx_project_description = var.watsonx_project_description
   watsonx_project_tags        = var.watsonx_project_tags
   watsonx_mark_as_sensitive   = var.watsonx_mark_as_sensitive
-  machine_learning_guid       = local.watson_machine_learning_guid
-  machine_learning_crn        = local.watson_machine_learning_crn
-  machine_learning_name       = local.watson_machine_learning_name
-  cos_guid                    = local.cos_instance_guid
-  cos_crn                     = local.cos_instance_crn
-  watsonx_project_delegated   = local.is_storage_delegated
-  location                    = var.location
+
+  # Machine Learning
+  machine_learning_guid = local.watson_machine_learning_guid
+  machine_learning_crn  = local.watson_machine_learning_crn
+  machine_learning_name = local.watson_machine_learning_name
+
+  # COS / Storage delegation
+  watsonx_project_delegated = local.is_storage_delegated
+  cos_guid                  = local.cos_instance_guid
+  cos_crn                   = local.cos_instance_crn
 }

@@ -389,6 +389,12 @@
             },
             {
               "key": "existing_cos_instance_crn"
+            },
+            {
+              "key": "existing_cos_kms_crn"
+            },
+            {
+              "key": "existing_cos_kms_key_crn"
             }
           ],
           "iam_permissions": [

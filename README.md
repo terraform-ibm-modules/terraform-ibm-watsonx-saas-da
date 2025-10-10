@@ -117,6 +117,7 @@ statement instead the previous block.
 | <a name="module_configure_project"></a> [configure\_project](#module\_configure\_project) | ./configure_project | n/a |
 | <a name="module_configure_user"></a> [configure\_user](#module\_configure\_user) | ./configure_user | n/a |
 | <a name="module_cos"></a> [cos](#module\_cos) | terraform-ibm-modules/cos/ibm//modules/fscloud | 10.4.0 |
+| <a name="module_cos_kms_key_crn_parser"></a> [cos\_kms\_key\_crn\_parser](#module\_cos\_kms\_key\_crn\_parser) | terraform-ibm-modules/common-utilities/ibm//modules/crn-parser | 1.2.0 |
 | <a name="module_existing_cos_crn_parser"></a> [existing\_cos\_crn\_parser](#module\_existing\_cos\_crn\_parser) | terraform-ibm-modules/common-utilities/ibm//modules/crn-parser | 1.2.0 |
 | <a name="module_resource_group"></a> [resource\_group](#module\_resource\_group) | terraform-ibm-modules/resource-group/ibm | 1.2.0 |
 | <a name="module_storage_delegation"></a> [storage\_delegation](#module\_storage\_delegation) | ./storage_delegation | n/a |
@@ -153,6 +154,8 @@ statement instead the previous block.
 | <a name="input_enable_cos_kms_encryption"></a> [enable\_cos\_kms\_encryption](#input\_enable\_cos\_kms\_encryption) | Flag to enable COS KMS encryption. If set to true, a value must be passed for `cos_kms_crn`. | `bool` | `false` | no |
 | <a name="input_existing_assistant_instance"></a> [existing\_assistant\_instance](#input\_existing\_assistant\_instance) | CRN of the an existing watsonx Assistance instance. | `string` | `null` | no |
 | <a name="input_existing_cos_instance_crn"></a> [existing\_cos\_instance\_crn](#input\_existing\_cos\_instance\_crn) | The CRN of an existing Cloud Object Storage instance. | `string` | `null` | no |
+| <a name="input_existing_cos_kms_crn"></a> [existing\_cos\_kms\_crn](#input\_existing\_cos\_kms\_crn) | CRN of an existing Key Protect (KMS) instance to use for COS encryption. Mutually exclusive with 'cos\_kms\_crn'. | `string` | `null` | no |
+| <a name="input_existing_cos_kms_key_crn"></a> [existing\_cos\_kms\_key\_crn](#input\_existing\_cos\_kms\_key\_crn) | CRN of an existing Key Protect key used to encrypt the COS buckets. Required only if you are using an existing KMS instance via 'existing\_cos\_kms\_crn'. This is not required if you are creating a new key or using 'cos\_kms\_key\_crn'. | `string` | `null` | no |
 | <a name="input_existing_data_instance"></a> [existing\_data\_instance](#input\_existing\_data\_instance) | CRN of the an existing watsonx.data instance. | `string` | `null` | no |
 | <a name="input_existing_discovery_instance"></a> [existing\_discovery\_instance](#input\_existing\_discovery\_instance) | CRN of the an existing Watson Discovery instance. | `string` | `null` | no |
 | <a name="input_existing_governance_instance"></a> [existing\_governance\_instance](#input\_existing\_governance\_instance) | CRN of the an existing watsonx.governance instance. | `string` | `null` | no |
