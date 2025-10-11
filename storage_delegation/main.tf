@@ -12,6 +12,8 @@ locals {
     "eu-gb"    = "eu-gb.dataplatform.cloud.ibm.com",
     "eu-de"    = "eu-de.dataplatform.cloud.ibm.com",
     "jp-tok"   = "jp-tok.dataplatform.cloud.ibm.com"
+    "au-syd"   = "au-syd.dai.cloud.ibm.com",
+    "ca-tor"   = "ca-tor.dai.cloud.ibm.com"
   }
   dataplatform_ui             = local.dataplatform_ui_mapping[local.location]
   kms_service                 = module.kms_key_crn_parser.service_name
