@@ -25,8 +25,8 @@ variable "location" {
   description = "The location that is used with the IBM Cloud Terraform IBM provider. It is also used during resource creation. [Learn more](https://terraform-ibm-modules.github.io/documentation/#/region) about how to select different regions for different services."
   type        = string
   validation {
-    condition     = contains(["eu-de", "us-south", "eu-gb", "jp-tok"], var.location)
-    error_message = "You must specify `eu-de`, `eu-gb`, `jp-tok` or `us-south` as the IBM Cloud location."
+    condition     = contains(["eu-de", "us-south", "eu-gb", "jp-tok", "au-syd", "ca-tor"], var.location)
+    error_message = "You must specify `eu-de`, `eu-gb`, `jp-tok`, `au-syd`, `ca-tor` or `us-south` as the IBM Cloud location."
   }
 }
 
