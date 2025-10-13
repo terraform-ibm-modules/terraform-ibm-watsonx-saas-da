@@ -98,7 +98,7 @@ resource "restapi_object" "storage_delegation" {
   read_method    = "GET"
   create_path    = "//${local.dataplatform_ui}/api/rest/v1/storage-delegations"
   create_method  = "POST"
-  id_attribute   = "${var.cos_guid}-${data.ibm_kms_key.kms_key.keys[0].crn}"
+  id_attribute   = var.cos_guid
   object_id      = var.cos_guid
   destroy_method = "DELETE"
   destroy_path   = "//${local.dataplatform_ui}/api/rest/v1/storage-delegations/{id}"
