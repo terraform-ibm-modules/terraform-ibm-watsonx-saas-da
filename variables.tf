@@ -341,8 +341,8 @@ variable "cos_kms_key_crn" {
   default     = null
 
   validation {
-    condition     = !var.enable_cos_kms_encryption || (try(length(var.cos_kms_key_crn), 0) > 0 || try(length(var.cos_kms_new_key_name), 0) > 0)
-    error_message = "If 'enable_cos_kms_encryption' is true, you must provide one of: 'cos_kms_key_crn' or 'cos_kms_new_key_name'."
+    condition     = !var.enable_cos_kms_encryption || (try(length(var.cos_kms_crn), 0) > 0 && (try(length(var.cos_kms_key_crn), 0) > 0 || try(length(var.cos_kms_new_key_name), 0) > 0))
+    error_message = "If 'enable_cos_kms_encryption' is true, you must provide 'cos_kms_crn' and one of: 'cos_kms_key_crn' or 'cos_kms_new_key_name'."
   }
 }
 
