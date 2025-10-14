@@ -18,9 +18,9 @@
         "watsonx",
         "ai"
       ],
-      "short_description": "Deploy Cloud foundation for AI ops and governance with watsonx to automate the deployment and setup of the IBM watsonx platform.",
+      "short_description": "Deploy Cloud foundation for AI ops and governance with watsonx to automate the deployment and setup of the IBM watsonx platform",
       "long_description": "The Cloud foundation for AI ops and governance with watsonx deployable architecture easily deploys and embeds AI across your business, manages all data sources, and accelerates responsible AI workflows on one platform.",
-      "provider_name": "FinOps Team.",
+      "provider_name": "IBM",
       "offering_docs_url": "https://cloud.ibm.com/docs/watsonx-ai-saas-automation?topic=watsonx-ai-saas-automation-overview",
       "support_details": "This is a proof of concept and no official support is given.",
       "features": [
@@ -139,6 +139,14 @@
                 {
                   "displayname": "Tokyo (jp-tok)",
                   "value": "jp-tok"
+                },
+                {
+                  "displayname": "au-syd",
+                  "value": "au-syd"
+                },
+                {
+                  "displayname": "ca-tor",
+                  "value": "ca-tor"
                 }
               ]
             },
@@ -406,6 +414,9 @@
             },
             {
               "key": "cos_kms_ring_id"
+            },
+            {
+              "key": "existing_cos_instance_crn"
             }
           ],
           "iam_permissions": [

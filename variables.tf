@@ -1,3 +1,7 @@
+##############################################################################################################
+# Input Variables
+##############################################################################################################
+
 variable "ibmcloud_api_key" {
   description = "The API key that is used with the IBM Cloud Terraform provider."
   sensitive   = true
@@ -13,12 +17,6 @@ variable "provider_visibility" {
     error_message = "Invalid visibility option. Allowed values are 'public', 'private', or 'public-and-private'."
   }
 }
-variable "watsonx_admin_api_key" {
-  default     = null
-  description = "The API key of the IBM watsonx administrator in the target account. The API key is used to configure the user and the project."
-  sensitive   = true
-  type        = string
-}
 
 variable "location" {
   default     = "us-south"
@@ -28,6 +26,12 @@ variable "location" {
     condition     = contains(["eu-de", "us-south", "eu-gb", "jp-tok", "au-syd", "ca-tor"], var.location)
     error_message = "You must specify `eu-de`, `eu-gb`, `jp-tok`, `au-syd`, `ca-tor` or `us-south` as the IBM Cloud location."
   }
+
+  validation {
+    condition     = local.kms_region == null || local.kms_region == var.location
+    error_message = "If KMS encryption is enabled, the Key Management Service instance must be in the same location as the watsonx.ai instance."
+  }
+
 }
 
 variable "use_existing_resource_group" {
@@ -68,15 +72,44 @@ variable "prefix" {
   }
 }
 
-variable "cos_plan" {
-  default     = "standard"
-  description = "The plan that is used to provision the Cloud Object Storage instance."
+##############################################################################################################
+# watsonx Project Configuration
+##############################################################################################################
+
+variable "watsonx_admin_api_key" {
+  default     = null
+  description = "The API key of the IBM watsonx administrator in the target account. The API key is used to configure the user and the project."
+  sensitive   = true
   type        = string
-  validation {
-    condition     = contains(["standard"], var.cos_plan)
-    error_message = "You must use a standard plan. Standard plan instances are the most common and are recommended for most workloads."
-  }
 }
+
+variable "watsonx_project_name" {
+  description = "The name of the watson project."
+  type        = string
+  default     = "demo"
+}
+
+variable "watsonx_project_description" {
+  description = "A description of the watson project that's created by the WatsonX.ai SaaS Deployable Architecture."
+  type        = string
+  default     = "Watson project created by the watsonx-ai SaaS deployable architecture."
+}
+
+variable "watsonx_project_tags" {
+  description = "A list of tags associated with the watsonx project. Each tag consists of a single string containing up to 255 characters. These tags can include spaces, letters, numbers, underscores, dashes, as well as the symbols # and @."
+  type        = list(string)
+  default     = ["watsonx-ai-SaaS"]
+}
+
+variable "watsonx_mark_as_sensitive" {
+  description = "Set to true to allow the WatsonX project to be created with 'Mark as sensitive' flag."
+  type        = bool
+  default     = false
+}
+
+##############################################################################################################
+# watsonx Machine Learning
+##############################################################################################################
 
 variable "existing_machine_learning_instance" {
   default     = null
@@ -104,6 +137,10 @@ variable "watson_machine_learning_service_endpoints" {
   }
 }
 
+##############################################################################################################
+# watsonx Studio
+##############################################################################################################
+
 variable "existing_studio_instance" {
   default     = null
   description = "CRN of an existing Watson Studio instance."
@@ -119,6 +156,10 @@ variable "watson_studio_plan" {
     error_message = "You must use a free-v1 or professional-v1 plan. Learn more."
   }
 }
+
+##############################################################################################################
+# watsonx Discovery
+##############################################################################################################
 
 variable "existing_discovery_instance" {
   default     = null
@@ -150,6 +191,10 @@ variable "watson_discovery_service_endpoints" {
     error_message = "The specified service endpoint is not valid. Supported options are public, public-and-private, or private."
   }
 }
+
+##############################################################################################################
+# watsonx Assistant
+##############################################################################################################
 
 variable "existing_assistant_instance" {
   default     = null
@@ -184,6 +229,10 @@ variable "watsonx_assistant_service_endpoints" {
   }
 }
 
+##############################################################################################################
+# watsonx Governance
+##############################################################################################################
+
 variable "existing_governance_instance" {
   default     = null
   description = "CRN of an existing watsonx.governance instance."
@@ -204,6 +253,10 @@ variable "watsonx_governance_plan" {
   }
 }
 
+##############################################################################################################
+# watsonx Data
+##############################################################################################################
+
 variable "existing_data_instance" {
   default     = null
   description = "CRN of an existing watsonx.data instance."
@@ -223,6 +276,10 @@ variable "watsonx_data_plan" {
     error_message = "You must use a lakehouse-enterprise or lite plan. Learn more. "
   }
 }
+
+##############################################################################################################
+# watsonx Orchestrate
+##############################################################################################################
 
 variable "existing_orchestrate_instance" {
   default     = null
@@ -245,29 +302,29 @@ variable "watsonx_orchestrate_plan" {
   }
 }
 
-variable "watsonx_project_name" {
-  description = "The name of the watson project."
+##############################################################################################################
+# COS
+##############################################################################################################
+
+variable "cos_plan" {
+  default     = "standard"
+  description = "The plan that's used to provision the Cloud Object Storage instance."
   type        = string
-  default     = "demo"
+  validation {
+    condition     = contains(["standard"], var.cos_plan)
+    error_message = "You must use a standard plan. Standard plan instances are the most common and are recommended for most workloads."
+  }
 }
 
-variable "watsonx_project_description" {
-  description = "A description of the watson project that is created by the WatsonX.ai SaaS Deployable Architecture."
+variable "existing_cos_instance_crn" {
   type        = string
-  default     = "Watson project created by the watsonx-ai SaaS deployable architecture."
+  description = "The CRN of an existing Cloud Object Storage instance. If not specified, a new instance will be created."
+  default     = null
 }
 
-variable "watsonx_project_tags" {
-  description = "A list of tags associated with the watsonx project. Each tag consists of a single string containing up to 255 characters. These tags can include spaces, letters, numbers, underscores, dashes, as well as the symbols # and @."
-  type        = list(string)
-  default     = ["watsonx-ai-SaaS"]
-}
-
-variable "watsonx_mark_as_sensitive" {
-  description = "Set to true to allow the WatsonX project to be created with 'Mark as sensitive' flag."
-  type        = bool
-  default     = false
-}
+##############################################################################################################
+# KMS
+##############################################################################################################
 
 variable "enable_cos_kms_encryption" {
   description = "Flag to enable COS KMS encryption. If set to true, a value must be passed for `cos_kms_crn`."
@@ -287,12 +344,22 @@ variable "cos_kms_crn" {
     ])
     error_message = "Key Protect CRN validation failed."
   }
+
+  validation {
+    condition     = !var.enable_cos_kms_encryption || try(length(var.cos_kms_crn), 0) > 0
+    error_message = "If 'enable_cos_kms_encryption' is true, you must provide 'cos_kms_crn'."
+  }
 }
 
 variable "cos_kms_key_crn" {
   description = "Key Protect key CRN used to encrypt the COS buckets used by the watsonx projects. If not set, then the cos_kms_new_key_name must be specified."
   type        = string
   default     = null
+
+  validation {
+    condition     = !var.enable_cos_kms_encryption || (try(length(var.cos_kms_crn), 0) > 0 && (try(length(var.cos_kms_key_crn), 0) > 0 || try(length(var.cos_kms_new_key_name), 0) > 0))
+    error_message = "If 'enable_cos_kms_encryption' is true, you must provide 'cos_kms_crn' and one of: 'cos_kms_key_crn' or 'cos_kms_new_key_name'."
+  }
 }
 
 variable "cos_kms_new_key_name" {
@@ -306,3 +373,4 @@ variable "cos_kms_ring_id" {
   type        = string
   default     = null
 }
+##############################################################################################################

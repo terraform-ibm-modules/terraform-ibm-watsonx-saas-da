@@ -1,7 +1,44 @@
+##############################################################################################################
+# Output Variables
+##############################################################################################################
+
+output "resource_group_id" {
+  value       = module.resource_group.resource_group_id
+  description = "The resource group ID that's used to provision the resources."
+}
+
+##############################################################################################################
+# watsonx Project Configuration
+##############################################################################################################
+
 output "watsonx_platform_endpoint" {
   description = "The endpoint of the watsonx platform."
   value       = "${local.dataplatform_ui}/wx/home?context=wx"
 }
+
+output "watsonx_project_id" {
+  value       = var.watsonx_project_name == null || var.watsonx_project_name == "" ? null : module.configure_project[0].watsonx_project_id
+  description = "The ID watsonx project that's created."
+}
+
+output "watsonx_project_location" {
+  value       = var.watsonx_project_name == null || var.watsonx_project_name == "" ? null : module.configure_project[0].watsonx_project_location
+  description = "The location watsonx project that's created."
+}
+
+output "watsonx_project_bucket_name" {
+  value       = var.watsonx_project_name == null || var.watsonx_project_name == "" ? null : module.configure_project[0].watsonx_project_bucket_name
+  description = "The name of the COS bucket created by the watsonx project."
+}
+
+output "watsonx_project_url" {
+  value       = var.watsonx_project_name == null || var.watsonx_project_name == "" ? null : module.configure_project[0].watsonx_project_url
+  description = "The URL of the watsonx project that's created."
+}
+
+##############################################################################################################
+# watsonx Assistant
+##############################################################################################################
 
 output "watsonx_assistant_crn" {
   description = "The CRN of the watsonx Assistant instance."
@@ -28,6 +65,10 @@ output "watsonx_assistant_dashboard_url" {
   value       = local.watsonx_assistant_dashboard_url
 }
 
+##############################################################################################################
+# Watson Discovery
+##############################################################################################################
+
 output "watson_discovery_crn" {
   description = "The CRN of the Watson Discovery instance."
   value       = local.watson_discovery_crn
@@ -52,6 +93,10 @@ output "watson_discovery_dashboard_url" {
   description = "The dashboard URL of the Watson Discovery instance."
   value       = local.watson_discovery_dashboard_url
 }
+
+##############################################################################################################
+# Watson Machine Learning
+##############################################################################################################
 
 output "watson_machine_learning_crn" {
   description = "The CRN of the Watson Machine Learning instance."
@@ -78,6 +123,10 @@ output "watson_machine_learning_dashboard_url" {
   value       = local.watson_machine_learning_dashboard_url
 }
 
+##############################################################################################################
+# Watson Studio
+##############################################################################################################
+
 output "watson_studio_crn" {
   description = "The CRN of the Watson Studio instance."
   value       = local.watson_studio_crn
@@ -102,6 +151,10 @@ output "watson_studio_dashboard_url" {
   description = "The dashboard URL of the Watson Studio instance."
   value       = local.watson_studio_dashboard_url
 }
+
+##############################################################################################################
+# watsonx.governance
+##############################################################################################################
 
 output "watsonx_governance_crn" {
   description = "The CRN of the watsonx.governance instance."
@@ -128,6 +181,10 @@ output "watsonx_governance_dashboard_url" {
   value       = local.watsonx_governance_dashboard_url
 }
 
+##############################################################################################################
+# watsonx.data
+##############################################################################################################
+
 output "watsonx_data_crn" {
   description = "The CRN of the watsonx.data instance."
   value       = local.watsonx_data_crn
@@ -153,6 +210,10 @@ output "watsonx_data_dashboard_url" {
   value       = local.watsonx_data_dashboard_url
 }
 
+##############################################################################################################
+# watsonx Orchestrate
+##############################################################################################################
+
 output "watsonx_orchestrate_crn" {
   description = "The CRN of the watsonx Orchestrate instance."
   value       = local.watsonx_orchestrate_crn
@@ -176,30 +237,4 @@ output "watsonx_orchestrate_plan_id" {
 output "watsonx_orchestrate_dashboard_url" {
   description = "The dashboard URL of the watsonx Orchestrate instance."
   value       = local.watsonx_orchestrate_dashboard_url
-}
-
-
-output "watsonx_project_id" {
-  value       = var.watsonx_project_name == null || var.watsonx_project_name == "" ? null : module.configure_project[0].watsonx_project_id
-  description = "The ID watsonx project that's created."
-}
-
-output "watsonx_project_location" {
-  value       = var.watsonx_project_name == null || var.watsonx_project_name == "" ? null : module.configure_project[0].watsonx_project_location
-  description = "The location watsonx project that's created."
-}
-
-output "watsonx_project_bucket_name" {
-  value       = var.watsonx_project_name == null || var.watsonx_project_name == "" ? null : module.configure_project[0].watsonx_project_bucket_name
-  description = "The name of the COS bucket created by the watsonx project."
-}
-
-output "watsonx_project_url" {
-  value       = var.watsonx_project_name == null || var.watsonx_project_name == "" ? null : module.configure_project[0].watsonx_project_url
-  description = "The URL of the watsonx project that's created."
-}
-
-output "resource_group_id" {
-  value       = module.resource_group.resource_group_id
-  description = "The resource group ID that's used to provision the resources."
 }
