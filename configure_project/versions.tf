@@ -1,14 +1,14 @@
 terraform {
-  required_version = ">= 1.5.0"
+  required_version = ">= 1.9.0"
   required_providers {
     restapi = {
       source                = "Mastercard/restapi"
-      version               = ">= 1.19.1"
+      version               = ">= 1.19.1, <3.0.0"
       configuration_aliases = [restapi.restapi_watsonx_admin]
     }
     time = {
       source  = "hashicorp/time"
-      version = ">= 0.11.2"
+      version = ">= 0.12.1, <1.0.0"
     }
   }
 }
