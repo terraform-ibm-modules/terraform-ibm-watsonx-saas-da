@@ -421,7 +421,7 @@ module "configure_project" {
   region     = var.region
 
   # watsonx Project
-  watsonx_project_name        = "${locals.prefix}-${var.watsonx_project_name}"
+  watsonx_project_name        = "${local.prefix}-${var.watsonx_project_name}"
   watsonx_project_description = var.watsonx_project_description
   watsonx_project_tags        = var.watsonx_project_tags
   watsonx_mark_as_sensitive   = var.watsonx_mark_as_sensitive
