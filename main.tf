@@ -21,6 +21,7 @@ module "resource_group" {
 ##############################################################################################################
 
 locals {
+  prefix = var.prefix != null ? trimspace(var.prefix) != "" ? "${var.prefix}-" : "" : ""
   dataplatform_ui_mapping = {
     "us-south" = "https://dataplatform.cloud.ibm.com",
     "eu-gb"    = "https://eu-gb.dataplatform.cloud.ibm.com",
@@ -29,7 +30,7 @@ locals {
     "au-syd"   = "https://au-syd.dai.cloud.ibm.com",
     "ca-tor"   = "https://ca-tor.dai.cloud.ibm.com"
   }
-  dataplatform_ui = local.dataplatform_ui_mapping[var.location]
+  dataplatform_ui = local.dataplatform_ui_mapping[var.region]
   watsonx_data_datacenter_mapping = {
     "us-south" = "ibm:us-south:dal",
     "eu-gb"    = "ibm:eu-gb:lon",
@@ -38,7 +39,7 @@ locals {
     "au-syd"   = "ibm:au-syd:syd",
     "ca-tor"   = "ibm:ca-tor:tor"
   }
-  watsonx_data_datacenter = local.watsonx_data_datacenter_mapping[var.location]
+  watsonx_data_datacenter = local.watsonx_data_datacenter_mapping[var.region]
 }
 
 # Configuring outputs
@@ -117,7 +118,7 @@ locals {
 
   # fetch KMS region from cos_kms_key_crn
   kms_region           = var.enable_cos_kms_encryption && var.cos_kms_key_crn != null ? module.cos_kms_key_crn_parser[0].region : null
-  cos_kms_new_key_name = var.existing_cos_instance_crn == null ? "${var.resource_prefix}-${var.cos_kms_new_key_name}" : null
+  cos_kms_new_key_name = var.existing_cos_instance_crn == null ? "${local.prefix}-${var.cos_kms_new_key_name}" : null
 }
 
 module "cos" {
@@ -128,7 +129,7 @@ module "cos" {
   source            = "terraform-ibm-modules/cos/ibm//modules/fscloud"
   version           = "10.4.0"
   resource_group_id = module.resource_group.resource_group_id
-  cos_instance_name = "${var.prefix}-cos-instance"
+  cos_instance_name = "${local.prefix}-cos-instance"
   cos_plan          = var.cos_plan
 }
 
@@ -150,10 +151,10 @@ data "ibm_resource_instance" "existing_studio_instance" {
 resource "ibm_resource_instance" "studio_instance" {
   provider          = ibm.deployer
   count             = var.existing_studio_instance != null ? 0 : 1
-  name              = "${var.prefix}-watson-studio-instance"
+  name              = "${local.prefix}-watson-studio-instance"
   service           = "data-science-experience"
   plan              = var.watson_studio_plan
-  location          = var.location
+  location          = var.region
   resource_group_id = module.resource_group.resource_group_id
 
   timeouts {
@@ -181,10 +182,10 @@ data "ibm_resource_instance" "existing_machine_learning_instance" {
 resource "ibm_resource_instance" "machine_learning_instance" {
   provider          = ibm.deployer
   count             = var.existing_machine_learning_instance != null ? 0 : 1
-  name              = "${var.prefix}-watson-machine-learning-instance"
+  name              = "${local.prefix}-watson-machine-learning-instance"
   service           = "pm-20"
   plan              = var.watson_machine_learning_plan
-  location          = var.location
+  location          = var.region
   resource_group_id = module.resource_group.resource_group_id
 
   parameters = {
@@ -223,10 +224,10 @@ data "ibm_resource_instance" "existing_assistant_instance" {
 resource "ibm_resource_instance" "assistant_instance" {
   provider          = ibm.deployer
   count             = var.existing_assistant_instance != null ? 0 : var.watsonx_assistant_plan == "do not install" ? 0 : 1
-  name              = "${var.prefix}-watsonx-assistant-instance"
+  name              = "${local.prefix}-watsonx-assistant-instance"
   service           = "conversation"
   plan              = var.watsonx_assistant_plan
-  location          = var.location
+  location          = var.region
   resource_group_id = module.resource_group.resource_group_id
 
   parameters = {
@@ -260,10 +261,10 @@ data "ibm_resource_instance" "existing_governance_instance" {
 resource "ibm_resource_instance" "governance_instance" {
   provider          = ibm.deployer
   count             = var.existing_governance_instance != null ? 0 : var.watsonx_governance_plan == "do not install" ? 0 : 1
-  name              = "${var.prefix}-watsonx-governance-instance"
+  name              = "${local.prefix}-watsonx-governance-instance"
   service           = "aiopenscale"
   plan              = var.watsonx_governance_plan
-  location          = var.location
+  location          = var.region
   resource_group_id = module.resource_group.resource_group_id
 
   timeouts {
@@ -274,7 +275,7 @@ resource "ibm_resource_instance" "governance_instance" {
 
   lifecycle {
     precondition {
-      condition     = contains(["eu-de", "us-south"], var.location)
+      condition     = contains(["eu-de", "us-south"], var.region)
       error_message = "watsonx.governance is only available in eu-de and us-south regions."
     }
   }
@@ -293,10 +294,10 @@ data "ibm_resource_instance" "existing_discovery_instance" {
 resource "ibm_resource_instance" "discovery_instance" {
   provider          = ibm.deployer
   count             = var.existing_discovery_instance != null ? 0 : var.watson_discovery_plan == "do not install" ? 0 : 1
-  name              = "${var.prefix}-watson-discovery-instance"
+  name              = "${local.prefix}-watson-discovery-instance"
   service           = "discovery"
   plan              = var.watson_discovery_plan
-  location          = var.location
+  location          = var.region
   resource_group_id = module.resource_group.resource_group_id
 
   parameters = {
@@ -323,10 +324,10 @@ data "ibm_resource_instance" "existing_data_instance" {
 resource "ibm_resource_instance" "data_instance" {
   provider          = ibm.deployer
   count             = var.existing_data_instance != null ? 0 : var.watsonx_data_plan == "do not install" ? 0 : 1
-  name              = "${var.prefix}-watsonx-data-instance"
+  name              = "${local.prefix}-watsonx-data-instance"
   service           = "lakehouse"
   plan              = var.watsonx_data_plan
-  location          = var.location
+  location          = var.region
   resource_group_id = module.resource_group.resource_group_id
 
   timeouts {
@@ -338,7 +339,7 @@ resource "ibm_resource_instance" "data_instance" {
   parameters = {
     datacenter : local.watsonx_data_datacenter
     cloud_type : "ibm"
-    region : var.location
+    region : var.region
   }
 }
 
@@ -355,10 +356,10 @@ data "ibm_resource_instance" "existing_orchestrate_instance" {
 resource "ibm_resource_instance" "orchestrate_instance" {
   provider          = ibm.deployer
   count             = var.existing_orchestrate_instance != null ? 0 : var.watsonx_orchestrate_plan == "do not install" ? 0 : 1
-  name              = "${var.prefix}-watsonx-orchestrate-instance"
+  name              = "${local.prefix}-watsonx-orchestrate-instance"
   service           = "watsonx-orchestrate"
   plan              = var.watsonx_orchestrate_plan
-  location          = var.location
+  location          = var.region
   resource_group_id = module.resource_group.resource_group_id
 
   timeouts {
@@ -369,7 +370,7 @@ resource "ibm_resource_instance" "orchestrate_instance" {
 
   lifecycle {
     precondition {
-      condition     = contains(["us-south"], var.location)
+      condition     = contains(["us-south"], var.region)
       error_message = "watsonx Orchestrate is only available in us-south region."
     }
   }
@@ -383,7 +384,7 @@ module "configure_user" {
   source                = "./configure_user"
   watsonx_admin_api_key = var.watsonx_admin_api_key == null || var.watsonx_admin_api_key == "" ? var.ibmcloud_api_key : var.watsonx_admin_api_key
   resource_group_id     = module.resource_group.resource_group_id
-  location              = var.location
+  region                = var.region
 }
 
 ##############################################################################################################
@@ -417,10 +418,10 @@ module "configure_project" {
   }
   depends_on = [module.storage_delegation]
   count      = var.watsonx_project_name == null || var.watsonx_project_name == "" ? 0 : 1
-  location   = var.location
+  region     = var.region
 
   # watsonx Project
-  watsonx_project_name        = "${var.resource_prefix}-${var.watsonx_project_name}"
+  watsonx_project_name        = "${locals.prefix}-${var.watsonx_project_name}"
   watsonx_project_description = var.watsonx_project_description
   watsonx_project_tags        = var.watsonx_project_tags
   watsonx_mark_as_sensitive   = var.watsonx_mark_as_sensitive

@@ -6,7 +6,7 @@ module "kms_key_crn_parser" {
 
 
 locals {
-  location = split(":", var.cos_kms_crn)[5]
+  region = split(":", var.cos_kms_crn)[5]
   dataplatform_ui_mapping = {
     "us-south" = "dataplatform.cloud.ibm.com",
     "eu-gb"    = "eu-gb.dataplatform.cloud.ibm.com",
@@ -15,7 +15,7 @@ locals {
     "au-syd"   = "au-syd.dai.cloud.ibm.com",
     "ca-tor"   = "ca-tor.dai.cloud.ibm.com"
   }
-  dataplatform_ui             = local.dataplatform_ui_mapping[local.location]
+  dataplatform_ui             = local.dataplatform_ui_mapping[local.region]
   kms_service                 = module.kms_key_crn_parser.service_name
   kms_account_id              = module.kms_key_crn_parser.account_id
   kms_key_id                  = module.kms_key_crn_parser.resource

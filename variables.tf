@@ -18,18 +18,18 @@ variable "provider_visibility" {
   }
 }
 
-variable "location" {
+variable "region" {
   default     = "us-south"
-  description = "The location that is used with the IBM Cloud Terraform IBM provider. It is also used during resource creation. [Learn more](https://terraform-ibm-modules.github.io/documentation/#/region) about how to select different regions for different services."
+  description = "The region that is used with the IBM Cloud Terraform IBM provider. It is also used during resource creation. [Learn more](https://terraform-ibm-modules.github.io/documentation/#/region) about how to select different regions for different services."
   type        = string
   validation {
-    condition     = contains(["eu-de", "us-south", "eu-gb", "jp-tok", "au-syd", "ca-tor"], var.location)
-    error_message = "You must specify `eu-de`, `eu-gb`, `jp-tok`, `au-syd`, `ca-tor` or `us-south` as the IBM Cloud location."
+    condition     = contains(["eu-de", "us-south", "eu-gb", "jp-tok", "au-syd", "ca-tor"], var.region)
+    error_message = "You must specify `eu-de`, `eu-gb`, `jp-tok`, `au-syd`, `ca-tor` or `us-south` as the IBM Cloud region."
   }
 
   validation {
-    condition     = local.kms_region == null || local.kms_region == var.location
-    error_message = "If KMS encryption is enabled, the Key Management Service instance must be in the same location as the watsonx.ai instance."
+    condition     = local.kms_region == null || local.kms_region == var.region
+    error_message = "If KMS encryption is enabled, the Key Management Service instance must be in the same region as the watsonx.ai instance."
   }
 
 }
@@ -48,6 +48,7 @@ variable "resource_group_name" {
 
 variable "prefix" {
   description = "The name to be used on all Watson resources as a prefix."
+  nullable    = true
   type        = string
 
   validation {
@@ -123,7 +124,7 @@ variable "watson_machine_learning_plan" {
   type        = string
   validation {
     condition     = contains(["lite", "v2-professional", "v2-standard"], var.watson_machine_learning_plan)
-    error_message = "The plan must be lite, v2-professional, or v2-standard. Learn more."
+    error_message = "The plan must be lite, v2-professional, or v2-standard. [Learn more](https://cloud.ibm.com/catalog/services/watsonxai-runtime)."
   }
 }
 
@@ -153,7 +154,7 @@ variable "watson_studio_plan" {
   type        = string
   validation {
     condition     = contains(["free-v1", "professional-v1"], var.watson_studio_plan)
-    error_message = "You must use a free-v1 or professional-v1 plan. Learn more."
+    error_message = "You must use a free-v1 or professional-v1 plan. [Learn more](https://cloud.ibm.com/catalog/services/watsonxai-studio)."
   }
 }
 
@@ -178,7 +179,7 @@ variable "watson_discovery_plan" {
       var.watson_discovery_plan == "enterprise",
       var.watson_discovery_plan == "premium",
     ])
-    error_message = "You must use a plus, enterprise, or premium plan. Learn more."
+    error_message = "You must use a plus, enterprise, or premium plan. [Learn more](https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-pricing-plans)."
   }
 }
 
@@ -215,7 +216,7 @@ variable "watsonx_assistant_plan" {
       var.watsonx_assistant_plan == "enterprise",
       var.watsonx_assistant_plan == "enterprisedataisolation",
     ])
-    error_message = "You must use a free, trial, plus-trial, enterprise, or enterprisedataisolation plan. Learn more."
+    error_message = "You must use a free, trial, plus-trial, enterprise, or enterprisedataisolation plan. [Learn more](https://cloud.ibm.com/docs/watson-assistant?topic=watson-assistant-admin-managing-plan)."
   }
 }
 
@@ -249,7 +250,7 @@ variable "watsonx_governance_plan" {
       var.watsonx_governance_plan == "lite",
       var.watsonx_governance_plan == "essentials",
     ])
-    error_message = "You must use a lite or essential plan. Learn more. "
+    error_message = "You must use a lite or essential plan. [Learn more](https://dataplatform.cloud.ibm.com/docs/content/wsj/model/wos-plan-options.html?context=wx&audience=wdp). "
   }
 }
 
@@ -273,7 +274,7 @@ variable "watsonx_data_plan" {
       var.watsonx_data_plan == "lakehouse-enterprise",
       var.watsonx_data_plan == "lite",
     ])
-    error_message = "You must use a lakehouse-enterprise or lite plan. Learn more. "
+    error_message = "You must use a lakehouse-enterprise or lite plan. [Learn more](https://cloud.ibm.com/docs/watsonxdata?topic=watsonxdata-getting-started)."
   }
 }
 

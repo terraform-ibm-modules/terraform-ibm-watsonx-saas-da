@@ -55,6 +55,7 @@
           "name": "standard",
           "working_directory": "./",
           "install_type": "fullstack",
+          "index": 1,
           "licenses": [],
           "architecture": {
             "diagrams": [
@@ -92,7 +93,7 @@
               ]
             },
             {
-              "key": "resource_prefix",
+              "key": "prefix",
               "value_constraints": [
                 {
                   "type": "regex",
@@ -122,7 +123,7 @@
               "key": "watsonx_admin_api_key"
             },
             {
-              "key": "location",
+              "key": "region",
               "options": [
                 {
                   "displayname": "Frankfurt (eu-de)",

@@ -70,7 +70,7 @@ func setupOptionsRootDA(t *testing.T, prefix string, dir string) *testhelper.Tes
 	})
 
 	options.TerraformVars = map[string]interface{}{
-		"location":            validRegions[rand.Intn(len(validRegions))],
+		"region":              validRegions[rand.Intn(len(validRegions))],
 		"resource_group_name": prefix,
 		"provider_visibility": "public",
 		"prefix":              options.Prefix,
@@ -173,14 +173,14 @@ func TestWithExistingKP(t *testing.T) {
 	})
 
 	options.TerraformVars = map[string]interface{}{
-		"location":                  region,
+		"region":                    region,
 		"resource_group_name":       prefix,
 		"provider_visibility":       "public",
 		"enable_cos_kms_encryption": true,
 		"cos_kms_crn":               terraform.Output(t, existingTerraformOptions, "key_protect_crn"),
 		"cos_kms_key_crn":           terraform.Output(t, existingTerraformOptions, "kms_key_crn"),
 		"existing_cos_instance_crn": terraform.Output(t, existingTerraformOptions, "cos_crn"),
-		"resource_prefix":           prefix,
+		"prefix":                    prefix,
 	}
 
 	output, err := options.RunTestConsistency()
@@ -218,9 +218,9 @@ func TestRunUpgradeExistingKP(t *testing.T) {
 		},
 	})
 	options.TerraformVars = map[string]interface{}{
-		"location":                  region,
+		"region":                    region,
 		"resource_group_name":       prefix,
-		"resource_prefix":           prefix,
+		"prefix":                    prefix,
 		"provider_visibility":       "public",
 		"enable_cos_kms_encryption": true,
 		"cos_kms_crn":               terraform.Output(t, existingTerraformOptions, "key_protect_crn"),
