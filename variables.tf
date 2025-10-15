@@ -47,7 +47,7 @@ variable "resource_group_name" {
 }
 
 variable "prefix" {
-  description = "The name to be used on all Watson resources as a prefix."
+  description = "The prefix to add to all resources that are created (e.g `prod`, `test`, `dev`). To skip using a prefix, set this value to `null` or an empty string. [Learn more](https://terraform-ibm-modules.github.io/documentation/#/prefix.md)."
   nullable    = true
   type        = string
 
@@ -85,7 +85,7 @@ variable "watsonx_admin_api_key" {
 }
 
 variable "watsonx_project_name" {
-  description = "The name of the watson project."
+  description = "The name of the watson project. If a prefix input variable is specified, the prefix is added to the name in the `<prefix>-<watsonx_project_name>` format."
   type        = string
   default     = "demo"
 }
@@ -364,7 +364,7 @@ variable "cos_kms_key_crn" {
 }
 
 variable "cos_kms_new_key_name" {
-  description = "Name of the Key Protect key to create for encrypting the COS buckets used by the watsonx projects."
+  description = "Name of the Key Protect key to create for encrypting the COS buckets used by the watsonx projects. If a prefix input variable is specified, the prefix is added to the name in the `<prefix>-<cos_kms_new_key_name>` format."
   type        = string
   default     = ""
 }

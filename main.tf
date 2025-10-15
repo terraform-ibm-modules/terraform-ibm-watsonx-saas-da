@@ -118,7 +118,7 @@ locals {
 
   # fetch KMS region from cos_kms_key_crn
   kms_region           = var.enable_cos_kms_encryption && var.cos_kms_key_crn != null ? module.cos_kms_key_crn_parser[0].region : null
-  cos_kms_new_key_name = var.existing_cos_instance_crn == null ? "${local.prefix}-${var.cos_kms_new_key_name}" : null
+  cos_kms_new_key_name = var.existing_cos_instance_crn == null ? "${local.prefix}${var.cos_kms_new_key_name}" : null
 }
 
 module "cos" {
@@ -129,7 +129,7 @@ module "cos" {
   source            = "terraform-ibm-modules/cos/ibm//modules/fscloud"
   version           = "10.4.0"
   resource_group_id = module.resource_group.resource_group_id
-  cos_instance_name = "${local.prefix}-cos-instance"
+  cos_instance_name = "${local.prefix}cos-instance"
   cos_plan          = var.cos_plan
 }
 
@@ -151,7 +151,7 @@ data "ibm_resource_instance" "existing_studio_instance" {
 resource "ibm_resource_instance" "studio_instance" {
   provider          = ibm.deployer
   count             = var.existing_studio_instance != null ? 0 : 1
-  name              = "${local.prefix}-watson-studio-instance"
+  name              = "${local.prefix}watson-studio-instance"
   service           = "data-science-experience"
   plan              = var.watson_studio_plan
   location          = var.region
@@ -182,7 +182,7 @@ data "ibm_resource_instance" "existing_machine_learning_instance" {
 resource "ibm_resource_instance" "machine_learning_instance" {
   provider          = ibm.deployer
   count             = var.existing_machine_learning_instance != null ? 0 : 1
-  name              = "${local.prefix}-watson-machine-learning-instance"
+  name              = "${local.prefix}watson-machine-learning-instance"
   service           = "pm-20"
   plan              = var.watson_machine_learning_plan
   location          = var.region
@@ -224,7 +224,7 @@ data "ibm_resource_instance" "existing_assistant_instance" {
 resource "ibm_resource_instance" "assistant_instance" {
   provider          = ibm.deployer
   count             = var.existing_assistant_instance != null ? 0 : var.watsonx_assistant_plan == "do not install" ? 0 : 1
-  name              = "${local.prefix}-watsonx-assistant-instance"
+  name              = "${local.prefix}watsonx-assistant-instance"
   service           = "conversation"
   plan              = var.watsonx_assistant_plan
   location          = var.region
@@ -261,7 +261,7 @@ data "ibm_resource_instance" "existing_governance_instance" {
 resource "ibm_resource_instance" "governance_instance" {
   provider          = ibm.deployer
   count             = var.existing_governance_instance != null ? 0 : var.watsonx_governance_plan == "do not install" ? 0 : 1
-  name              = "${local.prefix}-watsonx-governance-instance"
+  name              = "${local.prefix}watsonx-governance-instance"
   service           = "aiopenscale"
   plan              = var.watsonx_governance_plan
   location          = var.region
@@ -294,7 +294,7 @@ data "ibm_resource_instance" "existing_discovery_instance" {
 resource "ibm_resource_instance" "discovery_instance" {
   provider          = ibm.deployer
   count             = var.existing_discovery_instance != null ? 0 : var.watson_discovery_plan == "do not install" ? 0 : 1
-  name              = "${local.prefix}-watson-discovery-instance"
+  name              = "${local.prefix}watson-discovery-instance"
   service           = "discovery"
   plan              = var.watson_discovery_plan
   location          = var.region
@@ -324,7 +324,7 @@ data "ibm_resource_instance" "existing_data_instance" {
 resource "ibm_resource_instance" "data_instance" {
   provider          = ibm.deployer
   count             = var.existing_data_instance != null ? 0 : var.watsonx_data_plan == "do not install" ? 0 : 1
-  name              = "${local.prefix}-watsonx-data-instance"
+  name              = "${local.prefix}watsonx-data-instance"
   service           = "lakehouse"
   plan              = var.watsonx_data_plan
   location          = var.region
@@ -356,7 +356,7 @@ data "ibm_resource_instance" "existing_orchestrate_instance" {
 resource "ibm_resource_instance" "orchestrate_instance" {
   provider          = ibm.deployer
   count             = var.existing_orchestrate_instance != null ? 0 : var.watsonx_orchestrate_plan == "do not install" ? 0 : 1
-  name              = "${local.prefix}-watsonx-orchestrate-instance"
+  name              = "${local.prefix}watsonx-orchestrate-instance"
   service           = "watsonx-orchestrate"
   plan              = var.watsonx_orchestrate_plan
   location          = var.region
@@ -421,7 +421,7 @@ module "configure_project" {
   region     = var.region
 
   # watsonx Project
-  watsonx_project_name        = "${local.prefix}-${var.watsonx_project_name}"
+  watsonx_project_name        = "${local.prefix}${var.watsonx_project_name}"
   watsonx_project_description = var.watsonx_project_description
   watsonx_project_tags        = var.watsonx_project_tags
   watsonx_mark_as_sensitive   = var.watsonx_mark_as_sensitive
