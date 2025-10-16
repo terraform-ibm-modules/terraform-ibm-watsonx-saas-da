@@ -11,9 +11,10 @@ module "resource_group" {
     ibm = ibm.deployer
   }
   source                       = "terraform-ibm-modules/resource-group/ibm"
-  version                      = "1.2.0"
-  resource_group_name          = var.use_existing_resource_group == false ? var.resource_group_name : null
-  existing_resource_group_name = var.use_existing_resource_group == true ? var.resource_group_name : null
+  version                      = "1.4.0"
+  resource_group_name          = var.use_existing_resource_group == false ? var.existing_resource_group_name : null
+  existing_resource_group_name = var.use_existing_resource_group == true ? var.existing_resource_group_name : null
+
 }
 
 ##############################################################################################################

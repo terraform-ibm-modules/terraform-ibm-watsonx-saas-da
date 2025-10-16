@@ -119,7 +119,7 @@ statement instead the previous block.
 | <a name="module_cos"></a> [cos](#module\_cos) | terraform-ibm-modules/cos/ibm//modules/fscloud | 10.4.0 |
 | <a name="module_cos_kms_key_crn_parser"></a> [cos\_kms\_key\_crn\_parser](#module\_cos\_kms\_key\_crn\_parser) | terraform-ibm-modules/common-utilities/ibm//modules/crn-parser | 1.2.0 |
 | <a name="module_existing_cos_crn_parser"></a> [existing\_cos\_crn\_parser](#module\_existing\_cos\_crn\_parser) | terraform-ibm-modules/common-utilities/ibm//modules/crn-parser | 1.2.0 |
-| <a name="module_resource_group"></a> [resource\_group](#module\_resource\_group) | terraform-ibm-modules/resource-group/ibm | 1.2.0 |
+| <a name="module_resource_group"></a> [resource\_group](#module\_resource\_group) | terraform-ibm-modules/resource-group/ibm | 1.4.0 |
 | <a name="module_storage_delegation"></a> [storage\_delegation](#module\_storage\_delegation) | ./storage_delegation | n/a |
 
 ### Resources
@@ -159,12 +159,12 @@ statement instead the previous block.
 | <a name="input_existing_governance_instance"></a> [existing\_governance\_instance](#input\_existing\_governance\_instance) | CRN of an existing watsonx.governance instance. | `string` | `null` | no |
 | <a name="input_existing_machine_learning_instance"></a> [existing\_machine\_learning\_instance](#input\_existing\_machine\_learning\_instance) | CRN of an existing Watson Machine Learning instance. | `string` | `null` | no |
 | <a name="input_existing_orchestrate_instance"></a> [existing\_orchestrate\_instance](#input\_existing\_orchestrate\_instance) | CRN of an existing watsonx Orchestrate instance. | `string` | `null` | no |
+| <a name="input_existing_resource_group_name"></a> [existing\_resource\_group\_name](#input\_existing\_resource\_group\_name) | The name of an existing resource group to provision the resources. | `string` | `"Default"` | no |
 | <a name="input_existing_studio_instance"></a> [existing\_studio\_instance](#input\_existing\_studio\_instance) | CRN of an existing Watson Studio instance. | `string` | `null` | no |
 | <a name="input_ibmcloud_api_key"></a> [ibmcloud\_api\_key](#input\_ibmcloud\_api\_key) | The API key that is used with the IBM Cloud Terraform provider. | `string` | n/a | yes |
 | <a name="input_prefix"></a> [prefix](#input\_prefix) | The prefix to add to all resources that are created (e.g `prod`, `test`, `dev`). To skip using a prefix, set this value to `null` or an empty string. [Learn more](https://terraform-ibm-modules.github.io/documentation/#/prefix.md). | `string` | n/a | yes |
 | <a name="input_provider_visibility"></a> [provider\_visibility](#input\_provider\_visibility) | Set the visibility value for the IBM terraform provider. [Learn more](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/guides/custom-service-endpoints). | `string` | `"private"` | no |
 | <a name="input_region"></a> [region](#input\_region) | The region that is used with the IBM Cloud Terraform IBM provider. It is also used during resource creation. [Learn more](https://terraform-ibm-modules.github.io/documentation/#/region) about how to select different regions for different services. | `string` | `"us-south"` | no |
-| <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | The name of a new or an existing resource group where the resources are created. If not provided, the default resource group will be used. | `string` | `null` | no |
 | <a name="input_use_existing_resource_group"></a> [use\_existing\_resource\_group](#input\_use\_existing\_resource\_group) | Determines whether to use an existing resource group. | `bool` | `false` | no |
 | <a name="input_watson_discovery_plan"></a> [watson\_discovery\_plan](#input\_watson\_discovery\_plan) | The plan that is used to provision the Watson Discovery instance. | `string` | `"do not install"` | no |
 | <a name="input_watson_discovery_service_endpoints"></a> [watson\_discovery\_service\_endpoints](#input\_watson\_discovery\_service\_endpoints) | The type of service endpoints. Possible values are 'public', 'private', 'public-and-private'. | `string` | `"public"` | no |

@@ -1,7 +1,7 @@
 {
   "ibmcloud_api_key": $VALIDATION_APIKEY,
   "prefix": $PREFIX,
-  "resource_group_name": $PREFIX,
+  "existing_resource_group_name": $PREFIX,
   "watson_discovery_plan": "plus",
   "watsonx_assistant_plan": "plus",
   "watson_machine_learning_plan": "v2-standard",

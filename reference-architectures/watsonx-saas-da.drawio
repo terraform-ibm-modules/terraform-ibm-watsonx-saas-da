@@ -22,7 +22,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="WSF7eNko4BLm7uIbhmQ6-39" value="" style="container=1;collapsible=0;expand=0;recursiveResize=0;html=1;whiteSpace=wrap;strokeColor=#A56EFF;fillColor=none;strokeWidth=1" vertex="1" parent="WSF7eNko4BLm7uIbhmQ6-36">
-          <mxGeometry x="40" y="60" width="480" height="560" as="geometry" />
+          <mxGeometry x="40" y="60" width="480" height="540" as="geometry" />
         </mxCell>
         <mxCell id="WSF7eNko4BLm7uIbhmQ6-40" value="watsonx services" style="shape=rect;fillColor=none;aspect=fixed;resizable=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;strokeColor=none;part=1;spacingLeft=5;fontSize=14;" vertex="1" parent="WSF7eNko4BLm7uIbhmQ6-39">
           <mxGeometry width="48" height="48" relative="1" as="geometry" />
@@ -52,7 +52,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="9sMYtWf_zIR4f792TVS6-2" value="" style="container=1;collapsible=0;expand=0;recursiveResize=0;html=1;whiteSpace=wrap;strokeColor=#A56EFF;fillColor=none;strokeWidth=1;dashed=1;" vertex="1" parent="WSF7eNko4BLm7uIbhmQ6-39">
-          <mxGeometry x="40" y="240" width="400" height="280" as="geometry" />
+          <mxGeometry x="40" y="220" width="400" height="280" as="geometry" />
         </mxCell>
         <mxCell id="9sMYtWf_zIR4f792TVS6-3" value="Optional services" style="shape=rect;fillColor=none;aspect=fixed;resizable=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;strokeColor=none;part=1;spacingLeft=5;fontSize=14;" vertex="1" parent="9sMYtWf_zIR4f792TVS6-2">
           <mxGeometry width="48" height="48" relative="1" as="geometry" />
