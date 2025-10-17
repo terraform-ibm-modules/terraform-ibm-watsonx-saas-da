@@ -436,53 +436,54 @@
                 "crn:v1:bluemix:public:iam::::role:Editor"
               ],
               "service_name": "cloud-object-storage",
-              "notes": "Required to deploy Cloud Automation for Object Storage."
+              "notes": "[Optional] Required to deploy Cloud Automation for Object Storage."
             },
             {
               "role_crns": [
                 "crn:v1:bluemix:public:iam::::role:Editor"
               ],
               "service_name": "pm-20",
-              "notes": "Required for creating a instance of watsonx.ai Runtime."
+              "notes": "[Optional] Required for creating a instance of watsonx.ai Runtime."
             },
             {
               "role_crns": [
                 "crn:v1:bluemix:public:iam::::role:Editor"
               ],
               "service_name": "data-science-experience",
-              "notes": "Required for creating a instance of watsonx.ai Studio."
+              "notes": "[Optional] Required for creating a instance of watsonx.ai Studio."
             },
             {
               "role_crns": [
                 "crn:v1:bluemix:public:iam::::role:Editor"
               ],
               "service_name": "lakehouse",
-              "notes": "Required to create an instance of watsonx.data"
+              "notes": "[Optional] Required to create an instance of watsonx.data"
             },
             {
               "role_crns": [
                 "crn:v1:bluemix:public:iam::::role:Editor"
               ],
               "service_name": "aiopenscale",
-              "notes": "Required to create an instance of watsonx.governance."
+              "notes": "[Optional] Required to create an instance of watsonx.governance."
             },
             {
               "role_crns": [
                 "crn:v1:bluemix:public:iam::::role:Editor"
               ],
               "service_name": "conversation",
-              "notes": "Required to create an instance of watsonx Assistant."
+              "notes": "[Optional] Required to create an instance of watsonx Assistant."
             },
             {
               "role_crns": [
                 "crn:v1:bluemix:public:iam::::role:Editor"
               ],
               "service_name": "discovery",
-              "notes": "Required to create an instance of Watson Discovery."
+              "notes": "[Optional] Required to create an instance of Watson Discovery."
             },
             {
               "role_crns": [
-                "crn:v1:bluemix:public:iam::::serviceRole:Manager"
+                "crn:v1:bluemix:public:iam::::serviceRole:Manager",
+                "crn:v1:bluemix:public:iam::::role:Editor"
               ],
               "service_name": "kms",
               "notes": "[Optional] Required to deploy Cloud automation for Key Protect, so you can use your own managed encryption keys."
