@@ -238,3 +238,29 @@ output "watsonx_orchestrate_dashboard_url" {
   description = "The dashboard URL of the watsonx Orchestrate instance."
   value       = local.watsonx_orchestrate_dashboard_url
 }
+
+output "next_steps_text" {
+  value       = "Your Watson Environment is ready."
+  description = "Next steps text"
+}
+
+output "next_step_primary_label" {
+  value       = "Go to watsonx Projects"
+  description = "Primary label"
+}
+
+output "next_step_primary_url" {
+  value       =  module.configure_project[0].watsonx_project_url
+  description = "Primary URL"
+}
+
+
+output "next_step_secondary_label" {
+  value       = "Go to Cloud Object Storage Instances"
+  description = "Secondary label"
+}
+
+output "next_step_secondary_url" {
+  value       = "https://cloud.ibm.com/objectstorage/instances"
+  description = "Secondary URL"
+}
