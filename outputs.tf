@@ -256,7 +256,7 @@ output "next_step_primary_url" {
 
 
 output "next_step_secondary_label" {
-  value       = "Go to Cloud Object Storage Instances"
+  value       = "Go to Cloud Object Storage"
   description = "Secondary label"
 }
 
