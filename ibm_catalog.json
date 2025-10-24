@@ -218,10 +218,6 @@
                 {
                   "displayname": "Enterprise",
                   "value": "enterprise"
-                },
-                {
-                  "displayname": "Premium",
-                  "value": "premium"
                 }
               ]
             },
