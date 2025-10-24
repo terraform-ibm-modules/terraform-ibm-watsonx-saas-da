@@ -240,7 +240,7 @@ output "watsonx_orchestrate_dashboard_url" {
 }
 
 output "next_steps_text" {
-  value       = "Your Watson Environment is ready."
+  value       = "Your watsonx Environment is ready."
   description = "Next steps text"
 }
 
@@ -254,13 +254,3 @@ output "next_step_primary_url" {
   description = "Primary URL"
 }
 
-
-output "next_step_secondary_label" {
-  value       = "Go to Cloud Object Storage"
-  description = "Secondary label"
-}
-
-output "next_step_secondary_url" {
-  value       = "https://cloud.ibm.com/objectstorage/instances"
-  description = "Secondary URL"
-}
