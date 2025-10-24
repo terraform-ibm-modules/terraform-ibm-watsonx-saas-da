@@ -171,9 +171,8 @@ variable "watson_discovery_plan" {
       var.watson_discovery_plan == "do not install",
       var.watson_discovery_plan == "plus",
       var.watson_discovery_plan == "enterprise",
-      var.watson_discovery_plan == "premium",
     ])
-    error_message = "You must use a plus, enterprise, or premium plan. [Learn more](https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-pricing-plans)."
+    error_message = "You must use a plus or enterprise plan. [Learn more](https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-pricing-plans)."
   }
 }
 
@@ -205,12 +204,10 @@ variable "watsonx_assistant_plan" {
     condition = anytrue([
       var.watsonx_assistant_plan == "do not install",
       var.watsonx_assistant_plan == "free",
-      var.watsonx_assistant_plan == "plus-trial",
       var.watsonx_assistant_plan == "plus",
       var.watsonx_assistant_plan == "enterprise",
-      var.watsonx_assistant_plan == "enterprisedataisolation",
     ])
-    error_message = "You must use a free, trial, plus-trial, enterprise, or enterprisedataisolation plan. [Learn more](https://cloud.ibm.com/docs/watson-assistant?topic=watson-assistant-admin-managing-plan)."
+    error_message = "You must use a free, plus or enterprise plan. [Learn more](https://cloud.ibm.com/docs/watson-assistant?topic=watson-assistant-admin-managing-plan)."
   }
 }
 

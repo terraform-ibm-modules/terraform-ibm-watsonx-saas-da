@@ -257,20 +257,12 @@
                   "value": "free"
                 },
                 {
-                  "displayname": "Trial",
-                  "value": "plus-trial"
-                },
-                {
                   "displayname": "Plus",
                   "value": "plus"
                 },
                 {
                   "displayname": "Enterprise",
                   "value": "enterprise"
-                },
-                {
-                  "displayname": "Enterprise with data isolation",
-                  "value": "enterprisedataisolation"
                 }
               ]
             },

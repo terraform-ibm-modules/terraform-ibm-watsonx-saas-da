@@ -241,8 +241,8 @@ resource "ibm_resource_instance" "assistant_instance" {
 
   lifecycle {
     precondition {
-      condition     = contains(["free", "plus-trial"], var.watsonx_assistant_plan) ? var.watsonx_assistant_service_endpoints == "public" : true
-      error_message = "The lite and trial plans only support public endpoints."
+      condition     = contains(["free"], var.watsonx_assistant_plan) ? var.watsonx_assistant_service_endpoints == "public" : true
+      error_message = "The lite plan only supports public endpoints."
     }
   }
 }
@@ -270,13 +270,6 @@ resource "ibm_resource_instance" "governance_instance" {
     create = "15m"
     update = "15m"
     delete = "15m"
-  }
-
-  lifecycle {
-    precondition {
-      condition     = contains(["eu-de", "us-south"], var.region)
-      error_message = "watsonx.governance is only available in eu-de and us-south regions."
-    }
   }
 }
 
@@ -365,13 +358,6 @@ resource "ibm_resource_instance" "orchestrate_instance" {
     create = "15m"
     update = "15m"
     delete = "15m"
-  }
-
-  lifecycle {
-    precondition {
-      condition     = contains(["us-south"], var.region)
-      error_message = "watsonx Orchestrate is only available in us-south region."
-    }
   }
 }
 
