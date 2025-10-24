@@ -14,10 +14,10 @@ variable "prefix" {
   description = "Prefix to append to all resources created by this example"
 }
 
-variable "resource_group" {
+variable "existing_resource_group_name" {
   type        = string
-  description = "An existing resource group name to use for this example. If unset a new resource group will be created"
-  default     = null
+  description = "The name of an existing resource group to provision the resources."
+  default     = "Default"
 }
 
 variable "resource_tags" {

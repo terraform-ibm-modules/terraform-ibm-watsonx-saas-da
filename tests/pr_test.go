@@ -70,10 +70,9 @@ func setupOptionsRootDA(t *testing.T, prefix string, dir string) *testhelper.Tes
 	})
 
 	options.TerraformVars = map[string]interface{}{
-		"region":                       validRegions[rand.Intn(len(validRegions))],
-		"existing_resource_group_name": prefix,
-		"provider_visibility":          "public",
-		"prefix":                       options.Prefix,
+		"region":              validRegions[rand.Intn(len(validRegions))],
+		"provider_visibility": "public",
+		"prefix":              options.Prefix,
 	}
 
 	return options
@@ -173,14 +172,13 @@ func TestWithExistingKP(t *testing.T) {
 	})
 
 	options.TerraformVars = map[string]interface{}{
-		"region":                       region,
-		"existing_resource_group_name": prefix,
-		"provider_visibility":          "public",
-		"enable_cos_kms_encryption":    true,
-		"cos_kms_crn":                  terraform.Output(t, existingTerraformOptions, "key_protect_crn"),
-		"cos_kms_key_crn":              terraform.Output(t, existingTerraformOptions, "kms_key_crn"),
-		"existing_cos_instance_crn":    terraform.Output(t, existingTerraformOptions, "cos_crn"),
-		"prefix":                       prefix,
+		"region":                    region,
+		"provider_visibility":       "public",
+		"enable_cos_kms_encryption": true,
+		"cos_kms_crn":               terraform.Output(t, existingTerraformOptions, "key_protect_crn"),
+		"cos_kms_key_crn":           terraform.Output(t, existingTerraformOptions, "kms_key_crn"),
+		"existing_cos_instance_crn": terraform.Output(t, existingTerraformOptions, "cos_crn"),
+		"prefix":                    prefix,
 	}
 
 	output, err := options.RunTestConsistency()
@@ -218,14 +216,13 @@ func TestRunUpgradeExistingKP(t *testing.T) {
 		},
 	})
 	options.TerraformVars = map[string]interface{}{
-		"region":                       region,
-		"existing_resource_group_name": prefix,
-		"prefix":                       prefix,
-		"provider_visibility":          "public",
-		"enable_cos_kms_encryption":    true,
-		"cos_kms_crn":                  terraform.Output(t, existingTerraformOptions, "key_protect_crn"),
-		"cos_kms_key_crn":              terraform.Output(t, existingTerraformOptions, "kms_key_crn"),
-		"existing_cos_instance_crn":    terraform.Output(t, existingTerraformOptions, "cos_crn"),
+		"region":                    region,
+		"prefix":                    prefix,
+		"provider_visibility":       "public",
+		"enable_cos_kms_encryption": true,
+		"cos_kms_crn":               terraform.Output(t, existingTerraformOptions, "key_protect_crn"),
+		"cos_kms_key_crn":           terraform.Output(t, existingTerraformOptions, "kms_key_crn"),
+		"existing_cos_instance_crn": terraform.Output(t, existingTerraformOptions, "cos_crn"),
 	}
 
 	output, err := options.RunTestUpgrade()
