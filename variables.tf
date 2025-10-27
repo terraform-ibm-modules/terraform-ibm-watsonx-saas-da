@@ -20,7 +20,7 @@ variable "provider_visibility" {
 
 variable "region" {
   default     = "us-south"
-  description = "The region that is used with the IBM Cloud Terraform IBM provider. It is also used during resource creation. [Learn more](https://terraform-ibm-modules.github.io/documentation/#/region) about how to select different regions for different services."
+  description = "The region to provision all resources in. [Learn more](https://terraform-ibm-modules.github.io/documentation/#/region) about how to select different regions for different services."
   type        = string
   validation {
     condition     = contains(["eu-de", "us-south", "eu-gb", "jp-tok", "au-syd", "ca-tor"], var.region)
@@ -168,7 +168,7 @@ variable "watson_discovery_plan" {
   type        = string
   validation {
     condition = anytrue([
-      var.watson_discovery_plan == "do not install",
+      var.watson_discovery_plan == local.do_not_install_tag,
       var.watson_discovery_plan == "plus",
       var.watson_discovery_plan == "enterprise",
     ])
@@ -192,17 +192,17 @@ variable "watson_discovery_service_endpoints" {
 
 variable "existing_assistant_instance" {
   default     = null
-  description = "CRN of an existing watsonx Assistance instance."
+  description = "CRN of an existing watsonx Assistant instance."
   type        = string
 }
 
 variable "watsonx_assistant_plan" {
   default     = "do not install"
-  description = "The plan that is used to provision the watsonx Assistance instance."
+  description = "The plan that is used to provision the watsonx Assistant instance."
   type        = string
   validation {
     condition = anytrue([
-      var.watsonx_assistant_plan == "do not install",
+      var.watsonx_assistant_plan == local.do_not_install_tag,
       var.watsonx_assistant_plan == "free",
       var.watsonx_assistant_plan == "plus",
       var.watsonx_assistant_plan == "enterprise",
@@ -237,7 +237,7 @@ variable "watsonx_governance_plan" {
   type        = string
   validation {
     condition = anytrue([
-      var.watsonx_governance_plan == "do not install",
+      var.watsonx_governance_plan == local.do_not_install_tag,
       var.watsonx_governance_plan == "lite",
       var.watsonx_governance_plan == "essentials",
     ])
@@ -261,7 +261,7 @@ variable "watsonx_data_plan" {
   type        = string
   validation {
     condition = anytrue([
-      var.watsonx_data_plan == "do not install",
+      var.watsonx_data_plan == local.do_not_install_tag,
       var.watsonx_data_plan == "lakehouse-enterprise",
       var.watsonx_data_plan == "lite",
     ])
@@ -285,7 +285,7 @@ variable "watsonx_orchestrate_plan" {
   type        = string
   validation {
     condition = anytrue([
-      var.watsonx_orchestrate_plan == "do not install",
+      var.watsonx_orchestrate_plan == local.do_not_install_tag,
       var.watsonx_orchestrate_plan == "lite",
       var.watsonx_orchestrate_plan == "essentials-agentic-mau",
       var.watsonx_orchestrate_plan == "standard-agentic-mau",
