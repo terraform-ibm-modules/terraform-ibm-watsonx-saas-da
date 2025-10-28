@@ -458,7 +458,8 @@
               }
             ]
           },
-          "terraform_version": "1.10.5"
+          "terraform_version": "1.10.5",
+          "ignore_readme": true
         }
       ]
     }
