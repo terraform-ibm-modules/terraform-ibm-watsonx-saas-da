@@ -200,7 +200,7 @@ resource "ibm_resource_instance" "machine_learning_instance" {
 
   lifecycle {
     precondition {
-      condition     = contains(["lite"], var.watson_machine_learning_plan) ? var.watson_machine_learning_service_endpoints == "public" : true
+      condition     = var.watson_machine_learning_plan == "lite" ? var.watson_machine_learning_service_endpoints == "public" : true
       error_message = "The lite plan only supports public endpoints."
     }
   }

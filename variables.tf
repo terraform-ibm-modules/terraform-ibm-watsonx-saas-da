@@ -303,7 +303,7 @@ variable "cos_plan" {
   description = "The plan that's used to provision the Cloud Object Storage instance."
   type        = string
   validation {
-    condition     = contains(["standard"], var.cos_plan)
+    condition     = var.cos_plan == "standard"
     error_message = "You must use a standard plan. Standard plan instances are the most common and are recommended for most workloads."
   }
 }
