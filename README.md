@@ -185,6 +185,9 @@ statement instead the previous block.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_next_step_primary_label"></a> [next\_step\_primary\_label](#output\_next\_step\_primary\_label) | Primary label |
+| <a name="output_next_step_primary_url"></a> [next\_step\_primary\_url](#output\_next\_step\_primary\_url) | Primary URL |
+| <a name="output_next_steps_text"></a> [next\_steps\_text](#output\_next\_steps\_text) | Next steps text |
 | <a name="output_resource_group_id"></a> [resource\_group\_id](#output\_resource\_group\_id) | The resource group ID that's used to provision the resources. |
 | <a name="output_watson_discovery_crn"></a> [watson\_discovery\_crn](#output\_watson\_discovery\_crn) | The CRN of the Watson Discovery instance. |
 | <a name="output_watson_discovery_dashboard_url"></a> [watson\_discovery\_dashboard\_url](#output\_watson\_discovery\_dashboard\_url) | The dashboard URL of the Watson Discovery instance. |

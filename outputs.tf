@@ -6,7 +6,6 @@ output "resource_group_id" {
   value       = module.resource_group.resource_group_id
   description = "The resource group ID that's used to provision the resources."
 }
-
 ##############################################################################################################
 # watsonx Project Configuration
 ##############################################################################################################
@@ -237,4 +236,24 @@ output "watsonx_orchestrate_plan_id" {
 output "watsonx_orchestrate_dashboard_url" {
   description = "The dashboard URL of the watsonx Orchestrate instance."
   value       = local.watsonx_orchestrate_dashboard_url
+}
+
+
+##############################################################################################################
+# next steps urls
+##############################################################################################################
+
+output "next_steps_text" {
+  value       = "Your watsonx environment is ready."
+  description = "Next steps text"
+}
+
+output "next_step_primary_label" {
+  value       = "Go to watsonx.ai Project"
+  description = "Primary label"
+}
+
+output "next_step_primary_url" {
+  value       = module.configure_project[0].watsonx_project_url
+  description = "Primary URL"
 }
