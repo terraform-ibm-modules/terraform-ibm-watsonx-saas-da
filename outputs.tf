@@ -240,7 +240,7 @@ output "watsonx_orchestrate_dashboard_url" {
 }
 
 output "next_steps_text" {
-  value       = "Your watsonx Environment is ready."
+  value       = "Your watsonx environment is ready."
   description = "Next steps text"
 }
 
