@@ -153,7 +153,7 @@ variable "watson_studio_plan" {
 }
 
 ##############################################################################################################
-# watsonx Discovery
+# Watson Discovery
 ##############################################################################################################
 
 variable "existing_discovery_instance" {
@@ -168,7 +168,7 @@ variable "watson_discovery_plan" {
   type        = string
   validation {
     condition = anytrue([
-      var.watson_discovery_plan == local.do_not_install_tag,
+      var.watson_discovery_plan == local.skip_install,
       var.watson_discovery_plan == "plus",
       var.watson_discovery_plan == "enterprise",
     ])
@@ -202,7 +202,7 @@ variable "watsonx_assistant_plan" {
   type        = string
   validation {
     condition = anytrue([
-      var.watsonx_assistant_plan == local.do_not_install_tag,
+      var.watsonx_assistant_plan == local.skip_install,
       var.watsonx_assistant_plan == "free",
       var.watsonx_assistant_plan == "plus",
       var.watsonx_assistant_plan == "enterprise",
@@ -237,7 +237,7 @@ variable "watsonx_governance_plan" {
   type        = string
   validation {
     condition = anytrue([
-      var.watsonx_governance_plan == local.do_not_install_tag,
+      var.watsonx_governance_plan == local.skip_install,
       var.watsonx_governance_plan == "lite",
       var.watsonx_governance_plan == "essentials",
     ])
@@ -261,7 +261,7 @@ variable "watsonx_data_plan" {
   type        = string
   validation {
     condition = anytrue([
-      var.watsonx_data_plan == local.do_not_install_tag,
+      var.watsonx_data_plan == local.skip_install,
       var.watsonx_data_plan == "lakehouse-enterprise",
       var.watsonx_data_plan == "lite",
     ])
@@ -285,7 +285,7 @@ variable "watsonx_orchestrate_plan" {
   type        = string
   validation {
     condition = anytrue([
-      var.watsonx_orchestrate_plan == local.do_not_install_tag,
+      var.watsonx_orchestrate_plan == local.skip_install,
       var.watsonx_orchestrate_plan == "lite",
       var.watsonx_orchestrate_plan == "essentials-agentic-mau",
       var.watsonx_orchestrate_plan == "standard-agentic-mau",

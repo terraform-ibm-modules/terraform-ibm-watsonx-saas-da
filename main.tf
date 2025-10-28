@@ -20,8 +20,8 @@ module "resource_group" {
 ##############################################################################################################
 
 locals {
-  prefix             = var.prefix != null ? trimspace(var.prefix) != "" ? "${var.prefix}-" : "" : ""
-  do_not_install_tag = "do not install"
+  prefix       = var.prefix != null ? trimspace(var.prefix) != "" ? "${var.prefix}-" : "" : ""
+  skip_install = "do not install"
   dataplatform_ui_mapping = {
     "us-south" = "https://dataplatform.cloud.ibm.com",
     "eu-gb"    = "https://eu-gb.dataplatform.cloud.ibm.com",
@@ -44,17 +44,17 @@ locals {
 
 # Configuring outputs
 locals {
-  watsonx_assistant_crn           = var.existing_assistant_instance != null ? data.ibm_resource_instance.existing_assistant_instance[0].crn : var.watsonx_assistant_plan != local.do_not_install_tag ? resource.ibm_resource_instance.assistant_instance[0].crn : null
-  watsonx_assistant_guid          = var.existing_assistant_instance != null ? data.ibm_resource_instance.existing_assistant_instance[0].guid : var.watsonx_assistant_plan != local.do_not_install_tag ? resource.ibm_resource_instance.assistant_instance[0].guid : null
-  watsonx_assistant_name          = var.existing_assistant_instance != null ? data.ibm_resource_instance.existing_assistant_instance[0].resource_name : var.watsonx_assistant_plan != local.do_not_install_tag ? ibm_resource_instance.assistant_instance[0].resource_name : null
-  watsonx_assistant_plan_id       = var.existing_assistant_instance != null ? null : var.watsonx_assistant_plan != local.do_not_install_tag ? resource.ibm_resource_instance.assistant_instance[0].resource_plan_id : null
-  watsonx_assistant_dashboard_url = var.existing_assistant_instance != null ? null : var.watsonx_assistant_plan != local.do_not_install_tag ? resource.ibm_resource_instance.assistant_instance[0].dashboard_url : null
+  watsonx_assistant_crn           = var.existing_assistant_instance != null ? data.ibm_resource_instance.existing_assistant_instance[0].crn : var.watsonx_assistant_plan != local.skip_install ? resource.ibm_resource_instance.assistant_instance[0].crn : null
+  watsonx_assistant_guid          = var.existing_assistant_instance != null ? data.ibm_resource_instance.existing_assistant_instance[0].guid : var.watsonx_assistant_plan != local.skip_install ? resource.ibm_resource_instance.assistant_instance[0].guid : null
+  watsonx_assistant_name          = var.existing_assistant_instance != null ? data.ibm_resource_instance.existing_assistant_instance[0].resource_name : var.watsonx_assistant_plan != local.skip_install ? ibm_resource_instance.assistant_instance[0].resource_name : null
+  watsonx_assistant_plan_id       = var.existing_assistant_instance != null ? null : var.watsonx_assistant_plan != local.skip_install ? resource.ibm_resource_instance.assistant_instance[0].resource_plan_id : null
+  watsonx_assistant_dashboard_url = var.existing_assistant_instance != null ? null : var.watsonx_assistant_plan != local.skip_install ? resource.ibm_resource_instance.assistant_instance[0].dashboard_url : null
 
-  watson_discovery_crn           = var.existing_discovery_instance != null ? data.ibm_resource_instance.existing_discovery_instance[0].crn : var.watson_discovery_plan != local.do_not_install_tag ? ibm_resource_instance.discovery_instance[0].crn : null
-  watson_discovery_guid          = var.existing_discovery_instance != null ? data.ibm_resource_instance.existing_discovery_instance[0].guid : var.watson_discovery_plan != local.do_not_install_tag ? ibm_resource_instance.discovery_instance[0].guid : null
-  watson_discovery_name          = var.existing_discovery_instance != null ? data.ibm_resource_instance.existing_discovery_instance[0].resource_name : var.watson_discovery_plan != local.do_not_install_tag ? ibm_resource_instance.discovery_instance[0].resource_name : null
-  watson_discovery_plan_id       = var.existing_discovery_instance != null ? null : var.watson_discovery_plan != local.do_not_install_tag ? ibm_resource_instance.discovery_instance[0].resource_plan_id : null
-  watson_discovery_dashboard_url = var.existing_discovery_instance != null ? null : var.watson_discovery_plan != local.do_not_install_tag ? ibm_resource_instance.discovery_instance[0].dashboard_url : null
+  watson_discovery_crn           = var.existing_discovery_instance != null ? data.ibm_resource_instance.existing_discovery_instance[0].crn : var.watson_discovery_plan != local.skip_install ? ibm_resource_instance.discovery_instance[0].crn : null
+  watson_discovery_guid          = var.existing_discovery_instance != null ? data.ibm_resource_instance.existing_discovery_instance[0].guid : var.watson_discovery_plan != local.skip_install ? ibm_resource_instance.discovery_instance[0].guid : null
+  watson_discovery_name          = var.existing_discovery_instance != null ? data.ibm_resource_instance.existing_discovery_instance[0].resource_name : var.watson_discovery_plan != local.skip_install ? ibm_resource_instance.discovery_instance[0].resource_name : null
+  watson_discovery_plan_id       = var.existing_discovery_instance != null ? null : var.watson_discovery_plan != local.skip_install ? ibm_resource_instance.discovery_instance[0].resource_plan_id : null
+  watson_discovery_dashboard_url = var.existing_discovery_instance != null ? null : var.watson_discovery_plan != local.skip_install ? ibm_resource_instance.discovery_instance[0].dashboard_url : null
 
   watson_machine_learning_crn           = var.existing_machine_learning_instance != null ? data.ibm_resource_instance.existing_machine_learning_instance[0].crn : resource.ibm_resource_instance.machine_learning_instance[0].crn
   watson_machine_learning_guid          = var.existing_machine_learning_instance != null ? data.ibm_resource_instance.existing_machine_learning_instance[0].guid : resource.ibm_resource_instance.machine_learning_instance[0].guid
@@ -68,23 +68,23 @@ locals {
   watson_studio_plan_id       = var.existing_studio_instance != null ? null : resource.ibm_resource_instance.studio_instance[0].resource_plan_id
   watson_studio_dashboard_url = var.existing_studio_instance != null ? null : resource.ibm_resource_instance.studio_instance[0].dashboard_url
 
-  watsonx_governance_crn           = var.existing_governance_instance != null ? data.ibm_resource_instance.existing_governance_instance[0].crn : var.watsonx_governance_plan != local.do_not_install_tag ? resource.ibm_resource_instance.governance_instance[0].crn : null
-  watsonx_governance_guid          = var.existing_governance_instance != null ? data.ibm_resource_instance.existing_governance_instance[0].guid : var.watsonx_governance_plan != local.do_not_install_tag ? resource.ibm_resource_instance.governance_instance[0].guid : null
-  watsonx_governance_name          = var.existing_governance_instance != null ? data.ibm_resource_instance.existing_governance_instance[0].resource_name : var.watsonx_governance_plan != local.do_not_install_tag ? resource.ibm_resource_instance.governance_instance[0].resource_name : null
-  watsonx_governance_plan_id       = var.existing_governance_instance != null ? null : var.watsonx_governance_plan != local.do_not_install_tag ? resource.ibm_resource_instance.governance_instance[0].resource_plan_id : null
-  watsonx_governance_dashboard_url = var.existing_governance_instance != null ? null : var.watsonx_governance_plan != local.do_not_install_tag ? resource.ibm_resource_instance.governance_instance[0].dashboard_url : null
+  watsonx_governance_crn           = var.existing_governance_instance != null ? data.ibm_resource_instance.existing_governance_instance[0].crn : var.watsonx_governance_plan != local.skip_install ? resource.ibm_resource_instance.governance_instance[0].crn : null
+  watsonx_governance_guid          = var.existing_governance_instance != null ? data.ibm_resource_instance.existing_governance_instance[0].guid : var.watsonx_governance_plan != local.skip_install ? resource.ibm_resource_instance.governance_instance[0].guid : null
+  watsonx_governance_name          = var.existing_governance_instance != null ? data.ibm_resource_instance.existing_governance_instance[0].resource_name : var.watsonx_governance_plan != local.skip_install ? resource.ibm_resource_instance.governance_instance[0].resource_name : null
+  watsonx_governance_plan_id       = var.existing_governance_instance != null ? null : var.watsonx_governance_plan != local.skip_install ? resource.ibm_resource_instance.governance_instance[0].resource_plan_id : null
+  watsonx_governance_dashboard_url = var.existing_governance_instance != null ? null : var.watsonx_governance_plan != local.skip_install ? resource.ibm_resource_instance.governance_instance[0].dashboard_url : null
 
-  watsonx_data_crn           = var.existing_data_instance != null ? data.ibm_resource_instance.existing_data_instance[0].crn : var.watsonx_data_plan != local.do_not_install_tag ? resource.ibm_resource_instance.data_instance[0].crn : null
-  watsonx_data_guid          = var.existing_data_instance != null ? data.ibm_resource_instance.existing_data_instance[0].guid : var.watsonx_data_plan != local.do_not_install_tag ? resource.ibm_resource_instance.data_instance[0].guid : null
-  watsonx_data_name          = var.existing_data_instance != null ? data.ibm_resource_instance.existing_data_instance[0].resource_name : var.watsonx_data_plan != local.do_not_install_tag ? resource.ibm_resource_instance.data_instance[0].resource_name : null
-  watsonx_data_plan_id       = var.existing_data_instance != null ? null : var.watsonx_data_plan != local.do_not_install_tag ? resource.ibm_resource_instance.data_instance[0].resource_plan_id : null
-  watsonx_data_dashboard_url = var.existing_data_instance != null ? null : var.watsonx_data_plan != local.do_not_install_tag ? resource.ibm_resource_instance.data_instance[0].dashboard_url : null
+  watsonx_data_crn           = var.existing_data_instance != null ? data.ibm_resource_instance.existing_data_instance[0].crn : var.watsonx_data_plan != local.skip_install ? resource.ibm_resource_instance.data_instance[0].crn : null
+  watsonx_data_guid          = var.existing_data_instance != null ? data.ibm_resource_instance.existing_data_instance[0].guid : var.watsonx_data_plan != local.skip_install ? resource.ibm_resource_instance.data_instance[0].guid : null
+  watsonx_data_name          = var.existing_data_instance != null ? data.ibm_resource_instance.existing_data_instance[0].resource_name : var.watsonx_data_plan != local.skip_install ? resource.ibm_resource_instance.data_instance[0].resource_name : null
+  watsonx_data_plan_id       = var.existing_data_instance != null ? null : var.watsonx_data_plan != local.skip_install ? resource.ibm_resource_instance.data_instance[0].resource_plan_id : null
+  watsonx_data_dashboard_url = var.existing_data_instance != null ? null : var.watsonx_data_plan != local.skip_install ? resource.ibm_resource_instance.data_instance[0].dashboard_url : null
 
-  watsonx_orchestrate_crn           = var.existing_orchestrate_instance != null ? data.ibm_resource_instance.existing_orchestrate_instance[0].crn : var.watsonx_orchestrate_plan != local.do_not_install_tag ? resource.ibm_resource_instance.orchestrate_instance[0].crn : null
-  watsonx_orchestrate_guid          = var.existing_orchestrate_instance != null ? data.ibm_resource_instance.existing_orchestrate_instance[0].guid : var.watsonx_orchestrate_plan != local.do_not_install_tag ? resource.ibm_resource_instance.orchestrate_instance[0].guid : null
-  watsonx_orchestrate_name          = var.existing_orchestrate_instance != null ? data.ibm_resource_instance.existing_orchestrate_instance[0].resource_name : var.watsonx_orchestrate_plan != local.do_not_install_tag ? resource.ibm_resource_instance.orchestrate_instance[0].resource_name : null
-  watsonx_orchestrate_plan_id       = var.existing_orchestrate_instance != null ? null : var.watsonx_orchestrate_plan != local.do_not_install_tag ? resource.ibm_resource_instance.orchestrate_instance[0].resource_plan_id : null
-  watsonx_orchestrate_dashboard_url = var.existing_orchestrate_instance != null ? null : var.watsonx_orchestrate_plan != local.do_not_install_tag ? resource.ibm_resource_instance.orchestrate_instance[0].dashboard_url : null
+  watsonx_orchestrate_crn           = var.existing_orchestrate_instance != null ? data.ibm_resource_instance.existing_orchestrate_instance[0].crn : var.watsonx_orchestrate_plan != local.skip_install ? resource.ibm_resource_instance.orchestrate_instance[0].crn : null
+  watsonx_orchestrate_guid          = var.existing_orchestrate_instance != null ? data.ibm_resource_instance.existing_orchestrate_instance[0].guid : var.watsonx_orchestrate_plan != local.skip_install ? resource.ibm_resource_instance.orchestrate_instance[0].guid : null
+  watsonx_orchestrate_name          = var.existing_orchestrate_instance != null ? data.ibm_resource_instance.existing_orchestrate_instance[0].resource_name : var.watsonx_orchestrate_plan != local.skip_install ? resource.ibm_resource_instance.orchestrate_instance[0].resource_name : null
+  watsonx_orchestrate_plan_id       = var.existing_orchestrate_instance != null ? null : var.watsonx_orchestrate_plan != local.skip_install ? resource.ibm_resource_instance.orchestrate_instance[0].resource_plan_id : null
+  watsonx_orchestrate_dashboard_url = var.existing_orchestrate_instance != null ? null : var.watsonx_orchestrate_plan != local.skip_install ? resource.ibm_resource_instance.orchestrate_instance[0].dashboard_url : null
 }
 
 ##############################################################################################################
@@ -223,7 +223,7 @@ data "ibm_resource_instance" "existing_assistant_instance" {
 
 resource "ibm_resource_instance" "assistant_instance" {
   provider          = ibm.deployer
-  count             = var.existing_assistant_instance != null ? 0 : var.watsonx_assistant_plan == local.do_not_install_tag ? 0 : 1
+  count             = var.existing_assistant_instance != null ? 0 : var.watsonx_assistant_plan == local.skip_install ? 0 : 1
   name              = "${local.prefix}watsonx-assistant-instance"
   service           = "conversation"
   plan              = var.watsonx_assistant_plan
@@ -260,7 +260,7 @@ data "ibm_resource_instance" "existing_governance_instance" {
 
 resource "ibm_resource_instance" "governance_instance" {
   provider          = ibm.deployer
-  count             = var.existing_governance_instance != null || var.watsonx_governance_plan == local.do_not_install_tag ? 0 : 1
+  count             = var.existing_governance_instance != null || var.watsonx_governance_plan == local.skip_install ? 0 : 1
   name              = "${local.prefix}watsonx-governance-instance"
   service           = "aiopenscale"
   plan              = var.watsonx_governance_plan
@@ -286,7 +286,7 @@ data "ibm_resource_instance" "existing_discovery_instance" {
 
 resource "ibm_resource_instance" "discovery_instance" {
   provider          = ibm.deployer
-  count             = var.existing_discovery_instance != null || var.watson_discovery_plan == local.do_not_install_tag ? 0 : 1
+  count             = var.existing_discovery_instance != null || var.watson_discovery_plan == local.skip_install ? 0 : 1
   name              = "${local.prefix}watson-discovery-instance"
   service           = "discovery"
   plan              = var.watson_discovery_plan
@@ -316,7 +316,7 @@ data "ibm_resource_instance" "existing_data_instance" {
 
 resource "ibm_resource_instance" "data_instance" {
   provider          = ibm.deployer
-  count             = var.existing_data_instance != null || var.watsonx_data_plan == local.do_not_install_tag ? 0 : 1
+  count             = var.existing_data_instance != null || var.watsonx_data_plan == local.skip_install ? 0 : 1
   name              = "${local.prefix}watsonx-data-instance"
   service           = "lakehouse"
   plan              = var.watsonx_data_plan
@@ -348,7 +348,7 @@ data "ibm_resource_instance" "existing_orchestrate_instance" {
 
 resource "ibm_resource_instance" "orchestrate_instance" {
   provider          = ibm.deployer
-  count             = var.existing_orchestrate_instance != null || var.watsonx_orchestrate_plan == local.do_not_install_tag ? 0 : 1
+  count             = var.existing_orchestrate_instance != null || var.watsonx_orchestrate_plan == local.skip_install ? 0 : 1
   name              = "${local.prefix}watsonx-orchestrate-instance"
   service           = "watsonx-orchestrate"
   plan              = var.watsonx_orchestrate_plan
