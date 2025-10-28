@@ -357,7 +357,7 @@ variable "cos_kms_key_crn" {
 variable "cos_kms_new_key_name" {
   description = "Name of the Key Protect key to create for encrypting the COS buckets used by the watsonx projects. If a prefix input variable is specified, the prefix is added to the name in the `<prefix>-<cos_kms_new_key_name>` format."
   type        = string
-  default     = ""
+  default     = "wx-saas-da-key"
 }
 
 variable "cos_kms_ring_id" {
