@@ -4,6 +4,8 @@
   "existing_resource_group_name": "geretain-test-resources",
   "watson_discovery_plan": "plus",
   "watsonx_assistant_plan": "plus",
-  "watson_machine_learning_plan": "v2-standard",
+  "watsonx_governance_plan": "essentials",
+  "watsonx_data_plan": "lakehouse-enterprise",
+  "watsonx_orchestrate_plan": "essentials-agentic-mau",
   "enable_cos_kms_encryption": false
 }
