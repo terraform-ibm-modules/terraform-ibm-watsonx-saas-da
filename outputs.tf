@@ -17,12 +17,12 @@ output "watsonx_platform_endpoint" {
 
 output "watsonx_project_id" {
   value       = var.watsonx_project_name == null || var.watsonx_project_name == "" ? null : module.configure_project[0].watsonx_project_id
-  description = "The ID watsonx project that's created."
+  description = "The ID of the watsonx project that is created."
 }
 
-output "watsonx_project_location" {
+output "watsonx_project_region" {
   value       = var.watsonx_project_name == null || var.watsonx_project_name == "" ? null : module.configure_project[0].watsonx_project_location
-  description = "The location watsonx project that's created."
+  description = "The region in which the watsonx project is created."
 }
 
 output "watsonx_project_bucket_name" {

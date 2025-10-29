@@ -9,7 +9,7 @@ variable "resource_group_id" {
   type        = string
 }
 
-variable "location" {
-  description = "The location that's used with the IBM Cloud Terraform IBM provider. It's also used during resource creation."
+variable "region" {
+  description = "The region that is used with the IBM Cloud Terraform IBM provider. It is also used during resource creation."
   type        = string
 }

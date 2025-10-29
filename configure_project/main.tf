@@ -83,7 +83,7 @@ locals {
     "au-syd"   = "//api.au-syd.dai.cloud.ibm.com",
     "ca-tor"   = "//api.ca-tor.dai.cloud.ibm.com"
   }
-  dataplatform_api          = local.dataplatform_api_mapping[var.location]
+  dataplatform_api          = local.dataplatform_api_mapping[var.region]
   watsonx_project_id_object = restapi_object.configure_project.id
   watsonx_project_id        = regex("^.+/([a-f0-9\\-]+)$", local.watsonx_project_id_object)[0]
   watsonx_project_data      = jsondecode(data.restapi_object.get_project.api_response)
@@ -95,7 +95,7 @@ locals {
     "au-syd"   = "https://au-syd.dai.cloud.ibm.com",
     "ca-tor"   = "https://ca-tor.dai.cloud.ibm.com"
   }
-  dataplatform_ui = local.dataplatform_ui_mapping[var.location]
+  dataplatform_ui = local.dataplatform_ui_mapping[var.region]
   crn_split       = split(":", var.machine_learning_crn)
   account_id      = split("/", local.crn_split[6])[1]
 }

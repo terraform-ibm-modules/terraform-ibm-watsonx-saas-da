@@ -3,12 +3,12 @@
 ##############################################################################################################
 
 variable "ibmcloud_api_key" {
-  description = "The API key that's used with the IBM Cloud Terraform IBM provider."
+  description = "The API key that is used with the IBM Cloud Terraform provider."
   sensitive   = true
   type        = string
 }
 variable "provider_visibility" {
-  description = "Set the visibility value for the IBM terraform provider. Supported values are `public`, `private`, `public-and-private`. [Learn more](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/guides/custom-service-endpoints)."
+  description = "Set the visibility value for the IBM terraform provider. [Learn more](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/guides/custom-service-endpoints)."
   type        = string
   default     = "private"
 
@@ -18,41 +18,52 @@ variable "provider_visibility" {
   }
 }
 
-variable "location" {
+variable "region" {
   default     = "us-south"
-  description = "The location that's used with the IBM Cloud Terraform IBM provider. It's also used during resource creation."
+  description = "The region to provision all resources in. [Learn more](https://terraform-ibm-modules.github.io/documentation/#/region) about how to select different regions for different services."
   type        = string
   validation {
-    condition     = contains(["eu-de", "us-south", "eu-gb", "jp-tok", "au-syd", "ca-tor"], var.location)
-    error_message = "You must specify `eu-de`, `eu-gb`, `jp-tok`, `au-syd`, `ca-tor` or `us-south` as the IBM Cloud location."
+    condition     = contains(["eu-de", "us-south", "eu-gb", "jp-tok", "au-syd", "ca-tor"], var.region)
+    error_message = "You must specify `eu-de`, `eu-gb`, `jp-tok`, `au-syd`, `ca-tor` or `us-south` as the IBM Cloud region."
   }
 
   validation {
-    condition     = local.kms_region == null || local.kms_region == var.location
-    error_message = "If KMS encryption is enabled, the Key Management Service instance must be in the same location as the watsonx.ai instance."
+    condition     = local.kms_region == null || local.kms_region == var.region
+    error_message = "If KMS encryption is enabled, the Key Management Service instance must be in the same region as the watsonx.ai instance."
   }
 
 }
 
-variable "use_existing_resource_group" {
-  type        = bool
-  description = "Determines whether to use an existing resource group."
-  default     = false
+variable "existing_resource_group_name" {
+  type        = string
+  description = "The name of an existing resource group to provision the resources."
+  default     = "Default"
 }
 
-variable "resource_group_name" {
+variable "prefix" {
+  description = "The prefix to add to all resources that are created (e.g `prod`, `test`, `dev`). To skip using a prefix, set this value to `null` or an empty string. [Learn more](https://terraform-ibm-modules.github.io/documentation/#/prefix.md)."
+  nullable    = true
   type        = string
-  description = "The name of a new or an existing resource group where the resources are created."
-}
-
-variable "resource_prefix" {
-  description = "The name to be used on all Watson resources as a prefix."
-  type        = string
-  default     = "watsonx-poc"
 
   validation {
-    condition     = var.resource_prefix != "" && length(var.resource_prefix) <= 25
-    error_message = "You must provide a value for the resource_prefix variable and the resource_prefix length can't exceed 25 characters."
+    # - null and empty string is allowed
+    # - Must not contain consecutive hyphens (--): length(regexall("--", var.prefix)) == 0
+    # - Starts with a lowercase letter: [a-z]
+    # - Contains only lowercase letters (a–z), digits (0–9), and hyphens (-)
+    # - Must not end with a hyphen (-): [a-z0-9]
+    condition = (var.prefix == null || var.prefix == "" ? true :
+      alltrue([
+        can(regex("^[a-z][-a-z0-9]*[a-z0-9]$", var.prefix)),
+        length(regexall("--", var.prefix)) == 0
+      ])
+    )
+    error_message = "Prefix must begin with a lowercase letter and may contain only lowercase letters, digits, and hyphens '-'. It must not end with a hyphen('-'), and cannot contain consecutive hyphens ('--')."
+  }
+
+  validation {
+    # must not exceed 16 characters in length
+    condition     = var.prefix == null || var.prefix == "" ? true : length(var.prefix) <= 16
+    error_message = "Prefix must not exceed 16 characters."
   }
 }
 
@@ -68,7 +79,7 @@ variable "watsonx_admin_api_key" {
 }
 
 variable "watsonx_project_name" {
-  description = "The name of the watson project."
+  description = "The name of the watson project. If a prefix input variable is specified, the prefix is added to the name in the `<prefix>-<watsonx_project_name>` format."
   type        = string
   default     = "demo"
 }
@@ -97,23 +108,23 @@ variable "watsonx_mark_as_sensitive" {
 
 variable "existing_machine_learning_instance" {
   default     = null
-  description = "CRN of the an existing Watson Machine Learning instance."
+  description = "CRN of an existing Watson Machine Learning instance."
   type        = string
 }
 
 variable "watson_machine_learning_plan" {
   default     = "v2-standard"
-  description = "The plan that's used to provision the Watson Machine Learning instance."
+  description = "The plan that is used to provision the Watson Machine Learning instance."
   type        = string
   validation {
     condition     = contains(["lite", "v2-professional", "v2-standard"], var.watson_machine_learning_plan)
-    error_message = "The plan must be lite, v2-professional, or v2-standard. Learn more."
+    error_message = "The plan must be lite, v2-professional, or v2-standard. [Learn more](https://cloud.ibm.com/catalog/services/watsonxai-runtime)."
   }
 }
 
 variable "watson_machine_learning_service_endpoints" {
   default     = "public"
-  description = "The type of service endpoints. Possible values: 'public', 'private', 'public-and-private'."
+  description = "The type of service endpoints. Possible values are 'public', 'private', 'public-and-private'."
   type        = string
   validation {
     condition     = contains(["public", "public-and-private", "private"], var.watson_machine_learning_service_endpoints)
@@ -127,48 +138,47 @@ variable "watson_machine_learning_service_endpoints" {
 
 variable "existing_studio_instance" {
   default     = null
-  description = "CRN of the an existing Watson Studio instance."
+  description = "CRN of an existing Watson Studio instance."
   type        = string
 }
 
 variable "watson_studio_plan" {
   default     = "professional-v1"
-  description = "The plan that's used to provision the Watson Studio instance. The plan you choose for Watson Studio affects the features and capabilities that you can use."
+  description = "The plan that is used to provision the Watson Studio instance. The plan you choose for Watson Studio affects the features and capabilities that you can use."
   type        = string
   validation {
     condition     = contains(["free-v1", "professional-v1"], var.watson_studio_plan)
-    error_message = "You must use a free-v1 or professional-v1 plan. Learn more."
+    error_message = "You must use a free-v1 or professional-v1 plan. [Learn more](https://cloud.ibm.com/catalog/services/watsonxai-studio)."
   }
 }
 
 ##############################################################################################################
-# watsonx Discovery
+# Watson Discovery
 ##############################################################################################################
 
 variable "existing_discovery_instance" {
   default     = null
-  description = "CRN of the an existing Watson Discovery instance."
+  description = "CRN of an existing Watson Discovery instance."
   type        = string
 }
 
 variable "watson_discovery_plan" {
   default     = "do not install"
-  description = "The plan that's used to provision the Watson Discovery instance."
+  description = "The plan that is used to provision the Watson Discovery instance."
   type        = string
   validation {
     condition = anytrue([
-      var.watson_discovery_plan == "do not install",
+      var.watson_discovery_plan == local.skip_install,
       var.watson_discovery_plan == "plus",
       var.watson_discovery_plan == "enterprise",
-      var.watson_discovery_plan == "premium",
     ])
-    error_message = "You must use a plus, enterprise, or premium plan. Learn more."
+    error_message = "You must use a plus or enterprise plan. [Learn more](https://cloud.ibm.com/docs/discovery-data?topic=discovery-data-pricing-plans)."
   }
 }
 
 variable "watson_discovery_service_endpoints" {
   default     = "public"
-  description = "The type of service endpoints. Possible values: 'public', 'private', 'public-and-private'."
+  description = "The type of service endpoints. Possible values are 'public', 'private', 'public-and-private'."
   type        = string
   validation {
     condition     = contains(["public", "public-and-private", "private"], var.watson_discovery_service_endpoints)
@@ -182,30 +192,28 @@ variable "watson_discovery_service_endpoints" {
 
 variable "existing_assistant_instance" {
   default     = null
-  description = "CRN of the an existing watsonx Assistance instance."
+  description = "CRN of an existing watsonx Assistant instance."
   type        = string
 }
 
 variable "watsonx_assistant_plan" {
   default     = "do not install"
-  description = "The plan that's used to provision the watsonx Assistance instance."
+  description = "The plan that is used to provision the watsonx Assistant instance."
   type        = string
   validation {
     condition = anytrue([
-      var.watsonx_assistant_plan == "do not install",
+      var.watsonx_assistant_plan == local.skip_install,
       var.watsonx_assistant_plan == "free",
-      var.watsonx_assistant_plan == "plus-trial",
       var.watsonx_assistant_plan == "plus",
       var.watsonx_assistant_plan == "enterprise",
-      var.watsonx_assistant_plan == "enterprisedataisolation",
     ])
-    error_message = "You must use a free, trial, plus-trial, enterprise, or enterprisedataisolation plan. Learn more."
+    error_message = "You must use a free, plus or enterprise plan. [Learn more](https://cloud.ibm.com/docs/watson-assistant?topic=watson-assistant-admin-managing-plan)."
   }
 }
 
 variable "watsonx_assistant_service_endpoints" {
   default     = "public"
-  description = "The type of service endpoints. Possible values: 'public', 'private', 'public-and-private'."
+  description = "The type of service endpoints. Possible values are 'public', 'private', 'public-and-private'."
   type        = string
   validation {
     condition     = contains(["public", "public-and-private", "private"], var.watsonx_assistant_service_endpoints)
@@ -219,7 +227,7 @@ variable "watsonx_assistant_service_endpoints" {
 
 variable "existing_governance_instance" {
   default     = null
-  description = "CRN of the an existing watsonx.governance instance."
+  description = "CRN of an existing watsonx.governance instance."
   type        = string
 }
 
@@ -229,11 +237,11 @@ variable "watsonx_governance_plan" {
   type        = string
   validation {
     condition = anytrue([
-      var.watsonx_governance_plan == "do not install",
+      var.watsonx_governance_plan == local.skip_install,
       var.watsonx_governance_plan == "lite",
       var.watsonx_governance_plan == "essentials",
     ])
-    error_message = "You must use a lite or essential plan. Learn more. "
+    error_message = "You must use a lite or essential plan. [Learn more](https://dataplatform.cloud.ibm.com/docs/content/wsj/model/wos-plan-options.html?context=wx&audience=wdp). "
   }
 }
 
@@ -243,21 +251,21 @@ variable "watsonx_governance_plan" {
 
 variable "existing_data_instance" {
   default     = null
-  description = "CRN of the an existing watsonx.data instance."
+  description = "CRN of an existing watsonx.data instance."
   type        = string
 }
 
 variable "watsonx_data_plan" {
   default     = "do not install"
-  description = "The plan that's used to provision the watsonx.data instance."
+  description = "The plan that is used to provision the watsonx.data instance."
   type        = string
   validation {
     condition = anytrue([
-      var.watsonx_data_plan == "do not install",
+      var.watsonx_data_plan == local.skip_install,
       var.watsonx_data_plan == "lakehouse-enterprise",
       var.watsonx_data_plan == "lite",
     ])
-    error_message = "You must use a lakehouse-enterprise or lite plan. Learn more. "
+    error_message = "You must use a lakehouse-enterprise or lite plan. [Learn more](https://cloud.ibm.com/docs/watsonxdata?topic=watsonxdata-getting-started)."
   }
 }
 
@@ -267,17 +275,17 @@ variable "watsonx_data_plan" {
 
 variable "existing_orchestrate_instance" {
   default     = null
-  description = "CRN of the an existing watsonx Orchestrate instance."
+  description = "CRN of an existing watsonx Orchestrate instance."
   type        = string
 }
 
 variable "watsonx_orchestrate_plan" {
   default     = "do not install"
-  description = "The plan that's used to provision the watsonx Orchestrate instance."
+  description = "The plan that is used to provision the watsonx Orchestrate instance."
   type        = string
   validation {
     condition = anytrue([
-      var.watsonx_orchestrate_plan == "do not install",
+      var.watsonx_orchestrate_plan == local.skip_install,
       var.watsonx_orchestrate_plan == "lite",
       var.watsonx_orchestrate_plan == "essentials-agentic-mau",
       var.watsonx_orchestrate_plan == "standard-agentic-mau",
@@ -295,7 +303,7 @@ variable "cos_plan" {
   description = "The plan that's used to provision the Cloud Object Storage instance."
   type        = string
   validation {
-    condition     = contains(["standard"], var.cos_plan)
+    condition     = var.cos_plan == "standard"
     error_message = "You must use a standard plan. Standard plan instances are the most common and are recommended for most workloads."
   }
 }
@@ -347,9 +355,9 @@ variable "cos_kms_key_crn" {
 }
 
 variable "cos_kms_new_key_name" {
-  description = "Name of the Key Protect key to create for encrypting the COS buckets used by the watsonx projects."
+  description = "Name of the Key Protect key to create for encrypting the COS buckets used by the watsonx projects. If a prefix input variable is specified, the prefix is added to the name in the `<prefix>-<cos_kms_new_key_name>` format."
   type        = string
-  default     = ""
+  default     = "wx-saas-da-key"
 }
 
 variable "cos_kms_ring_id" {
