@@ -474,7 +474,7 @@
               "notes": "[Optional] Required to deploy Cloud automation for Key Protect, so you can use your own managed encryption keys."
             }
           ],
-          "terraform_version": "1.10.5",
+          "terraform_version": "1.12.2",
           "ignore_readme": true
         }
       ]
