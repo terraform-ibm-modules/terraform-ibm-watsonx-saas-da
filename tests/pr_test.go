@@ -144,7 +144,7 @@ func TestRunUpgradeRootDA(t *testing.T) {
 	}
 }
 
-func TestWithExistingKP(t *testing.T) {
+func TestWithExistingKPKey(t *testing.T) {
 	t.Parallel()
 
 	region := validRegions[rand.Intn(len(validRegions))]
@@ -188,11 +188,54 @@ func TestWithExistingKP(t *testing.T) {
 	cleanupResources(t, existingTerraformOptions, prefix)
 }
 
-func TestRunUpgradeExistingKP(t *testing.T) {
+func TestWithExistingKP(t *testing.T) {
 	t.Parallel()
 
 	region := validRegions[rand.Intn(len(validRegions))]
-	prefix := fmt.Sprintf("kp-ut-%s", strings.ToLower(random.UniqueId()))
+	prefix := fmt.Sprintf("kp-wx-%s", strings.ToLower(random.UniqueId()))
+
+	// Provision Existing KMS instance
+	existingTerraformOptions := setupKMSKeyProtect(t, region, prefix)
+
+	// Deploy watsonx DA using existing KP details
+	options := testhelper.TestOptionsDefault(&testhelper.TestOptions{
+		Testing:      t,
+		TerraformDir: rootDaDir,
+		IgnoreDestroys: testhelper.Exemptions{ // Ignore for consistency check
+			List: []string{
+				"module.configure_user.null_resource.configure_user",
+				"module.configure_user.null_resource.restrict_access",
+			},
+		},
+		IgnoreUpdates: testhelper.Exemptions{ // Ignore for consistency check
+			List: []string{
+				"module.configure_user.null_resource.configure_user",
+				"module.configure_user.null_resource.restrict_access",
+			},
+		},
+	})
+
+	options.TerraformVars = map[string]interface{}{
+		"region":                    region,
+		"provider_visibility":       "public",
+		"enable_cos_kms_encryption": true,
+		"cos_kms_crn":               terraform.Output(t, existingTerraformOptions, "key_protect_crn"),
+		"existing_cos_instance_crn": terraform.Output(t, existingTerraformOptions, "cos_crn"),
+		"prefix":                    prefix,
+	}
+
+	output, err := options.RunTestConsistency()
+	assert.Nil(t, err, "This should not have errored")
+	assert.NotNil(t, output, "Expected some output")
+
+	cleanupResources(t, existingTerraformOptions, prefix)
+}
+
+func TestRunUpgradeExistingKPNewKey(t *testing.T) {
+	t.Parallel()
+
+	region := validRegions[rand.Intn(len(validRegions))]
+	prefix := fmt.Sprintf("kp-t-%s", strings.ToLower(random.UniqueId()))
 
 	// Provision Existing KMS instance
 	existingTerraformOptions := setupKMSKeyProtect(t, region, prefix)
