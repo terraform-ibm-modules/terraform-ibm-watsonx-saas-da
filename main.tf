@@ -118,7 +118,7 @@ locals {
 
   # fetch KMS region from cos_kms_key_crn
   kms_region           = var.enable_cos_kms_encryption && var.cos_kms_key_crn != null ? module.cos_kms_key_crn_parser[0].region : null
-  cos_kms_new_key_name = var.existing_cos_instance_crn == null ? "${local.prefix}${var.cos_kms_new_key_name}" : null
+  cos_kms_new_key_name = var.enable_cos_kms_encryption && var.cos_kms_key_crn == null ? "${local.prefix}${var.cos_kms_new_key_name}" : null
 }
 
 module "cos" {
