@@ -94,14 +94,14 @@ locals {
 module "existing_cos_crn_parser" {
   count   = var.existing_cos_instance_crn != null ? 1 : 0
   source  = "terraform-ibm-modules/common-utilities/ibm//modules/crn-parser"
-  version = "1.2.0"
+  version = "1.3.0"
   crn     = var.existing_cos_instance_crn
 }
 
 module "cos_kms_key_crn_parser" {
   count   = var.enable_cos_kms_encryption && var.cos_kms_key_crn != null ? 1 : 0
   source  = "terraform-ibm-modules/common-utilities/ibm//modules/crn-parser"
-  version = "1.2.0"
+  version = "1.3.0"
   crn     = var.cos_kms_key_crn
 }
 
@@ -127,7 +127,7 @@ module "cos" {
   }
   count             = var.existing_cos_instance_crn == null ? 1 : 0
   source            = "terraform-ibm-modules/cos/ibm//modules/fscloud"
-  version           = "10.4.0"
+  version           = "10.5.8"
   resource_group_id = module.resource_group.resource_group_id
   cos_instance_name = "${local.prefix}cos-instance"
   cos_plan          = var.cos_plan
