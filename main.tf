@@ -367,10 +367,12 @@ resource "ibm_resource_instance" "orchestrate_instance" {
 ##############################################################################################################
 
 module "configure_user" {
-  source                = "./configure_user"
-  watsonx_admin_api_key = var.watsonx_admin_api_key == null || var.watsonx_admin_api_key == "" ? var.ibmcloud_api_key : var.watsonx_admin_api_key
-  resource_group_id     = module.resource_group.resource_group_id
-  region                = var.region
+  providers = {
+    ibm.deployer = ibm.deployer
+  }
+  source            = "./configure_user"
+  resource_group_id = module.resource_group.resource_group_id
+  region            = var.region
 }
 
 ##############################################################################################################
