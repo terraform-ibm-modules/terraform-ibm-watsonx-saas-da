@@ -38,6 +38,7 @@ const yamlLocation = "../common-dev-assets/common-go-assets/common-permanent-res
 var permanentResources map[string]interface{}
 
 var IgnoreUpdates = []string{
+	"module.storage_delegation[0].restapi_object.storage_delegation",
 	"module.configure_project[0].restapi_object.configure_project", //temp ignore for PR312 (remove after merged)
 }
 
