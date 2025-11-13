@@ -37,6 +37,16 @@ const yamlLocation = "../common-dev-assets/common-go-assets/common-permanent-res
 
 var permanentResources map[string]interface{}
 
+var IgnoreUpdates = []string{
+	"module.configure_project[0].restapi_object.configure_project", //temp ignore for PR312 (remove after merged)
+}
+
+// Both below resources will always bs re-created due to the always_run trigger
+var IgnoreDestroys = []string{
+	"module.configure_user.null_resource.configure_user",
+	"module.configure_user.null_resource.restrict_access",
+}
+
 // TestMain will be run before any parallel tests, used to read data from yaml for use with tests
 func TestMain(m *testing.M) {
 
@@ -55,17 +65,11 @@ func setupOptionsRootDA(t *testing.T, prefix string, dir string) *testhelper.Tes
 		Testing:      t,
 		TerraformDir: dir,
 		Prefix:       prefix,
-		IgnoreDestroys: testhelper.Exemptions{ // Ignore for consistency check
-			List: []string{
-				"module.configure_user.null_resource.configure_user",
-				"module.configure_user.null_resource.restrict_access",
-			},
+		IgnoreDestroys: testhelper.Exemptions{
+			List: IgnoreDestroys,
 		},
-		IgnoreUpdates: testhelper.Exemptions{ // Ignore for consistency check
-			List: []string{
-				"module.configure_user.null_resource.configure_user",
-				"module.configure_user.null_resource.restrict_access",
-			},
+		IgnoreUpdates: testhelper.Exemptions{
+			List: IgnoreUpdates,
 		},
 	})
 
@@ -157,17 +161,11 @@ func TestWithExistingKPKey(t *testing.T) {
 	options := testhelper.TestOptionsDefault(&testhelper.TestOptions{
 		Testing:      t,
 		TerraformDir: rootDaDir,
-		IgnoreDestroys: testhelper.Exemptions{ // Ignore for consistency check
-			List: []string{
-				"module.configure_user.null_resource.configure_user",
-				"module.configure_user.null_resource.restrict_access",
-			},
+		IgnoreDestroys: testhelper.Exemptions{
+			List: IgnoreDestroys,
 		},
-		IgnoreUpdates: testhelper.Exemptions{ // Ignore for consistency check
-			List: []string{
-				"module.configure_user.null_resource.configure_user",
-				"module.configure_user.null_resource.restrict_access",
-			},
+		IgnoreUpdates: testhelper.Exemptions{
+			List: IgnoreUpdates,
 		},
 	})
 
@@ -201,17 +199,11 @@ func TestWithExistingKP(t *testing.T) {
 	options := testhelper.TestOptionsDefault(&testhelper.TestOptions{
 		Testing:      t,
 		TerraformDir: rootDaDir,
-		IgnoreDestroys: testhelper.Exemptions{ // Ignore for consistency check
-			List: []string{
-				"module.configure_user.null_resource.configure_user",
-				"module.configure_user.null_resource.restrict_access",
-			},
+		IgnoreDestroys: testhelper.Exemptions{
+			List: IgnoreDestroys,
 		},
-		IgnoreUpdates: testhelper.Exemptions{ // Ignore for consistency check
-			List: []string{
-				"module.configure_user.null_resource.configure_user",
-				"module.configure_user.null_resource.restrict_access",
-			},
+		IgnoreUpdates: testhelper.Exemptions{
+			List: IgnoreUpdates,
 		},
 	})
 
@@ -245,17 +237,11 @@ func TestRunUpgradeExistingKPNewKey(t *testing.T) {
 		Testing:      t,
 		TerraformDir: rootDaDir,
 		Prefix:       "existing-kp-upg",
-		IgnoreDestroys: testhelper.Exemptions{ // Ignore for consistency check
-			List: []string{
-				"module.configure_user.null_resource.configure_user",
-				"module.configure_user.null_resource.restrict_access",
-			},
+		IgnoreDestroys: testhelper.Exemptions{
+			List: IgnoreDestroys,
 		},
-		IgnoreUpdates: testhelper.Exemptions{ // Ignore for consistency check
-			List: []string{
-				"module.configure_user.null_resource.configure_user",
-				"module.configure_user.null_resource.restrict_access",
-			},
+		IgnoreUpdates: testhelper.Exemptions{
+			List: IgnoreUpdates,
 		},
 	})
 	options.TerraformVars = map[string]interface{}{
