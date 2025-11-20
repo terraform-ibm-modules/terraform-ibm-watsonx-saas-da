@@ -19,7 +19,7 @@
         "ai"
       ],
       "short_description": "Deploy Cloud foundation for AI ops and governance with watsonx to automate the deployment and setup of the IBM watsonx platform",
-      "long_description": "The Cloud foundation for AI ops and governance with watsonx deployable architecture easily deploys and embeds AI across your business, manages all data sources, and accelerates responsible AI workflows on one platform.",
+      "long_description": "The Cloud foundation for AI ops and governance with watsonx deployable architecture easily deploys and embeds AI across your business, manages all data sources, and accelerates responsible AI workflows on one platform. \n\nLeverage [Terraform IBM Modules](https://github.com/terraform-ibm-modules) to shape and scale your solutions. You can integrate Terraform IBM Modules (TIM) to extend functionality and design a solution tailored to your environment and operations needs. These modules offer reusable, customizable elements that follow IBM Cloud's recommended practices. You can access the [source code and documentation](https://github.com/terraform-ibm-modules/terraform-ibm-watsonx-saas-da) and use it to extend your current architecture or create new solutions.",
       "provider_name": "IBM",
       "offering_docs_url": "https://cloud.ibm.com/docs/watsonx-ai-saas-automation?topic=watsonx-ai-saas-automation-overview",
       "support_details": "This is a proof of concept and no official support is given.",
@@ -47,6 +47,10 @@
         {
           "title": "Manage and monitor with watsonx.governance",
           "description": "IBM watsonx.governance helps you direct, manage, and monitor your organization's AI activities."
+        },
+        {
+          "title": "Composable and Extensible Architecture",
+          "description": "This architecture illustrates how Terraform IBM Modules(TIM) can be integrated to deliver a complete solution on IBM Cloud. Each module is a reusable, and validated component for security, compliance, and operational IBM best practices. You can deploy this architecture as-is or configure it as code by leveraging the underlying modules to fit your specific requirements. Explore the [source code and documentation](https://github.com/terraform-ibm-modules/terraform-ibm-watsonx-saas-da) to adapt, extend, or create entirely new solutions using these building blocks."
         }
       ],
       "flavors": [
