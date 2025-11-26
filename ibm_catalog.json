@@ -153,16 +153,20 @@
             },
             {
               "key": "watson_machine_learning_plan",
+              "type_metadata": "string",
               "options": [
                 {
+                  "description": "Free plan with limited capacity. Choose this plan if you are evaluating Watson Machine Learning and want to try out the capabilities.",
                   "displayname": "Lite",
                   "value": "lite"
                 },
                 {
+                  "description": "High-capacity enterprise plan that is designed to support all of an organization's machine learning needs. Capacity unit hours are provided at a flat rate, while resource unit consumption is pay-as-you-go.",
                   "displayname": "Standard",
                   "value": "v2-professional"
                 },
                 {
+                  "description": "Pay-as-you-go plan that gives you the flexibility to build, deploy, and manage models to match your needs.",
                   "displayname": "Essentials",
                   "value": "v2-standard"
                 }
@@ -190,12 +194,15 @@
             },
             {
               "key": "watson_studio_plan",
+              "type_metadata": "string",
               "options": [
                 {
-                  "displayname": "Lite",
+                  "description": "The Lite plan offers most watsonx.ai Studio data science and AI features with usage restrictions. Lite plan services are deleted after 30 days of inactivity.",
+                  "displayname": "Lite (30 Days)",
                   "value": "free-v1"
                 },
                 {
+                  "description": "The Professional plan for watsonx.ai Studio enables your team to build enterprise scale data science and AI solutions.",
                   "displayname": "Professional",
                   "value": "professional-v1"
                 }
@@ -206,16 +213,20 @@
             },
             {
               "key": "watson_discovery_plan",
+              "type_metadata": "string",
               "options": [
                 {
-                  "displayname": "Do not install",
+                  "description": "Skip Watson Discovery installation.",
+                  "displayname": "Do Not Install",
                   "value": "do not install"
                 },
                 {
-                  "displayname": "Plus",
+                  "description": "The first Plus plan that is created includes a 30-day trial at no cost. You must pay for each additional Plus plan (and for use of the first plan after the 30-day trial ends).",
+                  "displayname": "Plus (30 Days)",
                   "value": "plus"
                 },
                 {
+                  "description": "Scale and secure your Discovery application with enterprise-grade support and performance, and address more use cases including contract analysis and content mining to explore insights across documents.",
                   "displayname": "Enterprise",
                   "value": "enterprise"
                 }
@@ -243,20 +254,25 @@
             },
             {
               "key": "watsonx_assistant_plan",
+              "type_metadata": "string",
               "options": [
                 {
-                  "displayname": "Do not install",
+                  "description": "Skip watsonx Assistant installation.",
+                  "displayname": "Do Not Install",
                   "value": "do not install"
                 },
                 {
-                  "displayname": "Lite",
+                  "description": "Everything you need to get started, free for as long as you need it. Lite plan services are deleted after 30 days of inactivity.",
+                  "displayname": "Lite (30 Days)",
                   "value": "free"
                 },
                 {
+                  "description": "The Plus plans measure usage by the number of monthly active users. Plus plan instances can't be downgraded to lower-tier plans.",
                   "displayname": "Plus",
                   "value": "plus"
                 },
                 {
+                  "description": "Full enterprise features with advanced security and dedicated support. Scale and secure your assistant with enterprise-grade support and data governance",
                   "displayname": "Enterprise",
                   "value": "enterprise"
                 }
@@ -284,16 +300,20 @@
             },
             {
               "key": "watsonx_governance_plan",
+              "type_metadata": "string",
               "options": [
                 {
-                  "displayname": "Do not install",
+                  "description": "Skip watsonx.governance installation.",
+                  "displayname": "Do Not Install",
                   "value": "do not install"
                 },
                 {
+                  "description": "You can create a maximum of three AI uses cases with the Lite plan. To create additional AI use cases, upgrade your plan.",
                   "displayname": "Lite",
                   "value": "lite"
                 },
                 {
+                  "description": "The Essentials plan supports optional integration with a hosted deployment of OpenPages. This option is not available with a Lite plan.",
                   "displayname": "Essentials",
                   "value": "essentials"
                 }
@@ -304,16 +324,20 @@
             },
             {
               "key": "watsonx_data_plan",
+              "type_metadata": "string",
               "options": [
                 {
-                  "displayname": "Do not install",
+                  "description": "Skip watsonx.data installation.",
+                  "displayname": "Do Not Install",
                   "value": "do not install"
                 },
                 {
-                  "displayname": "Lite",
+                  "description": "The Lite plan offers starter configurations of an instance to get started and understand what's in watsonx.data.",
+                  "displayname": "Lite (30 Days)",
                   "value": "lite"
                 },
                 {
+                  "description": "Watsonx.data is a data management solution for collecting, storing, querying, and analyzing all your enterprise data (structured, semi-structured, and unstructured) with a single unified data platform. It provides a flexible and reliable platform that is optimized to work on open data formats.",
                   "displayname": "Enterprise",
                   "value": "lakehouse-enterprise"
                 }
@@ -324,21 +348,26 @@
             },
             {
               "key": "watsonx_orchestrate_plan",
+              "type_metadata": "string",
               "options": [
                 {
-                  "displayname": "Do not install",
+                  "description": "Skip watsonx Orchestrate installation.",
+                  "displayname": "Do Not Install",
                   "value": "do not install"
                 },
                 {
-                  "displayname": "Trial",
+                  "description": "Experience everything in the Standard 30-day free trial with full features for evaluation.",
+                  "displayname": "Trial (30 Days)",
                   "value": "lite"
                 },
                 {
-                  "displayname": "Essentials Agentic with Monthly Active Users",
+                  "description": "Optimized for customers to go live quickly using Agentic AI to build Domain specific Agents and AI assistants.",
+                  "displayname": "Essentials Agentic (MAU)",
                   "value": "essentials-agentic-mau"
                 },
                 {
-                  "displayname": "Standard Agentic with Monthly Active Users",
+                  "description": "Optimized for customers seeking enterprise capabilities with domain agents and AI assistants.",
+                  "displayname": "Standard Agentic (MAU)",
                   "value": "standard-agentic-mau"
                 }
               ]
