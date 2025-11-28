@@ -53,11 +53,38 @@
         {
           "label": "Standard",
           "name": "standard",
+          "short_description": "Automates the deployment and setup of the IBM watsonx platform with AI, data, and governance services.",
           "working_directory": "./",
           "install_type": "fullstack",
           "index": 1,
           "licenses": [],
           "architecture": {
+            "features": [
+              {
+                "title": "Build with watsonx applications",
+                "description": "watsonx combines the power of watsonx.ai Studio for AI with the scale of watsonx.data store, enabling the creation of next-generation AI."
+              },
+              {
+                "title": "Develop with Watson Studio",
+                "description": "Develop sophisticated machine learning models using Notebooks and code-free tools to infuse AI throughout your business."
+              },
+              {
+                "title": "Deliver and build conversational interfaces with watsonx Assistant",
+                "description": "IBM watsonx Assistant lets you build conversational interfaces into any application, device, or channel."
+              },
+              {
+                "title": "Integrate predictive capabilities with Watson Machine Learning",
+                "description": "Deploy, manage, and integrate machine learning models into your applications and services in as little as one click."
+              },
+              {
+                "title": "Accelerate business decisions with Watson Discovery",
+                "description": "Watson Discovery adds a cognitive search and content analytics engine to applications."
+              },
+              {
+                "title": "Manage and monitor with watsonx.governance",
+                "description": "IBM watsonx.governance helps you direct, manage, and monitor your organization's AI activities."
+              }
+             ],
             "diagrams": [
               {
                 "diagram": {
