@@ -4,7 +4,6 @@ package test
 import (
 	"fmt"
 	"log"
-	"math/rand"
 	"os"
 	"strings"
 	"testing"
@@ -75,7 +74,7 @@ func setupOptionsRootDA(t *testing.T, prefix string, dir string) *testhelper.Tes
 	})
 
 	options.TerraformVars = map[string]interface{}{
-		"region":              validRegions[rand.Intn(len(validRegions))],
+		"region":              validRegions[common.CryptoIntn(len(validRegions))],
 		"provider_visibility": "public",
 		"prefix":              options.Prefix,
 	}
@@ -152,7 +151,7 @@ func TestRunUpgradeRootDA(t *testing.T) {
 func TestWithExistingKPKey(t *testing.T) {
 	t.Parallel()
 
-	region := validRegions[rand.Intn(len(validRegions))]
+	region := validRegions[common.CryptoIntn(len(validRegions))]
 	prefix := fmt.Sprintf("kp-wx-%s", strings.ToLower(random.UniqueId()))
 
 	// Provision Existing KMS instance
@@ -190,7 +189,7 @@ func TestWithExistingKPKey(t *testing.T) {
 func TestWithExistingKP(t *testing.T) {
 	t.Parallel()
 
-	region := validRegions[rand.Intn(len(validRegions))]
+	region := validRegions[common.CryptoIntn(len(validRegions))]
 	prefix := fmt.Sprintf("kp-wx-%s", strings.ToLower(random.UniqueId()))
 
 	// Provision Existing KMS instance
@@ -227,7 +226,7 @@ func TestWithExistingKP(t *testing.T) {
 func TestRunUpgradeExistingKPNewKey(t *testing.T) {
 	t.Parallel()
 
-	region := validRegions[rand.Intn(len(validRegions))]
+	region := validRegions[common.CryptoIntn(len(validRegions))]
 	prefix := fmt.Sprintf("kp-t-%s", strings.ToLower(random.UniqueId()))
 
 	// Provision Existing KMS instance
