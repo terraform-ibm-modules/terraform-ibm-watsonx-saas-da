@@ -127,7 +127,7 @@ module "cos" {
   }
   count             = var.existing_cos_instance_crn == null ? 1 : 0
   source            = "terraform-ibm-modules/cos/ibm//modules/fscloud"
-  version           = "10.6.1"
+  version           = "10.7.0"
   resource_group_id = module.resource_group.resource_group_id
   cos_instance_name = "${local.prefix}cos-instance"
   cos_plan          = var.cos_plan
