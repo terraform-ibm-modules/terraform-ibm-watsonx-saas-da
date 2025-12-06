@@ -1,6 +1,6 @@
 module "kms_key_crn_parser" {
   source  = "terraform-ibm-modules/common-utilities/ibm//modules/crn-parser"
-  version = "1.3.1"
+  version = "1.3.2"
   crn     = data.ibm_kms_key.kms_key.keys[0].crn
 }
 

@@ -11,7 +11,7 @@ module "resource_group" {
     ibm = ibm.deployer
   }
   source                       = "terraform-ibm-modules/resource-group/ibm"
-  version                      = "1.4.1"
+  version                      = "1.4.2"
   existing_resource_group_name = var.existing_resource_group_name
 }
 
@@ -94,14 +94,14 @@ locals {
 module "existing_cos_crn_parser" {
   count   = var.existing_cos_instance_crn != null ? 1 : 0
   source  = "terraform-ibm-modules/common-utilities/ibm//modules/crn-parser"
-  version = "1.3.1"
+  version = "1.3.2"
   crn     = var.existing_cos_instance_crn
 }
 
 module "cos_kms_key_crn_parser" {
   count   = var.enable_cos_kms_encryption && var.cos_kms_key_crn != null ? 1 : 0
   source  = "terraform-ibm-modules/common-utilities/ibm//modules/crn-parser"
-  version = "1.3.1"
+  version = "1.3.2"
   crn     = var.cos_kms_key_crn
 }
 
