@@ -564,6 +564,7 @@
             },
             {
               "key": "existing_cos_instance_crn",
+              "display_name": "existing_cos_instance",
               "custom_config": {
                 "type": "platform_resource",
                 "grouping": "deployment",
