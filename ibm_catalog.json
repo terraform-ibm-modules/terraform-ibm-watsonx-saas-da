@@ -221,7 +221,17 @@
               ]
             },
             {
-              "key": "existing_machine_learning_instance"
+              "key": "existing_machine_learning_instance",
+              "custom_config": {
+                "type": "platform_resource",
+                "grouping": "deployment",
+                "original_grouping": "deployment",
+                "config_constraints": {
+                  "resourceType": "pm-20",
+                  "selection": "single_select",
+                  "valueType": "crn"
+                }
+              }
             },
             {
               "key": "watson_studio_plan",
@@ -240,7 +250,17 @@
               ]
             },
             {
-              "key": "existing_studio_instance"
+              "key": "existing_studio_instance",
+              "custom_config": {
+                "type": "platform_resource",
+                "grouping": "deployment",
+                "original_grouping": "deployment",
+                "config_constraints": {
+                  "resourceType": "data-science-experience",
+                  "selection": "single_select",
+                  "valueType": "crn"
+                }
+              }
             },
             {
               "key": "watson_discovery_plan",
@@ -281,7 +301,17 @@
               ]
             },
             {
-              "key": "existing_discovery_instance"
+              "key": "existing_discovery_instance",
+              "custom_config": {
+                "type": "platform_resource",
+                "grouping": "deployment",
+                "original_grouping": "deployment",
+                "config_constraints": {
+                  "resourceType": "discovery",
+                  "selection": "single_select",
+                  "valueType": "crn"
+                }
+              }
             },
             {
               "key": "watsonx_assistant_plan",
@@ -327,7 +357,17 @@
               ]
             },
             {
-              "key": "existing_assistant_instance"
+              "key": "existing_assistant_instance",
+              "custom_config": {
+                "type": "platform_resource",
+                "grouping": "deployment",
+                "original_grouping": "deployment",
+                "config_constraints": {
+                  "resourceType": "conversation",
+                  "selection": "single_select",
+                  "valueType": "crn"
+                }
+              }
             },
             {
               "key": "watsonx_governance_plan",
@@ -351,7 +391,17 @@
               ]
             },
             {
-              "key": "existing_governance_instance"
+              "key": "existing_governance_instance",
+              "custom_config": {
+                "type": "platform_resource",
+                "grouping": "deployment",
+                "original_grouping": "deployment",
+                "config_constraints": {
+                  "resourceType": "aiopenscale",
+                  "selection": "single_select",
+                  "valueType": "crn"
+                }
+              }
             },
             {
               "key": "watsonx_data_plan",
@@ -375,7 +425,17 @@
               ]
             },
             {
-              "key": "existing_data_instance"
+              "key": "existing_data_instance",
+              "custom_config": {
+                "type": "platform_resource",
+                "grouping": "deployment",
+                "original_grouping": "deployment",
+                "config_constraints": {
+                  "resourceType": "lakehouse",
+                  "selection": "single_select",
+                  "valueType": "crn"
+                }
+              }
             },
             {
               "key": "watsonx_orchestrate_plan",
@@ -404,7 +464,17 @@
               ]
             },
             {
-              "key": "existing_orchestrate_instance"
+              "key": "existing_orchestrate_instance",
+              "custom_config": {
+                "type": "platform_resource",
+                "grouping": "deployment",
+                "original_grouping": "deployment",
+                "config_constraints": {
+                  "resourceType": "watsonx-orchestrate",
+                  "selection": "single_select",
+                  "valueType": "crn"
+                }
+              }
             },
             {
               "key": "watsonx_project_name"
@@ -465,7 +535,18 @@
               "key": "cos_kms_ring_id"
             },
             {
-              "key": "existing_cos_instance_crn"
+              "key": "existing_cos_instance_crn",
+              "display_name": "existing_cos_instance",
+              "custom_config": {
+                "type": "platform_resource",
+                "grouping": "deployment",
+                "original_grouping": "deployment",
+                "config_constraints": {
+                  "resourceType": "cloud-object-storage",
+                  "selection": "single_select",
+                  "valueType": "crn"
+                }
+              }
             }
           ],
           "iam_permissions": [
