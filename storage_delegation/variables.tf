@@ -17,7 +17,7 @@ variable "cos_kms_crn" {
 
   validation {
     condition = anytrue([
-      can(regex("^crn:(.*:){3}kms:(eu-gb|eu-de|us-south|jp-tok|au-syd|ca-tor)(.*:){1}[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}::$", var.cos_kms_crn))
+      can(regex("^crn:v\\d:(.*:){2}kms:(.*:)([aos]\\/[\\w_\\-]+):[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}::$", var.cos_kms_crn))
     ])
     error_message = "Key Protect CRN validation failed. Ensure the Key Protect instance is in one of these following regions: eu-de, eu-gb, jp-tok, us-south, au-syd, ca-tor"
   }
@@ -27,6 +27,14 @@ variable "cos_kms_key_crn" {
   description = "Key Protect key CRN used to encrypt the COS buckets used by the watsonx projects. If not set, then the cos_kms_new_key_name must be specified."
   type        = string
   default     = null
+
+  validation {
+    condition = anytrue([
+      var.cos_kms_key_crn == null,
+      can(regex("^crn:v\\d:(.*:){2}kms:(.*:)([aos]\\/[\\w_\\-]+):[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}:key:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$", var.cos_kms_key_crn))
+    ])
+    error_message = "The value provided for 'cos_kms_key_crn' is not valid."
+  }
 }
 
 variable "cos_kms_new_key_name" {
