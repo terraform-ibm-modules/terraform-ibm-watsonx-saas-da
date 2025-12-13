@@ -3,7 +3,7 @@
 ##############################################################################################################
 module "resource_group" {
   source                       = "terraform-ibm-modules/resource-group/ibm"
-  version                      = "1.4.4"
+  version                      = "1.4.6"
   resource_group_name          = var.resource_group == null ? "${var.prefix}-resource-group" : null
   existing_resource_group_name = var.resource_group
 }
@@ -14,7 +14,7 @@ module "resource_group" {
 
 module "key_protect_module" {
   source            = "terraform-ibm-modules/key-protect/ibm"
-  version           = "2.10.28"
+  version           = "2.10.30"
   key_protect_name  = "${var.prefix}-kp"
   resource_group_id = module.resource_group.resource_group_id
   region            = var.region
