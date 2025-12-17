@@ -99,6 +99,11 @@ statement instead the previous block.
 
 <!-- No permissions are needed to run this module.-->
 
+### Preventing sensitive data exposure in Schematics logs
+
+This deployable architecture uses the [Mastercard/restapi](https://registry.terraform.io/providers/Mastercard/restapi/latest) Terraform provider. API responses may contain sensitive credentials that can appear in Terraform plan/apply output.
+
+To prevent exposure, add the `API_DATA_IS_SENSITIVE=true` environment variable to your Schematics workspace. See [How to add environment variables to a DA workspace](docs/add-env-vars-to-schematics-workspace.md) for step-by-step instructions.
 
 <!-- Below content is automatically populated via pre-commit hook -->
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
