@@ -112,4 +112,7 @@ resource "restapi_object" "storage_delegation" {
                     "projects": true
                   }
                   EOT
+  lifecycle { 
+    ignore_changes = [data] 
+  }
 }
