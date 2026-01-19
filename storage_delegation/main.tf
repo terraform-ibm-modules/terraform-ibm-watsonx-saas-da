@@ -100,6 +100,7 @@ resource "restapi_object" "storage_delegation" {
   read_method    = "GET"
   create_path    = "//${local.dataplatform_ui}/api/rest/v1/storage-delegations"
   create_method  = "POST"
+  update_method  = "PATCH"
   id_attribute   = var.cos_guid
   object_id      = var.cos_guid
   destroy_method = "DELETE"
