@@ -370,7 +370,7 @@ module "configure_user" {
   providers = {
     ibm.deployer = ibm.deployer
   }
-  source            = "./configure_user"
+  source            = "git::https://github.com/terraform-ibm-modules/terraform-ibm-watsonx-saas-da.git//configure_user?ref=issue-16994"
   resource_group_id = module.resource_group.resource_group_id
   region            = var.region
 }
@@ -380,7 +380,7 @@ module "configure_user" {
 ##############################################################################################################
 
 module "storage_delegation" {
-  source = "./storage_delegation"
+  source = "git::https://github.com/terraform-ibm-modules/terraform-ibm-watsonx-saas-da.git//storage_delegation?ref=issue-16994"
   count  = var.enable_cos_kms_encryption ? 1 : 0
   providers = {
     ibm.deployer                  = ibm.deployer
@@ -400,7 +400,7 @@ module "storage_delegation" {
 ##############################################################################################################
 
 module "configure_project" {
-  source = "./configure_project"
+  source = "git::https://github.com/terraform-ibm-modules/terraform-ibm-watsonx-saas-da.git//configure_project?ref=issue-16994"
   providers = {
     restapi.restapi_watsonx_admin = restapi.restapi_watsonx_admin
   }
