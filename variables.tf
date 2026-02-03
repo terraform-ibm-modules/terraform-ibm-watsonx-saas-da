@@ -360,9 +360,4 @@ variable "cos_kms_new_key_name" {
   default     = "wx-saas-da-key"
 }
 
-variable "cos_kms_ring_id" {
-  description = "The identifier of the Key Protect ring to create the cos_kms_new_key_name into. If it is not set, then the new key will be created in the default ring."
-  type        = string
-  default     = null
-}
 ##############################################################################################################

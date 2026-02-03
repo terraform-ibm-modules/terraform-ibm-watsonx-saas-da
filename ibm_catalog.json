@@ -535,9 +535,6 @@
               "key": "cos_kms_new_key_name"
             },
             {
-              "key": "cos_kms_ring_id"
-            },
-            {
               "key": "existing_cos_instance_crn",
               "display_name": "existing_cos_instance",
               "custom_config": {
