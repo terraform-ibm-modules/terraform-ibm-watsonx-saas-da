@@ -107,7 +107,7 @@ statement instead the previous block.
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.9.0 |
-| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | 1.87.1 |
+| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | 1.87.3 |
 | <a name="requirement_restapi"></a> [restapi](#requirement\_restapi) | 2.0.1 |
 
 ### Modules
@@ -116,9 +116,9 @@ statement instead the previous block.
 |------|--------|---------|
 | <a name="module_configure_project"></a> [configure\_project](#module\_configure\_project) | ./configure_project | n/a |
 | <a name="module_configure_user"></a> [configure\_user](#module\_configure\_user) | ./configure_user | n/a |
-| <a name="module_cos"></a> [cos](#module\_cos) | terraform-ibm-modules/cos/ibm//modules/fscloud | 10.8.5 |
-| <a name="module_cos_kms_key_crn_parser"></a> [cos\_kms\_key\_crn\_parser](#module\_cos\_kms\_key\_crn\_parser) | terraform-ibm-modules/common-utilities/ibm//modules/crn-parser | 1.3.7 |
-| <a name="module_existing_cos_crn_parser"></a> [existing\_cos\_crn\_parser](#module\_existing\_cos\_crn\_parser) | terraform-ibm-modules/common-utilities/ibm//modules/crn-parser | 1.3.7 |
+| <a name="module_cos"></a> [cos](#module\_cos) | terraform-ibm-modules/cos/ibm//modules/fscloud | 10.9.9 |
+| <a name="module_cos_kms_key_crn_parser"></a> [cos\_kms\_key\_crn\_parser](#module\_cos\_kms\_key\_crn\_parser) | terraform-ibm-modules/common-utilities/ibm//modules/crn-parser | 1.4.1 |
+| <a name="module_existing_cos_crn_parser"></a> [existing\_cos\_crn\_parser](#module\_existing\_cos\_crn\_parser) | terraform-ibm-modules/common-utilities/ibm//modules/crn-parser | 1.4.1 |
 | <a name="module_resource_group"></a> [resource\_group](#module\_resource\_group) | terraform-ibm-modules/resource-group/ibm | 1.4.7 |
 | <a name="module_storage_delegation"></a> [storage\_delegation](#module\_storage\_delegation) | ./storage_delegation | n/a |
 
@@ -126,21 +126,21 @@ statement instead the previous block.
 
 | Name | Type |
 |------|------|
-| [ibm_resource_instance.assistant_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.1/docs/resources/resource_instance) | resource |
-| [ibm_resource_instance.data_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.1/docs/resources/resource_instance) | resource |
-| [ibm_resource_instance.discovery_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.1/docs/resources/resource_instance) | resource |
-| [ibm_resource_instance.governance_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.1/docs/resources/resource_instance) | resource |
-| [ibm_resource_instance.machine_learning_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.1/docs/resources/resource_instance) | resource |
-| [ibm_resource_instance.orchestrate_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.1/docs/resources/resource_instance) | resource |
-| [ibm_resource_instance.studio_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.1/docs/resources/resource_instance) | resource |
-| [ibm_iam_auth_token.restapi](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.1/docs/data-sources/iam_auth_token) | data source |
-| [ibm_resource_instance.existing_assistant_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.1/docs/data-sources/resource_instance) | data source |
-| [ibm_resource_instance.existing_data_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.1/docs/data-sources/resource_instance) | data source |
-| [ibm_resource_instance.existing_discovery_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.1/docs/data-sources/resource_instance) | data source |
-| [ibm_resource_instance.existing_governance_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.1/docs/data-sources/resource_instance) | data source |
-| [ibm_resource_instance.existing_machine_learning_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.1/docs/data-sources/resource_instance) | data source |
-| [ibm_resource_instance.existing_orchestrate_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.1/docs/data-sources/resource_instance) | data source |
-| [ibm_resource_instance.existing_studio_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.1/docs/data-sources/resource_instance) | data source |
+| [ibm_resource_instance.assistant_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.3/docs/resources/resource_instance) | resource |
+| [ibm_resource_instance.data_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.3/docs/resources/resource_instance) | resource |
+| [ibm_resource_instance.discovery_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.3/docs/resources/resource_instance) | resource |
+| [ibm_resource_instance.governance_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.3/docs/resources/resource_instance) | resource |
+| [ibm_resource_instance.machine_learning_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.3/docs/resources/resource_instance) | resource |
+| [ibm_resource_instance.orchestrate_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.3/docs/resources/resource_instance) | resource |
+| [ibm_resource_instance.studio_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.3/docs/resources/resource_instance) | resource |
+| [ibm_iam_auth_token.restapi](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.3/docs/data-sources/iam_auth_token) | data source |
+| [ibm_resource_instance.existing_assistant_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.3/docs/data-sources/resource_instance) | data source |
+| [ibm_resource_instance.existing_data_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.3/docs/data-sources/resource_instance) | data source |
+| [ibm_resource_instance.existing_discovery_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.3/docs/data-sources/resource_instance) | data source |
+| [ibm_resource_instance.existing_governance_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.3/docs/data-sources/resource_instance) | data source |
+| [ibm_resource_instance.existing_machine_learning_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.3/docs/data-sources/resource_instance) | data source |
+| [ibm_resource_instance.existing_orchestrate_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.3/docs/data-sources/resource_instance) | data source |
+| [ibm_resource_instance.existing_studio_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.3/docs/data-sources/resource_instance) | data source |
 
 ### Inputs
 

@@ -7,12 +7,18 @@ export PATH=$PATH:${1:-"/tmp"}
 # shellcheck disable=SC2154
 token="$(echo "$iam_token" | awk '{print $2}')"
 
-# decode the iam token
+# decode the iam token with proper padding handling
 jwt_decode(){
-    jq -R 'split(".") | .[1] | @base64d | fromjson' <<< "$1"
+    local payload
+    payload=$(echo "$1" | cut -d. -f2)
+    case $((${#payload} % 4)) in
+        2) payload="${payload}==" ;;
+        3) payload="${payload}=" ;;
+    esac
+    echo "$payload" | base64 --decode 2>/dev/null
 }
 
-token_decoded="$(jwt_decode "$token")"
+token_decoded="$(jwt_decode "$token" | jq .)"
 email="$(echo "$token_decoded" | jq -r .email)"
 iam_id="$(echo "$token_decoded" | jq -r .iam_id)"
 display_name="$(echo "$token_decoded" | jq -r .name)"
