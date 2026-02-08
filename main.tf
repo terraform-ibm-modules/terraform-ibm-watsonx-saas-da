@@ -366,15 +366,15 @@ resource "ibm_resource_instance" "orchestrate_instance" {
 ##############################################################################################################
 
 module "configure_user" {
+  source  = "terraform-ibm-modules/watsonx-ai/ibm//modules/configure_user"
+  version = "2.14.8"
+
   providers = {
-    ibm.deployer = ibm.deployer
+    ibm     = ibm.watsonx_admin
   }
-  source            = "terraform-ibm-modules/watsonx-ai/ibm//modules/configure-user"
-  version           = "2.14.8"
+
   resource_group_id = module.resource_group.resource_group_id
   region            = var.region
-  cos_instance_crn  = local.cos_instance_crn
-  cos_kms_key_crn   = var.cos_kms_key_crn
 }
 
 ##############################################################################################################
@@ -385,9 +385,9 @@ module "storage_delegation" {
   source  = "terraform-ibm-modules/watsonx-ai/ibm//modules/storage_delegation"
   version = "2.14.8"
   count   = var.enable_cos_kms_encryption ? 1 : 0
+
   providers = {
-    ibm.deployer                  = ibm.deployer
-    restapi.restapi_watsonx_admin = restapi.restapi_watsonx_admin
+    restapi = restapi.restapi_watsonx_admin
   }
 
   cos_instance_guid = local.cos_instance_guid
@@ -401,11 +401,13 @@ module "storage_delegation" {
 module "configure_project" {
   source  = "terraform-ibm-modules/watsonx-ai/ibm//modules/configure_project"
   version = "2.14.8"
+  count   = var.watsonx_project_name == null || var.watsonx_project_name == "" ? 0 : 1
+
   providers = {
-    restapi.restapi_watsonx_admin = restapi.restapi_watsonx_admin
+    restapi = restapi.restapi_watsonx_admin
   }
+
   depends_on = [module.storage_delegation]
-  count      = var.watsonx_project_name == null || var.watsonx_project_name == "" ? 0 : 1
   region     = var.region
 
   # watsonx Project
