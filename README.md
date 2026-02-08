@@ -114,13 +114,13 @@ statement instead the previous block.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_configure_project"></a> [configure\_project](#module\_configure\_project) | terraform-ibm-modules/watsonx-ai/ibm//modules/configure_project | 2.14.8 |
-| <a name="module_configure_user"></a> [configure\_user](#module\_configure\_user) | terraform-ibm-modules/watsonx-ai/ibm//modules/configure-user | 2.14.8 |
+| <a name="module_configure_project"></a> [configure\_project](#module\_configure\_project) | terraform-ibm-modules/watsonx-ai/ibm//modules/configure_project | 2.15.0 |
+| <a name="module_configure_user"></a> [configure\_user](#module\_configure\_user) | terraform-ibm-modules/watsonx-ai/ibm//modules/configure_user | 2.15.0 |
 | <a name="module_cos"></a> [cos](#module\_cos) | terraform-ibm-modules/cos/ibm//modules/fscloud | 10.9.9 |
 | <a name="module_cos_kms_key_crn_parser"></a> [cos\_kms\_key\_crn\_parser](#module\_cos\_kms\_key\_crn\_parser) | terraform-ibm-modules/common-utilities/ibm//modules/crn-parser | 1.4.1 |
 | <a name="module_existing_cos_crn_parser"></a> [existing\_cos\_crn\_parser](#module\_existing\_cos\_crn\_parser) | terraform-ibm-modules/common-utilities/ibm//modules/crn-parser | 1.4.1 |
 | <a name="module_resource_group"></a> [resource\_group](#module\_resource\_group) | terraform-ibm-modules/resource-group/ibm | 1.4.7 |
-| <a name="module_storage_delegation"></a> [storage\_delegation](#module\_storage\_delegation) | terraform-ibm-modules/watsonx-ai/ibm//modules/storage_delegation | 2.14.8 |
+| <a name="module_storage_delegation"></a> [storage\_delegation](#module\_storage\_delegation) | terraform-ibm-modules/watsonx-ai/ibm//modules/storage_delegation | 2.15.0 |
 
 ### Resources
 
@@ -203,6 +203,7 @@ statement instead the previous block.
 | <a name="output_watson_studio_guid"></a> [watson\_studio\_guid](#output\_watson\_studio\_guid) | The GUID of the Watson Studio instance. |
 | <a name="output_watson_studio_name"></a> [watson\_studio\_name](#output\_watson\_studio\_name) | The name of the Watson Studio instance. |
 | <a name="output_watson_studio_plan_id"></a> [watson\_studio\_plan\_id](#output\_watson\_studio\_plan\_id) | The plan ID of the Watson Studio instance. |
+| <a name="output_watsonx_ai_runtime_account_id"></a> [watsonx\_ai\_runtime\_account\_id](#output\_watsonx\_ai\_runtime\_account\_id) | The account ID of the watsonx.ai runtime instance. |
 | <a name="output_watsonx_assistant_crn"></a> [watsonx\_assistant\_crn](#output\_watsonx\_assistant\_crn) | The CRN of the watsonx Assistant instance. |
 | <a name="output_watsonx_assistant_dashboard_url"></a> [watsonx\_assistant\_dashboard\_url](#output\_watsonx\_assistant\_dashboard\_url) | The dashboard URL of the watsonx Assistant instance. |
 | <a name="output_watsonx_assistant_guid"></a> [watsonx\_assistant\_guid](#output\_watsonx\_assistant\_guid) | The GUID of the watsonx Assistant instance. |
@@ -226,7 +227,6 @@ statement instead the previous block.
 | <a name="output_watsonx_platform_endpoint"></a> [watsonx\_platform\_endpoint](#output\_watsonx\_platform\_endpoint) | The endpoint of the watsonx platform. |
 | <a name="output_watsonx_project_bucket_name"></a> [watsonx\_project\_bucket\_name](#output\_watsonx\_project\_bucket\_name) | The name of the COS bucket created by the watsonx project. |
 | <a name="output_watsonx_project_id"></a> [watsonx\_project\_id](#output\_watsonx\_project\_id) | The ID of the watsonx project that is created. |
-| <a name="output_watsonx_project_region"></a> [watsonx\_project\_region](#output\_watsonx\_project\_region) | The region in which the watsonx project is created. |
 | <a name="output_watsonx_project_url"></a> [watsonx\_project\_url](#output\_watsonx\_project\_url) | The URL of the watsonx project that's created. |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 

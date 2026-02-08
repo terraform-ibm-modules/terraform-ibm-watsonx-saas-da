@@ -15,8 +15,9 @@ provider "ibm" {
 
 provider "restapi" {
   alias                = "restapi_watsonx_admin"
-  uri                  = "https://dataplatform.cloud.ibm.com"
+  uri                  = "https:"
   write_returns_object = true
+  debug                = false
   headers = {
     Authorization = data.ibm_iam_auth_token.restapi.iam_access_token
     Content-Type  = "application/json"
