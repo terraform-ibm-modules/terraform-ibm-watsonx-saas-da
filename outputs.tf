@@ -32,7 +32,7 @@ output "watsonx_project_url" {
 
 output "watsonx_ai_runtime_account_id" {
   value       = var.watsonx_project_name == null || var.watsonx_project_name == "" ? null : module.configure_project[0].watsonx_ai_runtime_account_id
-  description = "The account ID of the watsonx.ai runtime instance."
+  description = "The account id of the watsonx.ai Runtime instance."
 }
 
 ##############################################################################################################
