@@ -22,7 +22,7 @@ output "watsonx_project_id" {
 
 output "watsonx_project_bucket_name" {
   value       = var.watsonx_project_name == null || var.watsonx_project_name == "" ? null : module.configure_project[0].watsonx_ai_project_bucket_name
-  description = "The name of the COS bucket created by the watsonx project."
+  description = "The name of the COS bucket created by the watsonx.ai project."
 }
 
 output "watsonx_project_url" {
