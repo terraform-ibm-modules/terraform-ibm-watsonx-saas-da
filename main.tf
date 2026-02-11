@@ -117,8 +117,7 @@ locals {
   cos_instance_guid = var.existing_cos_instance_crn == null ? module.cos[0].cos_instance_guid : module.existing_cos_crn_parser[0].service_instance
 
   # fetch KMS region from cos_kms_key_crn
-  kms_region           = var.enable_cos_kms_encryption && var.cos_kms_key_crn != null ? module.cos_kms_key_crn_parser[0].region : null
-  cos_kms_new_key_name = var.enable_cos_kms_encryption && var.cos_kms_key_crn == null ? "${local.prefix}${var.cos_kms_new_key_name}" : null
+  kms_region = var.enable_cos_kms_encryption && var.cos_kms_key_crn != null ? module.cos_kms_key_crn_parser[0].region : null
 }
 
 module "cos" {
@@ -368,9 +367,10 @@ resource "ibm_resource_instance" "orchestrate_instance" {
 
 module "configure_user" {
   providers = {
-    ibm.deployer = ibm.deployer
+    ibm = ibm.deployer
   }
-  source            = "./configure_user"
+  source            = "terraform-ibm-modules/watsonx-ai/ibm//modules/configure_user"
+  version           = "2.15.0"
   resource_group_id = module.resource_group.resource_group_id
   region            = var.region
 }
@@ -380,19 +380,15 @@ module "configure_user" {
 ##############################################################################################################
 
 module "storage_delegation" {
-  source = "./storage_delegation"
-  count  = var.enable_cos_kms_encryption ? 1 : 0
+  source  = "terraform-ibm-modules/watsonx-ai/ibm//modules/storage_delegation"
+  version = "2.15.0"
+  count   = var.enable_cos_kms_encryption ? 1 : 0
   providers = {
-    ibm.deployer                  = ibm.deployer
-    restapi.restapi_watsonx_admin = restapi.restapi_watsonx_admin
+    ibm     = ibm.deployer
+    restapi = restapi.restapi_watsonx_admin
   }
-  cos_guid = local.cos_instance_guid
-
-  # KMS fields
-  cos_kms_ring_id      = var.cos_kms_ring_id
-  cos_kms_crn          = var.cos_kms_crn
-  cos_kms_key_crn      = var.cos_kms_key_crn
-  cos_kms_new_key_name = local.cos_kms_new_key_name
+  cos_instance_guid = local.cos_instance_guid
+  cos_kms_key_crn   = var.cos_kms_key_crn
 }
 
 ##############################################################################################################
@@ -400,24 +396,25 @@ module "storage_delegation" {
 ##############################################################################################################
 
 module "configure_project" {
-  source = "./configure_project"
+  source  = "terraform-ibm-modules/watsonx-ai/ibm//modules/configure_project"
+  version = "2.15.0"
   providers = {
-    restapi.restapi_watsonx_admin = restapi.restapi_watsonx_admin
+    restapi = restapi.restapi_watsonx_admin
   }
   depends_on = [module.storage_delegation]
   count      = var.watsonx_project_name == null || var.watsonx_project_name == "" ? 0 : 1
   region     = var.region
 
   # watsonx Project
-  watsonx_project_name        = "${local.prefix}${var.watsonx_project_name}"
-  watsonx_project_description = var.watsonx_project_description
-  watsonx_project_tags        = var.watsonx_project_tags
-  watsonx_mark_as_sensitive   = var.watsonx_mark_as_sensitive
+  project_name        = "${local.prefix}${var.watsonx_project_name}"
+  project_description = var.watsonx_project_description
+  project_tags        = var.watsonx_project_tags
+  mark_as_sensitive   = var.watsonx_mark_as_sensitive
 
   # Machine Learning
-  machine_learning_guid = local.watson_machine_learning_guid
-  machine_learning_crn  = local.watson_machine_learning_crn
-  machine_learning_name = local.watson_machine_learning_name
+  watsonx_ai_runtime_guid = local.watson_machine_learning_guid
+  watsonx_ai_runtime_crn  = local.watson_machine_learning_crn
+  watsonx_ai_runtime_name = local.watson_machine_learning_name
 
   # COS / Storage delegation
   watsonx_project_delegated = local.is_storage_delegated

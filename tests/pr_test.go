@@ -173,45 +173,7 @@ func TestWithExistingKPKey(t *testing.T) {
 		"region":                    region,
 		"provider_visibility":       "public",
 		"enable_cos_kms_encryption": true,
-		"cos_kms_crn":               terraform.Output(t, existingTerraformOptions, "key_protect_crn"),
 		"cos_kms_key_crn":           terraform.Output(t, existingTerraformOptions, "kms_key_crn"),
-		"existing_cos_instance_crn": terraform.Output(t, existingTerraformOptions, "cos_crn"),
-		"prefix":                    prefix,
-	}
-
-	output, err := options.RunTestConsistency()
-	assert.Nil(t, err, "This should not have errored")
-	assert.NotNil(t, output, "Expected some output")
-
-	cleanupResources(t, existingTerraformOptions, prefix)
-}
-
-func TestWithExistingKP(t *testing.T) {
-	t.Parallel()
-
-	region := validRegions[common.CryptoIntn(len(validRegions))]
-	prefix := fmt.Sprintf("kp-wx-%s", strings.ToLower(random.UniqueId()))
-
-	// Provision Existing KMS instance
-	existingTerraformOptions := setupKMSKeyProtect(t, region, prefix)
-
-	// Deploy watsonx DA using existing KP details
-	options := testhelper.TestOptionsDefault(&testhelper.TestOptions{
-		Testing:      t,
-		TerraformDir: rootDaDir,
-		IgnoreDestroys: testhelper.Exemptions{
-			List: IgnoreDestroys,
-		},
-		IgnoreUpdates: testhelper.Exemptions{
-			List: IgnoreUpdates,
-		},
-	})
-
-	options.TerraformVars = map[string]interface{}{
-		"region":                    region,
-		"provider_visibility":       "public",
-		"enable_cos_kms_encryption": true,
-		"cos_kms_crn":               terraform.Output(t, existingTerraformOptions, "key_protect_crn"),
 		"existing_cos_instance_crn": terraform.Output(t, existingTerraformOptions, "cos_crn"),
 		"prefix":                    prefix,
 	}
@@ -249,7 +211,6 @@ func TestRunUpgradeExistingKPNewKey(t *testing.T) {
 		"prefix":                    prefix,
 		"provider_visibility":       "public",
 		"enable_cos_kms_encryption": true,
-		"cos_kms_crn":               terraform.Output(t, existingTerraformOptions, "key_protect_crn"),
 		"cos_kms_key_crn":           terraform.Output(t, existingTerraformOptions, "kms_key_crn"),
 		"existing_cos_instance_crn": terraform.Output(t, existingTerraformOptions, "cos_crn"),
 	}
