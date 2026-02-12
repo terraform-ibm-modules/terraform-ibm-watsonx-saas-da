@@ -8,9 +8,7 @@ locals {
 resource "terraform_data" "install_required_binaries" {
   count = var.install_required_binaries ? 1 : 0
   triggers_replace    = {
-    iam_token         = local.sensitive_tokendata
-    resource_group_id = var.resource_group_id
-    location          = var.region
+    always_run = timestamp()
     
   }
   provisioner "local-exec" {
