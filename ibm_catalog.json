@@ -486,6 +486,20 @@
               "key": "watsonx_project_description"
             },
             {
+              "key": "watsonx_ai_new_project_members",
+              "type": "array",
+              "custom_config": {
+                "type": "code_editor",
+                "grouping": "deployment",
+                "original_grouping": "deployment",
+                "config_constraints": {
+                  "supportedLanguages": [
+                    "hcl"
+                  ]
+                }
+              }
+            },
+            {
               "key": "watsonx_project_tags",
               "custom_config": {
                 "type": "array",
@@ -512,6 +526,16 @@
               ]
             },
             {
+              "key": "cos_kms_crn",
+              "value_constraints": [
+                {
+                  "type": "regex",
+                  "description": "The value provided for 'cos_kms_crn' is not valid.",
+                  "value": "^crn:v\\d:(.*:){2}kms:(.*:)([aos]\\/[\\w_\\-]+):[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}::$"
+                }
+              ]
+            },
+            {
               "key": "cos_kms_key_crn",
               "value_constraints": [
                 {
@@ -520,6 +544,15 @@
                   "value": "^__NULL__$|^crn:v\\d:(.*:){2}kms:(.*:)([aos]\\/[\\w_\\-]+):[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}:key:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
                 }
               ]
+            },
+            {
+              "key": "cos_kms_new_key_name"
+            },
+            {
+              "key": "cos_kms_ring_id"
+            },
+            {
+              "key": "skip_iam_authorization_policy"
             },
             {
               "key": "existing_cos_instance_crn",

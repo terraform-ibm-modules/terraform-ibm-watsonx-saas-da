@@ -126,6 +126,7 @@ statement instead the previous block.
 
 | Name | Type |
 |------|------|
+| [ibm_kms_key.cos_kms_key](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.3/docs/resources/kms_key) | resource |
 | [ibm_resource_instance.assistant_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.3/docs/resources/resource_instance) | resource |
 | [ibm_resource_instance.data_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.3/docs/resources/resource_instance) | resource |
 | [ibm_resource_instance.discovery_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.3/docs/resources/resource_instance) | resource |
@@ -134,6 +135,7 @@ statement instead the previous block.
 | [ibm_resource_instance.orchestrate_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.3/docs/resources/resource_instance) | resource |
 | [ibm_resource_instance.studio_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.3/docs/resources/resource_instance) | resource |
 | [ibm_iam_auth_token.restapi](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.3/docs/data-sources/iam_auth_token) | data source |
+| [ibm_kms_key.cos_kms_key](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.3/docs/data-sources/kms_key) | data source |
 | [ibm_resource_instance.existing_assistant_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.3/docs/data-sources/resource_instance) | data source |
 | [ibm_resource_instance.existing_data_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.3/docs/data-sources/resource_instance) | data source |
 | [ibm_resource_instance.existing_discovery_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.3/docs/data-sources/resource_instance) | data source |
@@ -141,14 +143,18 @@ statement instead the previous block.
 | [ibm_resource_instance.existing_machine_learning_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.3/docs/data-sources/resource_instance) | data source |
 | [ibm_resource_instance.existing_orchestrate_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.3/docs/data-sources/resource_instance) | data source |
 | [ibm_resource_instance.existing_studio_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.3/docs/data-sources/resource_instance) | data source |
+| [ibm_resource_instance.kms_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.87.3/docs/data-sources/resource_instance) | data source |
 
 ### Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_cos_kms_key_crn"></a> [cos\_kms\_key\_crn](#input\_cos\_kms\_key\_crn) | Key Protect key CRN used to encrypt the COS buckets used by the watsonx projects. | `string` | `null` | no |
+| <a name="input_cos_kms_crn"></a> [cos\_kms\_crn](#input\_cos\_kms\_crn) | Key Protect service instance CRN used to encrypt the COS buckets used by the watsonx projects. Required if `enable_cos_kms_encryption` is true. | `string` | `null` | no |
+| <a name="input_cos_kms_key_crn"></a> [cos\_kms\_key\_crn](#input\_cos\_kms\_key\_crn) | Key Protect key CRN used to encrypt the COS buckets used by the watsonx projects. If not set, then the cos\_kms\_new\_key\_name must be specified. | `string` | `null` | no |
+| <a name="input_cos_kms_new_key_name"></a> [cos\_kms\_new\_key\_name](#input\_cos\_kms\_new\_key\_name) | Name of the Key Protect key to create for encrypting the COS buckets used by the watsonx projects. If a prefix input variable is specified, the prefix is added to the name in the `<prefix>-<cos_kms_new_key_name>` format. | `string` | `"wx-saas-da-key"` | no |
+| <a name="input_cos_kms_ring_id"></a> [cos\_kms\_ring\_id](#input\_cos\_kms\_ring\_id) | The identifier of the Key Protect ring to create the cos\_kms\_new\_key\_name into. If it is not set, then the new key will be created in the default ring. | `string` | `null` | no |
 | <a name="input_cos_plan"></a> [cos\_plan](#input\_cos\_plan) | The plan that's used to provision the Cloud Object Storage instance. | `string` | `"standard"` | no |
-| <a name="input_enable_cos_kms_encryption"></a> [enable\_cos\_kms\_encryption](#input\_enable\_cos\_kms\_encryption) | Flag to enable COS KMS encryption. If set to true, a value must be passed for `cos_kms_key_crn`. | `bool` | `false` | no |
+| <a name="input_enable_cos_kms_encryption"></a> [enable\_cos\_kms\_encryption](#input\_enable\_cos\_kms\_encryption) | Flag to enable COS KMS encryption. If set to true, a value must be passed for `cos_kms_crn`. | `bool` | `false` | no |
 | <a name="input_existing_assistant_instance"></a> [existing\_assistant\_instance](#input\_existing\_assistant\_instance) | CRN of an existing watsonx Assistant instance. | `string` | `null` | no |
 | <a name="input_existing_cos_instance_crn"></a> [existing\_cos\_instance\_crn](#input\_existing\_cos\_instance\_crn) | The CRN of an existing Cloud Object Storage instance. If not specified, a new instance will be created. | `string` | `null` | no |
 | <a name="input_existing_data_instance"></a> [existing\_data\_instance](#input\_existing\_data\_instance) | CRN of an existing watsonx.data instance. | `string` | `null` | no |
@@ -162,12 +168,14 @@ statement instead the previous block.
 | <a name="input_prefix"></a> [prefix](#input\_prefix) | The prefix to add to all resources that are created (e.g `prod`, `test`, `dev`). To skip using a prefix, set this value to `null` or an empty string. [Learn more](https://terraform-ibm-modules.github.io/documentation/#/prefix.md). | `string` | n/a | yes |
 | <a name="input_provider_visibility"></a> [provider\_visibility](#input\_provider\_visibility) | Set the visibility value for the IBM terraform provider. [Learn more](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/guides/custom-service-endpoints). | `string` | `"private"` | no |
 | <a name="input_region"></a> [region](#input\_region) | The region to provision all resources in. [Learn more](https://terraform-ibm-modules.github.io/documentation/#/region) about how to select different regions for different services. | `string` | `"us-south"` | no |
+| <a name="input_skip_iam_authorization_policy"></a> [skip\_iam\_authorization\_policy](#input\_skip\_iam\_authorization\_policy) | Whether to create an IAM authorization policy that permits the Object Storage instance to read the encryption key from the KMS instance. An authorization policy must exist before an encrypted bucket can be created. Set to `true` to avoid creating the policy. | `bool` | `false` | no |
 | <a name="input_watson_discovery_plan"></a> [watson\_discovery\_plan](#input\_watson\_discovery\_plan) | The plan that is used to provision the Watson Discovery instance. | `string` | `"do not install"` | no |
 | <a name="input_watson_discovery_service_endpoints"></a> [watson\_discovery\_service\_endpoints](#input\_watson\_discovery\_service\_endpoints) | The type of service endpoints. Possible values are 'public', 'private', 'public-and-private'. | `string` | `"public"` | no |
 | <a name="input_watson_machine_learning_plan"></a> [watson\_machine\_learning\_plan](#input\_watson\_machine\_learning\_plan) | The plan that is used to provision the Watson Machine Learning instance. | `string` | `"v2-standard"` | no |
 | <a name="input_watson_machine_learning_service_endpoints"></a> [watson\_machine\_learning\_service\_endpoints](#input\_watson\_machine\_learning\_service\_endpoints) | The type of service endpoints. Possible values are 'public', 'private', 'public-and-private'. | `string` | `"public"` | no |
 | <a name="input_watson_studio_plan"></a> [watson\_studio\_plan](#input\_watson\_studio\_plan) | The plan that is used to provision the Watson Studio instance. The plan you choose for Watson Studio affects the features and capabilities that you can use. | `string` | `"professional-v1"` | no |
 | <a name="input_watsonx_admin_api_key"></a> [watsonx\_admin\_api\_key](#input\_watsonx\_admin\_api\_key) | The API key of the IBM watsonx administrator in the target account. The API key is used to configure the user and the project. | `string` | `null` | no |
+| <a name="input_watsonx_ai_new_project_members"></a> [watsonx\_ai\_new\_project\_members](#input\_watsonx\_ai\_new\_project\_members) | The list of new members the owner of the Watsonx.ai project would like to add to the project. | <pre>list(object({<br/>    email  = string<br/>    iam_id = string<br/>    role   = string<br/>    state  = optional(string, "ACTIVE")<br/>    type   = optional(string, "user")<br/>    })<br/>  )</pre> | `[]` | no |
 | <a name="input_watsonx_assistant_plan"></a> [watsonx\_assistant\_plan](#input\_watsonx\_assistant\_plan) | The plan that is used to provision the watsonx Assistant instance. | `string` | `"do not install"` | no |
 | <a name="input_watsonx_assistant_service_endpoints"></a> [watsonx\_assistant\_service\_endpoints](#input\_watsonx\_assistant\_service\_endpoints) | The type of service endpoints. Possible values are 'public', 'private', 'public-and-private'. | `string` | `"public"` | no |
 | <a name="input_watsonx_data_plan"></a> [watsonx\_data\_plan](#input\_watsonx\_data\_plan) | The plan that is used to provision the watsonx.data instance. | `string` | `"do not install"` | no |

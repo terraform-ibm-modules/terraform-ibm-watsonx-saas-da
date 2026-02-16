@@ -102,6 +102,19 @@ variable "watsonx_mark_as_sensitive" {
   default     = false
 }
 
+variable "watsonx_ai_new_project_members" {
+  description = "The list of new members the owner of the Watsonx.ai project would like to add to the project."
+  type = list(object({
+    email  = string
+    iam_id = string
+    role   = string
+    state  = optional(string, "ACTIVE")
+    type   = optional(string, "user")
+    })
+  )
+  default = []
+}
+
 ##############################################################################################################
 # watsonx Machine Learning
 ##############################################################################################################
@@ -319,20 +332,57 @@ variable "existing_cos_instance_crn" {
 ##############################################################################################################
 
 variable "enable_cos_kms_encryption" {
-  description = "Flag to enable COS KMS encryption. If set to true, a value must be passed for `cos_kms_key_crn`."
+  description = "Flag to enable COS KMS encryption. If set to true, a value must be passed for `cos_kms_crn`."
   type        = bool
   default     = false
 }
 
-variable "cos_kms_key_crn" {
-  description = "Key Protect key CRN used to encrypt the COS buckets used by the watsonx projects."
+variable "cos_kms_crn" {
+  description = "Key Protect service instance CRN used to encrypt the COS buckets used by the watsonx projects. Required if `enable_cos_kms_encryption` is true."
   type        = string
   default     = null
 
   validation {
-    condition     = !var.enable_cos_kms_encryption || try(length(var.cos_kms_key_crn), 0) > 0
-    error_message = "If 'enable_cos_kms_encryption' is true, 'cos_kms_key_crn' must be provided."
+    condition = anytrue([
+      can(regex("^crn:(.*:){3}kms:(.*:){2}[0-9a-fA-F]{8}(?:-[0-9a-fA-F]{4}){3}-[0-9a-fA-F]{12}::$", var.cos_kms_crn)),
+      var.cos_kms_crn == null,
+    ])
+    error_message = "Key Protect CRN validation failed."
   }
+
+  validation {
+    condition     = !var.enable_cos_kms_encryption || try(length(var.cos_kms_crn), 0) > 0
+    error_message = "If 'enable_cos_kms_encryption' is true, you must provide 'cos_kms_crn'."
+  }
+}
+
+variable "cos_kms_key_crn" {
+  description = "Key Protect key CRN used to encrypt the COS buckets used by the watsonx projects. If not set, then the cos_kms_new_key_name must be specified."
+  type        = string
+  default     = null
+
+  validation {
+    condition     = !var.enable_cos_kms_encryption || (try(length(var.cos_kms_crn), 0) > 0 && (try(length(var.cos_kms_key_crn), 0) > 0 || try(length(var.cos_kms_new_key_name), 0) > 0))
+    error_message = "If 'enable_cos_kms_encryption' is true, you must provide 'cos_kms_crn' and one of: 'cos_kms_key_crn' or 'cos_kms_new_key_name'."
+  }
+}
+
+variable "cos_kms_new_key_name" {
+  description = "Name of the Key Protect key to create for encrypting the COS buckets used by the watsonx projects. If a prefix input variable is specified, the prefix is added to the name in the `<prefix>-<cos_kms_new_key_name>` format."
+  type        = string
+  default     = "wx-saas-da-key"
+}
+
+variable "cos_kms_ring_id" {
+  description = "The identifier of the Key Protect ring to create the cos_kms_new_key_name into. If it is not set, then the new key will be created in the default ring."
+  type        = string
+  default     = null
+}
+
+variable "skip_iam_authorization_policy" {
+  type        = bool
+  description = "Whether to create an IAM authorization policy that permits the Object Storage instance to read the encryption key from the KMS instance. An authorization policy must exist before an encrypted bucket can be created. Set to `true` to avoid creating the policy."
+  default     = false
 }
 
 ##############################################################################################################
