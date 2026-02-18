@@ -22,15 +22,6 @@ module "resource_group" {
 locals {
   prefix       = var.prefix != null ? trimspace(var.prefix) != "" ? "${var.prefix}-" : "" : ""
   skip_install = "do not install"
-  dataplatform_ui_mapping = {
-    "us-south" = "https://dataplatform.cloud.ibm.com",
-    "eu-gb"    = "https://eu-gb.dataplatform.cloud.ibm.com",
-    "eu-de"    = "https://eu-de.dataplatform.cloud.ibm.com",
-    "jp-tok"   = "https://jp-tok.dataplatform.cloud.ibm.com",
-    "au-syd"   = "https://au-syd.dai.cloud.ibm.com",
-    "ca-tor"   = "https://ca-tor.dai.cloud.ibm.com"
-  }
-  dataplatform_ui = local.dataplatform_ui_mapping[var.region]
   watsonx_data_datacenter_mapping = {
     "us-south" = "ibm:us-south:dal",
     "eu-gb"    = "ibm:eu-gb:lon",

@@ -12,7 +12,7 @@ output "resource_group_id" {
 
 output "watsonx_platform_endpoint" {
   description = "The endpoint of the watsonx platform."
-  value       = "${local.dataplatform_ui}/wx/home?context=wx"
+  value       = var.watsonx_project_name == null || var.watsonx_project_name == "" ? null : "${split("/projects/", module.configure_project[0].watsonx_ai_project_url)[0]}/wx/home?context=wx"
 }
 
 output "watsonx_project_id" {
