@@ -35,13 +35,13 @@ module "kms_root_key" {
 ##############################################################################################################
 
 module "cos_module" {
-  source                     = "terraform-ibm-modules/cos/ibm"
-  version                    = "10.14.1"
-  resource_group_id          = module.resource_group.resource_group_id
-  region                     = var.region
-  cos_instance_name          = "${var.prefix}-cos"
-  existing_kms_instance_guid = module.key_protect_module.key_protect_guid
-  create_cos_bucket          = false
+  source            = "terraform-ibm-modules/cos/ibm"
+  version           = "10.14.1"
+  resource_group_id = module.resource_group.resource_group_id
+  region            = var.region
+  cos_instance_name = "${var.prefix}-cos"
+  kms_key_crn       = module.key_protect_module.key_protect_crn
+  create_cos_bucket = false
 }
 
 ##############################################################################################################
