@@ -36,6 +36,7 @@ const yamlLocation = "../common-dev-assets/common-go-assets/common-permanent-res
 
 var permanentResources map[string]interface{}
 
+// required for Rest API provider 2.x. Alternatively, need to add `ignore_all_server_changes=true` in restapi_object resources.
 var IgnoreUpdates = []string{
 	"module.storage_delegation[0].restapi_object.storage_delegation",
 	"module.configure_project[0].restapi_object.configure_project", //temp ignore for PR312 (remove after merged)
