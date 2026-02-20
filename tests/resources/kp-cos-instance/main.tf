@@ -40,7 +40,6 @@ module "cos_module" {
   resource_group_id = module.resource_group.resource_group_id
   region            = var.region
   cos_instance_name = "${var.prefix}-cos"
-  kms_key_crn       = module.key_protect_module.key_protect_crn
   create_cos_bucket = false
 }
 
