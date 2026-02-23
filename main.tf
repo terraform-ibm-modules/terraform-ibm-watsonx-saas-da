@@ -96,6 +96,13 @@ module "cos_kms_key_crn_parser" {
   crn     = var.cos_kms_key_crn
 }
 
+module "cos_kms_crn_parser" {
+  count   = var.enable_cos_kms_encryption && var.cos_kms_key_crn == null ? 1 : 0
+  source  = "terraform-ibm-modules/common-utilities/ibm//modules/crn-parser"
+  version = "1.4.1"
+  crn     = var.cos_kms_crn
+}
+
 ##############################################################################################################
 # Cloud Object Storage
 ##############################################################################################################
@@ -115,16 +122,16 @@ locals {
 data "ibm_resource_instance" "kms_instance" {
   provider   = ibm.deployer
   count      = var.enable_cos_kms_encryption ? 1 : 0
-  identifier = var.cos_kms_key_crn != null ? module.cos_kms_key_crn_parser[0].service_instance : var.cos_kms_crn
+  identifier = var.cos_kms_key_crn != null ? module.cos_kms_key_crn_parser[0].service_instance : module.cos_kms_crn_parser[0].service_instance
 }
 
 resource "ibm_kms_key" "cos_kms_key" {
   provider      = ibm.deployer
   count         = var.enable_cos_kms_encryption && var.cos_kms_key_crn == null ? 1 : 0
-  instance_id   = var.cos_kms_crn
+  instance_id   = module.cos_kms_crn_parser[0].service_instance
   key_name      = local.cos_kms_new_key_name
   standard_key  = false
-  force_delete  = true
+  force_delete  = true # force_delete is enabled to avoids destroy dependency failures; key must be removed even if still referenced by COS resources
   endpoint_type = try(jsondecode(data.ibm_resource_instance.kms_instance[0].parameters_json).allowed_network, "{}") == "private-only" ? "private" : "public"
   key_ring_id   = var.cos_kms_ring_id == null ? "default" : var.cos_kms_ring_id
 }
@@ -137,9 +144,8 @@ moved {
 data "ibm_kms_key" "cos_kms_key" {
   provider      = ibm.deployer
   count         = var.enable_cos_kms_encryption ? 1 : 0
-  depends_on    = [resource.ibm_kms_key.cos_kms_key]
   endpoint_type = try(jsondecode(data.ibm_resource_instance.kms_instance[0].parameters_json).allowed_network, "{}") == "private-only" ? "private" : "public"
-  instance_id   = var.cos_kms_key_crn != null ? module.cos_kms_key_crn_parser[0].service_instance : var.cos_kms_crn
+  instance_id   = var.cos_kms_key_crn != null ? module.cos_kms_key_crn_parser[0].service_instance : module.cos_kms_crn_parser[0].service_instance
   key_id        = var.cos_kms_key_crn != null ? module.cos_kms_key_crn_parser[0].resource : resource.ibm_kms_key.cos_kms_key[0].key_id
 }
 
