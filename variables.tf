@@ -103,7 +103,7 @@ variable "watsonx_mark_as_sensitive" {
 }
 
 variable "watsonx_ai_new_project_members" {
-  description = "The list of new members the owner of the Watsonx.ai project would like to add to the project."
+  description = "List of new members that can be added to the watsonx.ai project."
   type = list(object({
     email  = string
     iam_id = string
