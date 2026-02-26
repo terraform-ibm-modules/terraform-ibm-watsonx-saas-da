@@ -11,7 +11,7 @@ module "resource_group" {
     ibm = ibm.deployer
   }
   source                       = "terraform-ibm-modules/resource-group/ibm"
-  version                      = "1.4.7"
+  version                      = "1.4.8"
   existing_resource_group_name = var.existing_resource_group_name
 }
 
@@ -85,14 +85,14 @@ locals {
 module "existing_cos_crn_parser" {
   count   = var.existing_cos_instance_crn != null ? 1 : 0
   source  = "terraform-ibm-modules/common-utilities/ibm//modules/crn-parser"
-  version = "1.4.1"
+  version = "1.4.2"
   crn     = var.existing_cos_instance_crn
 }
 
 module "cos_kms_key_crn_parser" {
   count   = var.enable_cos_kms_encryption && var.cos_kms_key_crn != null ? 1 : 0
   source  = "terraform-ibm-modules/common-utilities/ibm//modules/crn-parser"
-  version = "1.4.1"
+  version = "1.4.2"
   crn     = var.cos_kms_key_crn
 }
 
@@ -120,13 +120,15 @@ locals {
 }
 
 data "ibm_resource_instance" "kms_instance" {
-  provider   = ibm.deployer
-  count      = var.enable_cos_kms_encryption ? 1 : 0
+  provider = ibm.deployer
+  count    = var.enable_cos_kms_encryption ? 1 : 0
+  # Resolve the KMS instance from whichever input path is active.
   identifier = var.cos_kms_key_crn != null ? module.cos_kms_key_crn_parser[0].service_instance : module.cos_kms_crn_parser[0].service_instance
 }
 
 resource "ibm_kms_key" "cos_kms_key" {
-  provider      = ibm.deployer
+  provider = ibm.deployer
+  # Create a key only when encryption is enabled and no key CRN was provided.
   count         = var.enable_cos_kms_encryption && var.cos_kms_key_crn == null ? 1 : 0
   instance_id   = module.cos_kms_crn_parser[0].service_instance
   key_name      = local.cos_kms_new_key_name
@@ -137,6 +139,7 @@ resource "ibm_kms_key" "cos_kms_key" {
 }
 
 moved {
+  # Preserve state when upgrading from module-managed key to root-managed key.
   from = module.storage_delegation[0].ibm_kms_key.kms_key[0]
   to   = ibm_kms_key.cos_kms_key[0]
 }
@@ -145,12 +148,15 @@ data "ibm_kms_key" "cos_kms_key" {
   provider      = ibm.deployer
   count         = var.enable_cos_kms_encryption ? 1 : 0
   endpoint_type = try(jsondecode(data.ibm_resource_instance.kms_instance[0].parameters_json).allowed_network, "{}") == "private-only" ? "private" : "public"
-  instance_id   = var.cos_kms_key_crn != null ? module.cos_kms_key_crn_parser[0].service_instance : module.cos_kms_crn_parser[0].service_instance
-  key_id        = var.cos_kms_key_crn != null ? module.cos_kms_key_crn_parser[0].resource : resource.ibm_kms_key.cos_kms_key[0].key_id
+  # Resolve the key identity for both modes:
+  # - If cos_kms_key_crn is provided, use parser outputs from that CRN.
+  # - If cos_kms_key_crn is null, use the key created by ibm_kms_key.cos_kms_key.
+  instance_id = var.cos_kms_key_crn != null ? module.cos_kms_key_crn_parser[0].service_instance : module.cos_kms_crn_parser[0].service_instance
+  key_id      = var.cos_kms_key_crn != null ? module.cos_kms_key_crn_parser[0].resource : resource.ibm_kms_key.cos_kms_key[0].key_id
 }
 
 locals {
-  effective_cos_kms_key_crn = var.enable_cos_kms_encryption ? data.ibm_kms_key.cos_kms_key[0].keys[0].crn : null
+  kms_key_crn = var.enable_cos_kms_encryption ? data.ibm_kms_key.cos_kms_key[0].keys[0].crn : null
 }
 
 module "cos" {
@@ -159,7 +165,7 @@ module "cos" {
   }
   count             = var.existing_cos_instance_crn == null ? 1 : 0
   source            = "terraform-ibm-modules/cos/ibm//modules/fscloud"
-  version           = "10.9.9"
+  version           = "10.14.2"
   resource_group_id = module.resource_group.resource_group_id
   cos_instance_name = "${local.prefix}cos-instance"
   cos_plan          = var.cos_plan
@@ -421,7 +427,7 @@ module "storage_delegation" {
     restapi = restapi.restapi_watsonx_admin
   }
   cos_instance_guid             = local.cos_instance_guid
-  cos_kms_key_crn               = local.effective_cos_kms_key_crn
+  cos_kms_key_crn               = local.kms_key_crn
   skip_iam_authorization_policy = var.skip_iam_authorization_policy
 }
 
