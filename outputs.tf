@@ -12,27 +12,27 @@ output "resource_group_id" {
 
 output "watsonx_platform_endpoint" {
   description = "The endpoint of the watsonx platform."
-  value       = "${local.dataplatform_ui}/wx/home?context=wx"
+  value       = var.watsonx_project_name == null || var.watsonx_project_name == "" ? null : "${split("/projects/", module.configure_project[0].watsonx_ai_project_url)[0]}/wx/home?context=wx"
 }
 
 output "watsonx_project_id" {
-  value       = var.watsonx_project_name == null || var.watsonx_project_name == "" ? null : module.configure_project[0].watsonx_project_id
+  value       = var.watsonx_project_name == null || var.watsonx_project_name == "" ? null : module.configure_project[0].watsonx_ai_project_id
   description = "The ID of the watsonx project that is created."
 }
 
-output "watsonx_project_region" {
-  value       = var.watsonx_project_name == null || var.watsonx_project_name == "" ? null : module.configure_project[0].watsonx_project_location
-  description = "The region in which the watsonx project is created."
-}
-
 output "watsonx_project_bucket_name" {
-  value       = var.watsonx_project_name == null || var.watsonx_project_name == "" ? null : module.configure_project[0].watsonx_project_bucket_name
-  description = "The name of the COS bucket created by the watsonx project."
+  value       = var.watsonx_project_name == null || var.watsonx_project_name == "" ? null : module.configure_project[0].watsonx_ai_project_bucket_name
+  description = "The name of the COS bucket created by the watsonx.ai project."
 }
 
 output "watsonx_project_url" {
-  value       = var.watsonx_project_name == null || var.watsonx_project_name == "" ? null : module.configure_project[0].watsonx_project_url
-  description = "The URL of the watsonx project that's created."
+  value       = var.watsonx_project_name == null || var.watsonx_project_name == "" ? null : module.configure_project[0].watsonx_ai_project_url
+  description = "The URL of the watsonx.ai project that is created."
+}
+
+output "watsonx_ai_runtime_account_id" {
+  value       = var.watsonx_project_name == null || var.watsonx_project_name == "" ? null : module.configure_project[0].watsonx_ai_runtime_account_id
+  description = "The account id of the watsonx.ai Runtime instance."
 }
 
 ##############################################################################################################
@@ -254,6 +254,6 @@ output "next_step_primary_label" {
 }
 
 output "next_step_primary_url" {
-  value       = module.configure_project[0].watsonx_project_url
+  value       = module.configure_project[0].watsonx_ai_project_url
   description = "Primary URL"
 }

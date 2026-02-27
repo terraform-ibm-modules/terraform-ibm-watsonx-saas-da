@@ -114,18 +114,20 @@ statement instead the previous block.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_configure_project"></a> [configure\_project](#module\_configure\_project) | ./configure_project | n/a |
-| <a name="module_configure_user"></a> [configure\_user](#module\_configure\_user) | ./configure_user | n/a |
+| <a name="module_configure_project"></a> [configure\_project](#module\_configure\_project) | terraform-ibm-modules/watsonx-ai/ibm//modules/configure_project | 2.15.0 |
+| <a name="module_configure_user"></a> [configure\_user](#module\_configure\_user) | terraform-ibm-modules/watsonx-ai/ibm//modules/configure_user | 2.15.0 |
 | <a name="module_cos"></a> [cos](#module\_cos) | terraform-ibm-modules/cos/ibm//modules/fscloud | 10.14.2 |
+| <a name="module_cos_kms_crn_parser"></a> [cos\_kms\_crn\_parser](#module\_cos\_kms\_crn\_parser) | terraform-ibm-modules/common-utilities/ibm//modules/crn-parser | 1.4.2 |
 | <a name="module_cos_kms_key_crn_parser"></a> [cos\_kms\_key\_crn\_parser](#module\_cos\_kms\_key\_crn\_parser) | terraform-ibm-modules/common-utilities/ibm//modules/crn-parser | 1.4.2 |
 | <a name="module_existing_cos_crn_parser"></a> [existing\_cos\_crn\_parser](#module\_existing\_cos\_crn\_parser) | terraform-ibm-modules/common-utilities/ibm//modules/crn-parser | 1.4.2 |
 | <a name="module_resource_group"></a> [resource\_group](#module\_resource\_group) | terraform-ibm-modules/resource-group/ibm | 1.4.8 |
-| <a name="module_storage_delegation"></a> [storage\_delegation](#module\_storage\_delegation) | ./storage_delegation | n/a |
+| <a name="module_storage_delegation"></a> [storage\_delegation](#module\_storage\_delegation) | terraform-ibm-modules/watsonx-ai/ibm//modules/storage_delegation | 2.15.0 |
 
 ### Resources
 
 | Name | Type |
 |------|------|
+| [ibm_kms_key.cos_kms_key](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.88.2/docs/resources/kms_key) | resource |
 | [ibm_resource_instance.assistant_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.88.2/docs/resources/resource_instance) | resource |
 | [ibm_resource_instance.data_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.88.2/docs/resources/resource_instance) | resource |
 | [ibm_resource_instance.discovery_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.88.2/docs/resources/resource_instance) | resource |
@@ -134,6 +136,7 @@ statement instead the previous block.
 | [ibm_resource_instance.orchestrate_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.88.2/docs/resources/resource_instance) | resource |
 | [ibm_resource_instance.studio_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.88.2/docs/resources/resource_instance) | resource |
 | [ibm_iam_auth_token.restapi](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.88.2/docs/data-sources/iam_auth_token) | data source |
+| [ibm_kms_key.cos_kms_key](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.88.2/docs/data-sources/kms_key) | data source |
 | [ibm_resource_instance.existing_assistant_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.88.2/docs/data-sources/resource_instance) | data source |
 | [ibm_resource_instance.existing_data_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.88.2/docs/data-sources/resource_instance) | data source |
 | [ibm_resource_instance.existing_discovery_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.88.2/docs/data-sources/resource_instance) | data source |
@@ -141,6 +144,7 @@ statement instead the previous block.
 | [ibm_resource_instance.existing_machine_learning_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.88.2/docs/data-sources/resource_instance) | data source |
 | [ibm_resource_instance.existing_orchestrate_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.88.2/docs/data-sources/resource_instance) | data source |
 | [ibm_resource_instance.existing_studio_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.88.2/docs/data-sources/resource_instance) | data source |
+| [ibm_resource_instance.kms_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.88.2/docs/data-sources/resource_instance) | data source |
 
 ### Inputs
 
@@ -165,12 +169,14 @@ statement instead the previous block.
 | <a name="input_prefix"></a> [prefix](#input\_prefix) | The prefix to add to all resources that are created (e.g `prod`, `test`, `dev`). To skip using a prefix, set this value to `null` or an empty string. [Learn more](https://terraform-ibm-modules.github.io/documentation/#/prefix.md). | `string` | n/a | yes |
 | <a name="input_provider_visibility"></a> [provider\_visibility](#input\_provider\_visibility) | Set the visibility value for the IBM terraform provider. [Learn more](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/guides/custom-service-endpoints). | `string` | `"private"` | no |
 | <a name="input_region"></a> [region](#input\_region) | The region to provision all resources in. [Learn more](https://terraform-ibm-modules.github.io/documentation/#/region) about how to select different regions for different services. | `string` | `"us-south"` | no |
+| <a name="input_skip_iam_authorization_policy"></a> [skip\_iam\_authorization\_policy](#input\_skip\_iam\_authorization\_policy) | Whether to create an IAM authorization policy that permits the Object Storage instance to read the encryption key from the KMS instance. An authorization policy must exist before an encrypted bucket can be created. Set to `true` to avoid creating the policy. | `bool` | `false` | no |
 | <a name="input_watson_discovery_plan"></a> [watson\_discovery\_plan](#input\_watson\_discovery\_plan) | The plan that is used to provision the Watson Discovery instance. | `string` | `"do not install"` | no |
 | <a name="input_watson_discovery_service_endpoints"></a> [watson\_discovery\_service\_endpoints](#input\_watson\_discovery\_service\_endpoints) | The type of service endpoints. Possible values are 'public', 'private', 'public-and-private'. | `string` | `"public"` | no |
 | <a name="input_watson_machine_learning_plan"></a> [watson\_machine\_learning\_plan](#input\_watson\_machine\_learning\_plan) | The plan that is used to provision the Watson Machine Learning instance. | `string` | `"v2-standard"` | no |
 | <a name="input_watson_machine_learning_service_endpoints"></a> [watson\_machine\_learning\_service\_endpoints](#input\_watson\_machine\_learning\_service\_endpoints) | The type of service endpoints. Possible values are 'public', 'private', 'public-and-private'. | `string` | `"public"` | no |
 | <a name="input_watson_studio_plan"></a> [watson\_studio\_plan](#input\_watson\_studio\_plan) | The plan that is used to provision the Watson Studio instance. The plan you choose for Watson Studio affects the features and capabilities that you can use. | `string` | `"professional-v1"` | no |
 | <a name="input_watsonx_admin_api_key"></a> [watsonx\_admin\_api\_key](#input\_watsonx\_admin\_api\_key) | The API key of the IBM watsonx administrator in the target account. The API key is used to configure the user and the project. | `string` | `null` | no |
+| <a name="input_watsonx_ai_new_project_members"></a> [watsonx\_ai\_new\_project\_members](#input\_watsonx\_ai\_new\_project\_members) | List of new members that can be added to the watsonx.ai project. | <pre>list(object({<br/>    email  = string<br/>    iam_id = string<br/>    role   = string<br/>    state  = optional(string, "ACTIVE")<br/>    type   = optional(string, "user")<br/>    })<br/>  )</pre> | `[]` | no |
 | <a name="input_watsonx_assistant_plan"></a> [watsonx\_assistant\_plan](#input\_watsonx\_assistant\_plan) | The plan that is used to provision the watsonx Assistant instance. | `string` | `"do not install"` | no |
 | <a name="input_watsonx_assistant_service_endpoints"></a> [watsonx\_assistant\_service\_endpoints](#input\_watsonx\_assistant\_service\_endpoints) | The type of service endpoints. Possible values are 'public', 'private', 'public-and-private'. | `string` | `"public"` | no |
 | <a name="input_watsonx_data_plan"></a> [watsonx\_data\_plan](#input\_watsonx\_data\_plan) | The plan that is used to provision the watsonx.data instance. | `string` | `"do not install"` | no |
@@ -204,6 +210,7 @@ statement instead the previous block.
 | <a name="output_watson_studio_guid"></a> [watson\_studio\_guid](#output\_watson\_studio\_guid) | The GUID of the Watson Studio instance. |
 | <a name="output_watson_studio_name"></a> [watson\_studio\_name](#output\_watson\_studio\_name) | The name of the Watson Studio instance. |
 | <a name="output_watson_studio_plan_id"></a> [watson\_studio\_plan\_id](#output\_watson\_studio\_plan\_id) | The plan ID of the Watson Studio instance. |
+| <a name="output_watsonx_ai_runtime_account_id"></a> [watsonx\_ai\_runtime\_account\_id](#output\_watsonx\_ai\_runtime\_account\_id) | The account id of the watsonx.ai Runtime instance. |
 | <a name="output_watsonx_assistant_crn"></a> [watsonx\_assistant\_crn](#output\_watsonx\_assistant\_crn) | The CRN of the watsonx Assistant instance. |
 | <a name="output_watsonx_assistant_dashboard_url"></a> [watsonx\_assistant\_dashboard\_url](#output\_watsonx\_assistant\_dashboard\_url) | The dashboard URL of the watsonx Assistant instance. |
 | <a name="output_watsonx_assistant_guid"></a> [watsonx\_assistant\_guid](#output\_watsonx\_assistant\_guid) | The GUID of the watsonx Assistant instance. |
@@ -225,10 +232,9 @@ statement instead the previous block.
 | <a name="output_watsonx_orchestrate_name"></a> [watsonx\_orchestrate\_name](#output\_watsonx\_orchestrate\_name) | The name of the watsonx Orchestrate instance. |
 | <a name="output_watsonx_orchestrate_plan_id"></a> [watsonx\_orchestrate\_plan\_id](#output\_watsonx\_orchestrate\_plan\_id) | The plan ID of the watsonx Orchestrate instance. |
 | <a name="output_watsonx_platform_endpoint"></a> [watsonx\_platform\_endpoint](#output\_watsonx\_platform\_endpoint) | The endpoint of the watsonx platform. |
-| <a name="output_watsonx_project_bucket_name"></a> [watsonx\_project\_bucket\_name](#output\_watsonx\_project\_bucket\_name) | The name of the COS bucket created by the watsonx project. |
+| <a name="output_watsonx_project_bucket_name"></a> [watsonx\_project\_bucket\_name](#output\_watsonx\_project\_bucket\_name) | The name of the COS bucket created by the watsonx.ai project. |
 | <a name="output_watsonx_project_id"></a> [watsonx\_project\_id](#output\_watsonx\_project\_id) | The ID of the watsonx project that is created. |
-| <a name="output_watsonx_project_region"></a> [watsonx\_project\_region](#output\_watsonx\_project\_region) | The region in which the watsonx project is created. |
-| <a name="output_watsonx_project_url"></a> [watsonx\_project\_url](#output\_watsonx\_project\_url) | The URL of the watsonx project that's created. |
+| <a name="output_watsonx_project_url"></a> [watsonx\_project\_url](#output\_watsonx\_project\_url) | The URL of the watsonx.ai project that is created. |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 <!-- Leave this section as is so that your module has a link to local development environment set up steps for contributors to follow -->
