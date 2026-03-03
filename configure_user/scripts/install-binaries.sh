@@ -9,7 +9,7 @@ set -o pipefail
 DIRECTORY=${1:-"/tmp"}
 export PATH=$PATH:$DIRECTORY
 # renovate: datasource=github-tags depName=terraform-ibm-modules/common-bash-library
-TAG=v0.2.0
+TAG=v0.4.0
 # Running multiple Terraform executions on the same environment that share a /tmp directory can lead to conflicts during script execution.
 TMP_DIR=$(mktemp -d "${DIRECTORY}/common-bash-XXXXX")
 
