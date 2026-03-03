@@ -2,14 +2,14 @@ data "ibm_iam_auth_token" "tokendata" {}
 
 locals {
   sensitive_tokendata = sensitive(data.ibm_iam_auth_token.tokendata.iam_access_token)
-  binaries_path = "/tmp"
+  binaries_path       = "/tmp"
 }
 
 resource "terraform_data" "install_required_binaries" {
   count = var.install_required_binaries ? 1 : 0
-  triggers_replace    = {
+  triggers_replace = {
     always_run = timestamp()
-    
+
   }
   provisioner "local-exec" {
     command     = "${path.module}/scripts/install-binaries.sh ${local.binaries_path}"
@@ -18,7 +18,7 @@ resource "terraform_data" "install_required_binaries" {
 }
 
 resource "terraform_data" "configure_user" {
-  depends_on = [data.ibm_iam_auth_token.tokendata,terraform_data.install_required_binaries]
+  depends_on = [data.ibm_iam_auth_token.tokendata, terraform_data.install_required_binaries]
   triggers_replace = {
     always_run = timestamp()
   }
@@ -35,7 +35,7 @@ resource "terraform_data" "configure_user" {
 }
 
 resource "terraform_data" "restrict_access" {
-  depends_on = [data.ibm_iam_auth_token.tokendata,terraform_data.install_required_binaries]
+  depends_on = [data.ibm_iam_auth_token.tokendata, terraform_data.install_required_binaries]
   triggers_replace = {
     always_run = timestamp()
   }
