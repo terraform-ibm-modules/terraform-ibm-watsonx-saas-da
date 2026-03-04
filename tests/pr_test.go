@@ -44,6 +44,7 @@ var IgnoreUpdates = []string{
 
 // Both below resources will always bs re-created due to the always_run trigger
 var IgnoreDestroys = []string{
+	"module.configure_user.terraform_data.install_required_binaries[0]",
 	"module.configure_user.null_resource.configure_user",
 	"module.configure_user.null_resource.restrict_access",
 }
