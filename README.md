@@ -20,8 +20,10 @@ In addition, this deployable architecture configures a starter project for an IB
 <!-- Below content is automatically populated via pre-commit hook -->
 <!-- BEGIN OVERVIEW HOOK -->
 ## Overview
-* [terraform-ibm-watsonx-saas-da](#terraform-ibm-watsonx-saas-da)
-* [Contributing](#contributing)
+<ul>
+  <li><a href="#terraform-ibm-watsonx-saas-da">terraform-ibm-watsonx-saas-da</a></li>
+  <li><a href="#contributing">Contributing</a></li>
+</ul>
 <!-- END OVERVIEW HOOK -->
 
 
