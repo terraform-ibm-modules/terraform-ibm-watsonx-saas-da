@@ -486,6 +486,20 @@
               "key": "watsonx_project_description"
             },
             {
+              "key": "watsonx_ai_new_project_members",
+              "type": "array",
+              "custom_config": {
+                "type": "code_editor",
+                "grouping": "deployment",
+                "original_grouping": "deployment",
+                "config_constraints": {
+                  "supportedLanguages": [
+                    "hcl"
+                  ]
+                }
+              }
+            },
+            {
               "key": "watsonx_project_tags",
               "custom_config": {
                 "type": "array",
@@ -536,6 +550,9 @@
             },
             {
               "key": "cos_kms_ring_id"
+            },
+            {
+              "key": "skip_iam_authorization_policy"
             },
             {
               "key": "existing_cos_instance_crn",
