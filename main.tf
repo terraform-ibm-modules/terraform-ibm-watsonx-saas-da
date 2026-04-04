@@ -85,21 +85,21 @@ locals {
 module "existing_cos_crn_parser" {
   count   = var.existing_cos_instance_crn != null ? 1 : 0
   source  = "terraform-ibm-modules/common-utilities/ibm//modules/crn-parser"
-  version = "1.4.2"
+  version = "1.4.3"
   crn     = var.existing_cos_instance_crn
 }
 
 module "cos_kms_key_crn_parser" {
   count   = var.enable_cos_kms_encryption && var.cos_kms_key_crn != null ? 1 : 0
   source  = "terraform-ibm-modules/common-utilities/ibm//modules/crn-parser"
-  version = "1.4.2"
+  version = "1.4.3"
   crn     = var.cos_kms_key_crn
 }
 
 module "cos_kms_crn_parser" {
   count   = var.enable_cos_kms_encryption && var.cos_kms_key_crn == null ? 1 : 0
   source  = "terraform-ibm-modules/common-utilities/ibm//modules/crn-parser"
-  version = "1.4.2"
+  version = "1.4.3"
   crn     = var.cos_kms_crn
 }
 
@@ -165,7 +165,7 @@ module "cos" {
   }
   count             = var.existing_cos_instance_crn == null ? 1 : 0
   source            = "terraform-ibm-modules/cos/ibm//modules/fscloud"
-  version           = "10.14.9"
+  version           = "10.14.10"
   resource_group_id = module.resource_group.resource_group_id
   cos_instance_name = "${local.prefix}cos-instance"
   cos_plan          = var.cos_plan
@@ -409,7 +409,7 @@ module "configure_user" {
     ibm = ibm.deployer
   }
   source            = "terraform-ibm-modules/watsonx-ai/ibm//modules/configure_user"
-  version           = "2.16.2"
+  version           = "2.16.4"
   resource_group_id = module.resource_group.resource_group_id
   region            = var.region
 }
@@ -420,7 +420,7 @@ module "configure_user" {
 
 module "storage_delegation" {
   source  = "terraform-ibm-modules/watsonx-ai/ibm//modules/storage_delegation"
-  version = "2.16.2"
+  version = "2.16.4"
   count   = var.enable_cos_kms_encryption ? 1 : 0
   providers = {
     ibm     = ibm.deployer
@@ -437,7 +437,7 @@ module "storage_delegation" {
 
 module "configure_project" {
   source  = "terraform-ibm-modules/watsonx-ai/ibm//modules/configure_project"
-  version = "2.16.2"
+  version = "2.16.4"
   providers = {
     restapi = restapi.restapi_watsonx_admin
   }
