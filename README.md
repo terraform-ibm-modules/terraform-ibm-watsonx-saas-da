@@ -110,7 +110,7 @@ statement instead the previous block.
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.9.0 |
 | <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | 2.0.0 |
-| <a name="requirement_restapi"></a> [restapi](#requirement\_restapi) | 3.0.0 |
+| <a name="requirement_restapi"></a> [restapi](#requirement\_restapi) | 2.0.1 |
 
 ### Modules
 
