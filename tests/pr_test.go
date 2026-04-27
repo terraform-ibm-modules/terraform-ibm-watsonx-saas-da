@@ -43,11 +43,7 @@ var IgnoreUpdates = []string{
 }
 
 // Both below resources will always be re-created due to the always_run trigger
-var IgnoreDestroys = []string{
-	"module.configure_user.terraform_data.install_required_binaries[0]",
-	"module.configure_user.terraform_data.configure_user",
-	"module.configure_user.terraform_data.restrict_access",
-}
+var IgnoreDestroys = []string{}
 
 // TestMain will be run before any parallel tests, used to read data from yaml for use with tests
 func TestMain(m *testing.M) {
