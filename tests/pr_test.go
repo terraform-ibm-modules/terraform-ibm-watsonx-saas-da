@@ -42,13 +42,6 @@ var IgnoreUpdates = []string{
 	"module.configure_project[0].restapi_object.configure_project",
 }
 
-// Both below resources will always be re-created due to the always_run trigger
-var IgnoreDestroys = []string{
-	"module.configure_user.terraform_data.install_required_binaries[0]",
-	"module.configure_user.terraform_data.configure_user",
-	"module.configure_user.terraform_data.restrict_access",
-}
-
 // TestMain will be run before any parallel tests, used to read data from yaml for use with tests
 func TestMain(m *testing.M) {
 
@@ -67,9 +60,6 @@ func setupOptionsRootDA(t *testing.T, prefix string, dir string) *testhelper.Tes
 		Testing:      t,
 		TerraformDir: dir,
 		Prefix:       prefix,
-		IgnoreDestroys: testhelper.Exemptions{
-			List: IgnoreDestroys,
-		},
 		IgnoreUpdates: testhelper.Exemptions{
 			List: IgnoreUpdates,
 		},
@@ -163,9 +153,6 @@ func TestWithExistingKPKey(t *testing.T) {
 	options := testhelper.TestOptionsDefault(&testhelper.TestOptions{
 		Testing:      t,
 		TerraformDir: rootDaDir,
-		IgnoreDestroys: testhelper.Exemptions{
-			List: IgnoreDestroys,
-		},
 		IgnoreUpdates: testhelper.Exemptions{
 			List: IgnoreUpdates,
 		},
@@ -201,9 +188,6 @@ func TestWithExistingKP(t *testing.T) {
 	options := testhelper.TestOptionsDefault(&testhelper.TestOptions{
 		Testing:      t,
 		TerraformDir: rootDaDir,
-		IgnoreDestroys: testhelper.Exemptions{
-			List: IgnoreDestroys,
-		},
 		IgnoreUpdates: testhelper.Exemptions{
 			List: IgnoreUpdates,
 		},
@@ -239,9 +223,6 @@ func TestRunUpgradeExistingKPNewKey(t *testing.T) {
 		Testing:      t,
 		TerraformDir: rootDaDir,
 		Prefix:       "existing-kp-upg",
-		IgnoreDestroys: testhelper.Exemptions{
-			List: IgnoreDestroys,
-		},
 		IgnoreUpdates: testhelper.Exemptions{
 			List: IgnoreUpdates,
 		},
