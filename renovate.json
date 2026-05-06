@@ -12,7 +12,7 @@
       "semanticCommitType": "fix"
     },
     {
-      "description": "Explicitly disable Mastercard/restapi again to override the rule above for this specific repo",
+      "description": "Explicitly disable Mastercard/restapi updates.",
       "matchPackageNames": ["Mastercard/restapi"],
       "enabled": false
     }
