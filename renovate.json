@@ -10,6 +10,11 @@
       "matchDepTypes": ["required_provider"],
       "rangeStrategy": "bump",
       "semanticCommitType": "fix"
+    },
+    {
+      "description": "Explicitly disable Mastercard/restapi updates.",
+      "matchPackageNames": ["Mastercard/restapi"],
+      "enabled": false
     }
   ]
 }
