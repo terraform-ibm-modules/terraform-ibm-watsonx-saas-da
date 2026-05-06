@@ -109,7 +109,7 @@ statement instead the previous block.
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.9.0 |
-| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | 2.0.2 |
+| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | 2.1.0 |
 | <a name="requirement_restapi"></a> [restapi](#requirement\_restapi) | 2.0.1 |
 
 ### Modules
@@ -129,24 +129,24 @@ statement instead the previous block.
 
 | Name | Type |
 |------|------|
-| [ibm_kms_key.cos_kms_key](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.0.2/docs/resources/kms_key) | resource |
-| [ibm_resource_instance.assistant_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.0.2/docs/resources/resource_instance) | resource |
-| [ibm_resource_instance.data_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.0.2/docs/resources/resource_instance) | resource |
-| [ibm_resource_instance.discovery_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.0.2/docs/resources/resource_instance) | resource |
-| [ibm_resource_instance.governance_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.0.2/docs/resources/resource_instance) | resource |
-| [ibm_resource_instance.machine_learning_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.0.2/docs/resources/resource_instance) | resource |
-| [ibm_resource_instance.orchestrate_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.0.2/docs/resources/resource_instance) | resource |
-| [ibm_resource_instance.studio_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.0.2/docs/resources/resource_instance) | resource |
-| [ibm_iam_auth_token.restapi](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.0.2/docs/data-sources/iam_auth_token) | data source |
-| [ibm_kms_key.cos_kms_key](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.0.2/docs/data-sources/kms_key) | data source |
-| [ibm_resource_instance.existing_assistant_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.0.2/docs/data-sources/resource_instance) | data source |
-| [ibm_resource_instance.existing_data_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.0.2/docs/data-sources/resource_instance) | data source |
-| [ibm_resource_instance.existing_discovery_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.0.2/docs/data-sources/resource_instance) | data source |
-| [ibm_resource_instance.existing_governance_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.0.2/docs/data-sources/resource_instance) | data source |
-| [ibm_resource_instance.existing_machine_learning_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.0.2/docs/data-sources/resource_instance) | data source |
-| [ibm_resource_instance.existing_orchestrate_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.0.2/docs/data-sources/resource_instance) | data source |
-| [ibm_resource_instance.existing_studio_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.0.2/docs/data-sources/resource_instance) | data source |
-| [ibm_resource_instance.kms_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.0.2/docs/data-sources/resource_instance) | data source |
+| [ibm_kms_key.cos_kms_key](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.1.0/docs/resources/kms_key) | resource |
+| [ibm_resource_instance.assistant_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.1.0/docs/resources/resource_instance) | resource |
+| [ibm_resource_instance.data_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.1.0/docs/resources/resource_instance) | resource |
+| [ibm_resource_instance.discovery_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.1.0/docs/resources/resource_instance) | resource |
+| [ibm_resource_instance.governance_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.1.0/docs/resources/resource_instance) | resource |
+| [ibm_resource_instance.machine_learning_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.1.0/docs/resources/resource_instance) | resource |
+| [ibm_resource_instance.orchestrate_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.1.0/docs/resources/resource_instance) | resource |
+| [ibm_resource_instance.studio_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.1.0/docs/resources/resource_instance) | resource |
+| [ibm_iam_auth_token.restapi](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.1.0/docs/data-sources/iam_auth_token) | data source |
+| [ibm_kms_key.cos_kms_key](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.1.0/docs/data-sources/kms_key) | data source |
+| [ibm_resource_instance.existing_assistant_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.1.0/docs/data-sources/resource_instance) | data source |
+| [ibm_resource_instance.existing_data_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.1.0/docs/data-sources/resource_instance) | data source |
+| [ibm_resource_instance.existing_discovery_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.1.0/docs/data-sources/resource_instance) | data source |
+| [ibm_resource_instance.existing_governance_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.1.0/docs/data-sources/resource_instance) | data source |
+| [ibm_resource_instance.existing_machine_learning_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.1.0/docs/data-sources/resource_instance) | data source |
+| [ibm_resource_instance.existing_orchestrate_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.1.0/docs/data-sources/resource_instance) | data source |
+| [ibm_resource_instance.existing_studio_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.1.0/docs/data-sources/resource_instance) | data source |
+| [ibm_resource_instance.kms_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.1.0/docs/data-sources/resource_instance) | data source |
 
 ### Inputs
 
