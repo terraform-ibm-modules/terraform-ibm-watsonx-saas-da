@@ -10,6 +10,11 @@
       "matchDepTypes": ["required_provider"],
       "rangeStrategy": "bump",
       "semanticCommitType": "fix"
+    },
+    {
+      "description": "Explicitly disable Mastercard/restapi again to override the rule above for this specific repo",
+      "matchPackageNames": ["Mastercard/restapi"],
+      "enabled": false
     }
   ]
 }
