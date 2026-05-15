@@ -409,7 +409,7 @@ module "configure_user" {
     ibm = ibm.deployer
   }
   source            = "terraform-ibm-modules/watsonx-ai/ibm//modules/configure_user"
-  version           = "2.17.1"
+  version           = "2.17.3"
   resource_group_id = module.resource_group.resource_group_id
   region            = var.region
 }
@@ -420,7 +420,7 @@ module "configure_user" {
 
 module "storage_delegation" {
   source  = "terraform-ibm-modules/watsonx-ai/ibm//modules/storage_delegation"
-  version = "2.17.1"
+  version = "2.17.3"
   count   = var.enable_cos_kms_encryption ? 1 : 0
   providers = {
     ibm     = ibm.deployer
@@ -437,7 +437,7 @@ module "storage_delegation" {
 
 module "configure_project" {
   source  = "terraform-ibm-modules/watsonx-ai/ibm//modules/configure_project"
-  version = "2.17.1"
+  version = "2.17.3"
   providers = {
     restapi = restapi.restapi_watsonx_admin
   }
