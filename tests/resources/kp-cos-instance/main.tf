@@ -14,7 +14,7 @@ module "resource_group" {
 
 module "key_protect_module" {
   source            = "terraform-ibm-modules/key-protect/ibm"
-  version           = "2.11.2"
+  version           = "2.13.0"
   key_protect_name  = "${var.prefix}-kp"
   resource_group_id = module.resource_group.resource_group_id
   region            = var.region
