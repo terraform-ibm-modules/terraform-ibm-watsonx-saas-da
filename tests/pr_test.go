@@ -2,6 +2,7 @@
 package test
 
 import (
+	"context"
 	"fmt"
 	"log"
 	"os"
@@ -77,7 +78,7 @@ func setupOptionsRootDA(t *testing.T, prefix string, dir string) *testhelper.Tes
 // Provision KMS - Key Protect to use in DA tests
 func setupKMSKeyProtect(t *testing.T, region string, prefix string) *terraform.Options {
 	realTerraformDir := "./resources/kp-cos-instance"
-	tempTerraformDir, _ := files.CopyTerraformFolderToTemp(realTerraformDir, fmt.Sprintf(prefix+"-%s", strings.ToLower(random.UniqueId())))
+	tempTerraformDir, _ := files.CopyTerraformFolderToTemp(realTerraformDir, fmt.Sprintf(prefix+"-%s", strings.ToLower(random.UniqueID())))
 
 	checkVariable := "TF_VAR_ibmcloud_api_key"
 	val, present := os.LookupEnv(checkVariable)
@@ -96,8 +97,8 @@ func setupKMSKeyProtect(t *testing.T, region string, prefix string) *terraform.O
 		Upgrade: true,
 	})
 
-	terraform.WorkspaceSelectOrNew(t, existingTerraformOptions, prefix)
-	_, existErr := terraform.InitAndApplyE(t, existingTerraformOptions)
+	terraform.WorkspaceSelectOrNewContext(t, context.Background(), existingTerraformOptions, prefix)
+	_, existErr := terraform.InitAndApplyContextE(t, context.Background(), existingTerraformOptions)
 	require.NoError(t, existErr, "Init and Apply of temp resources (KP Instance and Key creation) failed")
 
 	return existingTerraformOptions
@@ -112,8 +113,8 @@ func cleanupResources(t *testing.T, terraformOptions *terraform.Options, prefix 
 		fmt.Println("Terratest failed. Debug the test and delete resources manually.")
 	} else {
 		logger.Log(t, "START: Destroy (existing resources)")
-		terraform.Destroy(t, terraformOptions)
-		terraform.WorkspaceDelete(t, terraformOptions, prefix)
+		terraform.DestroyContext(t, context.Background(), terraformOptions)
+		terraform.WorkspaceDeleteContext(t, context.Background(), terraformOptions, prefix)
 		logger.Log(t, "END: Destroy (existing resources)")
 	}
 }
@@ -144,7 +145,7 @@ func TestWithExistingKPKey(t *testing.T) {
 	t.Parallel()
 
 	region := validRegions[common.CryptoIntn(len(validRegions))]
-	prefix := fmt.Sprintf("kp-wx-%s", strings.ToLower(random.UniqueId()))
+	prefix := fmt.Sprintf("kp-wx-%s", strings.ToLower(random.UniqueID()))
 
 	// Provision Existing KMS instance
 	existingTerraformOptions := setupKMSKeyProtect(t, region, prefix)
@@ -162,9 +163,9 @@ func TestWithExistingKPKey(t *testing.T) {
 		"region":                    region,
 		"provider_visibility":       "public",
 		"enable_cos_kms_encryption": true,
-		"cos_kms_crn":               terraform.Output(t, existingTerraformOptions, "key_protect_crn"),
-		"cos_kms_key_crn":           terraform.Output(t, existingTerraformOptions, "kms_key_crn"),
-		"existing_cos_instance_crn": terraform.Output(t, existingTerraformOptions, "cos_crn"),
+		"cos_kms_crn":               terraform.OutputContext(t, context.Background(), existingTerraformOptions, "key_protect_crn"),
+		"cos_kms_key_crn":           terraform.OutputContext(t, context.Background(), existingTerraformOptions, "kms_key_crn"),
+		"existing_cos_instance_crn": terraform.OutputContext(t, context.Background(), existingTerraformOptions, "cos_crn"),
 		"prefix":                    prefix,
 	}
 
@@ -179,7 +180,7 @@ func TestWithExistingKP(t *testing.T) {
 	t.Parallel()
 
 	region := validRegions[common.CryptoIntn(len(validRegions))]
-	prefix := fmt.Sprintf("kp-wx-%s", strings.ToLower(random.UniqueId()))
+	prefix := fmt.Sprintf("kp-wx-%s", strings.ToLower(random.UniqueID()))
 
 	// Provision Existing KMS instance
 	existingTerraformOptions := setupKMSKeyProtect(t, region, prefix)
@@ -197,8 +198,8 @@ func TestWithExistingKP(t *testing.T) {
 		"region":                    region,
 		"provider_visibility":       "public",
 		"enable_cos_kms_encryption": true,
-		"cos_kms_crn":               terraform.Output(t, existingTerraformOptions, "key_protect_crn"),
-		"existing_cos_instance_crn": terraform.Output(t, existingTerraformOptions, "cos_crn"),
+		"cos_kms_crn":               terraform.OutputContext(t, context.Background(), existingTerraformOptions, "key_protect_crn"),
+		"existing_cos_instance_crn": terraform.OutputContext(t, context.Background(), existingTerraformOptions, "cos_crn"),
 		"prefix":                    prefix,
 	}
 
@@ -213,7 +214,7 @@ func TestRunUpgradeExistingKPNewKey(t *testing.T) {
 	t.Parallel()
 
 	region := validRegions[common.CryptoIntn(len(validRegions))]
-	prefix := fmt.Sprintf("kp-t-%s", strings.ToLower(random.UniqueId()))
+	prefix := fmt.Sprintf("kp-t-%s", strings.ToLower(random.UniqueID()))
 
 	// Provision Existing KMS instance
 	existingTerraformOptions := setupKMSKeyProtect(t, region, prefix)
@@ -232,9 +233,9 @@ func TestRunUpgradeExistingKPNewKey(t *testing.T) {
 		"prefix":                    prefix,
 		"provider_visibility":       "public",
 		"enable_cos_kms_encryption": true,
-		"cos_kms_crn":               terraform.Output(t, existingTerraformOptions, "key_protect_crn"),
-		"cos_kms_key_crn":           terraform.Output(t, existingTerraformOptions, "kms_key_crn"),
-		"existing_cos_instance_crn": terraform.Output(t, existingTerraformOptions, "cos_crn"),
+		"cos_kms_crn":               terraform.OutputContext(t, context.Background(), existingTerraformOptions, "key_protect_crn"),
+		"cos_kms_key_crn":           terraform.OutputContext(t, context.Background(), existingTerraformOptions, "kms_key_crn"),
+		"existing_cos_instance_crn": terraform.OutputContext(t, context.Background(), existingTerraformOptions, "cos_crn"),
 	}
 
 	output, err := options.RunTestUpgrade()
