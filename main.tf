@@ -85,21 +85,21 @@ locals {
 module "existing_cos_crn_parser" {
   count   = var.existing_cos_instance_crn != null ? 1 : 0
   source  = "terraform-ibm-modules/common-utilities/ibm//modules/crn-parser"
-  version = "1.6.1"
+  version = "1.8.0"
   crn     = var.existing_cos_instance_crn
 }
 
 module "cos_kms_key_crn_parser" {
   count   = var.enable_cos_kms_encryption && var.cos_kms_key_crn != null ? 1 : 0
   source  = "terraform-ibm-modules/common-utilities/ibm//modules/crn-parser"
-  version = "1.6.1"
+  version = "1.8.0"
   crn     = var.cos_kms_key_crn
 }
 
 module "cos_kms_crn_parser" {
   count   = var.enable_cos_kms_encryption && var.cos_kms_key_crn == null ? 1 : 0
   source  = "terraform-ibm-modules/common-utilities/ibm//modules/crn-parser"
-  version = "1.6.1"
+  version = "1.8.0"
   crn     = var.cos_kms_crn
 }
 
