@@ -119,9 +119,9 @@ statement instead the previous block.
 | <a name="module_configure_project"></a> [configure\_project](#module\_configure\_project) | terraform-ibm-modules/watsonx-ai/ibm//modules/configure_project | 2.17.6 |
 | <a name="module_configure_user"></a> [configure\_user](#module\_configure\_user) | terraform-ibm-modules/watsonx-ai/ibm//modules/configure_user | 2.17.6 |
 | <a name="module_cos"></a> [cos](#module\_cos) | terraform-ibm-modules/cos/ibm//modules/fscloud | 10.16.5 |
-| <a name="module_cos_kms_crn_parser"></a> [cos\_kms\_crn\_parser](#module\_cos\_kms\_crn\_parser) | terraform-ibm-modules/common-utilities/ibm//modules/crn-parser | 1.8.0 |
-| <a name="module_cos_kms_key_crn_parser"></a> [cos\_kms\_key\_crn\_parser](#module\_cos\_kms\_key\_crn\_parser) | terraform-ibm-modules/common-utilities/ibm//modules/crn-parser | 1.8.0 |
-| <a name="module_existing_cos_crn_parser"></a> [existing\_cos\_crn\_parser](#module\_existing\_cos\_crn\_parser) | terraform-ibm-modules/common-utilities/ibm//modules/crn-parser | 1.8.0 |
+| <a name="module_cos_kms_crn_parser"></a> [cos\_kms\_crn\_parser](#module\_cos\_kms\_crn\_parser) | terraform-ibm-modules/common-utilities/ibm//modules/crn-parser | 1.9.0 |
+| <a name="module_cos_kms_key_crn_parser"></a> [cos\_kms\_key\_crn\_parser](#module\_cos\_kms\_key\_crn\_parser) | terraform-ibm-modules/common-utilities/ibm//modules/crn-parser | 1.9.0 |
+| <a name="module_existing_cos_crn_parser"></a> [existing\_cos\_crn\_parser](#module\_existing\_cos\_crn\_parser) | terraform-ibm-modules/common-utilities/ibm//modules/crn-parser | 1.9.0 |
 | <a name="module_resource_group"></a> [resource\_group](#module\_resource\_group) | terraform-ibm-modules/resource-group/ibm | 1.6.1 |
 | <a name="module_storage_delegation"></a> [storage\_delegation](#module\_storage\_delegation) | terraform-ibm-modules/watsonx-ai/ibm//modules/storage_delegation | 2.17.6 |
 
