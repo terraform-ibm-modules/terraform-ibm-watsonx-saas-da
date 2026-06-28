@@ -3,7 +3,7 @@ module github.com/terraform-ibm-modules/terraform-ibm-watsonx-saas-da
 go 1.26.1
 
 require (
-	github.com/gruntwork-io/terratest v1.0.0
+	github.com/gruntwork-io/terratest v1.0.1
 	github.com/stretchr/testify v1.11.1
 	github.com/terraform-ibm-modules/ibmcloud-terratest-wrapper v1.76.1
 )
