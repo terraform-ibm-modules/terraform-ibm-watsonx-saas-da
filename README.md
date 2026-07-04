@@ -109,7 +109,7 @@ statement instead the previous block.
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.9.0 |
-| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | 2.3.0 |
+| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | 2.4.0 |
 | <a name="requirement_restapi"></a> [restapi](#requirement\_restapi) | 2.0.1 |
 
 ### Modules
@@ -118,7 +118,7 @@ statement instead the previous block.
 |------|--------|---------|
 | <a name="module_configure_project"></a> [configure\_project](#module\_configure\_project) | terraform-ibm-modules/watsonx-ai/ibm//modules/configure_project | 2.17.7 |
 | <a name="module_configure_user"></a> [configure\_user](#module\_configure\_user) | terraform-ibm-modules/watsonx-ai/ibm//modules/configure_user | 2.17.7 |
-| <a name="module_cos"></a> [cos](#module\_cos) | terraform-ibm-modules/cos/ibm//modules/fscloud | 10.16.7 |
+| <a name="module_cos"></a> [cos](#module\_cos) | terraform-ibm-modules/cos/ibm//modules/fscloud | 10.17.0 |
 | <a name="module_cos_kms_crn_parser"></a> [cos\_kms\_crn\_parser](#module\_cos\_kms\_crn\_parser) | terraform-ibm-modules/common-utilities/ibm//modules/crn-parser | 1.9.0 |
 | <a name="module_cos_kms_key_crn_parser"></a> [cos\_kms\_key\_crn\_parser](#module\_cos\_kms\_key\_crn\_parser) | terraform-ibm-modules/common-utilities/ibm//modules/crn-parser | 1.9.0 |
 | <a name="module_existing_cos_crn_parser"></a> [existing\_cos\_crn\_parser](#module\_existing\_cos\_crn\_parser) | terraform-ibm-modules/common-utilities/ibm//modules/crn-parser | 1.9.0 |
@@ -129,24 +129,24 @@ statement instead the previous block.
 
 | Name | Type |
 |------|------|
-| [ibm_kms_key.cos_kms_key](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.3.0/docs/resources/kms_key) | resource |
-| [ibm_resource_instance.assistant_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.3.0/docs/resources/resource_instance) | resource |
-| [ibm_resource_instance.data_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.3.0/docs/resources/resource_instance) | resource |
-| [ibm_resource_instance.discovery_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.3.0/docs/resources/resource_instance) | resource |
-| [ibm_resource_instance.governance_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.3.0/docs/resources/resource_instance) | resource |
-| [ibm_resource_instance.machine_learning_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.3.0/docs/resources/resource_instance) | resource |
-| [ibm_resource_instance.orchestrate_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.3.0/docs/resources/resource_instance) | resource |
-| [ibm_resource_instance.studio_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.3.0/docs/resources/resource_instance) | resource |
-| [ibm_iam_auth_token.restapi](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.3.0/docs/data-sources/iam_auth_token) | data source |
-| [ibm_kms_key.cos_kms_key](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.3.0/docs/data-sources/kms_key) | data source |
-| [ibm_resource_instance.existing_assistant_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.3.0/docs/data-sources/resource_instance) | data source |
-| [ibm_resource_instance.existing_data_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.3.0/docs/data-sources/resource_instance) | data source |
-| [ibm_resource_instance.existing_discovery_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.3.0/docs/data-sources/resource_instance) | data source |
-| [ibm_resource_instance.existing_governance_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.3.0/docs/data-sources/resource_instance) | data source |
-| [ibm_resource_instance.existing_machine_learning_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.3.0/docs/data-sources/resource_instance) | data source |
-| [ibm_resource_instance.existing_orchestrate_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.3.0/docs/data-sources/resource_instance) | data source |
-| [ibm_resource_instance.existing_studio_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.3.0/docs/data-sources/resource_instance) | data source |
-| [ibm_resource_instance.kms_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.3.0/docs/data-sources/resource_instance) | data source |
+| [ibm_kms_key.cos_kms_key](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.4.0/docs/resources/kms_key) | resource |
+| [ibm_resource_instance.assistant_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.4.0/docs/resources/resource_instance) | resource |
+| [ibm_resource_instance.data_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.4.0/docs/resources/resource_instance) | resource |
+| [ibm_resource_instance.discovery_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.4.0/docs/resources/resource_instance) | resource |
+| [ibm_resource_instance.governance_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.4.0/docs/resources/resource_instance) | resource |
+| [ibm_resource_instance.machine_learning_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.4.0/docs/resources/resource_instance) | resource |
+| [ibm_resource_instance.orchestrate_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.4.0/docs/resources/resource_instance) | resource |
+| [ibm_resource_instance.studio_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.4.0/docs/resources/resource_instance) | resource |
+| [ibm_iam_auth_token.restapi](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.4.0/docs/data-sources/iam_auth_token) | data source |
+| [ibm_kms_key.cos_kms_key](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.4.0/docs/data-sources/kms_key) | data source |
+| [ibm_resource_instance.existing_assistant_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.4.0/docs/data-sources/resource_instance) | data source |
+| [ibm_resource_instance.existing_data_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.4.0/docs/data-sources/resource_instance) | data source |
+| [ibm_resource_instance.existing_discovery_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.4.0/docs/data-sources/resource_instance) | data source |
+| [ibm_resource_instance.existing_governance_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.4.0/docs/data-sources/resource_instance) | data source |
+| [ibm_resource_instance.existing_machine_learning_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.4.0/docs/data-sources/resource_instance) | data source |
+| [ibm_resource_instance.existing_orchestrate_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.4.0/docs/data-sources/resource_instance) | data source |
+| [ibm_resource_instance.existing_studio_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.4.0/docs/data-sources/resource_instance) | data source |
+| [ibm_resource_instance.kms_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.4.0/docs/data-sources/resource_instance) | data source |
 
 ### Inputs
 
