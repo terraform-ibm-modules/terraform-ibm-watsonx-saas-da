@@ -36,7 +36,7 @@ module "kms_root_key" {
 
 module "cos_module" {
   source            = "terraform-ibm-modules/cos/ibm"
-  version           = "10.17.7"
+  version           = "10.17.8"
   resource_group_id = module.resource_group.resource_group_id
   region            = var.region
   cos_instance_name = "${var.prefix}-cos"
