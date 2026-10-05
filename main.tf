@@ -35,11 +35,6 @@ locals {
 
 # Configuring outputs
 locals {
-  watsonx_assistant_crn           = var.existing_assistant_instance != null ? data.ibm_resource_instance.existing_assistant_instance[0].crn : var.watsonx_assistant_plan != local.skip_install ? resource.ibm_resource_instance.assistant_instance[0].crn : null
-  watsonx_assistant_guid          = var.existing_assistant_instance != null ? data.ibm_resource_instance.existing_assistant_instance[0].guid : var.watsonx_assistant_plan != local.skip_install ? resource.ibm_resource_instance.assistant_instance[0].guid : null
-  watsonx_assistant_name          = var.existing_assistant_instance != null ? data.ibm_resource_instance.existing_assistant_instance[0].resource_name : var.watsonx_assistant_plan != local.skip_install ? ibm_resource_instance.assistant_instance[0].resource_name : null
-  watsonx_assistant_plan_id       = var.existing_assistant_instance != null ? null : var.watsonx_assistant_plan != local.skip_install ? resource.ibm_resource_instance.assistant_instance[0].resource_plan_id : null
-  watsonx_assistant_dashboard_url = var.existing_assistant_instance != null ? null : var.watsonx_assistant_plan != local.skip_install ? resource.ibm_resource_instance.assistant_instance[0].dashboard_url : null
 
   watson_discovery_crn           = var.existing_discovery_instance != null ? data.ibm_resource_instance.existing_discovery_instance[0].crn : var.watson_discovery_plan != local.skip_install ? ibm_resource_instance.discovery_instance[0].crn : null
   watson_discovery_guid          = var.existing_discovery_instance != null ? data.ibm_resource_instance.existing_discovery_instance[0].guid : var.watson_discovery_plan != local.skip_install ? ibm_resource_instance.discovery_instance[0].guid : null
@@ -247,43 +242,6 @@ resource "ibm_resource_instance" "machine_learning_instance" {
 moved {
   from = ibm_resource_instance.machine_learning_instance
   to   = ibm_resource_instance.machine_learning_instance[0]
-}
-
-##############################################################################################################
-# watsonx Assistant
-##############################################################################################################
-
-data "ibm_resource_instance" "existing_assistant_instance" {
-  provider   = ibm.deployer
-  count      = var.existing_assistant_instance != null ? 1 : 0
-  identifier = var.existing_assistant_instance
-}
-
-resource "ibm_resource_instance" "assistant_instance" {
-  provider          = ibm.deployer
-  count             = var.existing_assistant_instance != null ? 0 : var.watsonx_assistant_plan == local.skip_install ? 0 : 1
-  name              = "${local.prefix}watsonx-assistant-instance"
-  service           = "conversation"
-  plan              = var.watsonx_assistant_plan
-  location          = var.region
-  resource_group_id = module.resource_group.resource_group_id
-
-  parameters = {
-    service-endpoints = var.watsonx_assistant_service_endpoints
-  }
-
-  timeouts {
-    create = "15m"
-    update = "15m"
-    delete = "15m"
-  }
-
-  lifecycle {
-    precondition {
-      condition     = var.watsonx_assistant_plan == "free" ? var.watsonx_assistant_service_endpoints == "public" : true
-      error_message = "The lite plan only supports public endpoints."
-    }
-  }
 }
 
 ##############################################################################################################

@@ -33,10 +33,6 @@
           "description": "Develop sophisticated machine learning models using Notebooks and code-free tools to infuse AI throughout your business."
         },
         {
-          "title": "Deliver and build conversational interfaces with watsonx Assistant",
-          "description": "IBM watsonx Assistant lets you build conversational interfaces into any application, device, or channel."
-        },
-        {
           "title": "Integrate predictive capabilities with Watson Machine Learning",
           "description": "Deploy, manage, and integrate machine learning models into your applications and services in as little as one click."
         },
@@ -71,10 +67,6 @@
               {
                 "title": "Develop with Watson Studio",
                 "description": "Develop sophisticated machine learning models using Notebooks and code-free tools to infuse AI throughout your business."
-              },
-              {
-                "title": "Deliver and build conversational interfaces with watsonx Assistant",
-                "description": "IBM watsonx Assistant lets you build conversational interfaces into any application, device, or channel."
               },
               {
                 "title": "Integrate predictive capabilities with Watson Machine Learning",
@@ -311,62 +303,6 @@
                 "original_grouping": "deployment",
                 "config_constraints": {
                   "resourceType": "discovery",
-                  "selection": "single_select",
-                  "valueType": "crn"
-                }
-              }
-            },
-            {
-              "key": "watsonx_assistant_plan",
-              "type_metadata": "string",
-              "options": [
-                {
-                  "description": "Skip watsonx Assistant installation.",
-                  "displayname": "Do Not Install",
-                  "value": "do not install"
-                },
-                {
-                  "description": "Everything you need to get started, free for as long as you need it. Lite plan services are deleted after 30 days of inactivity.",
-                  "displayname": "Lite (30 Days)",
-                  "value": "free"
-                },
-                {
-                  "description": "The Plus plans measure usage by the number of monthly active users. Plus plan instances can't be downgraded to lower-tier plans.",
-                  "displayname": "Plus",
-                  "value": "plus"
-                },
-                {
-                  "description": "Full enterprise features with advanced security and dedicated support. Scale and secure your assistant with enterprise-grade support and data governance",
-                  "displayname": "Enterprise",
-                  "value": "enterprise"
-                }
-              ]
-            },
-            {
-              "key": "watsonx_assistant_service_endpoints",
-              "options": [
-                {
-                  "displayname": "Public",
-                  "value": "public"
-                },
-                {
-                  "displayname": "Public and Private",
-                  "value": "public-and-private"
-                },
-                {
-                  "displayname": "Private",
-                  "value": "private"
-                }
-              ]
-            },
-            {
-              "key": "existing_assistant_instance",
-              "custom_config": {
-                "type": "platform_resource",
-                "grouping": "deployment",
-                "original_grouping": "deployment",
-                "config_constraints": {
-                  "resourceType": "conversation",
                   "selection": "single_select",
                   "valueType": "crn"
                 }
@@ -611,13 +547,6 @@
               ],
               "service_name": "aiopenscale",
               "notes": "[Optional] Required to create an instance of watsonx.governance."
-            },
-            {
-              "role_crns": [
-                "crn:v1:bluemix:public:iam::::role:Editor"
-              ],
-              "service_name": "conversation",
-              "notes": "[Optional] Required to create an instance of watsonx Assistant."
             },
             {
               "role_crns": [
