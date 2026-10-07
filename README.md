@@ -130,7 +130,6 @@ statement instead the previous block.
 | Name | Type |
 |------|------|
 | [ibm_kms_key.cos_kms_key](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.6.2/docs/resources/kms_key) | resource |
-| [ibm_resource_instance.assistant_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.6.2/docs/resources/resource_instance) | resource |
 | [ibm_resource_instance.data_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.6.2/docs/resources/resource_instance) | resource |
 | [ibm_resource_instance.discovery_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.6.2/docs/resources/resource_instance) | resource |
 | [ibm_resource_instance.governance_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.6.2/docs/resources/resource_instance) | resource |
@@ -139,7 +138,6 @@ statement instead the previous block.
 | [ibm_resource_instance.studio_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.6.2/docs/resources/resource_instance) | resource |
 | [ibm_iam_auth_token.restapi](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.6.2/docs/data-sources/iam_auth_token) | data source |
 | [ibm_kms_key.cos_kms_key](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.6.2/docs/data-sources/kms_key) | data source |
-| [ibm_resource_instance.existing_assistant_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.6.2/docs/data-sources/resource_instance) | data source |
 | [ibm_resource_instance.existing_data_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.6.2/docs/data-sources/resource_instance) | data source |
 | [ibm_resource_instance.existing_discovery_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.6.2/docs/data-sources/resource_instance) | data source |
 | [ibm_resource_instance.existing_governance_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.6.2/docs/data-sources/resource_instance) | data source |
@@ -158,7 +156,6 @@ statement instead the previous block.
 | <a name="input_cos_kms_ring_id"></a> [cos\_kms\_ring\_id](#input\_cos\_kms\_ring\_id) | The identifier of the Key Protect ring to create the cos\_kms\_new\_key\_name into. If it is not set, then the new key will be created in the default ring. | `string` | `null` | no |
 | <a name="input_cos_plan"></a> [cos\_plan](#input\_cos\_plan) | The plan that's used to provision the Cloud Object Storage instance. | `string` | `"standard"` | no |
 | <a name="input_enable_cos_kms_encryption"></a> [enable\_cos\_kms\_encryption](#input\_enable\_cos\_kms\_encryption) | Flag to enable COS KMS encryption. If set to true, a value must be passed for `cos_kms_crn`. | `bool` | `false` | no |
-| <a name="input_existing_assistant_instance"></a> [existing\_assistant\_instance](#input\_existing\_assistant\_instance) | CRN of an existing watsonx Assistant instance. | `string` | `null` | no |
 | <a name="input_existing_cos_instance_crn"></a> [existing\_cos\_instance\_crn](#input\_existing\_cos\_instance\_crn) | The CRN of an existing Cloud Object Storage instance. If not specified, a new instance will be created. | `string` | `null` | no |
 | <a name="input_existing_data_instance"></a> [existing\_data\_instance](#input\_existing\_data\_instance) | CRN of an existing watsonx.data instance. | `string` | `null` | no |
 | <a name="input_existing_discovery_instance"></a> [existing\_discovery\_instance](#input\_existing\_discovery\_instance) | CRN of an existing Watson Discovery instance. | `string` | `null` | no |
@@ -179,8 +176,6 @@ statement instead the previous block.
 | <a name="input_watson_studio_plan"></a> [watson\_studio\_plan](#input\_watson\_studio\_plan) | The plan that is used to provision the Watson Studio instance. The plan you choose for Watson Studio affects the features and capabilities that you can use. | `string` | `"professional-v1"` | no |
 | <a name="input_watsonx_admin_api_key"></a> [watsonx\_admin\_api\_key](#input\_watsonx\_admin\_api\_key) | The API key of the IBM watsonx administrator in the target account. The API key is used to configure the user and the project. | `string` | `null` | no |
 | <a name="input_watsonx_ai_new_project_members"></a> [watsonx\_ai\_new\_project\_members](#input\_watsonx\_ai\_new\_project\_members) | List of new members that can be added to the watsonx.ai project. | <pre>list(object({<br/>    email  = string<br/>    iam_id = string<br/>    role   = string<br/>    state  = optional(string, "ACTIVE")<br/>    type   = optional(string, "user")<br/>    })<br/>  )</pre> | `[]` | no |
-| <a name="input_watsonx_assistant_plan"></a> [watsonx\_assistant\_plan](#input\_watsonx\_assistant\_plan) | The plan that is used to provision the watsonx Assistant instance. | `string` | `"do not install"` | no |
-| <a name="input_watsonx_assistant_service_endpoints"></a> [watsonx\_assistant\_service\_endpoints](#input\_watsonx\_assistant\_service\_endpoints) | The type of service endpoints. Possible values are 'public', 'private', 'public-and-private'. | `string` | `"public"` | no |
 | <a name="input_watsonx_data_plan"></a> [watsonx\_data\_plan](#input\_watsonx\_data\_plan) | The plan that is used to provision the watsonx.data instance. | `string` | `"do not install"` | no |
 | <a name="input_watsonx_governance_plan"></a> [watsonx\_governance\_plan](#input\_watsonx\_governance\_plan) | The plan used to provision the watsonx.governance instance. The available plans depend on the region where you are provisioning the service from the IBM Cloud catalog. | `string` | `"do not install"` | no |
 | <a name="input_watsonx_mark_as_sensitive"></a> [watsonx\_mark\_as\_sensitive](#input\_watsonx\_mark\_as\_sensitive) | Set to true to allow the WatsonX project to be created with 'Mark as sensitive' flag. | `bool` | `false` | no |
@@ -213,11 +208,6 @@ statement instead the previous block.
 | <a name="output_watson_studio_name"></a> [watson\_studio\_name](#output\_watson\_studio\_name) | The name of the Watson Studio instance. |
 | <a name="output_watson_studio_plan_id"></a> [watson\_studio\_plan\_id](#output\_watson\_studio\_plan\_id) | The plan ID of the Watson Studio instance. |
 | <a name="output_watsonx_ai_runtime_account_id"></a> [watsonx\_ai\_runtime\_account\_id](#output\_watsonx\_ai\_runtime\_account\_id) | The account id of the watsonx.ai Runtime instance. |
-| <a name="output_watsonx_assistant_crn"></a> [watsonx\_assistant\_crn](#output\_watsonx\_assistant\_crn) | The CRN of the watsonx Assistant instance. |
-| <a name="output_watsonx_assistant_dashboard_url"></a> [watsonx\_assistant\_dashboard\_url](#output\_watsonx\_assistant\_dashboard\_url) | The dashboard URL of the watsonx Assistant instance. |
-| <a name="output_watsonx_assistant_guid"></a> [watsonx\_assistant\_guid](#output\_watsonx\_assistant\_guid) | The GUID of the watsonx Assistant instance. |
-| <a name="output_watsonx_assistant_name"></a> [watsonx\_assistant\_name](#output\_watsonx\_assistant\_name) | The name of the watsonx Assistant instance. |
-| <a name="output_watsonx_assistant_plan_id"></a> [watsonx\_assistant\_plan\_id](#output\_watsonx\_assistant\_plan\_id) | The plan ID of the watsonx Assistant instance. |
 | <a name="output_watsonx_data_crn"></a> [watsonx\_data\_crn](#output\_watsonx\_data\_crn) | The CRN of the watsonx.data instance. |
 | <a name="output_watsonx_data_dashboard_url"></a> [watsonx\_data\_dashboard\_url](#output\_watsonx\_data\_dashboard\_url) | The dashboard URL of the watsonx.data instance. |
 | <a name="output_watsonx_data_guid"></a> [watsonx\_data\_guid](#output\_watsonx\_data\_guid) | The GUID of the watsonx.data instance. |

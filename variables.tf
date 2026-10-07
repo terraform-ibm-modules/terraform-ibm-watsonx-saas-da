@@ -199,40 +199,6 @@ variable "watson_discovery_service_endpoints" {
   }
 }
 
-##############################################################################################################
-# watsonx Assistant
-##############################################################################################################
-
-variable "existing_assistant_instance" {
-  default     = null
-  description = "CRN of an existing watsonx Assistant instance."
-  type        = string
-}
-
-variable "watsonx_assistant_plan" {
-  default     = "do not install"
-  description = "The plan that is used to provision the watsonx Assistant instance."
-  type        = string
-  validation {
-    condition = anytrue([
-      var.watsonx_assistant_plan == local.skip_install,
-      var.watsonx_assistant_plan == "free",
-      var.watsonx_assistant_plan == "plus",
-      var.watsonx_assistant_plan == "enterprise",
-    ])
-    error_message = "You must use a free, plus or enterprise plan. [Learn more](https://cloud.ibm.com/docs/watson-assistant?topic=watson-assistant-admin-managing-plan)."
-  }
-}
-
-variable "watsonx_assistant_service_endpoints" {
-  default     = "public"
-  description = "The type of service endpoints. Possible values are 'public', 'private', 'public-and-private'."
-  type        = string
-  validation {
-    condition     = contains(["public", "public-and-private", "private"], var.watsonx_assistant_service_endpoints)
-    error_message = "The specified service endpoint is not valid. Supported options are public, public-and-private, or private."
-  }
-}
 
 ##############################################################################################################
 # watsonx Governance

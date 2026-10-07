@@ -1,152 +1,144 @@
-<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.1.2 Chrome/138.0.7204.243 Electron/37.4.0 Safari/537.36" version="28.1.2">
-  <diagram name="Customer layout" id="HMYrr_rlFQG3_fcR0Exl">
-    <mxGraphModel dx="407" dy="916" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+<mxfile host="app.diagrams.net">
+  <diagram name="Customer layout" id="aK7KNWQck7rVZkgGikL7">
+    <mxGraphModel dx="507" dy="843" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="WSF7eNko4BLm7uIbhmQ6-30" value="IBM Cloud" style="shape=mxgraph.ibm.box;prType=cloud;fontStyle=0;verticalAlign=top;align=left;spacingLeft=32;spacingTop=4;fillColor=none;rounded=0;whiteSpace=wrap;html=1;strokeColor=#4376BB;strokeWidth=3;dashed=0;container=1;spacing=-4;collapsible=0;expand=0;recursiveResize=0;" vertex="1" parent="1">
-          <mxGeometry x="840" y="40" width="800" height="800" as="geometry" />
+        <mxCell id="wk2GSVLmUYM_EyiqiLoG-1" parent="1" style="shape=mxgraph.ibm.box;prType=cloud;fontStyle=0;verticalAlign=top;align=left;spacingLeft=32;spacingTop=4;fillColor=none;rounded=0;whiteSpace=wrap;html=1;strokeColor=#4376BB;strokeWidth=3;dashed=0;container=1;spacing=-4;collapsible=0;expand=0;recursiveResize=0;" value="IBM Cloud" vertex="1">
+          <mxGeometry height="800" width="800" x="840" y="40" as="geometry" />
         </mxCell>
-        <mxCell id="bPBMwUJO55NGVgrzKSAE-5" value="" style="container=1;collapsible=0;expand=0;recursiveResize=0;html=1;whiteSpace=wrap;strokeColor=#878D96;fillColor=none;strokeWidth=1" vertex="1" parent="WSF7eNko4BLm7uIbhmQ6-30">
-          <mxGeometry x="40" y="40" width="720" height="720" as="geometry" />
+        <mxCell id="wk2GSVLmUYM_EyiqiLoG-2" parent="wk2GSVLmUYM_EyiqiLoG-1" style="container=1;collapsible=0;expand=0;recursiveResize=0;html=1;whiteSpace=wrap;strokeColor=#878D96;fillColor=none;strokeWidth=1" value="" vertex="1">
+          <mxGeometry height="720" width="720" x="40" y="40" as="geometry" />
         </mxCell>
-        <mxCell id="bPBMwUJO55NGVgrzKSAE-6" value="Region" style="shape=rect;fillColor=none;aspect=fixed;resizable=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;strokeColor=none;part=1;spacingLeft=5;fontSize=14;" vertex="1" parent="bPBMwUJO55NGVgrzKSAE-5">
-          <mxGeometry width="48" height="48" relative="1" as="geometry" />
+        <mxCell id="wk2GSVLmUYM_EyiqiLoG-3" parent="wk2GSVLmUYM_EyiqiLoG-2" style="shape=rect;fillColor=none;aspect=fixed;resizable=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;strokeColor=none;part=1;spacingLeft=5;fontSize=14;" value="Region" vertex="1">
+          <mxGeometry height="48" relative="1" width="48" as="geometry" />
         </mxCell>
-        <mxCell id="bPBMwUJO55NGVgrzKSAE-7" value="" style="fillColor=#878D96;shape=mxgraph.ibm_cloud.location;strokeColor=none;dashed=0;outlineConnect=0;html=1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;part=1;movable=0;resizable=0;rotatable=0;" vertex="1" parent="bPBMwUJO55NGVgrzKSAE-6">
-          <mxGeometry width="24" height="24" relative="1" as="geometry">
+        <mxCell id="wk2GSVLmUYM_EyiqiLoG-4" parent="wk2GSVLmUYM_EyiqiLoG-3" style="fillColor=#878D96;shape=mxgraph.ibm_cloud.location;strokeColor=none;dashed=0;outlineConnect=0;html=1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;part=1;movable=0;resizable=0;rotatable=0;" value="" vertex="1">
+          <mxGeometry height="24" relative="1" width="24" as="geometry">
             <mxPoint x="12" y="12" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="bPBMwUJO55NGVgrzKSAE-8" value="" style="shape=rect;fillColor=#878D96;aspect=fixed;resizable=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;strokeColor=none;part=1;spacingLeft=5;fontSize=14;" vertex="1" parent="bPBMwUJO55NGVgrzKSAE-5">
-          <mxGeometry width="4" height="48" relative="1" as="geometry" />
+        <mxCell id="wk2GSVLmUYM_EyiqiLoG-5" parent="wk2GSVLmUYM_EyiqiLoG-2" style="shape=rect;fillColor=#878D96;aspect=fixed;resizable=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;strokeColor=none;part=1;spacingLeft=5;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="48" relative="1" width="4" as="geometry" />
         </mxCell>
-        <mxCell id="WSF7eNko4BLm7uIbhmQ6-36" value="" style="container=1;collapsible=0;expand=0;recursiveResize=0;html=1;whiteSpace=wrap;strokeColor=#FA4D56;fillColor=none;dashed=1;dashPattern=1 3;strokeWidth=2" vertex="1" parent="bPBMwUJO55NGVgrzKSAE-5">
-          <mxGeometry x="40" y="50" width="640" height="637" as="geometry" />
+        <mxCell id="wk2GSVLmUYM_EyiqiLoG-6" parent="wk2GSVLmUYM_EyiqiLoG-2" style="container=1;collapsible=0;expand=0;recursiveResize=0;html=1;whiteSpace=wrap;strokeColor=#FA4D56;fillColor=none;dashed=1;dashPattern=1 3;strokeWidth=2" value="" vertex="1">
+          <mxGeometry height="637" width="640" x="40" y="50" as="geometry" />
         </mxCell>
-        <mxCell id="WSF7eNko4BLm7uIbhmQ6-37" value="Resource Group" style="shape=rect;fillColor=none;aspect=fixed;resizable=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;strokeColor=none;part=1;spacingLeft=5;fontSize=14;" vertex="1" parent="WSF7eNko4BLm7uIbhmQ6-36">
-          <mxGeometry width="48" height="48" relative="1" as="geometry" />
+        <mxCell id="wk2GSVLmUYM_EyiqiLoG-7" parent="wk2GSVLmUYM_EyiqiLoG-6" style="shape=rect;fillColor=none;aspect=fixed;resizable=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;strokeColor=none;part=1;spacingLeft=5;fontSize=14;" value="Resource Group" vertex="1">
+          <mxGeometry height="48" relative="1" width="48" as="geometry" />
         </mxCell>
-        <mxCell id="WSF7eNko4BLm7uIbhmQ6-38" value="" style="fillColor=#FA4D56;shape=mxgraph.ibm_cloud.group--resource;strokeColor=none;dashed=0;outlineConnect=0;html=1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;part=1;movable=0;resizable=0;rotatable=0;" vertex="1" parent="WSF7eNko4BLm7uIbhmQ6-37">
-          <mxGeometry width="24" height="24" relative="1" as="geometry">
+        <mxCell id="wk2GSVLmUYM_EyiqiLoG-8" parent="wk2GSVLmUYM_EyiqiLoG-7" style="fillColor=#FA4D56;shape=mxgraph.ibm_cloud.group--resource;strokeColor=none;dashed=0;outlineConnect=0;html=1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;part=1;movable=0;resizable=0;rotatable=0;" value="" vertex="1">
+          <mxGeometry height="24" relative="1" width="24" as="geometry">
             <mxPoint x="12" y="12" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="WSF7eNko4BLm7uIbhmQ6-39" value="" style="container=1;collapsible=0;expand=0;recursiveResize=0;html=1;whiteSpace=wrap;strokeColor=#A56EFF;fillColor=none;strokeWidth=1" vertex="1" parent="WSF7eNko4BLm7uIbhmQ6-36">
-          <mxGeometry x="40" y="60" width="480" height="540" as="geometry" />
+        <mxCell id="wk2GSVLmUYM_EyiqiLoG-9" parent="wk2GSVLmUYM_EyiqiLoG-6" style="container=1;collapsible=0;expand=0;recursiveResize=0;html=1;whiteSpace=wrap;strokeColor=#A56EFF;fillColor=none;strokeWidth=1" value="" vertex="1">
+          <mxGeometry height="540" width="480" x="40" y="60" as="geometry" />
         </mxCell>
-        <mxCell id="WSF7eNko4BLm7uIbhmQ6-40" value="watsonx services" style="shape=rect;fillColor=none;aspect=fixed;resizable=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;strokeColor=none;part=1;spacingLeft=5;fontSize=14;" vertex="1" parent="WSF7eNko4BLm7uIbhmQ6-39">
-          <mxGeometry width="48" height="48" relative="1" as="geometry" />
+        <mxCell id="wk2GSVLmUYM_EyiqiLoG-10" parent="wk2GSVLmUYM_EyiqiLoG-9" style="shape=rect;fillColor=none;aspect=fixed;resizable=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;strokeColor=none;part=1;spacingLeft=5;fontSize=14;" value="watsonx services" vertex="1">
+          <mxGeometry height="48" relative="1" width="48" as="geometry" />
         </mxCell>
-        <mxCell id="WSF7eNko4BLm7uIbhmQ6-41" value="" style="fillColor=#A56EFF;shape=mxgraph.ibm_cloud.watsonx;strokeColor=none;dashed=0;outlineConnect=0;html=1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;part=1;movable=0;resizable=0;rotatable=0;" vertex="1" parent="WSF7eNko4BLm7uIbhmQ6-40">
-          <mxGeometry width="24" height="24" relative="1" as="geometry">
+        <mxCell id="wk2GSVLmUYM_EyiqiLoG-11" parent="wk2GSVLmUYM_EyiqiLoG-10" style="fillColor=#A56EFF;shape=mxgraph.ibm_cloud.watsonx;strokeColor=none;dashed=0;outlineConnect=0;html=1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;part=1;movable=0;resizable=0;rotatable=0;" value="" vertex="1">
+          <mxGeometry height="24" relative="1" width="24" as="geometry">
             <mxPoint x="12" y="12" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="WSF7eNko4BLm7uIbhmQ6-42" value="" style="shape=rect;fillColor=#A56EFF;aspect=fixed;resizable=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;strokeColor=none;part=1;spacingLeft=5;fontSize=14;" vertex="1" parent="WSF7eNko4BLm7uIbhmQ6-39">
-          <mxGeometry width="4" height="48" relative="1" as="geometry" />
+        <mxCell id="wk2GSVLmUYM_EyiqiLoG-12" parent="wk2GSVLmUYM_EyiqiLoG-9" style="shape=rect;fillColor=#A56EFF;aspect=fixed;resizable=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;strokeColor=none;part=1;spacingLeft=5;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="48" relative="1" width="4" as="geometry" />
         </mxCell>
-        <mxCell id="WSF7eNko4BLm7uIbhmQ6-4" value="watsonx.ai Studio" style="shape=rect;fillColor=#A56EFF;aspect=fixed;resizable=0;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;strokeColor=none;fontSize=14;" vertex="1" parent="WSF7eNko4BLm7uIbhmQ6-39">
-          <mxGeometry x="80" y="120" width="48" height="48" as="geometry" />
+        <mxCell id="wk2GSVLmUYM_EyiqiLoG-13" parent="wk2GSVLmUYM_EyiqiLoG-9" style="shape=rect;fillColor=#A56EFF;aspect=fixed;resizable=0;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;strokeColor=none;fontSize=14;" value="watsonx.ai Studio" vertex="1">
+          <mxGeometry height="48" width="48" x="80" y="120" as="geometry" />
         </mxCell>
-        <mxCell id="WSF7eNko4BLm7uIbhmQ6-5" value="" style="fillColor=#ffffff;strokeColor=none;dashed=0;outlineConnect=0;html=1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;part=1;movable=0;resizable=0;rotatable=0;shape=mxgraph.ibm_cloud.ibm-watson--studio" vertex="1" parent="WSF7eNko4BLm7uIbhmQ6-4">
-          <mxGeometry width="24" height="24" relative="1" as="geometry">
+        <mxCell id="wk2GSVLmUYM_EyiqiLoG-14" parent="wk2GSVLmUYM_EyiqiLoG-13" style="fillColor=#ffffff;strokeColor=none;dashed=0;outlineConnect=0;html=1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;part=1;movable=0;resizable=0;rotatable=0;shape=mxgraph.ibm_cloud.ibm-watson--studio" value="" vertex="1">
+          <mxGeometry height="24" relative="1" width="24" as="geometry">
             <mxPoint x="12" y="12" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="WSF7eNko4BLm7uIbhmQ6-1" value="watsonx.ai Runtime" style="shape=rect;fillColor=#A56EFF;aspect=fixed;resizable=0;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;strokeColor=none;fontSize=14;" vertex="1" parent="WSF7eNko4BLm7uIbhmQ6-39">
-          <mxGeometry x="216" y="120" width="48" height="48" as="geometry" />
+        <mxCell id="wk2GSVLmUYM_EyiqiLoG-15" parent="wk2GSVLmUYM_EyiqiLoG-9" style="shape=rect;fillColor=#A56EFF;aspect=fixed;resizable=0;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;strokeColor=none;fontSize=14;" value="watsonx.ai Runtime" vertex="1">
+          <mxGeometry height="48" width="48" x="216" y="120" as="geometry" />
         </mxCell>
-        <mxCell id="WSF7eNko4BLm7uIbhmQ6-2" value="" style="fillColor=#ffffff;strokeColor=none;dashed=0;outlineConnect=0;html=1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;part=1;movable=0;resizable=0;rotatable=0;shape=mxgraph.ibm_cloud.ibm-watson--machine-learning" vertex="1" parent="WSF7eNko4BLm7uIbhmQ6-1">
-          <mxGeometry width="24" height="24" relative="1" as="geometry">
+        <mxCell id="wk2GSVLmUYM_EyiqiLoG-16" parent="wk2GSVLmUYM_EyiqiLoG-15" style="fillColor=#ffffff;strokeColor=none;dashed=0;outlineConnect=0;html=1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;part=1;movable=0;resizable=0;rotatable=0;shape=mxgraph.ibm_cloud.ibm-watson--machine-learning" value="" vertex="1">
+          <mxGeometry height="24" relative="1" width="24" as="geometry">
             <mxPoint x="12" y="12" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="9sMYtWf_zIR4f792TVS6-2" value="" style="container=1;collapsible=0;expand=0;recursiveResize=0;html=1;whiteSpace=wrap;strokeColor=#A56EFF;fillColor=none;strokeWidth=1;dashed=1;" vertex="1" parent="WSF7eNko4BLm7uIbhmQ6-39">
-          <mxGeometry x="40" y="220" width="400" height="280" as="geometry" />
+        <mxCell id="wk2GSVLmUYM_EyiqiLoG-17" parent="wk2GSVLmUYM_EyiqiLoG-9" style="container=1;collapsible=0;expand=0;recursiveResize=0;html=1;whiteSpace=wrap;strokeColor=#A56EFF;fillColor=none;strokeWidth=1;dashed=1;" value="" vertex="1">
+          <mxGeometry height="280" width="400" x="40" y="220" as="geometry" />
         </mxCell>
-        <mxCell id="9sMYtWf_zIR4f792TVS6-3" value="Optional services" style="shape=rect;fillColor=none;aspect=fixed;resizable=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;strokeColor=none;part=1;spacingLeft=5;fontSize=14;" vertex="1" parent="9sMYtWf_zIR4f792TVS6-2">
-          <mxGeometry width="48" height="48" relative="1" as="geometry" />
+        <mxCell id="wk2GSVLmUYM_EyiqiLoG-18" parent="wk2GSVLmUYM_EyiqiLoG-17" style="shape=rect;fillColor=none;aspect=fixed;resizable=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;strokeColor=none;part=1;spacingLeft=5;fontSize=14;" value="Optional services" vertex="1">
+          <mxGeometry height="48" relative="1" width="48" as="geometry" />
         </mxCell>
-        <mxCell id="9sMYtWf_zIR4f792TVS6-4" value="" style="fillColor=#A56EFF;shape=mxgraph.ibm_cloud.watsonx;strokeColor=none;dashed=0;outlineConnect=0;html=1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;part=1;movable=0;resizable=0;rotatable=0;" vertex="1" parent="9sMYtWf_zIR4f792TVS6-3">
-          <mxGeometry width="24" height="24" relative="1" as="geometry">
+        <mxCell id="wk2GSVLmUYM_EyiqiLoG-19" parent="wk2GSVLmUYM_EyiqiLoG-18" style="fillColor=#A56EFF;shape=mxgraph.ibm_cloud.watsonx;strokeColor=none;dashed=0;outlineConnect=0;html=1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;part=1;movable=0;resizable=0;rotatable=0;" value="" vertex="1">
+          <mxGeometry height="24" relative="1" width="24" as="geometry">
             <mxPoint x="12" y="12" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="9sMYtWf_zIR4f792TVS6-5" value="" style="shape=rect;fillColor=#A56EFF;aspect=fixed;resizable=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;strokeColor=none;part=1;spacingLeft=5;fontSize=14;" vertex="1" parent="9sMYtWf_zIR4f792TVS6-2">
-          <mxGeometry width="4" height="48" relative="1" as="geometry" />
+        <mxCell id="wk2GSVLmUYM_EyiqiLoG-20" parent="wk2GSVLmUYM_EyiqiLoG-17" style="shape=rect;fillColor=#A56EFF;aspect=fixed;resizable=0;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;strokeColor=none;part=1;spacingLeft=5;fontSize=14;" value="" vertex="1">
+          <mxGeometry height="48" relative="1" width="4" as="geometry" />
         </mxCell>
-        <mxCell id="WSF7eNko4BLm7uIbhmQ6-10" value="watsonx Assistant" style="shape=rect;fillColor=#A56EFF;aspect=fixed;resizable=0;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;strokeColor=none;fontSize=14;" vertex="1" parent="9sMYtWf_zIR4f792TVS6-2">
-          <mxGeometry x="40" y="80" width="48" height="48" as="geometry" />
+        <mxCell id="wk2GSVLmUYM_EyiqiLoG-23" parent="wk2GSVLmUYM_EyiqiLoG-17" style="shape=rect;fillColor=#A56EFF;aspect=fixed;resizable=0;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;strokeColor=none;fontSize=14;" value="watsonx.data" vertex="1">
+          <mxGeometry height="48" width="48" x="170" y="80" as="geometry" />
         </mxCell>
-        <mxCell id="WSF7eNko4BLm7uIbhmQ6-11" value="" style="fillColor=#ffffff;strokeColor=none;dashed=0;outlineConnect=0;html=1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;part=1;movable=0;resizable=0;rotatable=0;shape=mxgraph.ibm_cloud.ibm-watsonx--assistant" vertex="1" parent="WSF7eNko4BLm7uIbhmQ6-10">
-          <mxGeometry width="24" height="24" relative="1" as="geometry">
+        <mxCell id="wk2GSVLmUYM_EyiqiLoG-24" parent="wk2GSVLmUYM_EyiqiLoG-23" style="fillColor=#ffffff;strokeColor=none;dashed=0;outlineConnect=0;html=1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;part=1;movable=0;resizable=0;rotatable=0;shape=mxgraph.ibm_cloud.watsonx-data" value="" vertex="1">
+          <mxGeometry height="24" relative="1" width="24" as="geometry">
             <mxPoint x="12" y="12" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="WSF7eNko4BLm7uIbhmQ6-20" value="watsonx.data" style="shape=rect;fillColor=#A56EFF;aspect=fixed;resizable=0;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;strokeColor=none;fontSize=14;" vertex="1" parent="9sMYtWf_zIR4f792TVS6-2">
-          <mxGeometry x="310" y="80" width="48" height="48" as="geometry" />
+        <mxCell id="wk2GSVLmUYM_EyiqiLoG-25" parent="wk2GSVLmUYM_EyiqiLoG-17" style="shape=rect;fillColor=#A56EFF;aspect=fixed;resizable=0;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;strokeColor=none;fontSize=14;" value="Watson Discovery" vertex="1">
+          <mxGeometry height="48" width="48" x="40" y="185" as="geometry" />
         </mxCell>
-        <mxCell id="WSF7eNko4BLm7uIbhmQ6-21" value="" style="fillColor=#ffffff;strokeColor=none;dashed=0;outlineConnect=0;html=1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;part=1;movable=0;resizable=0;rotatable=0;shape=mxgraph.ibm_cloud.watsonx-data" vertex="1" parent="WSF7eNko4BLm7uIbhmQ6-20">
-          <mxGeometry width="24" height="24" relative="1" as="geometry">
+        <mxCell id="wk2GSVLmUYM_EyiqiLoG-26" parent="wk2GSVLmUYM_EyiqiLoG-25" style="fillColor=#ffffff;strokeColor=none;dashed=0;outlineConnect=0;html=1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;part=1;movable=0;resizable=0;rotatable=0;shape=mxgraph.ibm_cloud.ibm-watson--discovery" value="" vertex="1">
+          <mxGeometry height="24" relative="1" width="24" as="geometry">
             <mxPoint x="12" y="12" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="WSF7eNko4BLm7uIbhmQ6-6" value="Watson Discovery" style="shape=rect;fillColor=#A56EFF;aspect=fixed;resizable=0;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;strokeColor=none;fontSize=14;" vertex="1" parent="9sMYtWf_zIR4f792TVS6-2">
-          <mxGeometry x="40" y="185" width="48" height="48" as="geometry" />
+        <mxCell id="wk2GSVLmUYM_EyiqiLoG-27" parent="wk2GSVLmUYM_EyiqiLoG-17" style="shape=rect;fillColor=#A56EFF;aspect=fixed;resizable=0;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;strokeColor=none;fontSize=14;" value="watsonx Orchestrate" vertex="1">
+          <mxGeometry height="48" width="48" x="300" y="80" as="geometry" />
         </mxCell>
-        <mxCell id="WSF7eNko4BLm7uIbhmQ6-7" value="" style="fillColor=#ffffff;strokeColor=none;dashed=0;outlineConnect=0;html=1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;part=1;movable=0;resizable=0;rotatable=0;shape=mxgraph.ibm_cloud.ibm-watson--discovery" vertex="1" parent="WSF7eNko4BLm7uIbhmQ6-6">
-          <mxGeometry width="24" height="24" relative="1" as="geometry">
+        <mxCell id="wk2GSVLmUYM_EyiqiLoG-28" parent="wk2GSVLmUYM_EyiqiLoG-27" style="fillColor=#ffffff;strokeColor=none;dashed=0;outlineConnect=0;html=1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;part=1;movable=0;resizable=0;rotatable=0;shape=mxgraph.ibm_cloud.ibm-watsonx--orchestrate" value="" vertex="1">
+          <mxGeometry height="24" relative="1" width="24" as="geometry">
             <mxPoint x="12" y="12" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="WSF7eNko4BLm7uIbhmQ6-22" value="watsonx Orchestrate" style="shape=rect;fillColor=#A56EFF;aspect=fixed;resizable=0;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;strokeColor=none;fontSize=14;" vertex="1" parent="9sMYtWf_zIR4f792TVS6-2">
-          <mxGeometry x="176" y="185" width="48" height="48" as="geometry" />
+        <mxCell id="wk2GSVLmUYM_EyiqiLoG-29" parent="wk2GSVLmUYM_EyiqiLoG-17" style="shape=rect;fillColor=#A56EFF;aspect=fixed;resizable=0;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;strokeColor=none;fontSize=14;" value="watsonx.governance" vertex="1">
+          <mxGeometry height="48" width="48" x="40" y="80" as="geometry" />
         </mxCell>
-        <mxCell id="WSF7eNko4BLm7uIbhmQ6-23" value="" style="fillColor=#ffffff;strokeColor=none;dashed=0;outlineConnect=0;html=1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;part=1;movable=0;resizable=0;rotatable=0;shape=mxgraph.ibm_cloud.ibm-watsonx--orchestrate" vertex="1" parent="WSF7eNko4BLm7uIbhmQ6-22">
-          <mxGeometry width="24" height="24" relative="1" as="geometry">
+        <mxCell id="wk2GSVLmUYM_EyiqiLoG-30" parent="wk2GSVLmUYM_EyiqiLoG-29" style="fillColor=#ffffff;strokeColor=none;dashed=0;outlineConnect=0;html=1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;part=1;movable=0;resizable=0;rotatable=0;shape=mxgraph.ibm_cloud.watsonx-governance" value="" vertex="1">
+          <mxGeometry height="24" relative="1" width="24" as="geometry">
             <mxPoint x="12" y="12" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="WSF7eNko4BLm7uIbhmQ6-18" value="watsonx.governance" style="shape=rect;fillColor=#A56EFF;aspect=fixed;resizable=0;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;strokeColor=none;fontSize=14;" vertex="1" parent="9sMYtWf_zIR4f792TVS6-2">
-          <mxGeometry x="176" y="80" width="48" height="48" as="geometry" />
+        <mxCell id="wk2GSVLmUYM_EyiqiLoG-31" parent="wk2GSVLmUYM_EyiqiLoG-6" style="shape=rect;fillColor=#0F62FE;aspect=fixed;resizable=0;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;strokeColor=none;fontSize=14;" value="Object Storage" vertex="1">
+          <mxGeometry height="48" width="48" x="560" y="180" as="geometry" />
         </mxCell>
-        <mxCell id="WSF7eNko4BLm7uIbhmQ6-19" value="" style="fillColor=#ffffff;strokeColor=none;dashed=0;outlineConnect=0;html=1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;part=1;movable=0;resizable=0;rotatable=0;shape=mxgraph.ibm_cloud.watsonx-governance" vertex="1" parent="WSF7eNko4BLm7uIbhmQ6-18">
-          <mxGeometry width="24" height="24" relative="1" as="geometry">
+        <mxCell id="wk2GSVLmUYM_EyiqiLoG-32" parent="wk2GSVLmUYM_EyiqiLoG-31" style="fillColor=#ffffff;strokeColor=none;dashed=0;outlineConnect=0;html=1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;part=1;movable=0;resizable=0;rotatable=0;shape=mxgraph.ibm_cloud.object-storage" value="" vertex="1">
+          <mxGeometry height="24" relative="1" width="24" as="geometry">
             <mxPoint x="12" y="12" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="WSF7eNko4BLm7uIbhmQ6-26" value="Object Storage" style="shape=rect;fillColor=#0F62FE;aspect=fixed;resizable=0;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;strokeColor=none;fontSize=14;" vertex="1" parent="WSF7eNko4BLm7uIbhmQ6-36">
-          <mxGeometry x="560" y="180" width="48" height="48" as="geometry" />
-        </mxCell>
-        <mxCell id="WSF7eNko4BLm7uIbhmQ6-27" value="" style="fillColor=#ffffff;strokeColor=none;dashed=0;outlineConnect=0;html=1;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;part=1;movable=0;resizable=0;rotatable=0;shape=mxgraph.ibm_cloud.object-storage" vertex="1" parent="WSF7eNko4BLm7uIbhmQ6-26">
-          <mxGeometry width="24" height="24" relative="1" as="geometry">
-            <mxPoint x="12" y="12" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="aVLIMS0oxsntcNIxgH0R-1" value="" style="endArrow=block;html=1;fontSize=16;fontColor=#4376BB;strokeWidth=1;endFill=1;strokeColor=#007FFF;startArrow=block;startFill=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" parent="WSF7eNko4BLm7uIbhmQ6-36" target="WSF7eNko4BLm7uIbhmQ6-26" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="144" y="180" as="sourcePoint" />
-            <mxPoint x="-276" y="211" as="targetPoint" />
+        <mxCell id="wk2GSVLmUYM_EyiqiLoG-33" edge="1" parent="wk2GSVLmUYM_EyiqiLoG-6" style="endArrow=block;html=1;fontSize=16;fontColor=#4376BB;strokeWidth=1;endFill=1;strokeColor=#007FFF;startArrow=block;startFill=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="wk2GSVLmUYM_EyiqiLoG-31" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
             <Array as="points">
               <mxPoint x="144" y="130" />
               <mxPoint x="584" y="130" />
             </Array>
+            <mxPoint x="144" y="180" as="sourcePoint" />
+            <mxPoint x="-276" y="211" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="aVLIMS0oxsntcNIxgH0R-2" value="Read/Write projects data" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="aVLIMS0oxsntcNIxgH0R-1" vertex="1" connectable="0">
-          <mxGeometry x="-0.08" y="1" relative="1" as="geometry">
+        <mxCell id="wk2GSVLmUYM_EyiqiLoG-34" connectable="0" parent="wk2GSVLmUYM_EyiqiLoG-33" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Read/Write projects data" vertex="1">
+          <mxGeometry relative="1" x="-0.08" y="1" as="geometry">
             <mxPoint y="16" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="WSF7eNko4BLm7uIbhmQ6-16" value="" style="endArrow=block;html=1;fontSize=16;fontColor=#4376BB;strokeWidth=1;endFill=1;strokeColor=#007FFF;startArrow=block;startFill=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="WSF7eNko4BLm7uIbhmQ6-36" source="WSF7eNko4BLm7uIbhmQ6-1" target="WSF7eNko4BLm7uIbhmQ6-26">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
+        <mxCell id="wk2GSVLmUYM_EyiqiLoG-35" edge="1" parent="wk2GSVLmUYM_EyiqiLoG-6" source="wk2GSVLmUYM_EyiqiLoG-15" style="endArrow=block;html=1;fontSize=16;fontColor=#4376BB;strokeWidth=1;endFill=1;strokeColor=#007FFF;startArrow=block;startFill=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="wk2GSVLmUYM_EyiqiLoG-31" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
             <mxPoint x="-510" y="240" as="sourcePoint" />
             <mxPoint x="-300" y="235" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="WSF7eNko4BLm7uIbhmQ6-17" value="Read/Write projects data" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="WSF7eNko4BLm7uIbhmQ6-16">
-          <mxGeometry x="-0.08" y="1" relative="1" as="geometry">
+        <mxCell id="wk2GSVLmUYM_EyiqiLoG-36" connectable="0" parent="wk2GSVLmUYM_EyiqiLoG-35" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Read/Write projects data" vertex="1">
+          <mxGeometry relative="1" x="-0.08" y="1" as="geometry">
             <mxPoint y="16" as="offset" />
           </mxGeometry>
         </mxCell>
