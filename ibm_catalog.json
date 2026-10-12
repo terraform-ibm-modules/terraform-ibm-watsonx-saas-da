@@ -45,6 +45,10 @@
           "description": "IBM watsonx.governance helps you direct, manage, and monitor your organization's AI activities."
         },
         {
+          "title": "Automate workflows with watsonx Orchestrate",
+          "description": "IBM watsonx Orchestrate uses AI to help you automate tasks and workflows, so your teams can focus on higher-value work."
+        },
+        {
           "title": "Composable and Extensible Architecture",
           "description": "This architecture illustrates how Terraform IBM Modules(TIM) can be integrated to deliver a complete solution on IBM Cloud. Each module is a reusable, and validated component for security, compliance, and operational IBM best practices. You can deploy this architecture as-is or configure it as code by leveraging the underlying modules to fit your specific requirements. Explore the [source code and documentation](https://github.com/terraform-ibm-modules/terraform-ibm-watsonx-saas-da) to adapt, extend, or create entirely new solutions using these building blocks."
         }
@@ -79,6 +83,10 @@
               {
                 "title": "Manage and monitor with watsonx.governance",
                 "description": "IBM watsonx.governance helps you direct, manage, and monitor your organization's AI activities."
+              },
+              {
+                "title": "Automate workflows with watsonx Orchestrate",
+                "description": "IBM watsonx Orchestrate uses AI to help you automate tasks and workflows, so your teams can focus on higher-value work."
               }
             ],
             "diagrams": [
@@ -547,6 +555,13 @@
               ],
               "service_name": "aiopenscale",
               "notes": "[Optional] Required to create an instance of watsonx.governance."
+            },
+            {
+              "role_crns": [
+                "crn:v1:bluemix:public:iam::::role:Editor"
+              ],
+              "service_name": "watsonx-orchestrate",
+              "notes": "[Optional] Required to create an instance of watsonx Orchestrate."
             },
             {
               "role_crns": [
