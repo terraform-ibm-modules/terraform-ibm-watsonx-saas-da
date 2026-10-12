@@ -259,7 +259,7 @@ variable "existing_orchestrate_instance" {
 }
 
 variable "watsonx_orchestrate_plan" {
-  default     = "do not install"
+  default     = "essentials-agentic-mau"
   description = "The plan that is used to provision the watsonx Orchestrate instance."
   type        = string
   validation {
