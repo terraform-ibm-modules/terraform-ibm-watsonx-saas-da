@@ -127,7 +127,8 @@ statement instead the previous block.
 
 ### Resources
 
-|------|------|
+| Name | Type |
+| ---- | ---- |
 | [ibm_kms_key.cos_kms_key](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.7.0/docs/resources/kms_key) | resource |
 | [ibm_resource_instance.data_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.7.0/docs/resources/resource_instance) | resource |
 | [ibm_resource_instance.discovery_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/2.7.0/docs/resources/resource_instance) | resource |
