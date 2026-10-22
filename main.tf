@@ -244,7 +244,6 @@ moved {
   to   = ibm_resource_instance.machine_learning_instance[0]
 }
 
-# Removed watsonx Assistant - no longer provisionable. Issue #20694.
 # This block prevents Terraform from destroying existing assistant instances in state.
 removed {
   from = ibm_resource_instance.assistant_instance
