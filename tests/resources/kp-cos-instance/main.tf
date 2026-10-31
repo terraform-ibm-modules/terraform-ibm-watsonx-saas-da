@@ -14,7 +14,7 @@ module "resource_group" {
 
 module "key_protect_module" {
   source            = "terraform-ibm-modules/key-protect/ibm"
-  version           = "2.13.9"
+  version           = "2.13.11"
   key_protect_name  = "${var.prefix}-kp"
   resource_group_id = module.resource_group.resource_group_id
   region            = var.region
@@ -36,7 +36,7 @@ module "kms_root_key" {
 
 module "cos_module" {
   source            = "terraform-ibm-modules/cos/ibm"
-  version           = "11.1.5"
+  version           = "11.2.2"
   resource_group_id = module.resource_group.resource_group_id
   region            = var.region
   cos_instance_name = "${var.prefix}-cos"
